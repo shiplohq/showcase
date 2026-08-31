@@ -26,6 +26,7 @@
     "check:repo": "node scripts/check-repo.mjs",
     "gallery": "node scripts/update-gallery.mjs",
     "verify:static": "node scripts/verify-static-build.mjs",
+    "assets:codex": "node scripts/codex-image-producer.mjs",
     "ci": "npm run validate && npm run check:repo && npm run gallery -- --check"
   },
   "dependencies": {

@@ -83,6 +83,16 @@ Human-readable source is canonical. For React/Vue/Angular/Vite projects:
 - Build-free HTML/CSS/JS showcases may keep production source close to the
   deployed artifact — they still need README, LICENSE, NOTICE and
   `THIRD_PARTY_NOTICES.md`.
+- **Fonts:** free fonts only (license must allow redistribution/web embedding —
+  OFL, Apache 2.0, MIT, CC0 …), added either as a Google Fonts link
+  (`fonts.googleapis.com` / `fonts.gstatic.com`) or self-hosted in the project
+  and bundled. Every font is declared in the project's `THIRD_PARTY_NOTICES.md`.
+  `npm run verify:static` allowlists exactly those two hosts and rejects every
+  other remote stylesheet/font source.
+- **Internal tooling never ships:** `CLAUDE.md`, `.claude/`, `.showcase/`,
+  `design/` (image briefs, generated-asset manifests), `scripts/`, `templates/`
+  must never appear in a deployed `dist/` — `verify:static` fails the artifact
+  if it contains them.
 
 Expected per-project structure is documented in `templates/project/`.
 

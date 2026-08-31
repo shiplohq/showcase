@@ -6,7 +6,11 @@
 // self-contained static artifact:
 //   - index.html exists
 //   - every local asset referenced by HTML/CSS exists in dist
-//   - no runtime CDN scripts/stylesheets (policy: bundled/local assets only)
+//   - no runtime CDN scripts/stylesheets (policy: bundled/local assets only;
+//     single exception: Google Fonts hosts — fonts.googleapis.com/fonts.gstatic.com,
+//     see Font policy in CLAUDE.md)
+//   - internal tooling/provenance files (IMAGE_BRIEF*, generated-manifest.json)
+//     must never ship in the artifact
 //   - warns on root-absolute URLs (break file:// and subpath hosting)
 //
 // Usage:
@@ -37,6 +41,16 @@ const failures = [];
 const warnings = [];
 const externals = new Set();
 const files = listFiles(dist);
+
+// Internal tooling/provenance files must never ship (design/codex-image-producer.md).
+for (const f of files) {
+  const relPath = f.slice(dist.length + 1).replaceAll('\\', '/');
+  if (/(^|\/)(IMAGE_BRIEF[^/]*|generated-manifest\.json)$/i.test(relPath)) {
+    failures.push(
+      `${relative(repoRoot(), f)}: internal tooling/provenance file must not ship in the artifact`,
+    );
+  }
+}
 
 const indexHtml = join(dist, 'index.html');
 if (!existsSync(indexHtml)) {
@@ -74,7 +88,11 @@ function checkHtml(htmlPath) {
     if (isExternal(href)) {
       externals.add(href);
       if (/stylesheet|preload|preedit/i.test(rel2) || rel2 === 'modulepreload') {
-        failures.push(`${rel}: <link rel="${rel2}"> loads from a remote host: ${href}`);
+        if (isGoogleFontsHost(href) && /stylesheet|preload/i.test(rel2)) {
+          // Font policy (CLAUDE.md): Google Fonts links are the one allowed remote source.
+        } else {
+          failures.push(`${rel}: <link rel="${rel2}"> loads from a remote host: ${href}`);
+        }
       }
       continue;
     }
@@ -106,7 +124,9 @@ function checkCss(cssPath) {
     if (value.startsWith('data:')) continue;
     if (isExternal(value)) {
       externals.add(value);
-      warnings.push(`${rel}: @font-face/asset url() on a remote host: ${value}`);
+      if (!isGoogleFontsHost(value)) {
+        warnings.push(`${rel}: @font-face/asset url() on a remote host: ${value}`);
+      }
     } else {
       verifyRef(cssPath, value, rel, 'css url()');
     }
@@ -166,4 +186,8 @@ function listFiles(dir) {
 
 function isExternal(ref) {
   return /^https?:\/\//i.test(ref) || ref.startsWith('//');
+}
+
+function isGoogleFontsHost(ref) {
+  return /^(https?:)?\/\/(fonts\.googleapis\.com|fonts\.gstatic\.com)\//i.test(ref);
 }
