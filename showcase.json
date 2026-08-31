@@ -1,0 +1,565 @@
+{
+  "$schema": "schemas/showcase-registry.schema.json",
+  "version": 1,
+  "updated": "2026-09-01",
+  "projects": [
+    {
+      "id": "number-garden",
+      "number": 1,
+      "title": "Number Garden",
+      "summary": "A paper-cut garden where children grow plants by building and splitting numbers within 20.",
+      "category": "education-math",
+      "audience": "5-7",
+      "status": "planned",
+      "stack": [
+        "react",
+        "vite",
+        "typescript"
+      ],
+      "source": {
+        "path": "projects/number-garden"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "fraction-bistro",
+      "number": 2,
+      "title": "Fraction Bistro",
+      "summary": "A modern Italian-style bistro where learners cut pizza, tarts and focaccia into equal parts to serve exact orders.",
+      "category": "education-math",
+      "audience": "7-10",
+      "status": "planned",
+      "stack": [
+        "vue",
+        "vite",
+        "typescript"
+      ],
+      "source": {
+        "path": "projects/fraction-bistro"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "geometry-builder",
+      "number": 3,
+      "title": "Geometry Builder",
+      "summary": "A minimal architect's desk where children build houses, bridges and robots from polygons by applying shape properties.",
+      "category": "education-math",
+      "audience": "7-11",
+      "status": "planned",
+      "stack": [
+        "angular",
+        "typescript"
+      ],
+      "source": {
+        "path": "projects/geometry-builder"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "multiplication-galaxy",
+      "number": 4,
+      "title": "Multiplication Galaxy",
+      "summary": "A space probe flying planet clusters arranged as arrays; answer multiplication facts to lock stable orbits.",
+      "category": "education-math",
+      "audience": "7-10",
+      "status": "planned",
+      "stack": [
+        "react",
+        "vite",
+        "typescript"
+      ],
+      "source": {
+        "path": "projects/multiplication-galaxy"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "clock-quest",
+      "number": 5,
+      "title": "Clock Quest",
+      "summary": "An island of train schedules, markets and a lighthouse; turn the clock hands to arrive at the right place at the right time.",
+      "category": "education-math",
+      "audience": "6-9",
+      "status": "planned",
+      "stack": [
+        "jquery",
+        "html",
+        "css",
+        "gsap"
+      ],
+      "source": {
+        "path": "projects/clock-quest"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "money-market-junior",
+      "number": 6,
+      "title": "Money Market Junior",
+      "summary": "An illustrated 2D market where learners shop for a picnic within a fixed budget, computing totals and change.",
+      "category": "education-math",
+      "audience": "7-11",
+      "status": "planned",
+      "stack": [
+        "angular",
+        "typescript"
+      ],
+      "source": {
+        "path": "projects/money-market-junior"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "vocabulary-expedition",
+      "number": 7,
+      "title": "Vocabulary Expedition",
+      "summary": "Large illustrated scenes where children find objects from clues, match words to images and use new words in short sentences.",
+      "category": "education-language",
+      "audience": "Pre-A1/A1",
+      "status": "planned",
+      "stack": [
+        "vue",
+        "vite",
+        "typescript"
+      ],
+      "source": {
+        "path": "projects/vocabulary-expedition"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "phonics-forest",
+      "number": 8,
+      "title": "Phonics Forest",
+      "summary": "A sound forest where every tree is a phoneme; children match graphemes to sounds and sort words.",
+      "category": "education-language",
+      "audience": "Pre-A1",
+      "status": "planned",
+      "stack": [
+        "typescript",
+        "vite"
+      ],
+      "source": {
+        "path": "projects/phonics-forest"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "grammar-detective",
+      "number": 9,
+      "title": "Grammar Detective",
+      "summary": "Investigate broken 'case file' sentences with a highlighter pen, word cards and readable verdicts.",
+      "category": "education-language",
+      "audience": "A1/A2",
+      "status": "planned",
+      "stack": [
+        "react",
+        "vite",
+        "typescript"
+      ],
+      "source": {
+        "path": "projects/grammar-detective"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "story-sequencer",
+      "number": 10,
+      "title": "Story Sequencer",
+      "summary": "A storyboard desk where shuffled 4-8 frame stories are reordered, cause-and-effect linked and titled.",
+      "category": "education-language",
+      "audience": "7-11",
+      "status": "planned",
+      "stack": [
+        "angular",
+        "typescript"
+      ],
+      "source": {
+        "path": "projects/story-sequencer"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "solar-system-explorer",
+      "number": 11,
+      "title": "Solar System Explorer",
+      "summary": "A data-driven space atlas with scrollable orbits and switchable size, distance and day/year views.",
+      "category": "education-science",
+      "audience": "8-13",
+      "status": "planned",
+      "stack": [
+        "react",
+        "vite",
+        "typescript"
+      ],
+      "source": {
+        "path": "projects/solar-system-explorer"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "human-body-lab",
+      "number": 12,
+      "title": "Human Body Lab",
+      "summary": "A layer-by-layer vector body model: toggle systems, inspect organs, and route oxygen and food through the body.",
+      "category": "education-science",
+      "audience": "9-14",
+      "status": "planned",
+      "stack": [
+        "vue",
+        "vite",
+        "typescript"
+      ],
+      "source": {
+        "path": "projects/human-body-lab"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "ecobalance",
+      "number": 13,
+      "title": "EcoBalance",
+      "summary": "A small ecosystem diorama; raise and lower populations and watch transparent rules play out.",
+      "category": "education-science",
+      "audience": "10-14",
+      "status": "planned",
+      "stack": [
+        "typescript",
+        "vite"
+      ],
+      "source": {
+        "path": "projects/ecobalance"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "atom-forge",
+      "number": 14,
+      "title": "Atom Forge",
+      "summary": "Drag protons, neutrons and electrons into nuclei and shells to forge elements mission by mission.",
+      "category": "education-science",
+      "audience": "11-15",
+      "status": "planned",
+      "stack": [
+        "react",
+        "vite",
+        "typescript"
+      ],
+      "source": {
+        "path": "projects/atom-forge"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "roboroute",
+      "number": 15,
+      "title": "RoboRoute",
+      "summary": "A paper robot on a grid museum: lay down command tiles — forward, turn, repeat — then step through and debug.",
+      "category": "education-computing",
+      "audience": "7-12",
+      "status": "planned",
+      "stack": [
+        "react",
+        "vite",
+        "typescript"
+      ],
+      "source": {
+        "path": "projects/roboroute"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "geotrail",
+      "number": 16,
+      "title": "GeoTrail",
+      "summary": "A stylized vector atlas of locate-compare-clue trails where every stop asks a geographic question.",
+      "category": "education-geography",
+      "audience": "8-14",
+      "status": "planned",
+      "stack": [
+        "vue",
+        "vite",
+        "typescript"
+      ],
+      "source": {
+        "path": "projects/geotrail"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "rhythm-canvas",
+      "number": 17,
+      "title": "Rhythm Canvas",
+      "summary": "A browser-native rhythm visualizer: load a local audio loop, pick a visual mode and tap accents on the beat.",
+      "category": "creative-tool",
+      "audience": null,
+      "status": "planned",
+      "stack": [
+        "typescript",
+        "vite",
+        "web-audio-api",
+        "gsap"
+      ],
+      "source": {
+        "path": "projects/rhythm-canvas"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "aurora-lamp",
+      "number": 18,
+      "title": "Aurora Lamp",
+      "summary": "A fictional product-launch microsite for the Aurora desk lamp: typographic hero, exploded SVG and lighting modes.",
+      "category": "marketing",
+      "audience": null,
+      "status": "planned",
+      "stack": [
+        "html",
+        "css",
+        "javascript",
+        "gsap"
+      ],
+      "source": {
+        "path": "projects/aurora-lamp"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "paper-pixel-portfolio",
+      "number": 19,
+      "title": "Paper & Pixel",
+      "summary": "A fictional small-studio portfolio built as an editorial index with numbering, cropped thumbnails and type-led transitions.",
+      "category": "portfolio",
+      "audience": null,
+      "status": "planned",
+      "stack": [
+        "vue",
+        "vite",
+        "typescript"
+      ],
+      "source": {
+        "path": "projects/paper-pixel-portfolio"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    },
+    {
+      "id": "habit-bloom",
+      "number": 20,
+      "title": "Habit Bloom",
+      "summary": "A gentle habit tracker where each habit grows a stem and daily check-ins add leaves — no streak shaming.",
+      "category": "productivity",
+      "audience": null,
+      "status": "planned",
+      "stack": [
+        "react",
+        "vite",
+        "typescript"
+      ],
+      "source": {
+        "path": "projects/habit-bloom"
+      },
+      "demo": {
+        "provider": "Shiplo",
+        "url": null,
+        "deployedAt": null
+      },
+      "screenshots": {
+        "cover": null,
+        "desktop": null,
+        "tablet": null,
+        "mobile": null
+      }
+    }
+  ]
+}

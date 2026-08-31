@@ -1,0 +1,16 @@
+{
+  "id": "__SLUG__",
+  "title": "__TITLE__",
+  "summary": "__SUMMARY__",
+  "category": "__CATEGORY__",
+  "number": __NUMBER__,
+  "audience": null,
+  "mobileSupport": "supported",
+  "mobileSupportNote": null,
+  "screenshots": {
+    "cover": { "path": "showcase/cover.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
+    "desktop": { "path": "showcase/desktop.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
+    "tablet": { "path": "showcase/tablet.webp", "viewport": "1024x768", "capturedFrom": null, "capturedAt": null, "alt": null },
+    "mobile": { "path": "showcase/mobile.webp", "viewport": "390x844", "capturedFrom": null, "capturedAt": null, "alt": null }
+  }
+}

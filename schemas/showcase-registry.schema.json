@@ -1,0 +1,158 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/shiplohq/showcase/schemas/showcase-registry.schema.json",
+  "title": "Shiplo Showcase registry",
+  "description": "Registry of all Shiplo Showcase projects. Status lifecycle: planned, designing, building, polishing, deploying, live, archived.",
+  "type": "object",
+  "required": ["version", "projects"],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "version": {
+      "const": 1
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/showcase"
+      }
+    }
+  },
+  "definitions": {
+    "status": {
+      "enum": [
+        "planned",
+        "designing",
+        "building",
+        "polishing",
+        "deploying",
+        "live",
+        "archived"
+      ]
+    },
+    "urlOrNull": {
+      "anyOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^https://", "format": "uri" }
+      ]
+    },
+    "timestampOrNull": {
+      "anyOf": [
+        { "type": "null" },
+        { "type": "string", "format": "date-time" }
+      ]
+    },
+    "screenshotRef": {
+      "description": "Either null (not captured / not applicable) or a repo path to the project's screenshot",
+      "anyOf": [
+        { "type": "null" },
+        {
+          "type": "string",
+          "pattern": "^projects/[a-z0-9]+(-[a-z0-9]+)*/showcase/(cover|desktop|tablet|mobile)\\.webp$"
+        }
+      ]
+    },
+    "showcase": {
+      "type": "object",
+      "required": [
+        "id",
+        "number",
+        "title",
+        "category",
+        "status",
+        "stack",
+        "source",
+        "demo",
+        "screenshots"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "enum": [
+            "education-math",
+            "education-language",
+            "education-science",
+            "education-geography",
+            "education-computing",
+            "creative-tool",
+            "marketing",
+            "portfolio",
+            "productivity"
+          ]
+        },
+        "audience": {
+          "description": "Target audience/age range, e.g. \"5-7\", or null for general audience",
+          "anyOf": [{ "type": "null" }, { "type": "string" }]
+        },
+        "status": {
+          "$ref": "#/definitions/status"
+        },
+        "stack": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "source": {
+          "type": "object",
+          "required": ["path"],
+          "additionalProperties": false,
+          "properties": {
+            "path": {
+              "type": "string",
+              "pattern": "^projects/[a-z0-9]+(-[a-z0-9]+)*$"
+            }
+          }
+        },
+        "demo": {
+          "type": "object",
+          "required": ["provider", "url", "deployedAt"],
+          "additionalProperties": false,
+          "properties": {
+            "provider": {
+              "const": "Shiplo"
+            },
+            "url": {
+              "description": "Always the exact URL returned by the Shiplo deployment system — never inferred",
+              "$ref": "#/definitions/urlOrNull"
+            },
+            "deployedAt": {
+              "$ref": "#/definitions/timestampOrNull"
+            }
+          }
+        },
+        "screenshots": {
+          "type": "object",
+          "required": ["cover", "desktop", "tablet", "mobile"],
+          "additionalProperties": false,
+          "properties": {
+            "cover": { "$ref": "#/definitions/screenshotRef" },
+            "desktop": { "$ref": "#/definitions/screenshotRef" },
+            "tablet": { "$ref": "#/definitions/screenshotRef" },
+            "mobile": { "$ref": "#/definitions/screenshotRef" }
+          }
+        }
+      }
+    }
+  }
+}

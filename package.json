@@ -1,23 +1,33 @@
 {
-  "name": "showcase",
+  "name": "shiplohq-showcase",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "private": true,
+  "description": "Shiplo Showcase — curated open-source static web showcases built by Shiplo HQ (Apache-2.0).",
+  "license": "Apache-2.0",
+  "author": "Shiplo HQ",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shiplohq/showcase.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "keywords": [
+    "showcase",
+    "static-site",
+    "education",
+    "creative-coding"
+  ],
   "bugs": {
     "url": "https://github.com/shiplohq/showcase/issues"
   },
   "homepage": "https://github.com/shiplohq/showcase#readme",
+  "type": "commonjs",
+  "scripts": {
+    "new": "node scripts/new-showcase.mjs",
+    "validate": "node scripts/validate-registry.mjs",
+    "check:repo": "node scripts/check-repo.mjs",
+    "gallery": "node scripts/update-gallery.mjs",
+    "verify:static": "node scripts/verify-static-build.mjs",
+    "ci": "npm run validate && npm run check:repo && npm run gallery -- --check"
+  },
   "dependencies": {
     "gsap": "^3.15.0"
   }

@@ -1,0 +1,26 @@
+Shiplo Showcase
+Copyright 2026 Shiplo HQ
+
+This repository contains a collection of demonstration and reference web
+projects ("showcases") published by Shiplo HQ as open source under the
+Apache License, Version 2.0. Each showcase lives under projects/<slug>/
+and includes its own LICENSE, NOTICE and THIRD_PARTY_NOTICES.md files.
+
+This product includes software and assets developed by Shiplo HQ.
+
+Third-party material redistributed inside individual showcases (npm
+libraries bundled into build output, fonts, icons, images, audio,
+textures, code snippets, vendored JS/CSS, and externally sourced SVG
+assets) is not licensed under the Apache License 2.0. Licenses and
+provenance for all such material are recorded in the THIRD_PARTY_NOTICES.md
+file of the project that redistributes it. Unknown or unresolved
+third-party licensing blocks publication of a showcase.
+
+Shiplo, the Shiplo logo, and related names, product marks, domains and
+brand assets are trademarks of Shiplo HQ. They are governed separately
+from the source-code license and are not licensed under the Apache
+License 2.0. See TRADEMARKS.md in the repository root.
+
+The showcases in this repository are demonstration and reference
+implementations, not security audits or production-readiness guarantees.
+See SECURITY.md in the repository root.

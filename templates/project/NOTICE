@@ -1,0 +1,14 @@
+__TITLE__
+Copyright 2026 Shiplo HQ
+
+This project is part of the Shiplo Showcase (shiplohq/showcase) and is
+made available under the Apache License, Version 2.0.
+
+Third-party material redistributed with this project — bundled npm
+dependencies, fonts, icons, images, audio, textures, code snippets,
+vendored JS/CSS and externally sourced SVG assets — retains its own
+license and is listed in THIRD_PARTY_NOTICES.md.
+
+Shiplo, the Shiplo logo and related brand assets are trademarks of
+Shiplo HQ, governed separately from the source-code license. See
+TRADEMARKS.md in the repository root.

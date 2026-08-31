@@ -1,0 +1,12 @@
+{
+  "project": "__SLUG__",
+  "provider": "Shiplo",
+  "status": "not-deployed",
+  "url": null,
+  "sourceCommitSha": null,
+  "buildCommand": null,
+  "artifactSha256": null,
+  "deployedAt": null,
+  "verifiedAt": null,
+  "notes": null
+}
