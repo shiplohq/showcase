@@ -1,0 +1,69 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Design tokens — Number Garden (paper-cut botanical).
+ * Source of truth: design/DESIGN_DECISIONS.md §4–§6. Flat colors only.
+ */
+
+:root {
+  /* Paper neutrals */
+  --paper: #faf3e3;
+  --paper-raised: #fffbef;
+  --paper-deep: #f0e3c6;
+  --ink: #3d3425;
+  --ink-soft: #6e5f47;
+  --line: #dccb9f;
+
+  /* Greens */
+  --leaf: #4e7a3a;
+  --leaf-deep: #37582a;
+  --apple: #7fa84b;
+  --sprout: #9dc36b;
+  --moss: #6b7f3f;
+
+  /* Soil & warm */
+  --soil: #9c6b44;
+  --soil-deep: #7a4e30;
+  --terra: #c96f4a;
+  --sun: #f2b33d;
+  --sun-deep: #d99a26;
+  --petal: #e98fa4;
+  --petal-deep: #d06a85;
+  --sky: #e7efd4;
+
+  /* Typography */
+  --font-display: 'Baloo 2', 'Nunito', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+
+  /* Spacing (base 4) */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+
+  /* Paper-cut solid shadows (no blur — layered paper feel) */
+  --shadow-paper: 0 3px 0 rgba(61, 52, 37, 0.16);
+  --shadow-paper-lg: 0 5px 0 rgba(61, 52, 37, 0.14);
+  --shadow-pressed: 0 1px 0 rgba(61, 52, 37, 0.16);
+
+  /* Focus (never removed — a11y constraint) */
+  --focus-ring: 0 0 0 2px var(--paper), 0 0 0 4px var(--ink);
+
+  /* Touch targets */
+  --touch: 48px;
+  --touch-lg: 64px;
+
+  /* Motion budget (DESIGN_DECISIONS §11) */
+  --dur-press: 120ms;
+  --dur-hover: 160ms;
+  --dur-feedback: 220ms;
+  --dur-spatial: 350ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* ~expo.out */
+}

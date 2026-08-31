@@ -1,0 +1,476 @@
+{
+  "units": [
+    {
+      "id": "count",
+      "title": "Luống Đếm Hạt",
+      "subtitle": "Gieo đúng số hạt — đếm từng hạt một",
+      "emojiFreePlant": "apple",
+      "questions": [
+        {
+          "id": "count-01",
+          "prompt": "Gieo {n} hạt vào luống",
+          "operation": "count",
+          "target": 3,
+          "operands": [3],
+          "manipulatives": ["seed"],
+          "hint": "Đếm từng hạt khi gieo: một, hai, ba…",
+          "explanation": "Luống có đúng {n} hạt.",
+          "bond": { "total": 3, "parts": [3, 0] }
+        },
+        {
+          "id": "count-02",
+          "prompt": "Gieo {n} hạt vào luống",
+          "operation": "count",
+          "target": 5,
+          "operands": [5],
+          "manipulatives": ["seed"],
+          "hint": "Một tay gieo, một tay đếm nhé!",
+          "explanation": "Luống có đúng {n} hạt.",
+          "bond": { "total": 5, "parts": [5, 0] }
+        },
+        {
+          "id": "count-03",
+          "prompt": "Gieo {n} hạt vào luống",
+          "operation": "count",
+          "target": 4,
+          "operands": [4],
+          "manipulatives": ["seed"],
+          "hint": "Chạm từng chấm tròn còn thiếu để đếm tiếp.",
+          "explanation": "Luống có đúng {n} hạt.",
+          "bond": { "total": 4, "parts": [4, 0] }
+        },
+        {
+          "id": "count-04",
+          "prompt": "Gieo {n} hạt vào luống",
+          "operation": "count",
+          "target": 6,
+          "operands": [6],
+          "manipulatives": ["seed"],
+          "hint": "Nhìn khung số: đã đủ hàng trên chưa?",
+          "explanation": "Luống có đúng {n} hạt.",
+          "bond": { "total": 6, "parts": [6, 0] }
+        },
+        {
+          "id": "count-05",
+          "prompt": "Gieo {n} hạt vào luống",
+          "operation": "count",
+          "target": 8,
+          "operands": [8],
+          "manipulatives": ["seed"],
+          "hint": "Hàng trên 5 hạt, hàng dưới thêm vài hạt?",
+          "explanation": "Luống có đúng {n} hạt.",
+          "bond": { "total": 8, "parts": [8, 0] }
+        },
+        {
+          "id": "count-06",
+          "prompt": "Gieo {n} hạt vào luống",
+          "operation": "count",
+          "target": 7,
+          "operands": [7],
+          "manipulatives": ["seed"],
+          "hint": "Đếm chậm lại, gieo từng hạt thôi.",
+          "explanation": "Luống có đúng {n} hạt.",
+          "bond": { "total": 7, "parts": [7, 0] }
+        },
+        {
+          "id": "count-07",
+          "prompt": "Gieo {n} hạt vào luống",
+          "operation": "count",
+          "target": 9,
+          "operands": [9],
+          "manipulatives": ["seed"],
+          "hint": "Còn thiếu bao nhiêu chấm trong khung số?",
+          "explanation": "Luống có đúng {n} hạt.",
+          "bond": { "total": 9, "parts": [9, 0] }
+        },
+        {
+          "id": "count-08",
+          "prompt": "Gieo {n} hạt vào luống",
+          "operation": "count",
+          "target": 10,
+          "operands": [10],
+          "manipulatives": ["seed"],
+          "hint": "Đầy cả khung số là mười hạt!",
+          "explanation": "Luống có đúng {n} hạt — đầy một khung số.",
+          "bond": { "total": 10, "parts": [10, 0] }
+        },
+        {
+          "id": "count-09",
+          "prompt": "Gieo {n} hạt vào luống",
+          "operation": "count",
+          "target": 2,
+          "operands": [2],
+          "manipulatives": ["seed"],
+          "hint": "Lần này ít thôi — chỉ {n} hạt thôi!",
+          "explanation": "Luống có đúng {n} hạt.",
+          "bond": { "total": 2, "parts": [2, 0] }
+        },
+        {
+          "id": "count-10",
+          "prompt": "Gieo {n} hạt vào luống",
+          "operation": "count",
+          "target": 10,
+          "operands": [10],
+          "manipulatives": ["seed"],
+          "hint": "Đếm tới mười rồi nhấn Kiểm tra nhé.",
+          "explanation": "Luống có đúng {n} hạt — thật giỏi!",
+          "bond": { "total": 10, "parts": [10, 0] }
+        }
+      ]
+    },
+    {
+      "id": "make10",
+      "title": "Luống Ghép 10",
+      "subtitle": "Một luống đã có sẵn — gieo thêm cho đủ 10",
+      "emojiFreePlant": "tulip",
+      "questions": [
+        {
+          "id": "make-10-01",
+          "prompt": "Luống A đã có {a} hạt. Gieo thêm vào luống B cho đủ 10",
+          "operation": "make10",
+          "target": 10,
+          "operands": [7],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Đếm xem khung số còn thiếu mấy chấm.",
+          "explanation": "{a} và {b} ghép lại thành 10.",
+          "bond": { "total": 10, "parts": [7, 3] }
+        },
+        {
+          "id": "make-10-02",
+          "prompt": "Luống A đã có {a} hạt. Gieo thêm vào luống B cho đủ 10",
+          "operation": "make10",
+          "target": 10,
+          "operands": [3],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Ba và mấy bằng mười?",
+          "explanation": "{a} và {b} ghép lại thành 10.",
+          "bond": { "total": 10, "parts": [3, 7] }
+        },
+        {
+          "id": "make-10-03",
+          "prompt": "Luống A đã có {a} hạt. Gieo thêm vào luống B cho đủ 10",
+          "operation": "make10",
+          "target": 10,
+          "operands": [6],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Lấp các chấm trống trong khung số đến khi đầy.",
+          "explanation": "{a} và {b} ghép lại thành 10.",
+          "bond": { "total": 10, "parts": [6, 4] }
+        },
+        {
+          "id": "make-10-04",
+          "prompt": "Luống A đã có {a} hạt. Gieo thêm vào luống B cho đủ 10",
+          "operation": "make10",
+          "target": 10,
+          "operands": [8],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Tám thêm hai là bao nhiêu?",
+          "explanation": "{a} và {b} ghép lại thành 10.",
+          "bond": { "total": 10, "parts": [8, 2] }
+        },
+        {
+          "id": "make-10-05",
+          "prompt": "Luống A đã có {a} hạt. Gieo thêm vào luống B cho đủ 10",
+          "operation": "make10",
+          "target": 10,
+          "operands": [2],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Còn rất nhiều chấm trống — gieo thêm đi!",
+          "explanation": "{a} và {b} ghép lại thành 10.",
+          "bond": { "total": 10, "parts": [2, 8] }
+        },
+        {
+          "id": "make-10-06",
+          "prompt": "Luống A đã có {a} hạt. Gieo thêm vào luống B cho đủ 10",
+          "operation": "make10",
+          "target": 10,
+          "operands": [5],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Năm và năm — hai nửa bằng nhau.",
+          "explanation": "{a} và {b} ghép lại thành 10.",
+          "bond": { "total": 10, "parts": [5, 5] }
+        },
+        {
+          "id": "make-10-07",
+          "prompt": "Luống A đã có {a} hạt. Gieo thêm vào luống B cho đủ 10",
+          "operation": "make10",
+          "target": 10,
+          "operands": [4],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Bốn và mấy bằng mười?",
+          "explanation": "{a} và {b} ghép lại thành 10.",
+          "bond": { "total": 10, "parts": [4, 6] }
+        },
+        {
+          "id": "make-10-08",
+          "prompt": "Luống A đã có {a} hạt. Gieo thêm vào luống B cho đủ 10",
+          "operation": "make10",
+          "target": 10,
+          "operands": [9],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Chỉ cần thêm đúng một hạt thôi!",
+          "explanation": "{a} và {b} ghép lại thành 10.",
+          "bond": { "total": 10, "parts": [9, 1] }
+        },
+        {
+          "id": "make-10-09",
+          "prompt": "Luống A đã có {a} hạt. Gieo thêm vào luống B cho đủ 10",
+          "operation": "make10",
+          "target": 10,
+          "operands": [1],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Một và mấy bằng mười? Gieo thật nhiều nhé!",
+          "explanation": "{a} và {b} ghép lại thành 10.",
+          "bond": { "total": 10, "parts": [1, 9] }
+        },
+        {
+          "id": "make-10-10",
+          "prompt": "Luống A đã có {a} hạt. Gieo thêm vào luống B cho đủ 10",
+          "operation": "make10",
+          "target": 10,
+          "operands": [0],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Luống A trống trơn — luống B phải gieo đủ 10 hạt.",
+          "explanation": "0 và {b} ghép lại thành 10 — gieo đủ mười hạt.",
+          "bond": { "total": 10, "parts": [0, 10] }
+        }
+      ]
+    },
+    {
+      "id": "add",
+      "title": "Luống Cộng",
+      "subtitle": "Gieo hai nhóm rồi thấy tổng",
+      "emojiFreePlant": "daisy",
+      "questions": [
+        {
+          "id": "add-01",
+          "prompt": "Gieo {a} hạt luống A và {b} hạt luống B",
+          "operation": "add",
+          "target": 5,
+          "operands": [3, 2],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Gieo hết luống A trước, rồi tới luống B.",
+          "explanation": "{a} và {b} cộng lại được {t}.",
+          "bond": { "total": 5, "parts": [3, 2] }
+        },
+        {
+          "id": "add-02",
+          "prompt": "Gieo {a} hạt luống A và {b} hạt luống B",
+          "operation": "add",
+          "target": 7,
+          "operands": [4, 3],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Đếm từng luống bằng khung số nhé.",
+          "explanation": "{a} và {b} cộng lại được {t}.",
+          "bond": { "total": 7, "parts": [4, 3] }
+        },
+        {
+          "id": "add-03",
+          "prompt": "Gieo {a} hạt luống A và {b} hạt luống B",
+          "operation": "add",
+          "target": 7,
+          "operands": [5, 2],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Năm hạt luống A — gieo nốt luống B thôi.",
+          "explanation": "{a} và {b} cộng lại được {t}.",
+          "bond": { "total": 7, "parts": [5, 2] }
+        },
+        {
+          "id": "add-04",
+          "prompt": "Gieo {a} hạt luống A và {b} hạt luống B",
+          "operation": "add",
+          "target": 9,
+          "operands": [6, 3],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Khung số của bạn đang còn thiếu mấy chấm?",
+          "explanation": "{a} và {b} cộng lại được {t}.",
+          "bond": { "total": 9, "parts": [6, 3] }
+        },
+        {
+          "id": "add-05",
+          "prompt": "Gieo {a} hạt luống A và {b} hạt luống B",
+          "operation": "add",
+          "target": 8,
+          "operands": [4, 4],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Hai luống bằng nhau — bốn và bốn.",
+          "explanation": "{a} và {b} cộng lại được {t}.",
+          "bond": { "total": 8, "parts": [4, 4] }
+        },
+        {
+          "id": "add-06",
+          "prompt": "Gieo {a} hạt luống A và {b} hạt luống B",
+          "operation": "add",
+          "target": 9,
+          "operands": [5, 4],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Đếm thêm từ năm: sáu, bảy, tám, chín.",
+          "explanation": "{a} và {b} cộng lại được {t}.",
+          "bond": { "total": 9, "parts": [5, 4] }
+        },
+        {
+          "id": "add-07",
+          "prompt": "Gieo {a} hạt luống A và {b} hạt luống B",
+          "operation": "add",
+          "target": 11,
+          "operands": [7, 4],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Hơn mười một chút — gieo thêm nốt luống B.",
+          "explanation": "{a} và {b} cộng lại được {t}.",
+          "bond": { "total": 11, "parts": [7, 4] }
+        },
+        {
+          "id": "add-08",
+          "prompt": "Gieo {a} hạt luống A và {b} hạt luống B",
+          "operation": "add",
+          "target": 10,
+          "operands": [6, 4],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Gieo xong nhìn tổng — đầy khung số chưa?",
+          "explanation": "{a} và {b} cộng lại được {t}.",
+          "bond": { "total": 10, "parts": [6, 4] }
+        },
+        {
+          "id": "add-09",
+          "prompt": "Gieo {a} hạt luống A và {b} hạt luống B",
+          "operation": "add",
+          "target": 10,
+          "operands": [5, 5],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Năm và năm — hai nửa của mười.",
+          "explanation": "{a} và {b} cộng lại được {t}.",
+          "bond": { "total": 10, "parts": [5, 5] }
+        },
+        {
+          "id": "add-10",
+          "prompt": "Gieo {a} hạt luống A và {b} hạt luống B",
+          "operation": "add",
+          "target": 13,
+          "operands": [8, 5],
+          "manipulatives": ["seed", "seed"],
+          "hint": "Khung số đầy mười rồi — đếm thêm ba chấm nữa ngoài khung.",
+          "explanation": "{a} và {b} cộng lại được {t}.",
+          "bond": { "total": 13, "parts": [8, 5] }
+        }
+      ]
+    },
+    {
+      "id": "subtract",
+      "title": "Luống Bốc Hạt",
+      "subtitle": "Bốc bớt hạt ra giỏ và thấy phần còn lại",
+      "emojiFreePlant": "sunflower",
+      "questions": [
+        {
+          "id": "sub-01",
+          "prompt": "Luống có {c} hạt. Bốc {a} hạt vào giỏ",
+          "operation": "subtract",
+          "target": 3,
+          "operands": [5, 2],
+          "manipulatives": ["seed"],
+          "hint": "Chạm từng hạt để bốc nó ra giỏ.",
+          "explanation": "{c} bớt {a} còn lại {r}.",
+          "bond": { "total": 5, "parts": [2, 3] }
+        },
+        {
+          "id": "sub-02",
+          "prompt": "Luống có {c} hạt. Bốc {a} hạt vào giỏ",
+          "operation": "subtract",
+          "target": 5,
+          "operands": [6, 1],
+          "manipulatives": ["seed"],
+          "hint": "Chỉ bốc đúng một hạt thôi.",
+          "explanation": "{c} bớt {a} còn lại {r}.",
+          "bond": { "total": 6, "parts": [1, 5] }
+        },
+        {
+          "id": "sub-03",
+          "prompt": "Luống có {c} hạt. Bốc {a} hạt vào giỏ",
+          "operation": "subtract",
+          "target": 4,
+          "operands": [7, 3],
+          "manipulatives": ["seed"],
+          "hint": "Bốc từng hạt và đếm: một, hai, ba.",
+          "explanation": "{c} bớt {a} còn lại {r}.",
+          "bond": { "total": 7, "parts": [3, 4] }
+        },
+        {
+          "id": "sub-04",
+          "prompt": "Luống có {c} hạt. Bốc {a} hạt vào giỏ",
+          "operation": "subtract",
+          "target": 6,
+          "operands": [8, 2],
+          "manipulatives": ["seed"],
+          "hint": "Giỏ sẽ có hai hạt — luống còn lại mấy?",
+          "explanation": "{c} bớt {a} còn lại {r}.",
+          "bond": { "total": 8, "parts": [2, 6] }
+        },
+        {
+          "id": "sub-05",
+          "prompt": "Luống có {c} hạt. Bốc {a} hạt vào giỏ",
+          "operation": "subtract",
+          "target": 5,
+          "operands": [9, 4],
+          "manipulatives": ["seed"],
+          "hint": "Bốc bốn hạt vào giỏ rồi đếm luống.",
+          "explanation": "{c} bớt {a} còn lại {r}.",
+          "bond": { "total": 9, "parts": [4, 5] }
+        },
+        {
+          "id": "sub-06",
+          "prompt": "Luống có {c} hạt. Bốc {a} hạt vào giỏ",
+          "operation": "subtract",
+          "target": 2,
+          "operands": [6, 4],
+          "manipulatives": ["seed"],
+          "hint": "Bốc thêm nữa — giỏ cần bốn hạt.",
+          "explanation": "{c} bớt {a} còn lại {r}.",
+          "bond": { "total": 6, "parts": [4, 2] }
+        },
+        {
+          "id": "sub-07",
+          "prompt": "Luống có {c} hạt. Bốc {a} hạt vào giỏ",
+          "operation": "subtract",
+          "target": 7,
+          "operands": [10, 3],
+          "manipulatives": ["seed"],
+          "hint": "Mười hạt bớt ba — còn mấy hạt trên luống?",
+          "explanation": "{c} bớt {a} còn lại {r}.",
+          "bond": { "total": 10, "parts": [3, 7] }
+        },
+        {
+          "id": "sub-08",
+          "prompt": "Luống có {c} hạt. Bốc {a} hạt vào giỏ",
+          "operation": "subtract",
+          "target": 2,
+          "operands": [7, 5],
+          "manipulatives": ["seed"],
+          "hint": "Giỏ năm hạt, luống còn lại ít thôi.",
+          "explanation": "{c} bớt {a} còn lại {r}.",
+          "bond": { "total": 7, "parts": [5, 2] }
+        },
+        {
+          "id": "sub-09",
+          "prompt": "Luống có {c} hạt. Bốc {a} hạt vào giỏ",
+          "operation": "subtract",
+          "target": 3,
+          "operands": [9, 6],
+          "manipulatives": ["seed"],
+          "hint": "Bốc sáu hạt — đếm từng hạt vào giỏ nhé.",
+          "explanation": "{c} bớt {a} còn lại {r}.",
+          "bond": { "total": 9, "parts": [6, 3] }
+        },
+        {
+          "id": "sub-10",
+          "prompt": "Luống có {c} hạt. Bốc {a} hạt vào giỏ",
+          "operation": "subtract",
+          "target": 3,
+          "operands": [10, 7],
+          "manipulatives": ["seed"],
+          "hint": "Bốc bảy hạt — luống sẽ còn ba.",
+          "explanation": "{c} bớt {a} còn lại {r}.",
+          "bond": { "total": 10, "parts": [7, 3] }
+        }
+      ]
+    }
+  ]
+}

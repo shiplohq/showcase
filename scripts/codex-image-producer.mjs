@@ -36,9 +36,12 @@ if (projectIdx !== -1 && (!project || project.startsWith("--"))) {
 const briefPath = project
   ? join(repoRoot, "projects", project, "design", "IMAGE_BRIEF.md")
   : join(repoRoot, "design", "IMAGE_BRIEF.md");
-const decisionsPath = project
-  ? join(repoRoot, "projects", project, "DESIGN_DECISIONS.md")
-  : join(repoRoot, "DESIGN_DECISIONS.md");
+// DESIGN_DECISIONS.md sống ở design/ theo quy trình; fallback vị trí cũ (project root)
+// để không phá ai đang đặt nó ở đó.
+const decisionsCandidates = project
+  ? [join(repoRoot, "projects", project, "design", "DESIGN_DECISIONS.md"), join(repoRoot, "projects", project, "DESIGN_DECISIONS.md")]
+  : [join(repoRoot, "design", "DESIGN_DECISIONS.md"), join(repoRoot, "DESIGN_DECISIONS.md")];
+const decisionsPath = decisionsCandidates.find((p) => existsSync(p)) ?? decisionsCandidates[0];
 const briefRef = project
   ? `projects/${project}/design/IMAGE_BRIEF.md`
   : "design/IMAGE_BRIEF.md";
@@ -90,19 +93,17 @@ if (!existsSync(decisionsPath)) {
   );
 }
 
-const prompt = `Read the project's ${decisionsRef} and ${briefRef}.
+const prompt = `FIRST ACTION of this run — do not read any file before it: invoke the built-in $imagegen skill to generate the asset(s) defined in ${briefRef}, saving each output file to its exact "Output path" from the brief (under ${outputRef}).
 
-Act only as the raster image asset producer.
+After the files exist on disk, read ${briefRef} and ${decisionsRef} and check your output against every constraint (palette, mood, no text, no watermark, tileability, uniform lighting). If your generated file violates any constraint, regenerate it once with a corrected $imagegen prompt.
 
-Generate/edit the assets defined by ${briefRef} using your image-generation capability.
+Rules:
+- Images must come from the real $imagegen tool only. Never draw, render or synthesize them with code (no System.Drawing, no canvas, no PIL, no ImageMagick) — code-drawn files do not count as generated assets.
+- Write image files only under ${outputRef}
+- Do not modify application source code, the product specification, or anything else.
+- The run is only complete when every asset entry in the brief exists as a file on disk. A reply without the files on disk is a failed run.
 
-Write generated files only to ${outputRef}
-
-Do not modify application source code.
-Do not modify the product specification.
-Do not redesign the frontend.
-
-Return a summary of generated files and their corresponding brief IDs.`;
+Final reply: for each asset — file path, the imagegen tool/model used, and its brief ID.`;
 
 const codexArgs = ["exec", prompt, "--sandbox", "workspace-write"];
 
@@ -116,11 +117,22 @@ console.error(
   `chạy codex exec (sandbox workspace-write) — brief: ${briefRef} → output: ${outputRef}`
 );
 
-const run = spawnSync("codex", codexArgs, {
-  cwd: repoRoot,
-  stdio: "inherit",
-  shell: process.platform === "win32",
-});
+// Windows cần shell:true để resolve shim npm của codex (.cmd), nhưng shell:true
+// nối args bằng khoảng trắng KHÔNG quote → prompt nhiều từ bị parse nhầm thành
+// subcommand. Với shell, tự quote từng arg; POSIX gọi trực tiếp không cần shell.
+// (Node >= 18.20 khuyến nghị: khi dùng shell, truyền MỘT chuỗi lệnh thay vì
+// args array để tránh DEP0190.)
+const useShell = process.platform === "win32";
+const run = useShell
+  ? spawnSync("codex " + codexArgs.map(quoteWindowsArg).join(" "), {
+      cwd: repoRoot,
+      stdio: "inherit",
+      shell: true,
+    })
+  : spawnSync("codex", codexArgs, {
+      cwd: repoRoot,
+      stdio: "inherit",
+    });
 
 if (run.error || run.status !== 0) {
   console.error("lỗi: codex exec thất bại — xem output bên trên.");
@@ -134,3 +146,11 @@ console.error(
     `     hoặc projects/<id>/design/generated-manifest.json (schema: design/codex-image-producer.md).\n` +
     "  3. Asset không đạt → sửa brief và regenerate — không đổi UI để chiều ảnh xấu."
 );
+
+function quoteWindowsArg(arg) {
+  // Arg chỉ gồm ký tự an toàn cho cmd.exe thì khỏi quote; còn lại bọc trong dấu
+  // nháy kép. Prompt của script này không chứa dấu nháy kép (wrapper tự chế biến),
+  // nên escaping tối thiểu là đủ và không đụng vào parsing MSVC của Rust CLI.
+  if (/^[A-Za-z0-9_./:=+-]+$/.test(arg)) return arg;
+  return `"${arg.replaceAll('"', "'")}"`;
+}

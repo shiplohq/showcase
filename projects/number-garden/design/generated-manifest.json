@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "policy": {
+    "generator": "openai-codex-only",
+    "assetOutputScope": "public/assets/generated/",
+    "reviewRequired": true,
+    "internal": true,
+    "note": "Internal provenance record — this manifest lives in design/ and must NEVER ship in a deployed dist/. Assets listed here were produced by OpenAI Codex from a brief in design/IMAGE_BRIEF.md. AI-generated output does not automatically carry exclusive copyright ownership — see design/codex-image-producer.md (repo root)."
+  },
+  "assets": [
+    {
+      "file": "../public/assets/generated/paper-texture.png",
+      "briefId": "IMG-01-001",
+      "generator": "openai-codex (imagegen / GPT Image, via codex-cli 0.151.0 exec)",
+      "generationType": "generated",
+      "createdAt": "2026-09-01T04:09:00Z",
+      "intendedUse": "App-wide paper-grain overlay (background-repeat, ~4% opacity) on all screens — the tactile 'hand-cut paper' material layer per DESIGN_DECISIONS §9.",
+      "thirdPartyReference": "none",
+      "notes": "Post-processing by Codex after imagegen (recorded here for honesty): source image mirrored into 4 quadrants via ffmpeg to guarantee seamless tileability, then palette-quantized to 96 colors (890 KB PNG, 1024x1024). Visual review 2026-09-01: paper-like ✓, uniform brightness ✓, no text/objects/watermark ✓, grain scale suitable at 3–5% opacity ✓. Known minor flaw: faint mirror-symmetry blotches from the tiling trick — imperceptible at overlay opacity; re-check after UI integration, regenerate if it becomes visible. Two earlier wrapper invocations produced no file (Codex summarized instead of calling imagegen) — fixed by restructuring the wrapper prompt to lead with the tool call."
+    }
+  ]
+}

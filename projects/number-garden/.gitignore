@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build output — generated artifact, never committed
+dist/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Logs / caches
+*.log
+.vite/
+*.tsbuildinfo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Impeccable internal artifacts
+.impeccable/

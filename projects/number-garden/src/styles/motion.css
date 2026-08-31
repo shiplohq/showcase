@@ -1,0 +1,86 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Motion fallbacks & reduced-motion rules (DESIGN_DECISIONS §11).
+ * GSAP drives the rich motion; CSS keeps base state transitions honest.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Reduced motion still shows final states instantly; the app stays fully
+     playable — opacity/focus cues remain, nothing depends on motion. */
+  .drag-ghost {
+    transform: translate(-50%, -55%) scale(1);
+  }
+}
+
+/* Nudge (wrong-but-gentle): seeds tilt softly — no shake, no red. */
+@keyframes nudge-tilt {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(-2.5deg);
+  }
+  70% {
+    transform: rotate(2deg);
+  }
+}
+
+.nudge-tilt {
+  animation: nudge-tilt 360ms ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nudge-tilt {
+    animation: none;
+    opacity: 0.75; /* still a visible cue without motion */
+  }
+}
+
+/* Loading state for JSON content */
+.loading {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  gap: var(--sp-3);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--ink-soft);
+}
+
+.loading svg {
+  width: 64px;
+  height: 64px;
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+.loading svg {
+  transform-origin: 50% 90%;
+  animation: sway 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading svg {
+    animation: none;
+  }
+}

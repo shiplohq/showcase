@@ -1,0 +1,34 @@
+{
+  "plants": [
+    {
+      "plantId": "sprout",
+      "requiredStars": 0,
+      "svgAsset": "inline:SproutStageArt",
+      "label": "Mầm non"
+    },
+    {
+      "plantId": "tulip",
+      "requiredStars": 3,
+      "svgAsset": "inline:FlowerArt/tulip",
+      "label": "Tulip"
+    },
+    {
+      "plantId": "daisy",
+      "requiredStars": 6,
+      "svgAsset": "inline:FlowerArt/daisy",
+      "label": "Cúc trắng"
+    },
+    {
+      "plantId": "sunflower",
+      "requiredStars": 8,
+      "svgAsset": "inline:FlowerArt/sunflower",
+      "label": "Hướng dương"
+    },
+    {
+      "plantId": "rose",
+      "requiredStars": 10,
+      "label": "Hồng giấy",
+      "svgAsset": "inline:FlowerArt/rose"
+    }
+  ]
+}

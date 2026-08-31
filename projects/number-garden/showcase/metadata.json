@@ -1,0 +1,16 @@
+{
+  "id": "number-garden",
+  "title": "Number Garden",
+  "summary": "A paper-cut garden where children grow plants by building and splitting numbers within 20.",
+  "category": "education-math",
+  "number": 1,
+  "audience": null,
+  "mobileSupport": "supported",
+  "mobileSupportNote": null,
+  "screenshots": {
+    "cover": { "path": "showcase/cover.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
+    "desktop": { "path": "showcase/desktop.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
+    "tablet": { "path": "showcase/tablet.webp", "viewport": "1024x768", "capturedFrom": null, "capturedAt": null, "alt": null },
+    "mobile": { "path": "showcase/mobile.webp", "viewport": "390x844", "capturedFrom": null, "capturedAt": null, "alt": null }
+  }
+}

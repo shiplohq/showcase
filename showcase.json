@@ -10,7 +10,7 @@
       "summary": "A paper-cut garden where children grow plants by building and splitting numbers within 20.",
       "category": "education-math",
       "audience": "5-7",
-      "status": "planned",
+      "status": "deploying",
       "stack": [
         "react",
         "vite",
