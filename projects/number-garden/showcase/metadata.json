@@ -12,28 +12,28 @@
       "path": "showcase/cover.webp",
       "viewport": "1440x900",
       "capturedFrom": "https://number-garden.shiplo.site",
-      "capturedAt": "2026-08-31T22:16:00Z",
+      "capturedAt": "2026-08-31T22:26:00Z",
       "alt": "Staged success moment: a make-10 question answered — 7 seeds and 3 seeds planted in two soil beds, ten-frame full, green 'Đúng rồi! 7 và 3 ghép lại thành 10.' feedback strip"
     },
     "desktop": {
       "path": "showcase/desktop.webp",
       "viewport": "1440x900",
       "capturedFrom": "https://number-garden.shiplo.site",
-      "capturedAt": "2026-08-31T22:13:00Z",
+      "capturedAt": "2026-08-31T22:26:00Z",
       "alt": "Honest default landing: lesson-select with four staggered paper-cut garden beds (Đếm Hạt, Ghép 10, Cộng, Bốc Hạt) and their tree illustrations"
     },
     "tablet": {
       "path": "showcase/tablet.webp",
       "viewport": "1024x768",
       "capturedFrom": "https://number-garden.shiplo.site",
-      "capturedAt": "2026-08-31T22:13:30Z",
+      "capturedAt": "2026-08-31T22:26:00Z",
       "alt": "Hero tablet view of the play screen: question banner, two soil beds with seeds, seed-bag dock with steppers and ten-frame on a rolling paper hill"
     },
     "mobile": {
       "path": "showcase/mobile.webp",
       "viewport": "390x844",
       "capturedFrom": "https://number-garden.shiplo.site",
-      "capturedAt": "2026-08-31T22:14:00Z",
+      "capturedAt": "2026-08-31T22:26:00Z",
       "alt": "Honest mobile landing: lesson-select garden beds stacked vertically at 390px width"
     }
   }
