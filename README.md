@@ -12,8 +12,9 @@ no backend, no database, no SSR. Human-readable source is Apache-2.0
 ## Live showcases
 
 <!-- showcase:gallery:start -->
-> Nothing is live yet. Showcases appear here — with their real Shiplo URLs —
-> only after they complete the full lifecycle (see [CONTRIBUTING.md](CONTRIBUTING.md)).
+| | Showcase | Category |
+|---|---|---|
+| <img src="projects/number-garden/showcase/cover.webp" alt="Number Garden cover" width="360"> | **[Number Garden](https://number-garden.shiplo.site)**<br>A paper-cut garden where children grow plants by building and splitting numbers within 20. | education-math |
 <!-- showcase:gallery:end -->
 
 ## Catalog
@@ -25,7 +26,7 @@ All planned and in-progress showcases. Status lives in
 <!-- showcase:catalog:start -->
 | # | Showcase | Category | Stack | Status |
 |---|---|---|---|---|
-| 01 | **Number Garden** | education-math | react · vite · typescript | planned |
+| 01 | **Number Garden** — [live demo](https://number-garden.shiplo.site) | education-math | react · vite · typescript | live |
 | 02 | **Fraction Bistro** | education-math | vue · vite · typescript | planned |
 | 03 | **Geometry Builder** | education-math | angular · typescript | planned |
 | 04 | **Multiplication Galaxy** | education-math | react · vite · typescript | planned |

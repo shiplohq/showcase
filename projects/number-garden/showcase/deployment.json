@@ -1,12 +1,12 @@
 {
   "project": "number-garden",
   "provider": "Shiplo",
-  "status": "not-deployed",
-  "url": null,
-  "sourceCommitSha": null,
-  "buildCommand": null,
-  "artifactSha256": null,
-  "deployedAt": null,
-  "verifiedAt": null,
-  "notes": null
+  "status": "verified",
+  "url": "https://number-garden.shiplo.site",
+  "sourceCommitSha": "89ec4c588e4472e9cef02bfb937aee09985f4dac",
+  "buildCommand": "npm run build",
+  "artifactSha256": "a2003c13558739ac8e2e7c87795e8ebd148246e64b13283c8f4a0087dc64b50c",
+  "deployedAt": "2026-08-31T22:12:06Z",
+  "verifiedAt": "2026-08-31T22:14:44Z",
+  "notes": "First deploy (site c1a2293a-a5e9-4a31-85e9-be905237e985, deployment 172bdd23-390d-4ed3-9ad3-8b1512a7c75f, activated 2026-08-31T22:12:06.258Z, 11 files / 1,317,885 bytes). Live verification: HTTP 200; full learning flow (mouse click → play, keyboard stepper planting, gentle nudge, why-overlay after 3 correct, touch taps) driven headless against the public URL at 1440x900, 1024x768 and 390x844 — zero console errors; all interactive targets ≥44px; prefers-reduced-motion emulated and usable. Artifact hash = tar -czf - -C dist . | sha256sum per docs/DEPLOYMENT.md."
 }

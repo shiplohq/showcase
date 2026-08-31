@@ -4,13 +4,37 @@
   "summary": "A paper-cut garden where children grow plants by building and splitting numbers within 20.",
   "category": "education-math",
   "number": 1,
-  "audience": null,
+  "audience": "5-7",
   "mobileSupport": "supported",
-  "mobileSupportNote": null,
+  "mobileSupportNote": "Full learning loop works at 390x844 (verified live): stacked plots, tap + stepper interaction. Drag precision is lower than tablet — steppers remain the primary input on small screens.",
   "screenshots": {
-    "cover": { "path": "showcase/cover.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "desktop": { "path": "showcase/desktop.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "tablet": { "path": "showcase/tablet.webp", "viewport": "1024x768", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "mobile": { "path": "showcase/mobile.webp", "viewport": "390x844", "capturedFrom": null, "capturedAt": null, "alt": null }
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://number-garden.shiplo.site",
+      "capturedAt": "2026-08-31T22:16:00Z",
+      "alt": "Staged success moment: a make-10 question answered — 7 seeds and 3 seeds planted in two soil beds, ten-frame full, green 'Đúng rồi! 7 và 3 ghép lại thành 10.' feedback strip"
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://number-garden.shiplo.site",
+      "capturedAt": "2026-08-31T22:13:00Z",
+      "alt": "Honest default landing: lesson-select with four staggered paper-cut garden beds (Đếm Hạt, Ghép 10, Cộng, Bốc Hạt) and their tree illustrations"
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://number-garden.shiplo.site",
+      "capturedAt": "2026-08-31T22:13:30Z",
+      "alt": "Hero tablet view of the play screen: question banner, two soil beds with seeds, seed-bag dock with steppers and ten-frame on a rolling paper hill"
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://number-garden.shiplo.site",
+      "capturedAt": "2026-08-31T22:14:00Z",
+      "alt": "Honest mobile landing: lesson-select garden beds stacked vertically at 390px width"
+    }
   }
 }

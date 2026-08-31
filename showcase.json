@@ -10,7 +10,7 @@
       "summary": "A paper-cut garden where children grow plants by building and splitting numbers within 20.",
       "category": "education-math",
       "audience": "5-7",
-      "status": "deploying",
+      "status": "live",
       "stack": [
         "react",
         "vite",
@@ -21,14 +21,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://number-garden.shiplo.site",
+        "deployedAt": "2026-08-31T22:12:06Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/number-garden/showcase/cover.webp",
+        "desktop": "projects/number-garden/showcase/desktop.webp",
+        "tablet": "projects/number-garden/showcase/tablet.webp",
+        "mobile": "projects/number-garden/showcase/mobile.webp"
       }
     },
     {

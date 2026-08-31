@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "number-garden",
+  "site_id": "c1a2293a-a5e9-4a31-85e9-be905237e985",
+  "subdomain": "number-garden",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}
