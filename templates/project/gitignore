@@ -17,3 +17,7 @@ dist/
 # OS
 .DS_Store
 Thumbs.db
+
+# tsc composite emits for vite.config.ts (regenerated on build)
+vite.config.js
+vite.config.d.ts

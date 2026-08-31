@@ -40,39 +40,46 @@ Imagegen là một skill của Codex (`$imagegen`, model `gpt-image-2` theo docs
 
 1. Claude copy `design/IMAGE_BRIEF.template.md` → `design/IMAGE_BRIEF.md` (repo-level) hoặc `projects/<id>/design/IMAGE_BRIEF.md` (theo project — khuyến nghị, vì build của mỗi showcase phải self-contained). Điền đủ mọi field.
 2. Chạy Codex (script hoặc lệnh thủ công bên dưới) — sandbox `workspace-write`, chỉ được ghi vào `public/assets/generated/`.
-3. **Review visual** từng file generated. Asset không đạt → **regenerate/edit qua Codex với brief sửa lại** — không đổi UI để chiều tấm ảnh xấu.
-4. Cập nhật manifest provenance — `design/generated-manifest.json` (repo-level) hoặc `projects/<id>/design/generated-manifest.json` (theo project).
-5. Integrate vào UI, refresh `THIRD_PARTY_NOTICES.md` của project nếu policy yêu cầu.
+3. **Verify output là AI-generated thật** (xem "Qui ước prompt" bên dưới): file tồn tại trên đĩa **và** có dấu vết tool imagegen trong output (thường là source dưới `~/.codex/generated_images/…` được copy vào output). Trong pilot #01, Codex một lần *vẽ ảnh bằng PowerShell System.Drawing rồi báo CREATED* — kết thúc bằng chữ "CREATED" không chứng minh được gì.
+4. **Review visual** từng file generated. Asset không đạt → **regenerate/edit qua Codex với brief sửa lại** — không đổi UI để chiều tấm ảnh xấu.
+5. Cập nhật manifest provenance — `design/generated-manifest.json` (repo-level) hoặc `projects/<id>/design/generated-manifest.json` (theo project).
+6. Integrate vào UI, refresh `THIRD_PARTY_NOTICES.md` của project nếu policy yêu cầu.
 
 ## Invocation template
 
 Cú pháp flag đã đối chiếu với docs chính thức Codex CLI (2026-09-01): `exec` = non-interactive; `--sandbox workspace-write` cho phép ghi trong workspace; `--full-auto` đã deprecated. Sau khi upgrade CLI, re-verify bằng `codex exec --help` trước khi thay đổi flag.
+
+### Qui ước prompt (bắt buộc — bài học pilot #01)
+
+Dưới `codex exec` non-interactive, model **không tự gọi** imagegen nếu prompt chỉ mô tả nhiệm vụ — nó dừng ở "tóm tắt kế hoạch, chưa đổi file nào", hoặc tệ hơn: vẽ ảnh bằng code rồi báo thành công. Prompt chuẩn PHẢI:
+
+1. Đặt lệnh gọi `$imagegen` là **FIRST ACTION** — trước cả việc đọc file;
+2. **Cấm rõ ràng** vẽ/render bằng code (System.Drawing, canvas, PIL, ImageMagick);
+3. Định nghĩa **điều kiện hoàn tất = file tồn tại trên đĩa** — "một câu trả lời không có file là run thất bại".
+
+Wrapper `scripts/codex-image-producer.mjs` đã dùng đúng prompt này. Bản thủ công tương đương (khi chạy không qua wrapper):
+
+```bash
+codex exec "
+FIRST ACTION of this run — do not read any file before it: invoke the built-in \$imagegen skill to generate the asset(s) defined in <brief-path>, saving each output file to its exact 'Output path' from the brief (under <output-dir>).
+
+After the files exist on disk, read <brief-path> and <decisions-path> and check your output against every constraint. If your generated file violates any constraint, regenerate it once with a corrected \$imagegen prompt.
+
+Rules:
+- Images must come from the real \$imagegen tool only. Never draw, render or synthesize them with code (no System.Drawing, no canvas, no PIL, no ImageMagick) — code-drawn files do not count as generated assets.
+- Write image files only under <output-dir>
+- Do not modify application source code, the product specification, or anything else.
+- The run is only complete when every asset entry in the brief exists as a file on disk. A reply without the files on disk is a failed run.
+
+Final reply: for each asset — file path, the imagegen tool/model used, and its brief ID.
+" --sandbox workspace-write
+```
 
 Cách chạy khuyến nghị (repo-level, dùng script wrapper):
 
 ```bash
 npm run assets:codex                          # dùng design/IMAGE_BRIEF.md
 npm run assets:codex -- --project number-garden   # dùng projects/number-garden/design/IMAGE_BRIEF.md
-```
-
-Tương đương thủ công:
-
-```bash
-codex exec "
-Read the project's DESIGN_DECISIONS.md and design/IMAGE_BRIEF.md.
-
-Act only as the raster image asset producer.
-
-Generate/edit the assets defined by IMAGE_BRIEF.md using your image-generation capability.
-
-Write generated files only to public/assets/generated/.
-
-Do not modify application source code.
-Do not modify the product specification.
-Do not redesign the frontend.
-
-Return a summary of generated files and their corresponding brief IDs.
-" --sandbox workspace-write
 ```
 
 Khi chạy theo project, thay `design/IMAGE_BRIEF.md` → `projects/<id>/design/IMAGE_BRIEF.md` và `public/assets/generated/` → `projects/<id>/public/assets/generated/` (hoặc để script wrapper tự map bằng `--project <id>`).

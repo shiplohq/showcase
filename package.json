@@ -27,6 +27,9 @@
     "gallery": "node scripts/update-gallery.mjs",
     "verify:static": "node scripts/verify-static-build.mjs",
     "assets:codex": "node scripts/codex-image-producer.mjs",
+    "shiplo": "node scripts/shiplo-mcp.mjs",
+    "check:fonts": "node scripts/font-check.mjs",
+    "cdp:smoke": "node scripts/cdp-driver.mjs",
     "ci": "npm run validate && npm run check:repo && npm run gallery -- --check"
   },
   "dependencies": {

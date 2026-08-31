@@ -74,6 +74,8 @@
 
 ## What should change before building #02–#20
 
+> **Trạng thái áp dụng (2026-09-01, sau khi pilot kết thúc):** các mục 1, 3, 4, 6, 7, 10 đã được triển khai vào repo trong commit "chore: harden showcase pipeline from pilot #01 lessons" — docs `design/codex-image-producer.md` có Qui ước prompt + bước verify; `scripts/cdp-driver.mjs` (smoke chung), `scripts/shiplo-mcp.mjs` (bridge chính thức, `npm run shiplo`), `scripts/font-check.mjs` (`npm run check:fonts`, thêm vào PRE_PUBLISH_CHECKLIST); rules font/vision-ground-truth/headless-cache nằm trong CLAUDE.md "Testing & verification (từ pilot #01)"; template gitignore có vite composite outputs. Còn mở: mục 4(a) (expose platform-mcp vào session MCP — chờ phía Shiplo), mục 5 (template note cho pure-engine — khuyến khích, không bắt buộc).
+
 | # | Finding | Loại | Đề xuất |
 |---|---|---|---|
 | 1 | Codex prompt phải "ép" gọi imagegen; có nguy cơ fake-by-code | **asset-generation** | Cập nhật `design/codex-image-producer.md` + wrapper: prompt chuẩn "FIRST ACTION $imagegen, no code-drawing, files-on-disk = success" (đã áp dụng vào wrapper; docs cần follow-up) |
