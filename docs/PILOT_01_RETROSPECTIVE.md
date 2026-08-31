@@ -38,6 +38,16 @@
 
 ## What caused friction
 
+0. **Font vỡ trên bản live đầu tiên — do chính pilot.** Chỉ import subset
+   `vietnamese` của @fontsource (chứa độc các glyph dấu) → chữ thường + toàn bộ
+   chữ số rơi vào font hệ thống, trộn metrics giữa chừng từ. **User phát hiện
+   bằng mắt sau khi deploy** — mọi kiểm tra tự động (CDP flow, console, buttons,
+   font-family computed) đều pass vì fallback vẫn render được chữ. Phải build
+   guard mới bắt được: `scripts/font-check.mjs` dùng `document.fonts.check()`
+   với mẫu latin+số và mẫu dấu tiếng Việt cho từng family. Fix = import cả
+   `latin-*` lẫn `vietnamese-*`; redeploy + chụp lại screenshot + cập nhật
+   provenance.
+
 1. **Codex exec không gọi imagegen tự nguyện** (lớn nhất). Ba invocation đầu Codex
    dừng ở "tóm tắt kế hoạch, chưa đổi file nào". Một lần nó còn *vẽ ảnh bằng
    PowerShell System.Drawing* rồi báo CREATED — phải probe mới phát hiện là fake.
@@ -75,6 +85,7 @@
 | 7 | tsc composite sinh artifact vào source | **template fix** | Template gitignore thêm `vite.config.js` / `vite.config.d.ts` cho project Vite+TS |
 | 8 | Font bundling qua @fontsource mượt (woff2 inlined, subpath-safe) | **reusable pattern** | Ghi vào CONTRIBUTING/CLAUDE.md là default cho project có bundler |
 | 9 | Headless capture cần đường dẫn Windows thật (không /tmp Git Bash) | **project-specific** | Ghi chú trong driver |
+| 10 | Font vỡ do import thiếu subset latin khi dùng @fontsource cho UI có dấu | **CLAUDE.md rule + template fix** | Rule: mọi project dùng @fontsource phải import **cả** `latin-*` và subset ngôn ngữ (`vietnamese-*`), và phải chạy `font-check` (document.fonts.check với mẫu ký tự thật) trước deploy — console-clean không phát hiện được fallback font |
 
 ## Reusable patterns proven by the pilot (chuẩn hoá, không framework hoá)
 
