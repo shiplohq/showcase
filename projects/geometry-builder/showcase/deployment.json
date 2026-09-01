@@ -3,10 +3,10 @@
   "provider": "Shiplo",
   "status": "verified",
   "url": "https://geometry-builder.shiplo.site",
-  "sourceCommitSha": null,
+  "sourceCommitSha": "5023a7ccc764a585cb7706ac79738399dc52c553",
   "buildCommand": "npm run build",
-  "artifactSha256": "c2a4725de67ed4464bd0270eb8d7b07e6a8d1591a9cb2f4584abcbc0aee22fd6",
+  "artifactSha256": "4dfb6aaa8955991d9310e84c48c510a70e25751c15550db63be5f001f4bb1002",
   "deployedAt": "2026-09-01T05:14:02Z",
   "verifiedAt": "2026-09-01T05:19:22Z",
-  "notes": "First deploy (release 368c02d2-2bfa-4d71-9c12-c84e009ff8ff, deployment 2b086b64-972f-451e-990e-9fbcbf3ba0dd, activated 2026-09-01T05:14:02.457Z, 32 files / 682,580 bytes). sourceCommitSha: null — finalized by orchestrator to the integration commit after review. Live verification: full build-mission flow (mouse drag from tray, keyboard arrows/R/E, undo/redo, nudge, 3-level hint ladder, Check fit → CHECKED, perimeter walk 24 u on house-01) re-driven headless against the public URL at 1440x900 and 1024x768, smoke at 390x844 — zero console errors; document.fonts.check passes for Space Grotesk (400/500/700) and IBM Plex Mono (400/500/600) over latin+digits; HTTP 200. Artifact hash = tar -czf - -C dist . | sha256sum per docs/DEPLOYMENT.md."
+  "notes": "First deploy (release 368c02d2-2bfa-4d71-9c12-c84e009ff8ff, deployment 2b086b64-972f-451e-990e-9fbcbf3ba0dd, activated 2026-09-01T05:14:02.457Z, 32 files / 682,580 bytes). sourceCommitSha finalized by orchestrator to the integration commit after review. artifactSha256 recomputed at integration: the tar-of-dist method embeds mtimes, so a rebuild of byte-identical content yields a different tar hash (review verified all 32 deployed files are sha256-identical to a fresh local build — content identity is proven, only mtimes differ from the original deploy-time hash). Live verification: full build-mission flow (mouse drag from tray, keyboard arrows/R/E, undo/redo, nudge, 3-level hint ladder, Check fit → CHECKED, perimeter walk 24 u on house-01) re-driven headless against the public URL at 1440x900 and 1024x768, smoke at 390x844 — zero console errors; document.fonts.check passes for Space Grotesk (400/500/700) and IBM Plex Mono (400/500/600) over latin+digits; HTTP 200. Artifact hash = tar -czf - -C dist . | sha256sum per docs/DEPLOYMENT.md."
 }

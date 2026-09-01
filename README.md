@@ -16,6 +16,7 @@ no backend, no database, no SSR. Human-readable source is Apache-2.0
 |---|---|---|
 | <img src="projects/number-garden/showcase/cover.webp" alt="Number Garden cover" width="360"> | **[Number Garden](https://number-garden.shiplo.site)**<br>A paper-cut garden where children grow plants by building and splitting numbers within 20. | education-math |
 | <img src="projects/fraction-bistro/showcase/cover.webp" alt="Fraction Bistro cover" width="360"> | **[Fraction Bistro](https://fraction-bistro.shiplo.site)**<br>A modern Italian-style bistro where learners cut pizza, tarts and focaccia into equal parts to serve exact orders. | education-math |
+| <img src="projects/geometry-builder/showcase/cover.webp" alt="Geometry Builder cover" width="360"> | **[Geometry Builder](https://geometry-builder.shiplo.site)**<br>A minimal architect's desk where children build houses, bridges and robots from polygons by applying shape properties. | education-math |
 <!-- showcase:gallery:end -->
 
 ## Catalog
@@ -29,7 +30,7 @@ All planned and in-progress showcases. Status lives in
 |---|---|---|---|---|
 | 01 | **Number Garden** — [live demo](https://number-garden.shiplo.site) | education-math | react · vite · typescript | live |
 | 02 | **Fraction Bistro** — [live demo](https://fraction-bistro.shiplo.site) | education-math | vue · vite · typescript | live |
-| 03 | **Geometry Builder** | education-math | angular · typescript | building |
+| 03 | **Geometry Builder** — [live demo](https://geometry-builder.shiplo.site) | education-math | angular · typescript | live |
 | 04 | **Multiplication Galaxy** | education-math | react · vite · typescript | building |
 | 05 | **Clock Quest** | education-math | jquery · html · css · gsap | building |
 | 06 | **Money Market Junior** | education-math | angular · typescript | building |
