@@ -1,0 +1,65 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Motion (CSS side) — GSAP drives the purposeful animation (cut lines, slice
+ * separation, drop, stamp); CSS only covers micro feedback. Everything here
+ * collapses under prefers-reduced-motion (GSAP side handled by the wrapper).
+ */
+
+.slice-hit {
+  cursor: pointer;
+  fill: transparent;
+  /* generous forgiving hit area: transparent stroke extends the target
+     beyond the wedge outline without a visible change */
+  stroke: transparent;
+  stroke-width: 10;
+  pointer-events: all;
+}
+
+.slice-hit:hover + .slice-outline,
+.slice-hit:focus-visible + .slice-outline {
+  stroke: var(--tomato);
+}
+
+.slice-outline {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 2.5;
+  pointer-events: none;
+}
+
+.slice-hit[data-picked='true'] + .slice-outline {
+  stroke: var(--tomato);
+}
+
+/* screen mount transition (GSAP adds the tween; this is the fallback state) */
+.screen {
+  will-change: auto;
+}
+
+/* drag ghost */
+.drag-ghost {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 0 rgba(34, 27, 16, 0.25));
+  touch-action: none;
+}
+
+/* honor reduced motion for every CSS transition too */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  .ticket,
+  .ticket:nth-child(3n + 1),
+  .ticket:nth-child(3n + 2) {
+    rotate: 0deg;
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "fraction-bistro",
+  "title": "Fraction Bistro",
+  "summary": "A modern Italian-style bistro where learners cut pizza, tarts and focaccia into equal parts to serve exact orders.",
+  "category": "education-math",
+  "number": 2,
+  "audience": "7-10",
+  "mobileSupport": "supported",
+  "mobileSupportNote": "Full learning loop verified live at 390x844: single-column layout, tap-to-place is the primary input, partition chips wrap, no horizontal scroll. Drag works but precision is lower on small screens — tap and keyboard paths are the intended inputs there.",
+  "screenshots": {
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://fraction-bistro.shiplo.site",
+      "capturedAt": "2026-09-01T05:05:00Z",
+      "alt": "Staged serve moment on the cutting table: the Pizza Margherita cut into eight separated slices, five plated, the red SERVITO stamp landed over the station with the 'Servito! 5 of 8 equal parts' feedback strip and kitchen explanation below"
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://fraction-bistro.shiplo.site",
+      "capturedAt": "2026-09-01T05:02:00Z",
+      "alt": "Honest default landing: the Fraction Bistro masthead with double menu rule, 'Menu del giorno' column listing the three dishes with dotted leaders, and the order-board rail of paper tickets (Build / Same amount / Compare)"
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://fraction-bistro.shiplo.site",
+      "capturedAt": "2026-09-01T05:03:00Z",
+      "alt": "Hero tablet view of the order board: masthead, three-dish menu column with dotted leaders and two-column rail of order tickets"
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://fraction-bistro.shiplo.site",
+      "capturedAt": "2026-09-01T05:04:00Z",
+      "alt": "Honest mobile landing: masthead and order tickets stacked in a single column at 390px"
+    }
+  }
+}

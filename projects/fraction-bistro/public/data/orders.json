@@ -1,0 +1,156 @@
+{
+  "orders": [
+    {
+      "id": "ord-001",
+      "dish": "focaccia",
+      "partitionCount": 2,
+      "requestedFraction": [1, 2],
+      "mode": "build",
+      "customer": "Table 2: half the focaccia, per favore.",
+      "explanation": "One of two equal parts is 1/2."
+    },
+    {
+      "id": "ord-002",
+      "dish": "berry-tart",
+      "partitionCount": 3,
+      "requestedFraction": [2, 3],
+      "mode": "build",
+      "customer": "Table 5 wants two thirds of the tart.",
+      "explanation": "Two of three equal parts are 2/3."
+    },
+    {
+      "id": "ord-003",
+      "dish": "margherita",
+      "partitionCount": 4,
+      "requestedFraction": [3, 4],
+      "mode": "build",
+      "customer": "Table 1: three quarters of the margherita.",
+      "explanation": "Three of four equal parts are 3/4."
+    },
+    {
+      "id": "ord-004",
+      "dish": "berry-tart",
+      "partitionCount": 4,
+      "requestedFraction": [1, 2],
+      "mode": "equivalent",
+      "compareWith": [2, 4],
+      "customer": "The chef plated 1/2 of the tart. Cover the same amount in quarters.",
+      "explanation": "1/2 and 2/4 cover the same amount of the tart: they are equal."
+    },
+    {
+      "id": "ord-005",
+      "dish": "berry-tart",
+      "partitionCount": 6,
+      "requestedFraction": [5, 6],
+      "mode": "build",
+      "customer": "Table 3: five sixths of the tart, light on berries.",
+      "explanation": "Five of six equal parts are 5/6."
+    },
+    {
+      "id": "ord-006",
+      "dish": "margherita",
+      "partitionCount": 6,
+      "requestedFraction": [1, 6],
+      "mode": "build",
+      "customer": "Table 6: just one sixth of the margherita.",
+      "explanation": "One of six equal parts is 1/6."
+    },
+    {
+      "id": "ord-007",
+      "dish": "focaccia",
+      "partitionCount": 6,
+      "requestedFraction": [1, 3],
+      "mode": "equivalent",
+      "compareWith": [2, 6],
+      "customer": "The chef plated 1/3 of the focaccia. Cover the same amount in sixths.",
+      "explanation": "1/3 and 2/6 name the same amount of the focaccia."
+    },
+    {
+      "id": "ord-008",
+      "dish": "focaccia",
+      "partitionCount": 8,
+      "requestedFraction": [7, 8],
+      "mode": "build",
+      "customer": "Table 8 is hungry: seven eighths of the focaccia.",
+      "explanation": "Seven of eight equal parts are 7/8."
+    },
+    {
+      "id": "ord-009",
+      "dish": "margherita",
+      "partitionCount": 8,
+      "requestedFraction": [1, 2],
+      "mode": "equivalent",
+      "compareWith": [4, 8],
+      "customer": "The chef plated 1/2 of the margherita. Cover the same amount in eighths.",
+      "explanation": "1/2 and 4/8 cover the same area of the pizza."
+    },
+    {
+      "id": "ord-010",
+      "dish": "focaccia",
+      "partitionCount": 3,
+      "requestedFraction": [2, 3],
+      "mode": "compare",
+      "compareWith": [2, 6],
+      "customer": "Table 9 can't decide: 2/3 or 2/6 of the focaccia: which is more?",
+      "explanation": "2/3 is more than 2/6: the same number of slices, but sixths are smaller parts."
+    },
+    {
+      "id": "ord-011",
+      "dish": "margherita",
+      "partitionCount": 4,
+      "requestedFraction": [3, 4],
+      "mode": "compare",
+      "compareWith": [5, 8],
+      "customer": "Table 10 hesitates: 3/4 or 5/8 of the margherita: which is more?",
+      "explanation": "3/4 is more than 5/8, because 3/4 equals 6/8."
+    },
+    {
+      "id": "ord-012",
+      "dish": "berry-tart",
+      "partitionCount": 8,
+      "requestedFraction": [3, 4],
+      "mode": "equivalent",
+      "compareWith": [6, 8],
+      "customer": "The chef plated 3/4 of the tart. Cover the same amount in eighths.",
+      "explanation": "3/4 and 6/8 name the same amount of the tart."
+    },
+    {
+      "id": "ord-013",
+      "dish": "berry-tart",
+      "partitionCount": 4,
+      "requestedFraction": [1, 4],
+      "mode": "build",
+      "customer": "Table 11: one quarter of the tart for the little one.",
+      "explanation": "One of four equal parts is 1/4."
+    },
+    {
+      "id": "ord-014",
+      "dish": "margherita",
+      "partitionCount": 8,
+      "requestedFraction": [5, 8],
+      "mode": "build",
+      "customer": "Table 4 asks for five eighths of the margherita.",
+      "explanation": "Five of eight equal slices are 5/8."
+    },
+    {
+      "id": "ord-015",
+      "dish": "berry-tart",
+      "partitionCount": 8,
+      "requestedFraction": [4, 8],
+      "mode": "compare",
+      "compareWith": [1, 2],
+      "customer": "Table 3 changed their mind again: 4/8 or 1/2 of the tart: which is more?",
+      "explanation": "4/8 and 1/2 cover the same amount: they are equal."
+    },
+    {
+      "id": "ord-016",
+      "dish": "margherita",
+      "partitionCount": 8,
+      "requestedFraction": [3, 8],
+      "mode": "compare",
+      "compareWith": [1, 2],
+      "customer": "Last order: 3/8 or 1/2 of the margherita: which is more?",
+      "explanation": "3/8 is less than 1/2, because 1/2 equals 4/8."
+    }
+  ]
+}

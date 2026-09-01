@@ -1,0 +1,52 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Design tokens — editorial Italian bistro (design/DESIGN_DECISIONS.md §4–6).
+ * Flat colors only: no gradients, no glass, no neon.
+ */
+
+:root {
+  /* neutrals — paper & ink */
+  --flour: #f7f0e3;
+  --paper-raised: #fdfaf1;
+  --paper-deep: #efe5cf;
+  --ink: #221b10;
+  --ink-soft: #5c5140;
+  --line: #d8cbad;
+
+  /* brand */
+  --tomato: #be3a26;
+  --tomato-deep: #9e2e1d;
+  --olive: #5a6b3b;
+  --olive-deep: #46532c;
+  --basil: #557f3d;
+  --hint: #7a5d16;
+
+  /* typography */
+  --font-display: 'Fraunces', 'Iowan Old Style', 'Times New Roman', serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
+
+  /* spacing (4px base) */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+  --sp-20: 80px;
+
+  /* shape */
+  --radius: 3px;
+  --border: 2px solid var(--ink);
+  --shadow-solid: 0 3px 0 var(--ink);
+  --shadow-solid-soft: 0 3px 0 rgba(34, 27, 16, 0.35);
+
+  /* dish stage */
+  --stage-max: 520px;
+
+  /* focus ring — applied directly in base.css, never removed */
+}

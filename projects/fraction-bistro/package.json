@@ -1,0 +1,26 @@
+{
+  "name": "fraction-bistro",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Fraction Bistro — Tiệm bánh phân số. Shiplo Showcase #02: an editorial Italian bistro where learners 7-10 cut pizza, tarts and focaccia into equal parts to serve exact fraction orders.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "test:engine": "node scripts/engine-sim.mjs"
+  },
+  "dependencies": {
+    "@fontsource/fraunces": "^5.2.5",
+    "@fontsource/source-sans-3": "^5.2.5",
+    "gsap": "^3.15.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "typescript": "~5.9.0",
+    "vite": "^7.3.0",
+    "vue-tsc": "^3.0.0"
+  }
+}

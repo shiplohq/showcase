@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "fraction-bistro",
+  "site_id": "04265ba4-dc3b-40b2-8e8e-29f09d64c8c6",
+  "subdomain": "fraction-bistro",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}

@@ -1,0 +1,12 @@
+{
+  "project": "fraction-bistro",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://fraction-bistro.shiplo.site",
+  "sourceCommitSha": null,
+  "buildCommand": "npm run build",
+  "artifactSha256": "b671caab9894d7a55087c3ad6852beca982a6b0dba1cf4840d2664c789985e74",
+  "deployedAt": "2026-09-01T05:00:20Z",
+  "verifiedAt": "2026-09-01T05:04:00Z",
+  "notes": "Deploy #1 (release 1c84429a-04ed-46bd-93c3-05df94fe5d81, deployment 0973467d-6060-4c47-a853-ea325f43c3ab, activated 2026-09-01T05:00:20.392Z, 32 files / 529,416 bytes — matches dist exactly). sourceCommitSha finalized by orchestrator to the integration commit after review. Live verification: full order→cut→serve flow (mouse, touch tap, keyboard, synthetic pointer-drag with ghost) driven headless against the public URL at 1440×900, 1024×768 and 390×844 — zero console errors at every viewport; cdp smoke + document.fonts.check pass for Fraunces and Source Sans 3 over latin+digits and Vietnamese samples; screenshots (cover/desktop/tablet/mobile) captured from this release. Artifact hash = tar -czf - -C dist . | sha256sum per docs/DEPLOYMENT.md."
+}

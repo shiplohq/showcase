@@ -1,0 +1,942 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Base — editorial Italian bistro layout. Menu hairlines, paper tickets,
+ * solid-offset buttons, ink net-line SVG dishes. No card soup, no gradients.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--flour);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* procedural paper grain — SVG turbulence file, zero raster assets (spec: procedural ok) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url('../assets/paper-grain.svg');
+}
+
+#app {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 var(--sp-4);
+}
+
+@media (min-width: 768px) {
+  #app {
+    padding: 0 var(--sp-6);
+  }
+}
+
+@media (min-width: 1200px) {
+  #app {
+    padding: 0 var(--sp-10);
+  }
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- masthead (menu cover) ---------------------------------------------- */
+
+.masthead {
+  text-align: center;
+  padding: var(--sp-6) 0 var(--sp-4);
+}
+
+.masthead .overline {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.masthead h1 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  margin-top: var(--sp-2);
+}
+
+.masthead .tagline {
+  font-style: italic;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-top: var(--sp-2);
+  font-size: clamp(15px, 1.8vw, 18px);
+}
+
+/* double rule — the classic menu divider */
+.rule-double {
+  border-top: 1px solid var(--ink);
+  position: relative;
+  margin: var(--sp-4) 0;
+}
+
+.rule-double::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 3px;
+  border-top: 1px solid var(--ink);
+}
+
+.rule-hair {
+  border-top: 1px solid var(--line);
+  margin: var(--sp-4) 0;
+}
+
+/* ---- nav ---------------------------------------------------------------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--sp-2) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar .where {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.nav {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+/* ---- buttons ------------------------------------------------------------ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: 48px;
+  padding: var(--sp-2) var(--sp-5);
+  background: var(--paper-raised);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-solid);
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+
+.btn:hover {
+  background: #fffef9;
+}
+
+.btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.btn--primary {
+  background: var(--tomato);
+  color: var(--flour);
+  box-shadow: 0 3px 0 var(--tomato-deep);
+  border-color: var(--ink);
+}
+
+.btn--primary:hover {
+  background: #c94330;
+}
+
+.btn--primary:active {
+  box-shadow: 0 0 0 var(--tomato-deep);
+}
+
+.btn--olive {
+  background: var(--olive);
+  color: var(--flour);
+  box-shadow: 0 3px 0 var(--olive-deep);
+}
+
+.btn--olive:active {
+  box-shadow: 0 0 0 var(--olive-deep);
+}
+
+.btn--ghost {
+  box-shadow: none;
+  border-color: var(--line);
+  background: transparent;
+  min-height: 48px;
+}
+
+.btn--ghost:hover {
+  border-color: var(--ink);
+  background: var(--paper-raised);
+}
+
+.btn--danger {
+  border-color: var(--tomato);
+  color: var(--tomato-deep);
+  background: var(--paper-raised);
+}
+
+.btn--big {
+  min-height: 56px;
+  font-size: 18px;
+  padding: var(--sp-3) var(--sp-8);
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--shadow-solid);
+}
+
+/* ---- board: menu column + ticket rail ----------------------------------- */
+
+.board {
+  display: grid;
+  gap: var(--sp-8);
+  padding: var(--sp-6) 0 var(--sp-8);
+}
+
+@media (min-width: 1024px) {
+  .board {
+    grid-template-columns: minmax(260px, 320px) 1fr;
+    gap: var(--sp-10);
+    align-items: start;
+  }
+
+  /* the menu column stays in view while the ticket rail scrolls */
+  .menu-col {
+    position: sticky;
+    top: var(--sp-4);
+  }
+}
+
+.menu-col .section-label,
+.section-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tomato-deep);
+  margin-bottom: var(--sp-3);
+}
+
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-list li {
+  padding: var(--sp-4) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.menu-list .dish-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(20px, 2.4vw, 24px);
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+}
+
+.menu-list .dish-note {
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin-top: 2px;
+}
+
+.menu-list .dish-dots {
+  flex: 1;
+  border-bottom: 2px dotted var(--line);
+  transform: translateY(-4px);
+  min-width: 24px;
+}
+
+.menu-list .dish-kind {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.board-intro {
+  max-width: 52ch;
+  color: var(--ink-soft);
+  margin-bottom: var(--sp-4);
+}
+
+/* tickets */
+
+.ticket-rail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-5);
+}
+
+@media (min-width: 640px) {
+  .ticket-rail {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .ticket-rail {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-4);
+  }
+}
+
+.ticket {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--paper-raised);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 3px 0 rgba(34, 27, 16, 0.35);
+  padding: 0;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.ticket:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 rgba(34, 27, 16, 0.35);
+}
+
+.ticket:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 0 rgba(34, 27, 16, 0.35);
+}
+
+.ticket:nth-child(3n + 1) {
+  rotate: -0.4deg;
+}
+
+.ticket:nth-child(3n + 2) {
+  rotate: 0.35deg;
+}
+
+.ticket-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-4);
+  border-bottom: 2px dashed var(--line);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.ticket-body {
+  padding: var(--sp-4);
+}
+
+.ticket .dish-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 21px;
+}
+
+.ticket .customer {
+  margin-top: var(--sp-2);
+  color: var(--ink-soft);
+  min-height: 2.4em;
+}
+
+.ticket .ask {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-top: var(--sp-3);
+}
+
+.ticket .ask .frac {
+  font-size: 30px;
+}
+
+.ticket .mode-chip {
+  display: inline-block;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 1px var(--sp-2);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--flour);
+}
+
+.ticket .take {
+  margin-top: var(--sp-3);
+  font-weight: 700;
+  color: var(--tomato-deep);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+/* fraction notation */
+.frac {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.08em;
+}
+
+.frac b {
+  font-weight: 600;
+}
+
+.frac .slash {
+  font-weight: 400;
+  transform: translateY(-0.05em);
+}
+
+/* ---- cutting table ------------------------------------------------------ */
+
+.screen-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--sp-5) 0 var(--sp-4);
+}
+
+.screen-head h2 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(24px, 3vw, 32px);
+}
+
+.mini-ticket {
+  background: var(--paper-raised);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: var(--sp-3) var(--sp-4);
+  box-shadow: var(--shadow-solid-soft);
+  max-width: 46ch;
+}
+
+/* on narrow screens the request stays pinned at the top while plating */
+@media (max-width: 899px) {
+  .mini-ticket {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+}
+
+.mini-ticket .who {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.mini-ticket .what {
+  margin-top: var(--sp-1);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.stage {
+  display: grid;
+  gap: var(--sp-8);
+  padding-bottom: var(--sp-8);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .stage {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  }
+}
+
+.stage-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  min-width: 0;
+}
+
+.dish-wrap {
+  align-self: center;
+  width: 100%;
+  max-width: var(--stage-max);
+}
+
+/* partition picker */
+
+.picker-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: var(--sp-2);
+}
+
+.partition-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.partition-picker .chip {
+  flex: 1 1 72px;
+  min-height: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  padding: var(--sp-2);
+  background: var(--paper-raised);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-solid);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+
+.partition-picker .chip b {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.partition-picker .chip span {
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.partition-picker .chip:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.partition-picker .chip[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--flour);
+}
+
+.partition-picker .chip[aria-pressed='true'] span {
+  color: var(--paper-deep);
+}
+
+/* plate */
+
+.plate-zone {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-deep);
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  transition: box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.plate-zone--drop {
+  border-color: var(--tomato);
+  box-shadow: 0 0 0 3px rgba(190, 58, 38, 0.25);
+}
+
+.plate-zone__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.plate {
+  background: var(--paper-raised);
+  border: var(--border);
+  border-radius: 50% / 42%;
+  min-height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-3);
+}
+
+.plate .plate-slices {
+  width: 100%;
+}
+
+.plate .plate-empty {
+  color: var(--ink-soft);
+  font-style: italic;
+  font-family: var(--font-display);
+}
+
+.readout {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.readout .frac {
+  font-size: clamp(40px, 5vw, 56px);
+}
+
+.readout .say {
+  color: var(--ink-soft);
+  max-width: 20ch;
+}
+
+/* feedback strip — a kitchen note: full hairline in the status color,
+   icon + status word + text (never a thick one-side accent bar) */
+
+.feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+  padding: var(--sp-3) var(--sp-4);
+  min-height: 56px;
+}
+
+.feedback--servito {
+  border-color: var(--olive);
+  color: var(--olive-deep);
+}
+
+.feedback--nudge {
+  border-color: var(--hint);
+  color: var(--hint);
+}
+
+.feedback .fb-icon {
+  flex: none;
+  margin-top: 2px;
+}
+
+.explainer {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+  padding: var(--sp-4);
+  margin-top: var(--sp-4);
+}
+
+.explainer .k-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tomato-deep);
+}
+
+.explainer p {
+  margin-top: var(--sp-2);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 18px;
+}
+
+.explainer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+
+/* compare counter */
+
+.compare-grid {
+  display: grid;
+  gap: var(--sp-6);
+}
+
+@media (min-width: 900px) {
+  .compare-grid {
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+  }
+}
+
+.compare-mid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  align-items: stretch;
+  justify-content: center;
+}
+
+.sign-picker {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-2);
+}
+
+.sign-picker .sign {
+  min-height: 56px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  background: var(--paper-raised);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-solid);
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+
+.sign-picker .sign:active {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.sign-picker .sign[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--flour);
+}
+
+.overlay-stage {
+  position: relative;
+  width: min(300px, 60vw);
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+
+.overlay-stage .layer {
+  position: absolute;
+  inset: 0;
+}
+
+.overlay-stage .layer--top {
+  opacity: 0.55;
+}
+
+.overlay-caption {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin-top: var(--sp-2);
+}
+
+/* recipe book */
+
+.book-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 var(--sp-2);
+}
+
+.book-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-5) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.book-list .pair {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(26px, 3.4vw, 34px);
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+}
+
+.book-list .pair .eq {
+  color: var(--tomato-deep);
+  font-weight: 400;
+}
+
+.book-list .book-dish {
+  margin-left: auto;
+  text-align: right;
+}
+
+.book-list .book-dish .dish-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 19px;
+}
+
+.book-list .book-dish .book-note {
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.book-empty {
+  padding: var(--sp-16) var(--sp-4);
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+.book-empty .big {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--ink);
+  margin-bottom: var(--sp-3);
+}
+
+/* stamp */
+
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px double var(--tomato);
+  border-radius: var(--radius);
+  color: var(--tomato);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: var(--sp-1) var(--sp-4);
+  rotate: -8deg;
+  background: rgba(253, 250, 241, 0.65);
+}
+
+.stamp--lg {
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: 0.3em;
+  padding: var(--sp-3) var(--sp-8);
+  border-width: 5px;
+}
+
+/* on a served ticket the stamp sits on the upper-right corner, clear of the
+   request text */
+.ticket .stamp {
+  position: absolute;
+  top: 15%;
+  right: 9%;
+  left: auto;
+  translate: 0 0;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  padding: 1px var(--sp-2);
+  border-width: 2px;
+  pointer-events: none;
+}
+
+/* footer */
+
+.site-foot {
+  margin-top: auto;
+  padding: var(--sp-5) 0 var(--sp-8);
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.progress-line {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+/* error state */
+
+.error-panel {
+  margin: var(--sp-16) auto;
+  max-width: 46ch;
+  text-align: center;
+  border: 1px solid var(--tomato);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+  padding: var(--sp-8);
+}
+
+.error-panel h2 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  margin-bottom: var(--sp-3);
+}

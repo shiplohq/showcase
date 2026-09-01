@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build output — generated artifact, never committed
+dist/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Logs / caches
+*.log
+.vite/
+*.tsbuildinfo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# tsc composite emits for vite.config.ts (regenerated on build)
+vite.config.js
+vite.config.d.ts
+
+# Impeccable internal artifacts
+.impeccable/
+
+# Local verification screenshots / headless-chrome profiles
+.shots/

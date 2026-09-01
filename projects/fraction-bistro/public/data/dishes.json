@@ -1,0 +1,87 @@
+{
+  "dishes": [
+    {
+      "id": "margherita",
+      "name": "Pizza Margherita",
+      "kind": "round",
+      "menuNote": "San Marzano · fior di latte · basil",
+      "colors": {
+        "rim": "#E8C88F",
+        "base": "#C1442A",
+        "cheese": "#FBF3DF",
+        "leaf": "#557F3D"
+      },
+      "toppings": [
+        { "type": "mozzarella", "x": 120, "y": 78, "s": 1.0, "r": -12 },
+        { "type": "mozzarella", "x": 82, "y": 122, "s": 0.85, "r": 20 },
+        { "type": "mozzarella", "x": 158, "y": 118, "s": 0.9, "r": -8 },
+        { "type": "mozzarella", "x": 118, "y": 162, "s": 0.95, "r": 14 },
+        { "type": "mozzarella", "x": 148, "y": 162, "s": 0.7, "r": 0 },
+        { "type": "mozzarella", "x": 88, "y": 86, "s": 0.65, "r": 30 },
+        { "type": "basil", "x": 120, "y": 118, "s": 1.0, "r": 15 },
+        { "type": "basil", "x": 92, "y": 158, "s": 0.8, "r": -40 },
+        { "type": "basil", "x": 156, "y": 84, "s": 0.85, "r": 55 }
+      ]
+    },
+    {
+      "id": "berry-tart",
+      "name": "Ricotta Berry Tart",
+      "kind": "round",
+      "menuNote": "Vanilla ricotta · strawberry · blueberry",
+      "colors": {
+        "rim": "#D9A45B",
+        "base": "#F2D48F",
+        "cheese": "#FBF3DF",
+        "leaf": "#557F3D"
+      },
+      "toppings": [
+        { "type": "strawberry", "x": 120, "y": 74, "s": 1.0, "r": 0 },
+        { "type": "strawberry", "x": 76, "y": 148, "s": 0.9, "r": -18 },
+        { "type": "strawberry", "x": 166, "y": 140, "s": 0.95, "r": 16 },
+        { "type": "blueberry", "x": 150, "y": 92, "s": 1.0, "r": 0 },
+        { "type": "blueberry", "x": 90, "y": 94, "s": 0.9, "r": 0 },
+        { "type": "blueberry", "x": 120, "y": 128, "s": 1.0, "r": 0 },
+        { "type": "blueberry", "x": 168, "y": 170, "s": 0.85, "r": 0 },
+        { "type": "blueberry", "x": 74, "y": 176, "s": 0.8, "r": 0 },
+        { "type": "blueberry", "x": 122, "y": 172, "s": 0.9, "r": 0 },
+        { "type": "blueberry", "x": 96, "y": 122, "s": 0.75, "r": 0 },
+        { "type": "blueberry", "x": 146, "y": 128, "s": 0.8, "r": 0 }
+      ]
+    },
+    {
+      "id": "focaccia",
+      "name": "Focaccia Romana",
+      "kind": "rect",
+      "menuNote": "Olive oil · rosemary · sea salt",
+      "colors": {
+        "rim": "#C99751",
+        "base": "#E2B36A",
+        "cheese": "#FBF3DF",
+        "leaf": "#46532C"
+      },
+      "toppings": [
+        { "type": "dimple", "x": 62, "y": 88, "s": 1.0, "r": 0 },
+        { "type": "dimple", "x": 120, "y": 82, "s": 0.9, "r": 0 },
+        { "type": "dimple", "x": 178, "y": 90, "s": 1.0, "r": 0 },
+        { "type": "dimple", "x": 88, "y": 128, "s": 0.85, "r": 0 },
+        { "type": "dimple", "x": 152, "y": 126, "s": 0.95, "r": 0 },
+        { "type": "dimple", "x": 120, "y": 158, "s": 0.9, "r": 0 },
+        { "type": "dimple", "x": 58, "y": 158, "s": 0.8, "r": 0 },
+        { "type": "dimple", "x": 184, "y": 156, "s": 0.85, "r": 0 },
+        { "type": "rosemary", "x": 96, "y": 104, "s": 1.0, "r": -14 },
+        { "type": "rosemary", "x": 146, "y": 148, "s": 1.0, "r": 12 },
+        { "type": "rosemary", "x": 176, "y": 120, "s": 0.8, "r": 40 },
+        { "type": "rosemary", "x": 68, "y": 140, "s": 0.75, "r": -50 },
+        { "type": "salt", "x": 104, "y": 90, "s": 1.0, "r": 0 },
+        { "type": "salt", "x": 138, "y": 96, "s": 1.0, "r": 0 },
+        { "type": "salt", "x": 82, "y": 112, "s": 1.0, "r": 0 },
+        { "type": "salt", "x": 166, "y": 140, "s": 1.0, "r": 0 },
+        { "type": "salt", "x": 108, "y": 140, "s": 1.0, "r": 0 },
+        { "type": "salt", "x": 132, "y": 164, "s": 1.0, "r": 0 },
+        { "type": "salt", "x": 72, "y": 174, "s": 1.0, "r": 0 },
+        { "type": "salt", "x": 160, "y": 176, "s": 1.0, "r": 0 },
+        { "type": "salt", "x": 194, "y": 164, "s": 1.0, "r": 0 }
+      ]
+    }
+  ]
+}
