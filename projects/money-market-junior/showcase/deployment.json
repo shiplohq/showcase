@@ -1,0 +1,12 @@
+{
+  "project": "money-market-junior",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://money-market-junior.shiplo.site",
+  "sourceCommitSha": null,
+  "buildCommand": "npm run build",
+  "artifactSha256": "6c8d72c42d620a165950d48920b77dfb41d69499a697945fa1f83a79c3522d3b",
+  "deployedAt": "2026-09-01T16:03:42Z",
+  "verifiedAt": "2026-09-01T16:09:16Z",
+  "notes": "Deployment 788d3b5c-7f83-4bd5-9fe9-a99f350feb59 (release 662c0fb5-c453-4b61-b34c-c7b15f29f108), site ccf553cd-57e6-4abf-8279-e74a75eeb61f, 36 files / 676884 bytes. sourceCommitSha null — finalized by orchestrator to the integration commit after review. Verification: HTTP 200; CDP smoke at 1440x900; full shopping/checkout/change flow driven by scripts/cdp-driver.mjs at 1440x900, 1024x768 and 390x844 — zero console errors, all visible buttons >=44px, prefers-reduced-motion usable; font gate (document.fonts.check) passed on the live URL for Bricolage Grotesque 600/700/800 and Figtree 400/500/600/700 (latin+digits). Screenshots captured from the live URL only."
+}

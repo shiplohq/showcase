@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "money-market-junior",
+  "site_id": "ccf553cd-57e6-4abf-8279-e74a75eeb61f",
+  "subdomain": "money-market-junior",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}

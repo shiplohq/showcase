@@ -1,0 +1,60 @@
+<!-- Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0 -->
+<div class="receipt-screen">
+  <h2 class="sr-only" data-screen-heading tabindex="-1">Receipt</h2>
+
+  @if (store.receipt(); as r) {
+    <div class="ticket" #ticket>
+      <p class="ticket__shop">MONEY MARKET JUNIOR</p>
+      <p class="ticket__mission">{{ r.mission.label }} — picnic receipt</p>
+
+      <ul class="ticket__lines">
+        @for (line of r.lines; track line.product.id) {
+          <li class="ticket__line">
+            <span class="ticket__name">{{ line.product.name }} <span class="num">×{{ line.qty }}</span></span>
+            <span class="ticket__dots" aria-hidden="true"></span>
+            <span class="ticket__amount num">{{ line.lineTotal }}</span>
+          </li>
+        }
+      </ul>
+
+      <div class="ticket__row ticket__row--total">
+        <span>Total</span>
+        <span class="num">{{ r.total }}</span>
+      </div>
+      <div class="ticket__row">
+        <span>Paid</span>
+        <span class="num">{{ r.paid }}</span>
+      </div>
+      <div class="ticket__row ticket__row--change">
+        <span>Change</span>
+        <span class="num">{{ r.change }}</span>
+      </div>
+
+      @if (r.change > 0) {
+        <div class="ticket__coins" aria-hidden="true">
+          @for (c of r.changeCoins; track $index) {
+            <mmj-art class="ticket__coin" [key]="coinArt(c)" />
+          }
+        </div>
+        <p class="sr-only">Change as tokens: {{ r.changeCoins.join(' plus ') }}.</p>
+      }
+
+      <div class="ticket__stamp" #stamp>
+        <mmj-art class="ticket__stamp-art" key="stamp" />
+        <span class="sr-only">Paid — mission complete</span>
+      </div>
+
+      <p class="ticket__summary">{{ summaryLine }}</p>
+
+      <div class="ticket__actions">
+        <button type="button" class="btn btn--primary btn--lg" (click)="store.shopAgain()">
+          Shop another picnic
+        </button>
+        <button type="button" class="btn btn--ghost" (click)="store.resetProgress()">
+          Reset my completed missions
+        </button>
+      </div>
+    </div>
+  }
+</div>

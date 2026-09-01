@@ -1,0 +1,69 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Stall band — striped awning + hanging name sign + shelf row (design §1,§7). */
+
+.stall {
+  margin-bottom: var(--sp-8);
+}
+
+.stall__awning {
+  height: 18px;
+  border-radius: 8px 8px 0 0;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--green) 0 26px,
+    var(--paper-raised) 26px 52px
+  );
+  border: 2px solid var(--ink);
+  border-bottom: none;
+}
+
+.stall__scallops {
+  height: 10px;
+  margin-top: 16px;
+  background-image: radial-gradient(circle at 13px -3px, var(--green) 0 12px, transparent 12.5px);
+  background-size: 52px 10px;
+  background-repeat: repeat-x;
+}
+
+.stall__name {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: var(--sp-3) 0 var(--sp-3);
+  padding: 6px 18px 6px 12px;
+  background: var(--green);
+  color: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  box-shadow: var(--sticker-shadow);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transform: rotate(-1deg);
+}
+
+.stall__pin {
+  font-size: 26px;
+}
+
+.stall__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--sp-3);
+  padding-top: var(--sp-2);
+}
+
+/* the shelf itself: a continuous line the items stand on */
+.stall__shelfline {
+  height: 0;
+  border-top: 3px solid var(--line);
+  margin-top: -6px;
+}
+
+@media (max-width: 767px) {
+  .stall__items {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}

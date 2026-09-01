@@ -1,0 +1,30 @@
+<!-- Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0 -->
+<button
+  #card
+  type="button"
+  class="card press hover-lift"
+  [class.card--in-basket]="qty() > 0"
+  (click)="add()"
+  (pointerdown)="onPointerDown($event)"
+  [attr.aria-label]="
+    qty() > 0
+      ? 'Add another ' + product().name + ', ' + product().priceUnits + ' tokens. Already ' + qty() + ' in basket.'
+      : 'Add ' + product().name + ' to the basket, ' + product().priceUnits + ' tokens.'
+  ">
+  <span #art class="card__art" aria-hidden="true">
+    <mmj-art class="card__svg" [key]="product().svg" />
+  </span>
+
+  @if (qty() > 0) {
+    <span class="card__qty num" aria-hidden="true">{{ qty() }}</span>
+  }
+
+  <span class="card__meta">
+    <span class="card__name">{{ product().name }}</span>
+    <span class="price-tag" [class.price-tag--r]="tilt() === 'r'">
+      <span class="price-tag__n num">{{ product().priceUnits }}</span>
+      <span class="price-tag__unit">tokens</span>
+    </span>
+  </span>
+</button>

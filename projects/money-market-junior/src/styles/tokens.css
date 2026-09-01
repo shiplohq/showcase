@@ -1,0 +1,63 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Design tokens — Money Market Junior (design/DESIGN_DECISIONS.md §4–§6).
+ * Market-signage palette: deep green, coral, butter yellow, cream, ink.
+ */
+
+:root {
+  /* Paper & ink */
+  --paper: #fbf5e9;
+  --paper-raised: #fffdf4;
+  --paper-deep: #f1e7d2;
+  --ink: #262b21;
+  --ink-soft: #5a614f;
+  --line: #dcd2b8;
+
+  /* Greens — sign band & awning */
+  --green: #1e5b3e;
+  --green-deep: #14402c;
+  --green-soft: #9dc0a5;
+  --green-mist: #e5eedd;
+
+  /* Butter & coral */
+  --butter: #f7c64b;
+  --butter-deep: #e0a72e;
+  --coral: #e45c3f;
+  --coral-deep: #c24830;
+  --coral-text: #a33a22;
+  --coin-copper: #c98a4b;
+  --sky: #7fb6c6;
+
+  /* Typography */
+  --font-display: 'Bricolage Grotesque', 'Arial Black', sans-serif;
+  --font-body: 'Figtree', 'Segoe UI', sans-serif;
+
+  /* Hard offset (sticker) shadow — no blur */
+  --sticker-shadow: 2px 2px 0 rgba(38, 43, 33, 0.22);
+  --sticker-shadow-lg: 3px 3px 0 rgba(38, 43, 33, 0.22);
+
+  /* Focus */
+  --focus-ring: 2px solid var(--ink);
+  --focus-gap: 2px;
+
+  /* Spacing scale (base 4) */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+
+  /* Layout */
+  --content-max: 1160px;
+  --gutter: 24px;
+  --touch: 48px;
+
+  --radius-tag: 10px;
+  --radius-tile: 14px;
+}

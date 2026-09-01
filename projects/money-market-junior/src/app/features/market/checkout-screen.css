@@ -1,0 +1,273 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Cashier counter (design §7). Tokens ≥52px art with ≥56px hit area. */
+
+.checkout__top {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  margin-bottom: var(--sp-6);
+}
+
+.checkout__title {
+  font-size: clamp(26px, 3.4vw, 34px);
+  outline-offset: 4px;
+}
+
+.checkout__mission {
+  margin-left: auto;
+  background: var(--green-mist);
+  border: 2px solid var(--green);
+  color: var(--green-deep);
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 15px;
+}
+
+.checkout__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-5);
+}
+
+.counter {
+  background: var(--paper-raised);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-tile);
+  box-shadow: var(--sticker-shadow-lg);
+  padding: var(--sp-4) var(--sp-5) var(--sp-5);
+}
+
+.counter__label {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--sp-2);
+}
+
+.counter__amount {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-3);
+}
+
+.counter__odo {
+  font-size: 56px;
+  color: var(--green);
+}
+
+.counter__amount--change .counter__odo {
+  color: var(--green-deep);
+}
+
+.counter__unit {
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.counter__lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.counter__line {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-1) 0;
+  border-bottom: 1.5px dashed var(--line);
+  font-size: 15.5px;
+}
+
+.counter__thumb {
+  font-size: 34px;
+  flex: none;
+}
+
+.counter__line-name {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.counter__line-total {
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+
+/* Wallet row */
+.wallet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+
+.wallet__empty {
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+/* Token buttons */
+.token {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 6px;
+  min-width: 56px;
+  min-height: 56px;
+}
+
+.token__art {
+  font-size: 56px;
+  line-height: 0;
+}
+
+.token__value {
+  position: absolute;
+  bottom: 2px;
+  right: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.token__stack {
+  position: absolute;
+  top: 0;
+  right: 2px;
+  background: var(--green);
+  color: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 800;
+  padding: 0 6px;
+  min-height: 22px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.token--tray {
+  background: var(--paper);
+}
+
+/* Cashier tray */
+.tray {
+  background: var(--paper-deep);
+  border: 2.5px dashed var(--ink-soft);
+  border-radius: 12px;
+  padding: var(--sp-3) var(--sp-4) var(--sp-4);
+  margin-bottom: var(--sp-3);
+}
+
+.tray--ready {
+  border-color: var(--green);
+  border-style: solid;
+  background: var(--green-mist);
+}
+
+.tray__label {
+  font-weight: 700;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  margin-bottom: var(--sp-2);
+}
+
+.tray__tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  min-height: 64px;
+  align-items: center;
+}
+
+.tray__hint {
+  color: var(--ink-soft);
+  font-style: italic;
+  font-size: 15px;
+}
+
+.tray__paid {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+  border-top: 1.5px dashed var(--line);
+  padding-top: var(--sp-2);
+}
+
+.tray__paid-label {
+  font-weight: 700;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tray__paid-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 26px;
+  color: var(--green);
+}
+
+.tray__paid-total {
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.pay-status {
+  font-weight: 700;
+  color: var(--ink-soft);
+  margin-bottom: var(--sp-3);
+  min-height: 24px;
+}
+
+.pay-status--ok {
+  color: var(--green);
+}
+
+.checkout__pay,
+.checkout__actions {
+  width: 100%;
+}
+
+.checkout__actions {
+  display: flex;
+  gap: var(--sp-3);
+}
+
+.checkout__actions .btn--lg {
+  flex: 1;
+}
+
+/* Change build */
+.change__lead {
+  font-weight: 600;
+  margin-bottom: var(--sp-1);
+}
+
+.change__target {
+  margin-bottom: var(--sp-3);
+}
+
+@media (min-width: 1024px) {
+  .checkout__grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: start;
+  }
+}

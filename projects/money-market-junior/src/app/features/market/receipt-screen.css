@@ -1,0 +1,170 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Till receipt — paper ticket with perforated (zigzag) bottom edge (design §1). */
+
+.receipt-screen {
+  display: flex;
+  justify-content: center;
+  padding: var(--sp-4) 0 var(--sp-8);
+}
+
+.ticket {
+  width: min(520px, 100%);
+  background: var(--paper-raised);
+  border: 2px solid var(--ink);
+  border-bottom: none;
+  box-shadow: var(--sticker-shadow-lg);
+  padding: var(--sp-5) var(--sp-5) var(--sp-8);
+  position: relative;
+  /* start state for the slide-up (GSAP animates to y:0/opacity:1; reduced
+     mode sets final instantly via gsap.set in the wrapper) */
+  transform: translateY(18px);
+  opacity: 0;
+}
+
+/* perforated bottom edge */
+.ticket::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: -12px;
+  height: 12px;
+  background-image: linear-gradient(-45deg, var(--paper-raised) 8px, transparent 0),
+    linear-gradient(45deg, var(--paper-raised) 8px, transparent 0);
+  background-size: 16px 16px;
+  background-position: left bottom;
+  background-repeat: repeat-x;
+  filter: drop-shadow(0 2px 0 rgba(38, 43, 33, 0.2));
+}
+
+.ticket__shop {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-align: center;
+  font-size: 17px;
+}
+
+.ticket__mission {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  border-bottom: 2px dashed var(--line);
+  padding-bottom: var(--sp-3);
+  margin-bottom: var(--sp-3);
+}
+
+.ticket__lines {
+  list-style: none;
+  margin: 0 0 var(--sp-3);
+  padding: 0;
+}
+
+.ticket__line {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+  padding: 3px 0;
+  font-size: 16px;
+}
+
+.ticket__name {
+  white-space: nowrap;
+}
+
+.ticket__dots {
+  flex: 1;
+  border-bottom: 2px dotted var(--line);
+  transform: translateY(-4px);
+}
+
+.ticket__amount {
+  font-weight: 700;
+}
+
+.ticket__row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16.5px;
+  padding: 3px 0;
+}
+
+.ticket__row--total {
+  border-top: 2px solid var(--ink);
+  margin-top: var(--sp-2);
+  padding-top: var(--sp-2);
+  font-weight: 800;
+  font-size: 19px;
+}
+
+.ticket__row--change {
+  color: var(--green-deep);
+  font-weight: 800;
+}
+
+.ticket__coins {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: var(--sp-3) 0 0;
+}
+
+.ticket__coin {
+  font-size: 32px;
+}
+
+/* Stamped into the empty header whitespace — never over the price column
+   (assessment A P2: the itemized sums are the teaching artifact). */
+.ticket__stamp {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 92px;
+  height: 92px;
+  transform: scale(1.4);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ticket__stamp-art {
+  font-size: 92px;
+}
+
+.ticket__summary {
+  margin-top: var(--sp-4);
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.ticket__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-top: var(--sp-5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticket {
+    transform: none;
+    opacity: 1;
+  }
+
+  .ticket__stamp {
+    transform: scale(1) rotate(-8deg);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 479px) {
+  .ticket__stamp {
+    width: 72px;
+    height: 72px;
+  }
+
+  .ticket__stamp-art {
+    font-size: 72px;
+  }
+}

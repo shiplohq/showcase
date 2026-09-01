@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "currency": {
+    "name": "market tokens",
+    "shortName": "tokens",
+    "coins": [1, 2, 5, 10],
+    "notes": [20]
+  },
+  "stalls": [
+    { "id": "fruit", "name": "Orchard Crate", "categories": ["fruit"] },
+    { "id": "bakery", "name": "Butter & Crumb", "categories": ["bakery"] },
+    { "id": "drinks", "name": "The Thirsty Tap", "categories": ["drink"] },
+    { "id": "snacks", "name": "Pocket Snacks", "categories": ["snack"] }
+  ],
+  "categories": [
+    { "id": "fruit", "name": "Fruit", "singular": "fruit" },
+    { "id": "bakery", "name": "Bakery", "singular": "bakery item" },
+    { "id": "drink", "name": "Drinks", "singular": "drink" },
+    { "id": "snack", "name": "Snacks", "singular": "snack" }
+  ],
+  "products": [
+    {
+      "id": "apple",
+      "name": "Crisp Apple",
+      "category": "fruit",
+      "priceUnits": 4,
+      "svg": "apple",
+      "nutritionTag": "fruit"
+    },
+    {
+      "id": "banana",
+      "name": "Banana Bunch",
+      "category": "fruit",
+      "priceUnits": 6,
+      "svg": "banana",
+      "nutritionTag": "fruit"
+    },
+    {
+      "id": "berries",
+      "name": "Berry Box",
+      "category": "fruit",
+      "priceUnits": 8,
+      "svg": "berries",
+      "nutritionTag": "fruit"
+    },
+    {
+      "id": "roll",
+      "name": "Bread Roll",
+      "category": "bakery",
+      "priceUnits": 3,
+      "svg": "roll",
+      "nutritionTag": "grain"
+    },
+    {
+      "id": "bun",
+      "name": "Cinnamon Bun",
+      "category": "bakery",
+      "priceUnits": 7,
+      "svg": "bun",
+      "nutritionTag": "sweet"
+    },
+    {
+      "id": "lemonade",
+      "name": "Lemonade",
+      "category": "drink",
+      "priceUnits": 5,
+      "svg": "lemonade",
+      "nutritionTag": "drink"
+    },
+    {
+      "id": "milk",
+      "name": "Milk Carton",
+      "category": "drink",
+      "priceUnits": 7,
+      "svg": "milk",
+      "nutritionTag": "dairy"
+    },
+    {
+      "id": "crackers",
+      "name": "Cheese Crackers",
+      "category": "snack",
+      "priceUnits": 6,
+      "svg": "crackers",
+      "nutritionTag": "savory"
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Base layer — reset, typography, shared primitives (buttons, price tags,
+ * chips, tokens). Market-signage look (design §1, §5, §7).
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.5;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.1;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+/* Tabular numerals everywhere money is shown (design §5). */
+.num,
+.price,
+.total-out {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+/* ---------------------------------------------------------------------------
+ * Focus — always visible, never removed (design §13)
+ * ------------------------------------------------------------------------- */
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-gap);
+  border-radius: 6px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Buttons (design §8: primary ≥56px, standard ≥48px)
+ * ------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: var(--touch);
+  padding: 10px 20px;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  background: var(--paper-raised);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  box-shadow: var(--sticker-shadow);
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+.btn:disabled {
+  opacity: 0.62;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* A disabled primary stays legible: hollow tag instead of a washed fill */
+.btn--primary:disabled {
+  background: var(--paper-deep);
+  border: 2px dashed var(--ink-soft);
+  color: var(--ink-soft);
+}
+
+.btn--primary {
+  background: var(--green);
+  border-color: var(--green-deep);
+  color: #fff;
+}
+
+.btn--primary:not(:disabled):hover {
+  background: var(--green-deep);
+}
+
+.btn--butter {
+  background: var(--butter);
+}
+
+.btn--coral {
+  background: var(--coral);
+  border-color: var(--coral-deep);
+  color: #fff;
+}
+
+.btn--lg {
+  min-height: 56px;
+  font-size: 19px;
+  padding: 12px 28px;
+}
+
+/* Small square icon stepper (basket +/-, 48×48) */
+.btn--step {
+  min-width: var(--touch);
+  min-height: var(--touch);
+  padding: 0;
+  font-size: 22px;
+  font-weight: 800;
+  border-radius: 10px;
+}
+
+.btn--ghost {
+  background: transparent;
+  box-shadow: none;
+  border-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  min-height: var(--touch);
+}
+
+/* ---------------------------------------------------------------------------
+ * Price tag — the signature sticker (design §1, §9)
+ * ------------------------------------------------------------------------- */
+.price-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px 4px 10px;
+  background: var(--butter);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-tag);
+  box-shadow: var(--sticker-shadow);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  transform: rotate(-2deg);
+}
+
+.price-tag::before {
+  /* string hole */
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  margin-right: 2px;
+  flex: none;
+}
+
+.price-tag--r {
+  transform: rotate(2deg);
+}
+
+.price-tag__n {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.price-tag__unit {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------------------------
+ * Chips — requirement progress (design §3.1, §10)
+ * ------------------------------------------------------------------------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 4px 12px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper-raised);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.chip--met {
+  background: var(--green-mist);
+  border-color: var(--green);
+}
+
+.chip__state {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--paper-deep);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.chip--met .chip__state {
+  background: var(--green);
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------------------
+ * Screen-reader only
+ * ------------------------------------------------------------------------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------------------
+ * Live region (polite) — totals & feedback are announced (design §13)
+ * ------------------------------------------------------------------------- */
+.live-region {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}

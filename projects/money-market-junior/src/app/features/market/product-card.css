@@ -1,0 +1,85 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Market shelf card — an item sitting on the stall shelf (design §7). Not a
+ * "card grid": cards sit on a continuous shelf line drawn by the stall band. */
+
+:host {
+  display: block;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-4) var(--sp-3) var(--sp-6);
+  background: transparent;
+  border: 2px dashed transparent;
+  border-radius: var(--radius-tile);
+  min-height: var(--touch);
+}
+
+.card:hover .card__art {
+  transform: translateY(-3px) rotate(-1deg);
+}
+
+.card__art {
+  font-size: 96px;
+  line-height: 0;
+  transition: transform 160ms ease;
+}
+
+.card__svg {
+  display: block;
+}
+
+.card--in-basket {
+  border-color: var(--green);
+  background: var(--green-mist);
+}
+
+.card__qty {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green);
+  color: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.card__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.card__name {
+  font-weight: 700;
+  font-size: 16.5px;
+  text-align: center;
+}
+
+/* dragged state (mouse/pen) — the card itself dims while the ghost flies */
+.card[data-dragging='true'] {
+  opacity: 0.4;
+}
+
+@media (max-width: 479px) {
+  .card__art {
+    font-size: 78px;
+  }
+}

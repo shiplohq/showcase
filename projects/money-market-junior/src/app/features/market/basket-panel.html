@@ -1,0 +1,129 @@
+<!-- Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0 -->
+<section
+  class="basket"
+  [class.basket--compact]="compact()"
+  [class.basket--open]="open()"
+  data-basket-drop
+  [attr.aria-label]="'Your basket'">
+  @if (compact()) {
+    <button type="button" class="basket__toggle btn" (click)="toggle()" [attr.aria-expanded]="open()">
+      <mmj-art class="basket__icon" key="basket" data-basket-icon />
+      <span>Basket</span>
+      @if (store.itemCount() > 0) {
+        <span class="basket__count num">{{ store.itemCount() }}</span>
+      }
+      @if (store.total() > 0) {
+        <span class="num">· {{ store.total() }} tokens</span>
+      }
+      <span class="basket__chev" aria-hidden="true">{{ open() ? '▲' : '▼' }}</span>
+    </button>
+  } @else {
+    <h2 class="basket__title">
+      <mmj-art class="basket__icon" key="basket" data-basket-icon />
+      Your basket
+      @if (store.itemCount() > 0) {
+        <span class="basket__count num">{{ store.itemCount() }}</span>
+      }
+    </h2>
+  }
+
+  <div class="basket__body">
+    @if (store.lines().length === 0) {
+      <p class="basket__empty">The basket is empty. Tap an item on the shelf to add it.</p>
+    } @else {
+      <ul class="basket__lines" [attr.aria-label]="'Basket items'">
+        @for (line of store.lines(); track line.product.id) {
+          <li class="basket__line">
+            <mmj-art class="basket__thumb" [key]="line.product.svg" />
+            <span class="basket__line-info">
+              <span class="basket__line-name">{{ line.product.name }}</span>
+              <span class="basket__line-price num">{{ line.product.priceUnits }} ea</span>
+            </span>
+            <span class="basket__qty">
+              <button
+                type="button"
+                class="btn btn--step"
+                [attr.aria-label]="'Remove one ' + line.product.name"
+                (click)="store.remove(line.product.id)">
+                −
+              </button>
+              <span class="basket__qty-n num" aria-hidden="true">{{ line.qty }}</span>
+              <button
+                type="button"
+                class="btn btn--step"
+                [attr.aria-label]="'Add one ' + line.product.name"
+                (click)="store.add(line.product.id)">
+                +
+              </button>
+            </span>
+            <span class="basket__line-total num">{{ line.lineTotal }}</span>
+          </li>
+        }
+      </ul>
+    }
+
+    <div class="basket__total">
+      <span class="basket__total-label">Total</span>
+      <span class="basket__total-value" [attr.data-total]="store.total()">
+        <mmj-odometer class="basket__odo" [value]="store.total()" />
+      </span>
+      <span class="basket__total-coins" aria-hidden="true">
+        @for (c of totalCoins(); track $index) {
+          <mmj-art class="basket__coin" [key]="coinArt(c)" />
+        }
+      </span>
+    </div>
+    <p class="sr-only">{{ statusText() }}</p>
+
+    <!-- Budget reflection bar (spec IA) -->
+    <div class="budget">
+      <div class="budget__labels">
+        <span class="budget__spent num">Spent {{ store.total() }}</span>
+        <span class="budget__cap num">Budget {{ store.budget().budget }}</span>
+      </div>
+      <div
+        class="budget__bar"
+        role="progressbar"
+        [attr.aria-valuenow]="store.total()"
+        [attr.aria-valuemin]="0"
+        [attr.aria-valuemax]="store.budget().budget"
+        [attr.aria-label]="'Tokens spent out of budget'">
+        <div class="budget__fill" [style.width.%]="budgetFraction()"></div>
+        <div class="budget__over" [style.width.%]="overFraction()"></div>
+      </div>
+      @if (store.budget().overBy > 0) {
+        <p class="budget__note budget__note--over">
+          <mmj-art class="budget__note-icon" key="arrow-up" />
+          {{ store.budget().overBy }} tokens over — put something back, or swap for a cheaper pick.
+        </p>
+      } @else if (store.budget().exact) {
+        <p class="budget__note budget__note--exact">Spot on — every token budgeted!</p>
+      } @else {
+        <p class="budget__note">{{ store.budget().remaining }} tokens still to spend.</p>
+      }
+    </div>
+
+    <!-- Requirement progress chips (capped at the required count — 2/1 reads as 1/1 ✓) -->
+    @if (store.reqStatuses().length > 0) {
+      <ul class="basket__reqs" aria-label="Mission list progress">
+        @for (r of store.reqStatuses(); track r.category) {
+          <li class="chip" [class.chip--met]="r.met">
+            <span class="chip__state" aria-hidden="true">@if (r.met) {✓} @else {–}</span>
+            <span class="num">{{ chipHave(r) }}/{{ r.required }}</span>
+            {{ store.categories().find(c => c.id === r.category)?.name ?? r.category }}
+          </li>
+        }
+      </ul>
+    }
+
+    <button
+      type="button"
+      class="btn btn--primary btn--lg basket__checkout"
+      [disabled]="!store.gate().ok"
+      (click)="store.goCheckout()">
+      Go to checkout
+    </button>
+    <p class="basket__reason" [class.basket__reason--ok]="store.gate().ok">{{ gateReasonText() }}</p>
+  </div>
+</section>

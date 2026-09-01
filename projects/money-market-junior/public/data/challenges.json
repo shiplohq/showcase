@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "missions": [
+    {
+      "id": "picnic-01",
+      "label": "First Picnic",
+      "story": "Two fruits and one drink for the class picnic.",
+      "budget": 30,
+      "requirements": { "fruit": 2, "drink": 1 },
+      "mode": "budget",
+      "wallet": [10, 10, 10],
+      "learningGoal": "Compose totals within 30"
+    },
+    {
+      "id": "picnic-02",
+      "label": "Tight Pockets",
+      "story": "One bakery item, one fruit, one drink and one snack — the budget is tight!",
+      "budget": 20,
+      "requirements": { "bakery": 1, "fruit": 1, "drink": 1, "snack": 1 },
+      "mode": "budget",
+      "wallet": [10, 10, 10],
+      "learningGoal": "Compare combinations within 20"
+    },
+    {
+      "id": "picnic-03",
+      "label": "Change Maker",
+      "story": "Shop the picnic list, then build the shopper's change yourself.",
+      "budget": 40,
+      "requirements": { "fruit": 1, "bakery": 1, "drink": 2 },
+      "mode": "change",
+      "wallet": [20, 20],
+      "learningGoal": "Make change from a round amount"
+    },
+    {
+      "id": "free-shop",
+      "label": "Free Shop",
+      "story": "Any picnic you like — just stay inside the budget.",
+      "budget": 50,
+      "requirements": {},
+      "mode": "budget",
+      "wallet": [20, 20, 10],
+      "learningGoal": "Plan and check your own basket"
+    }
+  ]
+}

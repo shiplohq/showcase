@@ -1,0 +1,23 @@
+<!-- Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0 -->
+<section class="stall" [attr.aria-label]="stall().name">
+  <div class="stall__top">
+    <div class="stall__awning" aria-hidden="true"><div class="stall__scallops"></div></div>
+    <h2 class="stall__name">
+      <mmj-art class="stall__pin" key="tag" />
+      {{ stall().name }}
+    </h2>
+  </div>
+
+  <div class="stall__shelf">
+    <div class="stall__items">
+      @for (p of items(); track p.id; let i = $index) {
+        <mmj-product-card
+          [product]="p"
+          [qty]="basket()[p.id] || 0"
+          [tilt]="i % 2 === 1 ? 'r' : 'l'" />
+      }
+    </div>
+    <div class="stall__shelfline" aria-hidden="true"></div>
+  </div>
+</section>

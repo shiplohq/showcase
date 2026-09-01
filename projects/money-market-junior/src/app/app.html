@@ -1,0 +1,39 @@
+<!-- Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0 -->
+@if (store.loading()) {
+  <div class="board-state" role="status">
+    <div class="board-state__awning" aria-hidden="true"></div>
+    <h1>Rolling up the awnings…</h1>
+    <p>The market is opening. One moment.</p>
+  </div>
+} @else if (store.loadError(); as err) {
+  <div class="board-state board-state--error" role="alert">
+    <h1>The market is closed right now</h1>
+    <p>{{ err }}</p>
+    <button class="btn btn--primary btn--lg" type="button" (click)="store.retryLoad()">
+      Try opening again
+    </button>
+  </div>
+} @else {
+  <a class="skip-link" href="#main">Skip to the market</a>
+  <mmj-sign-band />
+  <main id="main" class="app-main">
+    @switch (store.screen()) {
+      @case ('market') {
+        <mmj-market />
+      }
+      @case ('checkout') {
+        <mmj-checkout />
+      }
+      @case ('receipt') {
+        <mmj-receipt />
+      }
+    }
+  </main>
+  <footer class="app-footer">
+    <p>
+      Money Market Junior — a Shiplo Showcase. Practice picnic shopping with
+      play tokens: no real money, no ads, nothing to sign up for.
+    </p>
+  </footer>
+}

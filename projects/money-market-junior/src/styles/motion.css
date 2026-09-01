@@ -1,0 +1,72 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Motion layer — GSAP drives most motion (src/app/lib/gsap.ts); these rules
+ * are the CSS side: press/hover feedback plus the reduced-motion fallbacks
+ * (design §11). Under prefers-reduced-motion everything either shows its
+ * final state instantly or fades ≤150ms.
+ */
+
+.press {
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.press:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.hover-lift {
+  transition: transform 160ms ease;
+}
+
+@media (hover: hover) {
+  .hover-lift:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+}
+
+/* Ghost element for shelf→basket fly (positioned by JS, styled here) */
+.fly-ghost {
+  position: fixed;
+  z-index: 90;
+  pointer-events: none;
+  width: 72px;
+  height: 72px;
+}
+
+/* Digit roll strip (basket total) */
+.roll {
+  display: inline-block;
+  overflow: hidden;
+  height: 1.15em;
+  vertical-align: bottom;
+}
+
+.roll__strip {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.roll__digit {
+  line-height: 1.15;
+  text-align: center;
+}
+
+/* ---------------------------------------------------------------------------
+ * Reduced motion — final states immediately, fades ≤150ms (design §11)
+ * ------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .fly-ghost {
+    display: none;
+  }
+}

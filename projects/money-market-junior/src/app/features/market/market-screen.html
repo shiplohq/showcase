@@ -1,0 +1,27 @@
+<!-- Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0 -->
+<h2 class="sr-only" data-screen-heading tabindex="-1">Market</h2>
+
+@if (store.mission(); as mission) {
+  <section class="brief" aria-label="Mission brief">
+    <p class="brief__mission">{{ mission.label }}</p>
+    <p class="brief__story">{{ mission.story }}</p>
+    <p class="brief__goal">Learning goal: {{ mission.learningGoal }}</p>
+  </section>
+}
+
+<div class="market-grid">
+  <div class="market-aisle" #stalls>
+    @for (stall of store.stalls(); track stall.id) {
+      <mmj-stall-band
+        [stall]="stall"
+        [products]="productsByStall().get(stall.id) ?? []"
+        [basket]="store.basket()" />
+    }
+  </div>
+
+  <!-- single basket instance: sticky column ≥1024px, collapsible section below -->
+  <aside class="market-basket" [class.market-basket--narrow]="isNarrow()">
+    <mmj-basket-panel [compact]="isNarrow()" />
+  </aside>
+</div>

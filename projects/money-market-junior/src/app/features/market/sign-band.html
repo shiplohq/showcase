@@ -1,0 +1,48 @@
+<!-- Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0 -->
+<header class="band">
+  <div class="band__scallops" aria-hidden="true"></div>
+  <div class="band__inner">
+    <div class="band__brand">
+      <mmj-art class="band__logo" key="awning" />
+      <div>
+        <h1 class="band__title">Money Market <span class="band__junior">Junior</span></h1>
+        <p class="band__tagline">Shop the picnic, mind the budget, make the change.</p>
+      </div>
+    </div>
+
+    <nav class="band__missions" aria-label="Missions">
+      @for (m of store.missions(); track m.id) {
+        <button
+          type="button"
+          class="mission-tab"
+          [class.mission-tab--active]="m.id === store.missionId()"
+          [attr.aria-current]="m.id === store.missionId() ? 'true' : null"
+          (click)="store.selectMission(m.id)">
+          <span class="mission-tab__label">{{ m.label }}</span>
+          @if (store.completed()[m.id]) {
+            <mmj-art class="mission-tab__done" key="check" />
+            <span class="sr-only">completed</span>
+          }
+        </button>
+      }
+    </nav>
+
+    <div class="band__wallet">
+      @if (store.mission(); as m) {
+        <span class="band__wallet-line">
+          Budget <strong class="num">{{ m.budget }}</strong>
+          <span aria-hidden="true">·</span>
+          @if (store.budget().overBy > 0) {
+            <span class="band__over">
+              <mmj-art class="band__over-icon" key="arrow-up" />
+              {{ store.budget().overBy }} over
+            </span>
+          } @else {
+            <span class="band__left num">{{ store.budget().remaining }} left</span>
+          }
+        </span>
+      }
+    </div>
+  </div>
+</header>

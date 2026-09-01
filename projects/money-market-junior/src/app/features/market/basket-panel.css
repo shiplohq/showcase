@@ -1,0 +1,292 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Basket drawer (design §7): raised paper panel with a woven sticker look. */
+
+.basket {
+  background: var(--paper-raised);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-tile);
+  box-shadow: var(--sticker-shadow-lg);
+  padding: var(--sp-4);
+}
+
+.basket--drop-target {
+  outline: 3px dashed var(--green);
+  outline-offset: 3px;
+}
+
+.basket__toggle {
+  width: 100%;
+  justify-content: flex-start;
+  gap: var(--sp-2);
+  position: relative;
+}
+
+/* badge count on the toggle */
+.basket__toggle .basket__count {
+  margin-left: 0;
+}
+
+/* Narrow screens: the market screen pins this panel in a fixed bottom
+   wrapper (pointer-events: none). The panel opts back into hit-testing and
+   becomes a scrollable bottom sheet when opened. These rules must live here:
+   the parent's stylesheet cannot reach inside this component. */
+@media (max-width: 1023px) {
+  :host-context(.market-basket--narrow) {
+    pointer-events: auto;
+    display: block;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  :host-context(.market-basket--narrow) .basket--open .basket__body {
+    max-height: min(58vh, 520px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+.basket__toggle .num {
+  font-weight: 800;
+}
+
+.basket__chev {
+  margin-left: auto;
+  font-size: 13px;
+}
+
+/* compact (narrow): body collapses */
+.basket--compact .basket__body {
+  display: none;
+}
+
+.basket--compact.basket--open .basket__body {
+  display: block;
+}
+
+.basket__title {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: 21px;
+}
+
+.basket__icon {
+  font-size: 40px;
+}
+
+.basket__count {
+  margin-left: auto;
+  min-width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green);
+  color: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 16px;
+  padding: 0 6px;
+}
+
+.basket__empty {
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  padding: var(--sp-3) 0;
+}
+
+.basket__lines {
+  list-style: none;
+  margin: 0 0 var(--sp-2);
+  padding: 0;
+}
+
+.basket__line {
+  display: grid;
+  grid-template-columns: 40px 1fr auto auto;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) 0;
+  border-bottom: 1.5px dashed var(--line);
+}
+
+.basket__thumb {
+  font-size: 40px;
+}
+
+.basket__line-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.basket__line-name {
+  font-weight: 700;
+  font-size: 15.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.basket__line-price {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+}
+
+.basket__qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.basket__qty .btn--step {
+  min-width: 48px;
+  min-height: 48px;
+  font-size: 21px;
+}
+
+.basket__qty-n {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.basket__line-total {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  min-width: 2ch;
+  text-align: right;
+}
+
+.basket__total {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-3) 0 var(--sp-2);
+}
+
+.basket__total-label {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.basket__total-value {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.basket__odo {
+  font-size: 40px;
+  color: var(--green);
+}
+
+.basket__total-coins {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  max-width: 130px;
+}
+
+.basket__coin {
+  font-size: 26px;
+}
+
+/* Budget bar */
+.budget {
+  margin: var(--sp-2) 0 var(--sp-3);
+}
+
+.budget__labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--ink-soft);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.budget__bar {
+  position: relative;
+  height: 18px;
+  background: var(--paper-deep);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  overflow: hidden;
+  display: flex;
+}
+
+.budget__fill {
+  height: 100%;
+  background: var(--green);
+  transition: width 180ms ease;
+}
+
+.budget__over {
+  height: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--coral) 0 6px,
+    var(--coral-deep) 6px 12px
+  );
+  transition: width 180ms ease;
+}
+
+.budget__note {
+  margin-top: var(--sp-2);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.budget__note--over {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--coral-text);
+}
+
+.budget__note-icon {
+  font-size: 22px;
+  flex: none;
+}
+
+.budget__note--exact {
+  color: var(--green);
+}
+
+.basket__reqs {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin: 0 0 var(--sp-3);
+  padding: 0;
+}
+
+.basket__checkout {
+  width: 100%;
+}
+
+.basket__reason {
+  margin-top: var(--sp-2);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.basket__reason--ok {
+  color: var(--green);
+}

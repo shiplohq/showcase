@@ -1,0 +1,27 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Art sizing + numerals inside coins/notes (design §9). The SVG keeps its
+ * aspect ratio; consumers size via font-size of the wrapper. */
+
+:host {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 0;
+}
+
+:host([data-size='xl']) {
+  font-size: 120px;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.art-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+}

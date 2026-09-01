@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Build output — generated artifact, never committed
+dist/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Logs / caches
+*.log
+.vite/
+*.tsbuildinfo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# tsc composite emits for vite.config.ts (regenerated on build)
+vite.config.js
+vite.config.d.ts
+
+# Angular CLI cache & compile scratch (generated, never committed)
+.angular/
+/out-tsc
+/.angular/cache
+
+# Node tooling logs
+npm-debug.log
+yarn-error.log
+testem.log
+
+# Working artifacts (headless-capture scratch, tooling cache, editor config — never commit)
+.shots/
+.chrome-profile-*/
+.chrome-*/
+.cp-*/
+.impeccable/
+.vscode/

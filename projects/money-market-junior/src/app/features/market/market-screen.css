@@ -1,0 +1,83 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Market layout (design §7): brief banner, then aisle + basket. Tablet is
+ * the hero viewport; ≥1024px the basket is a sticky right column. */
+
+.brief {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--sp-2) var(--sp-6);
+  background: var(--paper-raised);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-tile);
+  box-shadow: var(--sticker-shadow);
+  padding: var(--sp-3) var(--sp-4);
+  margin-bottom: var(--sp-6);
+}
+
+.brief__mission {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 20px;
+}
+
+.brief__story {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.brief__goal {
+  width: 100%;
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  border-top: 1.5px dashed var(--line);
+  padding-top: 6px;
+  margin-top: 4px;
+}
+
+.market-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sp-6);
+  align-items: start;
+}
+
+.market-basket {
+  min-width: 0;
+}
+
+@media (min-width: 1024px) {
+  .market-grid {
+    grid-template-columns: minmax(0, 1fr) 340px;
+  }
+
+  .market-basket {
+    position: sticky;
+    top: var(--sp-4);
+  }
+}
+
+@media (max-width: 1023px) {
+  /* Basket rides along as a fixed bottom bar (collapsed) / bottom sheet
+     (open) — the total, budget bar and requirement chips stay visible while
+     shopping (assessment A P1: no visible basket on mobile).
+     Only THIS component's elements are styled here: rules that must reach
+     inside <mmj-basket-panel> live in its own stylesheet (:host-context),
+     because Angular's emulated encapsulation scopes these selectors. */
+  .market-basket--narrow {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+    padding: 0 var(--sp-3) calc(env(safe-area-inset-bottom, 0px) + 10px);
+    pointer-events: none; /* wrapper is hit-transparent; the panel opts back in */
+  }
+
+  /* room for the collapsed bar under the aisle content */
+  .market-aisle {
+    padding-bottom: 96px;
+  }
+}

@@ -1,0 +1,13 @@
+<!-- Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0 -->
+<span class="odo" aria-hidden="true">
+  @for (d of digits(); track $index) {
+    <span class="odo__col">
+      <span class="odo__strip" [style.transform]="'translateY(' + (-10 * (+d)) + '%)'">
+        @for (n of nums; track n) {
+          <span class="odo__digit">{{ n }}</span>
+        }
+      </span>
+    </span>
+  }
+</span>

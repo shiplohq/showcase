@@ -1,0 +1,182 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Deep-green sign band — the market's wayfinding header (design §1, §7). */
+
+.band {
+  background: var(--green);
+  color: var(--paper);
+  border-bottom: 3px solid var(--ink);
+}
+
+/* scalloped awning edge under the band */
+.band__scallops {
+  height: 12px;
+  background-image: radial-gradient(circle at 14px -4px, var(--green) 0 13px, transparent 13.5px);
+  background-size: 28px 12px;
+  background-repeat: repeat-x;
+  background-position: center top;
+}
+
+.band__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--sp-4) var(--gutter) var(--sp-5);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-4) var(--sp-6);
+}
+
+.band__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  min-width: 0;
+}
+
+.band__logo {
+  font-size: 58px;
+  flex: none;
+}
+
+.band__title {
+  font-size: clamp(24px, 3.2vw, 36px);
+  letter-spacing: 0.01em;
+  color: var(--paper);
+  text-wrap: balance;
+}
+
+.band__junior {
+  color: var(--butter);
+}
+
+.band__tagline {
+  font-size: 14.5px;
+  font-weight: 600;
+  /* lighter mint for ≥4.5:1 on the deep-green band (assessment A minor) */
+  color: #d3e2cf;
+  margin-top: 2px;
+}
+
+/* Missions — a row of hanging tags */
+.band__missions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-left: auto;
+}
+
+.mission-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--touch);
+  padding: 8px 14px;
+  background: var(--green-deep);
+  color: var(--paper);
+  border: 2px solid var(--green-deep);
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15.5px;
+  transition: transform 120ms ease, background-color 120ms ease;
+}
+
+.mission-tab:hover {
+  transform: translateY(-2px);
+}
+
+.mission-tab--active {
+  background: var(--butter);
+  color: var(--ink);
+  border-color: var(--ink);
+  box-shadow: var(--sticker-shadow);
+}
+
+.mission-tab__done {
+  font-size: 18px;
+}
+
+.mission-tab__done :first-child {
+  /* check icon in green passes on butter; keep ink visibility via bg circle */
+  background: var(--green-mist);
+  border-radius: 50%;
+}
+
+/* Wallet strip */
+.band__wallet {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.band__wallet-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--paper);
+  background: var(--green-deep);
+  border-radius: 999px;
+  padding: 8px 16px;
+  border: 2px solid rgba(251, 245, 233, 0.35);
+}
+
+.band__wallet-line strong {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--butter);
+}
+
+.band__left {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--paper);
+}
+
+.band__over {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ink);
+  background: var(--butter);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: 2px 12px;
+}
+
+.band__over-icon {
+  font-size: 20px;
+}
+
+@media (max-width: 1023px) {
+  .band__missions {
+    margin-left: 0;
+    order: 3;
+    width: 100%;
+  }
+
+  .band__wallet {
+    order: 2;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 599px) {
+  .band__logo {
+    font-size: 44px;
+  }
+
+  .band__tagline {
+    display: none;
+  }
+
+  .band__wallet {
+    justify-content: flex-start;
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "project": "money-market-junior",
+  "title": "Money Market Junior",
+  "summary": "An illustrated 2D market where learners shop for a picnic within a fixed budget, computing totals and change.",
+  "category": "education-math",
+  "number": 6,
+  "audience": "7-11",
+  "mobileSupport": "supported",
+  "mobileSupportNote": "Full shopping and checkout flow works at 390px: basket is a fixed bottom bar (collapsed) / bottom sheet (open) with the running total always visible; token placement is tap-based. Mouse/pen users additionally get drag-to-basket.",
+  "screenshots": {
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://money-market-junior.shiplo.site",
+      "capturedAt": "2026-09-01T16:08:24Z",
+      "alt": "Staged market moment on tablet-width layout: stalls with price-tag stickers, a basket holding strawberries, bananas and lemonade totalling 19 of a 30-token budget with the coin strip and budget bar visible."
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://money-market-junior.shiplo.site",
+      "capturedAt": "2026-09-01T16:07:05Z",
+      "alt": "Honest desktop landing state: deep-green market sign band with four mission tabs, the four stall aisle with eight products, and an empty basket panel with budget bar on the right."
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://money-market-junior.shiplo.site",
+      "capturedAt": "2026-09-01T16:07:36Z",
+      "alt": "Tablet hero view (1024x768): stall aisle with striped scalloped awnings on the left and the sticky basket column with requirement chips on the right."
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://money-market-junior.shiplo.site",
+      "capturedAt": "2026-09-01T16:08:04Z",
+      "alt": "Mobile landing state at 390px: sign band, mission brief and first stalls, with the pinned bottom basket bar showing an empty basket and 30 tokens left."
+    }
+  }
+}

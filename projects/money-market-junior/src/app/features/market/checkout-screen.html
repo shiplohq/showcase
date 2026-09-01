@@ -1,0 +1,158 @@
+<!-- Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0 -->
+<div class="checkout">
+  <div class="checkout__top">
+    <button type="button" class="btn" (click)="store.backToMarket()">
+      <span aria-hidden="true">←</span> Back to the market
+    </button>
+    <h2 class="checkout__title" data-screen-heading tabindex="-1">Checkout</h2>
+    @if (store.mission(); as m) {
+      <span class="checkout__mission">{{ m.label }}</span>
+    }
+  </div>
+
+  <div class="checkout__grid">
+    <!-- ------------------------------------------------ total ------------ -->
+    <section class="counter" aria-label="Amount to pay">
+      <p class="counter__label">Total to pay</p>
+      <div class="counter__amount" [attr.data-total]="store.total()">
+        <mmj-odometer class="counter__odo" [value]="store.total()" />
+        <span class="counter__unit">tokens</span>
+      </div>
+      <p class="sr-only">{{ store.total() }} tokens to pay.</p>
+      <ul class="counter__lines">
+        @for (line of store.lines(); track line.product.id) {
+          <li class="counter__line">
+            <mmj-art class="counter__thumb" [key]="line.product.svg" />
+            <span class="counter__line-name">{{ line.product.name }} × {{ line.qty }}</span>
+            <span class="counter__line-total num">{{ line.lineTotal }}</span>
+          </li>
+        }
+      </ul>
+    </section>
+
+    @if (store.payPhase() === 'paying') {
+      <!-- ------------------------------------------------ paying ---------- -->
+      <section class="counter" aria-label="Cashier tray">
+        <p class="counter__label">Your wallet</p>
+        <div class="wallet" role="group" aria-label="Wallet tokens — put one in the tray">
+          @for (g of store.walletGrouped(); track g.denomination) {
+            <button
+              type="button"
+              class="token press hover-lift"
+              [attr.aria-label]="'Put a ' + g.denomination + ' token in the tray. ' + walletCount(g.denomination) + ' left in wallet.'"
+              (click)="store.place(g.denomination)">
+              <mmj-art class="token__art" [key]="coinArt(g.denomination)" />
+              <span class="token__value num">{{ g.denomination }}</span>
+              @if (walletCount(g.denomination) > 1) {
+                <span class="token__stack num" aria-hidden="true">×{{ walletCount(g.denomination) }}</span>
+              }
+            </button>
+          } @empty {
+            <p class="wallet__empty">The wallet is empty — everything is in the tray.</p>
+          }
+        </div>
+
+        <div class="tray" #tray [class.tray--ready]="store.pay().canPay" aria-label="Cashier tray">
+          <p class="tray__label">Cashier tray</p>
+          <div class="tray__tokens">
+            @for (g of store.trayGrouped(); track g.denomination) {
+              <button
+                type="button"
+                class="token token--tray press"
+                [attr.aria-label]="'Take the ' + g.denomination + ' token back from the tray'"
+                (click)="store.takeBack(g.denomination)">
+                <mmj-art class="token__art" [key]="coinArt(g.denomination)" />
+                @if (g.count > 1) {
+                  <span class="token__stack num" aria-hidden="true">×{{ g.count }}</span>
+                }
+              </button>
+            } @empty {
+              <p class="tray__hint">Tap a token from your wallet to fill the tray.</p>
+            }
+          </div>
+          <div class="tray__paid">
+            <span class="tray__paid-label">Paid</span>
+            <span class="tray__paid-num num">{{ paidShown() }}</span>
+            <span class="tray__paid-total">of {{ store.total() }}</span>
+          </div>
+        </div>
+
+        <p class="pay-status" aria-live="polite">{{ payStatusText }}</p>
+
+        <button
+          type="button"
+          class="btn btn--primary btn--lg checkout__pay"
+          [disabled]="!store.pay().canPay"
+          (click)="store.confirmPay()">
+          @if (store.pay().exact) { Pay the exact amount } @else { Pay and get change }
+        </button>
+      </section>
+    }
+
+    @if (store.payPhase() === 'change') {
+      <!-- ------------------------------------------------ change build ---- -->
+      <section class="counter counter--change" aria-label="Make the change">
+        <p class="counter__label">You paid {{ store.pay().paid }} for a {{ store.total() }}-token basket</p>
+        <div class="change__target">
+          <p class="change__lead">Give the shopper their change:</p>
+          <div class="counter__amount counter__amount--change" [attr.data-total]="store.changeTarget()">
+            <mmj-odometer class="counter__odo" [value]="store.changeTarget()" />
+            <span class="counter__unit">tokens</span>
+          </div>
+          <p class="sr-only">Give back {{ store.changeTarget() }} tokens.</p>
+        </div>
+
+        <div class="wallet" role="group" aria-label="Change coins — tap to add one">
+          @for (d of changeDenoms(); track d) {
+            <button
+              type="button"
+              class="token press hover-lift"
+              [attr.aria-label]="'Add a ' + d + ' token to the change'"
+              (click)="store.addChangeCoin(d)">
+              <mmj-art class="token__art" [key]="coinArt(d)" />
+              <span class="token__value num">{{ d }}</span>
+            </button>
+          }
+        </div>
+
+        <div class="tray tray--change" [class.tray--ready]="store.changeBuild().ok" aria-label="Change being built">
+          <p class="tray__label">Change tray</p>
+          <div class="tray__tokens">
+            @for (c of store.changeBuilt(); track $index) {
+              <button
+                type="button"
+                class="token token--tray press"
+                [attr.aria-label]="'Take the ' + c + ' token out of the change'"
+                (click)="store.removeChangeCoin($index)">
+                <mmj-art class="token__art" [key]="coinArt(c)" />
+              </button>
+            } @empty {
+              <p class="tray__hint">Any combination that adds up works.</p>
+            }
+          </div>
+          <div class="tray__paid">
+            <span class="tray__paid-label">Built</span>
+            <span class="tray__paid-num num">{{ store.changeBuild().built }}</span>
+            <span class="tray__paid-total">of {{ store.changeTarget() }}</span>
+          </div>
+        </div>
+
+        <p class="pay-status" [class.pay-status--ok]="store.changeBuild().ok" aria-live="polite">
+          {{ changeFeedback }}
+        </p>
+
+        <div class="checkout__actions">
+          <button type="button" class="btn" (click)="store.clearChangeCoins()">Clear tray</button>
+          <button
+            type="button"
+            class="btn btn--primary btn--lg"
+            [disabled]="!store.changeBuild().ok"
+            (click)="store.confirmChange()">
+            Give the change
+          </button>
+        </div>
+      </section>
+    }
+  </div>
+</div>
