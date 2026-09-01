@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "multiplication-galaxy",
+  "site_id": "c419812b-dab3-478e-8804-74eac5a7de15",
+  "subdomain": "multiplication-galaxy",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}

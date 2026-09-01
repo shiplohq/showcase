@@ -1,0 +1,62 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Design tokens — DESIGN_DECISIONS §4–§6. Silk-print star chart: ink ground,
+ * cream lines, mineral teal + star orange accents. Flat only, no gradients.
+ */
+
+:root {
+  /* Ground (ink) */
+  --void: #11141f;
+  --chart: #171c2c;
+  --chart-raised: #1e2438;
+  --rule: #39415c;
+  --rule-dim: #2a3047;
+
+  /* Ink on paper (text) */
+  --cream: #f1e8d2;
+  --cream-dim: #b9b09a;
+  --paper: #f5eedc;
+
+  /* Accents */
+  --mineral: #4e9b97;
+  --mineral-deep: #37716e;
+  --mineral-bright: #7cc4bf;
+  --saffron: #e89a3c;
+  --saffron-deep: #c47a1f;
+  --ember: #c9702e;
+  --lilac-ink: #8e8aa6;
+
+  /* Typography */
+  --font-display: 'Space Grotesk', 'Work Sans', system-ui, sans-serif;
+  --font-body: 'Work Sans', system-ui, sans-serif;
+
+  /* Spacing (base 4) */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 40px;
+  --sp-8: 48px;
+  --sp-9: 64px;
+  --sp-10: 96px;
+
+  /* Chart furniture */
+  --hairline: 1px;
+  --frame-inset: 14px;
+  --plate-max: 1240px;
+  --gutter: 16px;
+
+  /* Focus — 2px ring + gap, reads on every surface (§4) */
+  --focus-ring: 2px solid var(--saffron);
+  --focus-gap: 2px;
+  --focus-ring-paper: 2px solid var(--saffron-deep);
+
+  /* Motion (§11 budget; actual durations live in JS for GSAP, here for CSS) */
+  --dur-press: 120ms;
+  --dur-hover: 140ms;
+  --dur-spatial: 380ms;
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+}

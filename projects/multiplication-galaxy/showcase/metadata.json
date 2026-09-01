@@ -1,0 +1,40 @@
+{
+  "id": "multiplication-galaxy",
+  "title": "Multiplication Galaxy",
+  "summary": "A silk-print star chart where children 7-10 read planet orbit arrays as multiplication facts and lock stable orbits by answering them.",
+  "category": "education-math",
+  "number": 4,
+  "audience": "7-10",
+  "mobileSupport": "supported",
+  "mobileSupportNote": "Full learning loop works at 390x844 (verified live): stacked stage with sticky instrument dock, tap + full keyboard answer path. On dense systems (>=90 satellites, e.g. 12x12) the satellite dots get small, so cumulative ring tally labels (12 · 24 · ... · 144) carry the count on every viewport.",
+  "screenshots": {
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://multiplication-galaxy.shiplo.site",
+      "capturedAt": "2026-09-01T15:46:00Z",
+      "alt": "Staged real moment: the 4 x 6 = ? fact in Quartet Cluster just answered — orbit locked (mineral rings, registration ticks), skip-count total 24 showing, four paper answer dials with 24 confirmed, 'Orbit locked. 4 x 6 is 24.' feedback"
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://multiplication-galaxy.shiplo.site",
+      "capturedAt": "2026-09-01T15:46:00Z",
+      "alt": "Honest desktop landing: the star chart with eleven table constellations (2-12) along the dotted survey path, each with its miniature orbit system and n/6 progress"
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://multiplication-galaxy.shiplo.site",
+      "capturedAt": "2026-09-01T15:46:00Z",
+      "alt": "Hero tablet view of a mission: 2 x 6 = ? fact headline over the drifting orbit array, instrument column with four paper answer-node dials, count-by-rings and rebuild controls"
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://multiplication-galaxy.shiplo.site",
+      "capturedAt": "2026-09-01T15:46:00Z",
+      "alt": "Honest mobile landing: the expedition grid of eleven constellations at 390px width with progress counts"
+    }
+  }
+}

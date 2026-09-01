@@ -1,0 +1,66 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Motion layer — CSS-side motion only (press/hover/fade). Timed choreography
+ * (orbit lock, array build-up, probe travel, skip-count) is GSAP through
+ * src/lib/gsap.ts. Everything here collapses under prefers-reduced-motion.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Gentle fade used when screens mount — final state is never delayed past
+   220ms and never gates input (pointer-events stay live). */
+@keyframes chart-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chart-fade-in {
+  animation: chart-fade-in 220ms var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chart-fade-in {
+    animation: none;
+  }
+}
+
+/* Drift wobble fallback (GSAP drives the SVG version; this is for the
+   instrument-side copy/arrow cue when GSAP is unavailable). */
+@keyframes drift-sway {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-1.5deg);
+  }
+  75% {
+    transform: rotate(1.5deg);
+  }
+}
+
+.drift-sway {
+  animation: drift-sway 360ms ease-in-out 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drift-sway {
+    animation: none;
+  }
+}

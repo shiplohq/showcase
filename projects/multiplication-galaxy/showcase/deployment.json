@@ -1,0 +1,12 @@
+{
+  "project": "multiplication-galaxy",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://multiplication-galaxy.shiplo.site",
+  "sourceCommitSha": null,
+  "buildCommand": "npm run build",
+  "artifactSha256": "6f8f72dd7c054b20e41f4046ec4d058c672c81afa8e712148391ddd8b95fe268",
+  "deployedAt": "2026-09-01T15:36:14Z",
+  "verifiedAt": "2026-09-01T15:46:00Z",
+  "notes": "Deploy #2 (release c9d6cf56-ea9b-404b-a9bf-29934d55ce95, deployment c1cb46fc-c471-4163-bc57-542f8f52cb27, activated 2026-09-01T15:36:14.758Z, 29 files / 838,940 bytes, same site c419812b-dab3-478e-8804-74eac5a7de15) — layout fixes from independent review: plate gutters + max-width applied to the real screens (app-shell; was only on error/loading states), mission plate now fits one viewport at 1440x900 and 1024x768 (chart capped by 100dvh minus chrome), mission log compacted to fit, two scaffold .gitkeep files removed from dist. Deploy #1 was 3041288e-d9ea-4da8-8ed3-a2f23acae9d7 / release b663488f-90b4-4d79-aa9b-65f7bd5d3596 (activated 2026-09-01T04:59:47.208Z, 31 files / 838,404 bytes). sourceCommitSha null — finalized by orchestrator post-review (project files still uncommitted at deploy time; the working tree is the exact source of this artifact). Live verification of this release: document scrollHeight <= viewport asserted on mission/map/log at 1440x900 and 1024x768; gutters 140px desktop / 24px tablet / 20px mobile; full mission flow (keyboard wrong pick -> drift, retry -> lock, auto skip-count, touch next-fact, sector-complete, log + two-step reset) re-driven headless at 1440x900, 1024x768, 390x844 — zero console errors; fonts.check passes on live for Space Grotesk and Work Sans over latin+digits and Vietnamese; critique-fix audit re-verified live (144 satellites, zero overlaps, morph exact); screenshots re-captured from this release (right-edge luma scan shows no scrollbar tracks). Artifact hash = tar -czf - -C dist . | sha256sum per docs/DEPLOYMENT.md."
+}

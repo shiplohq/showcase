@@ -1,0 +1,169 @@
+{
+  "galaxies": [
+    {
+      "id": "g2",
+      "tableNumber": 2,
+      "title": "Table of 2",
+      "constellation": "Twin Moons",
+      "chapterCopy": "Every orbit here carries its satellites in pairs — count by 2 and the rings fill in.",
+      "constellationLayout": {
+        "x": 8,
+        "y": 41
+      },
+      "planetStyle": {
+        "base": "#4E9B97",
+        "band": "#37716E"
+      }
+    },
+    {
+      "id": "g3",
+      "tableNumber": 3,
+      "title": "Table of 3",
+      "constellation": "Triad Belt",
+      "chapterCopy": "Three to a ring: a loose belt of small worlds that only steadies when you count by 3.",
+      "constellationLayout": {
+        "x": 16.4,
+        "y": 68.3
+      },
+      "planetStyle": {
+        "base": "#E89A3C",
+        "band": "#C47A1F"
+      }
+    },
+    {
+      "id": "g4",
+      "tableNumber": 4,
+      "title": "Table of 4",
+      "constellation": "Quartet Cluster",
+      "chapterCopy": "Four satellites ride each ring — half of eight, twice two, and always an even chart.",
+      "constellationLayout": {
+        "x": 24.8,
+        "y": 58.6
+      },
+      "planetStyle": {
+        "base": "#8E8AA6",
+        "band": "#6B6785"
+      }
+    },
+    {
+      "id": "g5",
+      "tableNumber": 5,
+      "title": "Table of 5",
+      "constellation": "Pentagraph Sector",
+      "chapterCopy": "Five-pointed and handy: rings of five line up with your hands.",
+      "constellationLayout": {
+        "x": 33.2,
+        "y": 83.3
+      },
+      "planetStyle": {
+        "base": "#F1E8D2",
+        "band": "#B9B09A"
+      }
+    },
+    {
+      "id": "g6",
+      "tableNumber": 6,
+      "title": "Table of 6",
+      "constellation": "Sixfold Crown",
+      "chapterCopy": "Six per ring turns slowly under a steady skip-count — half a dozen, again and again.",
+      "constellationLayout": {
+        "x": 41.6,
+        "y": 69.5
+      },
+      "planetStyle": {
+        "base": "#C9702E",
+        "band": "#A0521F"
+      }
+    },
+    {
+      "id": "g7",
+      "tableNumber": 7,
+      "title": "Table of 7",
+      "constellation": "Septet Drift",
+      "chapterCopy": "Seven is the first odd drift that feels far away — lock it and the whole chart calms.",
+      "constellationLayout": {
+        "x": 50,
+        "y": 89
+      },
+      "planetStyle": {
+        "base": "#7CC4BF",
+        "band": "#4E9B97"
+      }
+    },
+    {
+      "id": "g8",
+      "tableNumber": 8,
+      "title": "Table of 8",
+      "constellation": "Octave Reach",
+      "chapterCopy": "Eight to a ring: double four, and the fastest way is to take a known ring twice.",
+      "constellationLayout": {
+        "x": 58.4,
+        "y": 69.5
+      },
+      "planetStyle": {
+        "base": "#C47A1F",
+        "band": "#8F5A12"
+      }
+    },
+    {
+      "id": "g9",
+      "tableNumber": 9,
+      "title": "Table of 9",
+      "constellation": "Novena Spiral",
+      "chapterCopy": "Nine sits one shy of ten — build it as a full ring minus one and it stops slipping.",
+      "constellationLayout": {
+        "x": 66.8,
+        "y": 83.3
+      },
+      "planetStyle": {
+        "base": "#37716E",
+        "band": "#264947"
+      }
+    },
+    {
+      "id": "g10",
+      "tableNumber": 10,
+      "title": "Table of 10",
+      "constellation": "Decade Ring",
+      "chapterCopy": "Tens chart themselves: add a ring, add a zero, keep your place.",
+      "constellationLayout": {
+        "x": 75.2,
+        "y": 58.6
+      },
+      "planetStyle": {
+        "base": "#D9B36A",
+        "band": "#B08F45"
+      }
+    },
+    {
+      "id": "g11",
+      "tableNumber": 11,
+      "title": "Table of 11",
+      "constellation": "Hendeca Veil",
+      "chapterCopy": "Eleven plays a trick: up by eleven each ring — until ten rings make it a hundred and ten.",
+      "constellationLayout": {
+        "x": 83.6,
+        "y": 68.3
+      },
+      "planetStyle": {
+        "base": "#7A7494",
+        "band": "#575170"
+      }
+    },
+    {
+      "id": "g12",
+      "tableNumber": 12,
+      "title": "Table of 12",
+      "constellation": "Duodeca Deep",
+      "chapterCopy": "The deep field: twelve to a ring, dozens at a glance — the boss chart of the atlas.",
+      "constellationLayout": {
+        "x": 92,
+        "y": 41
+      },
+      "planetStyle": {
+        "base": "#F0B15C",
+        "band": "#C47A1F"
+      }
+    }
+  ]
+}
