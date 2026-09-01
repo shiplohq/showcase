@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "clock-quest",
+  "site_id": "5439614b-e5b0-4d37-93d6-10728ed71e7b",
+  "subdomain": "clock-quest",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}

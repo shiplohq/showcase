@@ -1,0 +1,12 @@
+{
+  "project": "clock-quest",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://clock-quest.shiplo.site",
+  "sourceCommitSha": null,
+  "buildCommand": "npm run build",
+  "artifactSha256": "58b31c3c00a3d034ae42554868026efbf23462037fc5d1c07dc2ca2bebfcbf80",
+  "deployedAt": "2026-09-01T15:44:09.193Z",
+  "verifiedAt": "2026-09-01T15:56:32.560Z",
+  "notes": "Deployment b0da411c-e626-421d-b2ff-f75534ba2e53 (release b7e35cfb-9f88-4d8b-99b2-93cc620183bf, site 5439614b-e5b0-4d37-93d6-10728ed71e7b, activated 2026-09-01T15:44:09.193Z, 25 files / 442,899 bytes, status active/live). URL recorded verbatim from the deploy response. sourceCommitSha null — finalized by orchestrator post-review. Live verification: repo cdp:smoke (1440x900) clean; full quest flow re-driven headless against the public URL at 1440x900, 1024x768 and 390x844 (mouse drag of the minute hand incl. hour-carry across 12, keyboard steppers, departure-board reads incl. wrong-pick nudge + no-lockout assert, day-recap pin/retry loop, finale, sail-again reset, prefers-reduced-motion) — zero console errors at all three viewports; touch-target audit covers real buttons AND role=button map markers; document.fonts.check passes for Hepta Slab 700/800 and Lexend 400/600/700 over latin+digits and Vietnamese samples; screenshots captured from this deployment (cover PSNR-checked against the honest desktop shot to prove the staged state). Artifact hash = tar -czf - -C dist . | sha256sum per docs/DEPLOYMENT.md."
+}

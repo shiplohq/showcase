@@ -1,0 +1,39 @@
+{
+  "places": [
+    { "id": "pier", "name": "Ferry Pier", "icon": "anchor", "x": 150, "y": 520 },
+    { "id": "market", "name": "Salty Market", "icon": "basket", "x": 395, "y": 455 },
+    { "id": "station", "name": "Clang Station", "icon": "train", "x": 640, "y": 330 },
+    { "id": "lighthouse", "name": "Gullwing Lighthouse", "icon": "lighthouse", "x": 835, "y": 175 },
+    { "id": "tower", "name": "Clocktower Green", "icon": "bell", "x": 470, "y": 160 }
+  ],
+  "timetable": {
+    "station": {
+      "title": "Clang Station — departures",
+      "icon": "train",
+      "rows": [
+        { "id": "tr1", "time": "13:15", "label": "Gullwing Cape" },
+        { "id": "tr2", "time": "14:45", "label": "Harbour Loop" },
+        { "id": "tr3", "time": "15:30", "label": "Salt Marsh" },
+        { "id": "tr4", "time": "16:05", "label": "Old Mill" }
+      ]
+    },
+    "pier-boats": {
+      "title": "Ferry Pier — evening boats",
+      "icon": "boat",
+      "rows": [
+        { "id": "bt1", "time": "18:00", "label": "Moonlight Cruise" },
+        { "id": "bt2", "time": "19:15", "label": "Lighthouse Supply" },
+        { "id": "bt3", "time": "19:45", "label": "Last Ferry Home" },
+        { "id": "bt4", "time": "20:10", "label": "Night Fishing" }
+      ]
+    }
+  },
+  "activities": [
+    { "id": "a1", "label": "Ride the 9:00 ferry", "time": "09:00", "icon": "boat", "slot": "morning" },
+    { "id": "a2", "label": "Buy warm bread at 10:25", "time": "10:25", "icon": "bread", "slot": "morning" },
+    { "id": "a3", "label": "Lunch on the quay at 12:15", "time": "12:15", "icon": "lunch", "slot": "midday" },
+    { "id": "a4", "label": "Hear the clocktower strike 12:00", "time": "12:00", "icon": "bell", "slot": "midday" },
+    { "id": "a5", "label": "See the lamp light up at 6:45", "time": "18:45", "icon": "lamp", "slot": "evening" },
+    { "id": "a6", "label": "Take the last boat at 7:45", "time": "19:45", "icon": "boat", "slot": "evening" }
+  ]
+}

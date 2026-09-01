@@ -1,0 +1,190 @@
+{
+  "quest": {
+    "title": "Clock Island",
+    "subtitle": "Set the hands. Catch the rides. Finish your day.",
+    "intro": "Welcome aboard, time traveller! This island runs on clockwork — turn the hands to be everywhere on time and fill your journal with stamps.",
+    "stops": [
+      {
+        "id": "pier",
+        "title": "Ferry Pier",
+        "placeId": "pier",
+        "phase": "dawn",
+        "brief": "The morning ferry is warming its engine. Set the clock just right and climb aboard.",
+        "missions": [
+          {
+            "id": "pier-0900",
+            "mode": "set-clock",
+            "targetTime": "09:00",
+            "snapMinutes": 15,
+            "toleranceMinutes": 0,
+            "prompt": "The first ferry leaves at 9 o'clock. Turn the hands to 9:00.",
+            "hint": "At a full hour the minute hand points straight up at the 12, and the hour hand points at the 9."
+          },
+          {
+            "id": "pier-0930",
+            "mode": "set-clock",
+            "targetTime": "09:30",
+            "snapMinutes": 15,
+            "toleranceMinutes": 0,
+            "prompt": "The next ferry is at half past nine. Set the clock to 9:30.",
+            "hint": "Minute hand points to 6 at half past."
+          },
+          {
+            "id": "pier-1015",
+            "mode": "set-clock",
+            "targetTime": "10:15",
+            "snapMinutes": 15,
+            "toleranceMinutes": 0,
+            "prompt": "One more boat sails at quarter past ten. Set the clock to 10:15.",
+            "hint": "A quarter past means the minute hand has walked a quarter of the way round — to the 3."
+          }
+        ]
+      },
+      {
+        "id": "market",
+        "title": "Salty Market",
+        "placeId": "market",
+        "phase": "morning",
+        "brief": "Bells, bread and busy stalls. Five-minute precision keeps the bakers happy.",
+        "missions": [
+          {
+            "id": "mkt-1025",
+            "mode": "set-clock",
+            "targetTime": "10:25",
+            "snapMinutes": 5,
+            "toleranceMinutes": 0,
+            "prompt": "The baker pulls sea-salt loaves out at 10:25. Set the clock.",
+            "hint": "The minute hand points at the 5 — and each big number is 5 minutes."
+          },
+          {
+            "id": "mkt-1040",
+            "mode": "set-clock",
+            "targetTime": "10:40",
+            "snapMinutes": 5,
+            "toleranceMinutes": 0,
+            "prompt": "The juice cart opens at 10:40. Set the clock.",
+            "hint": "Count by fives up to the 8 — that makes 40 minutes past."
+          },
+          {
+            "id": "mkt-1155",
+            "mode": "set-clock",
+            "targetTime": "11:55",
+            "snapMinutes": 5,
+            "toleranceMinutes": 0,
+            "prompt": "The market bell rings at 11:55 — five minutes to noon. Set the clock.",
+            "hint": "55 minutes is the 11 on the face — just one small step before the 12."
+          }
+        ]
+      },
+      {
+        "id": "station",
+        "title": "Clang Station",
+        "placeId": "station",
+        "phase": "midday",
+        "brief": "Read the departure board like a real traveller, then set your watch by it.",
+        "missions": [
+          {
+            "id": "stn-read-1315",
+            "mode": "read-schedule",
+            "targetTime": "13:15",
+            "spoken": "quarter past one",
+            "boardId": "station",
+            "options": ["tr1", "tr2", "tr3", "tr4"],
+            "prompt": "You want the train that leaves at quarter past one. Which one is it?",
+            "hint": "Quarter past one is 1:15. Read the minutes first, then the hour."
+          },
+          {
+            "id": "stn-read-1445",
+            "mode": "read-schedule",
+            "targetTime": "14:45",
+            "spoken": "quarter to three",
+            "boardId": "station",
+            "options": ["tr1", "tr2", "tr3", "tr4"],
+            "prompt": "Grandpa waits at Salt Marsh at three. Which train gets you there by quarter to three?",
+            "hint": "Quarter to three is 2:45 — the minute hand has 15 minutes left to reach the 12."
+          },
+          {
+            "id": "stn-1530",
+            "mode": "set-clock",
+            "targetTime": "15:30",
+            "snapMinutes": 5,
+            "toleranceMinutes": 0,
+            "prompt": "Your train to Salt Marsh leaves at half past three. Set the clock.",
+            "hint": "Half past = the minute hand on the 6, the hour hand halfway between 3 and 4."
+          },
+          {
+            "id": "stn-1605",
+            "mode": "set-clock",
+            "targetTime": "16:05",
+            "snapMinutes": 5,
+            "toleranceMinutes": 0,
+            "prompt": "The last afternoon train is the Old Mill train, at five past four. Set the clock.",
+            "hint": "Five past means one little step past the hour — the minute hand on the 1."
+          }
+        ]
+      },
+      {
+        "id": "lighthouse",
+        "title": "Gullwing Lighthouse",
+        "placeId": "lighthouse",
+        "phase": "evening",
+        "brief": "Evening quarters only. The keeper trusts you with the big lamp.",
+        "missions": [
+          {
+            "id": "lhs-read-1915",
+            "mode": "read-schedule",
+            "targetTime": "19:15",
+            "spoken": "quarter past seven",
+            "boardId": "pier-boats",
+            "options": ["bt1", "bt2", "bt3", "bt4"],
+            "prompt": "The keeper's supply boat leaves at quarter past seven. Which boat is it?",
+            "hint": "Quarter past seven is 7:15 — the same quarter as after noon, just in the evening."
+          },
+          {
+            "id": "lhs-1830",
+            "mode": "set-clock",
+            "targetTime": "18:30",
+            "snapMinutes": 15,
+            "toleranceMinutes": 0,
+            "prompt": "The keeper lights the first little lamp at half past six. Set the clock.",
+            "hint": "Half past six: the hour hand sits between 6 and 7, the minute hand on the 6."
+          },
+          {
+            "id": "lhs-1845",
+            "mode": "set-clock",
+            "targetTime": "18:45",
+            "snapMinutes": 15,
+            "toleranceMinutes": 0,
+            "prompt": "The gulls come home at quarter to seven. Set the clock.",
+            "hint": "Quarter to seven = 6:45. The minute hand points at the 9."
+          },
+          {
+            "id": "lhs-2030",
+            "mode": "set-clock",
+            "targetTime": "20:30",
+            "snapMinutes": 15,
+            "toleranceMinutes": 0,
+            "prompt": "The big beam sweeps the sea at half past eight. Set the clock one last time.",
+            "hint": "Half past eight: minute hand on the 6, hour hand between 8 and 9."
+          }
+        ]
+      },
+      {
+        "id": "tower",
+        "title": "Clocktower Green",
+        "placeId": "tower",
+        "phase": "dusk",
+        "brief": "Your journal is almost full. Pin each memory to the right part of the day.",
+        "missions": [
+          {
+            "id": "tower-recap",
+            "mode": "day-recap",
+            "activityIds": ["a1", "a2", "a3", "a4", "a5", "a6"],
+            "prompt": "Pin each memory to the right part of the day: morning, midday or evening.",
+            "hint": "Morning comes first, midday is around 12 o'clock, and evening is when the lamps come on."
+          }
+        ]
+      }
+    ]
+  }
+}

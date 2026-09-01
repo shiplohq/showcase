@@ -1,0 +1,87 @@
+/*
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+Design tokens — Clock Quest (DESIGN_DECISIONS §4–§6).
+Fonts are self-hosted woff2 (OFL 1.1); fallback stacks stay in the same
+spirit so a slow font never breaks the layout (font-display: swap).
+*/
+
+@font-face {
+  font-family: 'Hepta Slab';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/hepta-slab-latin-700-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Hepta Slab';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('../fonts/hepta-slab-latin-800-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Lexend';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/lexend-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Lexend';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/lexend-latin-600-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Lexend';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/lexend-latin-700-normal.woff2') format('woff2');
+}
+
+:root {
+  /* paper & ink */
+  --paper: #F5EEDC;
+  --paper-raised: #FBF6E9;
+  --paper-deep: #EAE0C4;
+  --ink: #22374E;
+  /* ink-soft darkened to clear 4.5:1 on --paper-deep too (audit catch) */
+  --ink-soft: #4A5E75;
+  --line: #D5C7A1;
+  --brass: #B98A2E;
+  --brass-deep: #9A6F1F;
+
+  /* sea & land (scene) */
+  --sea: #C7DAD5;
+  --wave: #A6C6C0;
+  --land: #EFE5C3;
+
+  /* accents & states (never color-only — see base.css icons + text) */
+  --buoy: #BF4A32;
+  --buoy-deep: #9E3A26;
+  --signal: #2E6E5E;
+  --signal-soft: #DCEBE4;
+  /* amber darkened to #8F5A15: nudge text must clear 4.5:1 on --paper (4.98:1) */
+  --amber: #8F5A15;
+  --amber-soft: #F4E7C8;
+
+  /* typography */
+  --font-display: 'Hepta Slab', Georgia, 'Times New Roman', serif;
+  --font-body: 'Lexend', 'Trebuchet MS', Verdana, system-ui, sans-serif;
+
+  /* spacing (base 4) */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px; --s6: 24px;
+  --s7: 32px; --s8: 40px; --s9: 48px; --s10: 64px; --s11: 80px;
+
+  /* shape */
+  --radius: 10px;
+  --radius-lg: 18px;
+  --shadow-print: 0 2px 0 rgba(34, 55, 78, 0.14);
+
+  /* layout */
+  --header-h: 72px;
+  --content-max: 1240px;
+}

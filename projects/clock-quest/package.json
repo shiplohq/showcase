@@ -1,0 +1,13 @@
+{
+  "name": "clock-quest",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shiplo Showcase #05 — a no-build jQuery/vanilla island of train schedules, markets and a lighthouse; turn the clock hands to arrive at the right place at the right time.",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test:engine": "node scripts/engine-sim.mjs",
+    "verify": "node scripts/build.mjs --verify-only",
+    "check:contrast": "node scripts/contrast-check.mjs"
+  }
+}

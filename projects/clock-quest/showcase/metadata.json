@@ -1,0 +1,40 @@
+{
+  "id": "clock-quest",
+  "title": "Clock Quest",
+  "summary": "An island of train schedules, markets and a lighthouse; turn the clock hands to arrive at the right place at the right time.",
+  "category": "education-math",
+  "number": 5,
+  "audience": "6-9",
+  "mobileSupport": "supported",
+  "mobileSupportNote": "Full quest loop verified live at 390x844 (keyboard solve, pointer drag, board, recap, finale): stacked layout, full-width actions, 260px clock, generous invisible marker hit-areas. Drag precision is lower than tablet — steppers (with press-and-hold repeat) remain the primary fine input on small screens.",
+  "screenshots": {
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://clock-quest.shiplo.site",
+      "capturedAt": "2026-09-01T15:55:00Z",
+      "alt": "Staged teaching moment on the live app: the quest ticket open over the island chart with the station clock mid-lesson, amber measuring arc sweeping from 12 with 5-10-15 counting labels, 'Be there by 9:30 AM' readout and the big steppers"
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://clock-quest.shiplo.site",
+      "capturedAt": "2026-09-01T15:50:00Z",
+      "alt": "Honest default landing at desktop width: nautical island chart with five stops on a dashed ferry route, compass rose, ferry token at the pier, journal panel reading 'Next stop — Ferry Pier' and the stamp passport in the header"
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://clock-quest.shiplo.site",
+      "capturedAt": "2026-09-01T15:52:00Z",
+      "alt": "Hero tablet view: the island chart on top with the journal panel and its 'Sail there' call-to-action fully above the fold, morning progress '0 of 5 stops' in the journey bar"
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://clock-quest.shiplo.site",
+      "capturedAt": "2026-09-01T15:53:00Z",
+      "alt": "Honest mobile landing at 390px: wrapped journal header with stamp passport, island chart scaled with all five markers and labels legible, journal panel stacked below"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+/*
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+Motion (CSS side) — Clock Quest. GSAP handles tweened motion through
+js/motion.js; this file holds the few CSS keyframes and the global
+prefers-reduced-motion guarantee (DESIGN_DECISIONS §11).
+*/
+
+@keyframes halo-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.18; }
+  50% { transform: scale(1.13); opacity: 0.32; }
+}
+
+/* amber blink ×2 — the locked feedback for a wrong timetable pick
+   (DESIGN_DECISIONS §10: blink, never shake) */
+@keyframes row-blink {
+  0%, 100% { background-color: var(--paper-raised); }
+  25%, 75% { background-color: var(--amber-soft); }
+  50% { background-color: var(--paper-raised); }
+}
+
+.m-stop-halo { transform-box: fill-box; transform-origin: center; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .m-stop[data-state="next"] .m-stop-halo { opacity: 0.3; }
+  .toast { transition: none; }
+}
