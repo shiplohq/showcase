@@ -150,7 +150,7 @@
       "summary": "An illustrated 2D market where learners shop for a picnic within a fixed budget, computing totals and change.",
       "category": "education-math",
       "audience": "7-11",
-      "status": "building",
+      "status": "live",
       "stack": [
         "angular",
         "typescript"
@@ -160,14 +160,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://money-market-junior.shiplo.site",
+        "deployedAt": "2026-09-01T16:03:42Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/money-market-junior/showcase/cover.webp",
+        "desktop": "projects/money-market-junior/showcase/desktop.webp",
+        "tablet": "projects/money-market-junior/showcase/tablet.webp",
+        "mobile": "projects/money-market-junior/showcase/mobile.webp"
       }
     },
     {

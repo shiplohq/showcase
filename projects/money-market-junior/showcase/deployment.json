@@ -3,7 +3,7 @@
   "provider": "Shiplo",
   "status": "verified",
   "url": "https://money-market-junior.shiplo.site",
-  "sourceCommitSha": null,
+  "sourceCommitSha": "c0b34ac2aabb8eba3ff7f64cc1071b1b36be0d8f",
   "buildCommand": "npm run build",
   "artifactSha256": "6c8d72c42d620a165950d48920b77dfb41d69499a697945fa1f83a79c3522d3b",
   "deployedAt": "2026-09-01T16:03:42Z",

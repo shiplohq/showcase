@@ -19,6 +19,7 @@ no backend, no database, no SSR. Human-readable source is Apache-2.0
 | <img src="projects/geometry-builder/showcase/cover.webp" alt="Geometry Builder cover" width="360"> | **[Geometry Builder](https://geometry-builder.shiplo.site)**<br>A minimal architect's desk where children build houses, bridges and robots from polygons by applying shape properties. | education-math |
 | <img src="projects/multiplication-galaxy/showcase/cover.webp" alt="Multiplication Galaxy cover" width="360"> | **[Multiplication Galaxy](https://multiplication-galaxy.shiplo.site)**<br>A space probe flying planet clusters arranged as arrays; answer multiplication facts to lock stable orbits. | education-math |
 | <img src="projects/clock-quest/showcase/cover.webp" alt="Clock Quest cover" width="360"> | **[Clock Quest](https://clock-quest.shiplo.site)**<br>An island of train schedules, markets and a lighthouse; turn the clock hands to arrive at the right place at the right time. | education-math |
+| <img src="projects/money-market-junior/showcase/cover.webp" alt="Money Market Junior cover" width="360"> | **[Money Market Junior](https://money-market-junior.shiplo.site)**<br>An illustrated 2D market where learners shop for a picnic within a fixed budget, computing totals and change. | education-math |
 <!-- showcase:gallery:end -->
 
 ## Catalog
@@ -35,7 +36,7 @@ All planned and in-progress showcases. Status lives in
 | 03 | **Geometry Builder** — [live demo](https://geometry-builder.shiplo.site) | education-math | angular · typescript | live |
 | 04 | **Multiplication Galaxy** — [live demo](https://multiplication-galaxy.shiplo.site) | education-math | react · vite · typescript | live |
 | 05 | **Clock Quest** — [live demo](https://clock-quest.shiplo.site) | education-math | jquery · html · css · gsap | live |
-| 06 | **Money Market Junior** | education-math | angular · typescript | building |
+| 06 | **Money Market Junior** — [live demo](https://money-market-junior.shiplo.site) | education-math | angular · typescript | live |
 | 07 | **Vocabulary Expedition** | education-language | vue · vite · typescript | building |
 | 08 | **Phonics Forest** | education-language | typescript · vite | building |
 | 09 | **Grammar Detective** | education-language | react · vite · typescript | building |
