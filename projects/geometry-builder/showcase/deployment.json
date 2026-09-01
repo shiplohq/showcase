@@ -3,7 +3,7 @@
   "provider": "Shiplo",
   "status": "verified",
   "url": "https://geometry-builder.shiplo.site",
-  "sourceCommitSha": null,
+  "sourceCommitSha": "20e4875da50e2541a921581be707991c6e38e1e1",
   "buildCommand": "npm run build",
   "artifactSha256": "7fe6078a76c69a13ecdaee07fb48ae5e54c83fc93a6e03726a3e6ecb5ec4dd7d",
   "deployedAt": "2026-09-01T15:46:08Z",
