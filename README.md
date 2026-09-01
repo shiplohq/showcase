@@ -15,6 +15,7 @@ no backend, no database, no SSR. Human-readable source is Apache-2.0
 | | Showcase | Category |
 |---|---|---|
 | <img src="projects/number-garden/showcase/cover.webp" alt="Number Garden cover" width="360"> | **[Number Garden](https://number-garden.shiplo.site)**<br>A paper-cut garden where children grow plants by building and splitting numbers within 20. | education-math |
+| <img src="projects/fraction-bistro/showcase/cover.webp" alt="Fraction Bistro cover" width="360"> | **[Fraction Bistro](https://fraction-bistro.shiplo.site)**<br>A modern Italian-style bistro where learners cut pizza, tarts and focaccia into equal parts to serve exact orders. | education-math |
 <!-- showcase:gallery:end -->
 
 ## Catalog
@@ -27,25 +28,25 @@ All planned and in-progress showcases. Status lives in
 | # | Showcase | Category | Stack | Status |
 |---|---|---|---|---|
 | 01 | **Number Garden** — [live demo](https://number-garden.shiplo.site) | education-math | react · vite · typescript | live |
-| 02 | **Fraction Bistro** | education-math | vue · vite · typescript | planned |
-| 03 | **Geometry Builder** | education-math | angular · typescript | planned |
-| 04 | **Multiplication Galaxy** | education-math | react · vite · typescript | planned |
-| 05 | **Clock Quest** | education-math | jquery · html · css · gsap | planned |
-| 06 | **Money Market Junior** | education-math | angular · typescript | planned |
-| 07 | **Vocabulary Expedition** | education-language | vue · vite · typescript | planned |
-| 08 | **Phonics Forest** | education-language | typescript · vite | planned |
-| 09 | **Grammar Detective** | education-language | react · vite · typescript | planned |
-| 10 | **Story Sequencer** | education-language | angular · typescript | planned |
-| 11 | **Solar System Explorer** | education-science | react · vite · typescript | planned |
-| 12 | **Human Body Lab** | education-science | vue · vite · typescript | planned |
-| 13 | **EcoBalance** | education-science | typescript · vite | planned |
-| 14 | **Atom Forge** | education-science | react · vite · typescript | planned |
-| 15 | **RoboRoute** | education-computing | react · vite · typescript | planned |
-| 16 | **GeoTrail** | education-geography | vue · vite · typescript | planned |
-| 17 | **Rhythm Canvas** | creative-tool | typescript · vite · web-audio-api · gsap | planned |
-| 18 | **Aurora Lamp** | marketing | html · css · javascript · gsap | planned |
-| 19 | **Paper & Pixel** | portfolio | vue · vite · typescript | planned |
-| 20 | **Habit Bloom** | productivity | react · vite · typescript | planned |
+| 02 | **Fraction Bistro** — [live demo](https://fraction-bistro.shiplo.site) | education-math | vue · vite · typescript | live |
+| 03 | **Geometry Builder** | education-math | angular · typescript | building |
+| 04 | **Multiplication Galaxy** | education-math | react · vite · typescript | building |
+| 05 | **Clock Quest** | education-math | jquery · html · css · gsap | building |
+| 06 | **Money Market Junior** | education-math | angular · typescript | building |
+| 07 | **Vocabulary Expedition** | education-language | vue · vite · typescript | building |
+| 08 | **Phonics Forest** | education-language | typescript · vite | building |
+| 09 | **Grammar Detective** | education-language | react · vite · typescript | building |
+| 10 | **Story Sequencer** | education-language | angular · typescript | building |
+| 11 | **Solar System Explorer** | education-science | react · vite · typescript | building |
+| 12 | **Human Body Lab** | education-science | vue · vite · typescript | building |
+| 13 | **EcoBalance** | education-science | typescript · vite | building |
+| 14 | **Atom Forge** | education-science | react · vite · typescript | building |
+| 15 | **RoboRoute** | education-computing | react · vite · typescript | building |
+| 16 | **GeoTrail** | education-geography | vue · vite · typescript | building |
+| 17 | **Rhythm Canvas** | creative-tool | typescript · vite · web-audio-api · gsap | building |
+| 18 | **Aurora Lamp** | marketing | html · css · javascript · gsap | building |
+| 19 | **Paper & Pixel** | portfolio | vue · vite · typescript | building |
+| 20 | **Habit Bloom** | productivity | react · vite · typescript | building |
 <!-- showcase:catalog:end -->
 
 ## The lifecycle

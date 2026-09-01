@@ -38,7 +38,7 @@
       "summary": "A modern Italian-style bistro where learners cut pizza, tarts and focaccia into equal parts to serve exact orders.",
       "category": "education-math",
       "audience": "7-10",
-      "status": "planned",
+      "status": "live",
       "stack": [
         "vue",
         "vite",
@@ -49,14 +49,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://fraction-bistro.shiplo.site",
+        "deployedAt": "2026-09-01T05:00:20Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/fraction-bistro/showcase/cover.webp",
+        "desktop": "projects/fraction-bistro/showcase/desktop.webp",
+        "tablet": "projects/fraction-bistro/showcase/tablet.webp",
+        "mobile": "projects/fraction-bistro/showcase/mobile.webp"
       }
     },
     {
@@ -66,7 +66,7 @@
       "summary": "A minimal architect's desk where children build houses, bridges and robots from polygons by applying shape properties.",
       "category": "education-math",
       "audience": "7-11",
-      "status": "planned",
+      "status": "building",
       "stack": [
         "angular",
         "typescript"
@@ -93,7 +93,7 @@
       "summary": "A space probe flying planet clusters arranged as arrays; answer multiplication facts to lock stable orbits.",
       "category": "education-math",
       "audience": "7-10",
-      "status": "planned",
+      "status": "building",
       "stack": [
         "react",
         "vite",
@@ -121,7 +121,7 @@
       "summary": "An island of train schedules, markets and a lighthouse; turn the clock hands to arrive at the right place at the right time.",
       "category": "education-math",
       "audience": "6-9",
-      "status": "planned",
+      "status": "building",
       "stack": [
         "jquery",
         "html",
@@ -150,7 +150,7 @@
       "summary": "An illustrated 2D market where learners shop for a picnic within a fixed budget, computing totals and change.",
       "category": "education-math",
       "audience": "7-11",
-      "status": "planned",
+      "status": "building",
       "stack": [
         "angular",
         "typescript"
@@ -177,7 +177,7 @@
       "summary": "Large illustrated scenes where children find objects from clues, match words to images and use new words in short sentences.",
       "category": "education-language",
       "audience": "Pre-A1/A1",
-      "status": "planned",
+      "status": "building",
       "stack": [
         "vue",
         "vite",
@@ -205,7 +205,7 @@
       "summary": "A sound forest where every tree is a phoneme; children match graphemes to sounds and sort words.",
       "category": "education-language",
       "audience": "Pre-A1",
-      "status": "planned",
+      "status": "building",
       "stack": [
         "typescript",
         "vite"
@@ -232,7 +232,7 @@
       "summary": "Investigate broken 'case file' sentences with a highlighter pen, word cards and readable verdicts.",
       "category": "education-language",
       "audience": "A1/A2",
-      "status": "planned",
+      "status": "building",
       "stack": [
         "react",
         "vite",
@@ -260,7 +260,7 @@
       "summary": "A storyboard desk where shuffled 4-8 frame stories are reordered, cause-and-effect linked and titled.",
       "category": "education-language",
       "audience": "7-11",
-      "status": "planned",
+      "status": "building",
       "stack": [
         "angular",
         "typescript"
@@ -287,7 +287,7 @@
       "summary": "A data-driven space atlas with scrollable orbits and switchable size, distance and day/year views.",
       "category": "education-science",
       "audience": "8-13",
-      "status": "planned",
+      "status": "building",
       "stack": [
         "react",
         "vite",
@@ -315,7 +315,7 @@
       "summary": "A layer-by-layer vector body model: toggle systems, inspect organs, and route oxygen and food through the body.",
       "category": "education-science",
       "audience": "9-14",
-      "status": "planned",
+      "status": "building",
       "stack": [
         "vue",
         "vite",
@@ -343,7 +343,7 @@
       "summary": "A small ecosystem diorama; raise and lower populations and watch transparent rules play out.",
       "category": "education-science",
       "audience": "10-14",
-      "status": "planned",
+      "status": "building",
       "stack": [
         "typescript",
         "vite"
@@ -370,7 +370,7 @@
       "summary": "Drag protons, neutrons and electrons into nuclei and shells to forge elements mission by mission.",
       "category": "education-science",
       "audience": "11-15",
-      "status": "planned",
+      "status": "building",
       "stack": [
         "react",
         "vite",
@@ -398,7 +398,7 @@
       "summary": "A paper robot on a grid museum: lay down command tiles — forward, turn, repeat — then step through and debug.",
       "category": "education-computing",
       "audience": "7-12",
-      "status": "planned",
+      "status": "building",
       "stack": [
         "react",
         "vite",
@@ -426,7 +426,7 @@
       "summary": "A stylized vector atlas of locate-compare-clue trails where every stop asks a geographic question.",
       "category": "education-geography",
       "audience": "8-14",
-      "status": "planned",
+      "status": "building",
       "stack": [
         "vue",
         "vite",
@@ -454,7 +454,7 @@
       "summary": "A browser-native rhythm visualizer: load a local audio loop, pick a visual mode and tap accents on the beat.",
       "category": "creative-tool",
       "audience": null,
-      "status": "planned",
+      "status": "building",
       "stack": [
         "typescript",
         "vite",
@@ -483,7 +483,7 @@
       "summary": "A fictional product-launch microsite for the Aurora desk lamp: typographic hero, exploded SVG and lighting modes.",
       "category": "marketing",
       "audience": null,
-      "status": "planned",
+      "status": "building",
       "stack": [
         "html",
         "css",
@@ -512,7 +512,7 @@
       "summary": "A fictional small-studio portfolio built as an editorial index with numbering, cropped thumbnails and type-led transitions.",
       "category": "portfolio",
       "audience": null,
-      "status": "planned",
+      "status": "building",
       "stack": [
         "vue",
         "vite",
@@ -540,7 +540,7 @@
       "summary": "A gentle habit tracker where each habit grows a stem and daily check-ins add leaves — no streak shaming.",
       "category": "productivity",
       "audience": null,
-      "status": "planned",
+      "status": "building",
       "stack": [
         "react",
         "vite",

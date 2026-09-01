@@ -3,7 +3,7 @@
   "provider": "Shiplo",
   "status": "verified",
   "url": "https://fraction-bistro.shiplo.site",
-  "sourceCommitSha": null,
+  "sourceCommitSha": "11286b2c13875f70c55383719b7f9b00b364b1dd",
   "buildCommand": "npm run build",
   "artifactSha256": "b671caab9894d7a55087c3ad6852beca982a6b0dba1cf4840d2664c789985e74",
   "deployedAt": "2026-09-01T05:00:20Z",
