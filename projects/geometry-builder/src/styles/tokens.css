@@ -1,0 +1,68 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Design tokens — Geometry Builder design system (design/DESIGN_DECISIONS.md §4–§6).
+ * Bauhaus workshop on an architect's desk: off-white paper, cobalt / vermilion /
+ * mustard accents, graphite ink. Flat color, hard offset shadows, radius 0.
+ */
+
+:root {
+  /* Paper neutrals */
+  --paper: #f4f1e8;
+  --paper-raised: #fbf9f2;
+  --paper-deep: #eae5d6;
+  --ink: #211e19;
+  --ink-soft: #5a554a;
+  --line: #d9d2bf;
+  --grid-minor: #e4decc;
+  --grid-major: #cfc7ae;
+
+  /* Bauhaus accents */
+  --cobalt: #1a43bf;
+  --cobalt-deep: #12318f;
+  --cobalt-wash: #e4e9f6;
+  --vermilion: #d9481e;
+  --vermilion-deep: #b03817;
+  --vermilion-wash: #f7e3da;
+  --mustard: #e3a72f;
+  --mustard-deep: #c08a1d;
+  --mustard-wash: #f8eed4;
+  --graphite-fill: #3a362e;
+
+  /* Shadows — hard offset, never blurred (Bauhaus block shadow) */
+  --shadow-hard: 4px 4px 0 rgba(33, 30, 25, 0.16);
+  --shadow-hard-ink: 4px 4px 0 var(--ink);
+  --shadow-pressed: 1px 1px 0 rgba(33, 30, 25, 0.16);
+
+  /* Shape fills map (consumed by SVG components via CSS vars) */
+  --fill-cobalt: #1a43bf;
+  --fill-vermilion: #d9481e;
+  --fill-mustard: #e3a72f;
+  --fill-graphite: #3a362e;
+
+  /* Typography */
+  --font-sans: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Consolas', ui-monospace, monospace;
+
+  /* Spacing — base 4 */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+
+  /* Control metrics */
+  --touch: 48px;
+  --touch-lg: 56px;
+  --stroke-shape: 2px;
+  --radius: 0px;
+
+  /* Focus */
+  --focus-ring: 2px solid var(--ink);
+  --focus-gap: 2px;
+}

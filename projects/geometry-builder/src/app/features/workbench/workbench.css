@@ -1,0 +1,480 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Workbench — blueprint sheet, parts bin, specifications inspector.
+ * Tablet 768–1199 is the hero viewport; the layout stacks below it.
+ */
+
+.wb {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  min-height: 0;
+}
+
+/* ---- Top bar ------------------------------------------------------------ */
+
+.wb-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.wb-sheet {
+  border: 1.5px solid var(--cobalt);
+  color: var(--cobalt);
+  padding: 0 5px;
+  font-weight: 600;
+}
+
+.wb-title h2 {
+  font-size: clamp(19px, 2.6vw, 26px);
+  margin: var(--sp-1) 0;
+}
+
+.wb-brief {
+  max-width: 60ch;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
+
+.wb-tools {
+  display: flex;
+  gap: var(--sp-2);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ---- Body grid ---------------------------------------------------------- */
+
+.wb-body {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr) 240px;
+  gap: var(--sp-4);
+  align-items: start;
+}
+
+/* ---- Parts bin ---------------------------------------------------------- */
+
+.tray {
+  border: 2px solid var(--ink);
+  background: var(--paper-deep);
+  padding: var(--sp-3);
+  position: sticky;
+  top: var(--sp-2);
+}
+
+.tray-label {
+  margin-bottom: var(--sp-2);
+}
+
+.tray-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.tray-piece {
+  width: 100%;
+  min-height: var(--touch);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+  padding: var(--sp-1);
+  background: var(--paper-raised);
+  border: 2px solid var(--ink);
+  box-shadow: var(--shadow-hard);
+  touch-action: none;
+}
+
+.tray-piece:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.tray-piece:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.tray-piece.is-selected {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+  background: var(--cobalt-wash);
+}
+
+.tray-svg {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+}
+
+.tray-count {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.tray-help {
+  margin-top: var(--sp-3);
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+/* ---- Canvas ------------------------------------------------------------- */
+
+.canvas-wrap {
+  position: relative;
+  border: 2px solid var(--ink);
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-hard-ink);
+  padding: var(--sp-2);
+  margin-inline: auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Fit the sheet inside one viewport on desktop; on narrower viewports the
+   column already constrains it (or the layout stacks and scrolls). */
+@media (min-width: 1200px) {
+  .canvas-wrap {
+    max-width: calc((100dvh - 430px) * var(--gb-ratio, 1.5));
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1199.98px) {
+  .canvas-wrap {
+    max-width: calc((100dvh - 530px) * var(--gb-ratio, 1.5));
+  }
+}
+
+.canvas {
+  width: 100%;
+  height: auto;
+  touch-action: none; /* dragging pieces must not scroll the page */
+  display: block;
+}
+
+.grid-bg {
+  stroke: none;
+}
+
+.scalebar path {
+  stroke: var(--ink-soft);
+  stroke-width: 0.06;
+  fill: none;
+}
+
+.scalebar text {
+  font-family: var(--font-mono);
+  font-size: 0.9px;
+  fill: var(--ink-soft);
+  text-anchor: middle;
+}
+
+.mirror-line line {
+  stroke: var(--vermilion);
+  stroke-width: 0.09;
+  stroke-dasharray: 0.55 0.4;
+}
+
+.mirror-line text {
+  font-family: var(--font-mono);
+  font-size: 0.85px;
+  letter-spacing: 0.12em;
+  fill: var(--vermilion);
+}
+
+/* dashed blueprint outlines */
+.slot {
+  fill: none;
+  stroke: var(--cobalt);
+  stroke-width: 0.11;
+  stroke-dasharray: 0.5 0.32;
+  stroke-linejoin: round;
+}
+
+.slot--matched {
+  stroke-dasharray: none;
+  stroke: var(--cobalt-deep);
+  stroke-width: 0.13;
+  fill: rgba(26, 67, 191, 0.06);
+}
+
+.slot--hint {
+  animation: slot-pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes slot-pulse {
+  0%, 100% { stroke-opacity: 1; stroke-width: 0.11; }
+  50% { stroke-opacity: 0.35; stroke-width: 0.2; }
+}
+
+/* printed half of a mirror blueprint */
+.printed-piece {
+  opacity: 0.45;
+}
+
+.printed-piece .shape-body {
+  stroke-dasharray: 0.7 0.3;
+}
+
+/* pieces */
+.piece {
+  cursor: grab;
+}
+
+.piece:focus,
+.piece:focus-visible {
+  outline: none;
+}
+
+.piece:focus-visible .shape-body {
+  stroke: var(--cobalt-deep);
+  stroke-width: 0.22;
+}
+
+.piece .shape-body {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.piece.is-unmatched .shape-body {
+  stroke: var(--ink);
+}
+
+.piece.is-selected .shape-body {
+  filter: saturate(1.1);
+}
+
+.sel-marks path {
+  stroke: var(--vermilion);
+  stroke-width: 0.13;
+  fill: none;
+  pointer-events: none;
+}
+
+.hint-ghost {
+  fill: rgba(217, 72, 30, 0.07);
+  stroke: var(--vermilion);
+  stroke-width: 0.1;
+  stroke-dasharray: 0.28 0.22;
+  pointer-events: none;
+}
+
+.hint-rot {
+  font-family: var(--font-mono);
+  font-size: 1.05px;
+  fill: var(--vermilion-deep);
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.complete-outline {
+  fill: none;
+  stroke: var(--vermilion);
+  stroke-width: 0.16;
+  pointer-events: none;
+}
+
+/* CHECKED stamp */
+.stamp {
+  position: absolute;
+  top: 14%;
+  right: 8%;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: clamp(18px, 2.6vw, 26px);
+  letter-spacing: 0.22em;
+  color: var(--vermilion);
+  border: 3px solid var(--vermilion);
+  padding: 6px 14px;
+  background: rgba(251, 249, 242, 0.92);
+  transform: rotate(-6deg);
+  pointer-events: none;
+}
+
+.complete-panel {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  padding: var(--sp-3) var(--sp-2) var(--sp-1);
+  border-top: 2px solid var(--ink);
+  margin-top: var(--sp-1);
+  background: var(--mustard-wash);
+}
+
+/* ---- Inspector ---------------------------------------------------------- */
+
+.inspector {
+  border: 2px solid var(--ink);
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-hard);
+  padding: var(--sp-3);
+  position: sticky;
+  top: var(--sp-2);
+}
+
+.insp-name {
+  font-size: 17px;
+  margin: var(--sp-2) 0;
+}
+
+.props {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--sp-1) var(--sp-3);
+  margin: 0 0 var(--sp-3);
+  font-size: 13.5px;
+}
+
+.props dt {
+  color: var(--ink-soft);
+}
+
+.props dd {
+  margin: 0;
+  text-align: right;
+  font-size: 13px;
+}
+
+.insp-state {
+  font-size: 13px;
+  margin-bottom: var(--sp-2);
+  color: var(--ink-soft);
+}
+
+.insp-state--ok {
+  color: var(--cobalt-deep);
+  font-weight: 600;
+}
+
+.insp-empty {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin: var(--sp-2) 0 var(--sp-3);
+}
+
+.insp-place {
+  width: 100%;
+  margin-bottom: var(--sp-3);
+}
+
+.move-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 44px);
+  grid-auto-rows: 44px;
+  gap: var(--sp-2);
+  justify-content: center;
+  margin-bottom: var(--sp-2);
+}
+
+.rotate-row {
+  display: flex;
+  gap: var(--sp-2);
+  justify-content: center;
+  margin-bottom: var(--sp-3);
+}
+
+.rotate-row .btn,
+.move-pad .btn {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0;
+}
+
+.targets {
+  border-top: 1px solid var(--line);
+  padding-top: var(--sp-3);
+  font-size: 13.5px;
+}
+
+.targets ul {
+  margin: var(--sp-2) 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--ink-soft);
+}
+
+.targets-count {
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  color: var(--ink-soft);
+}
+
+/* ---- Feedback strip ------------------------------------------------------ */
+
+.wb-feedback {
+  border: 2px solid var(--ink);
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-hard);
+  padding: var(--sp-2) var(--sp-4);
+  font-size: 15px;
+  min-height: calc(var(--touch) + 4px);
+  display: flex;
+  align-items: center;
+}
+
+.fb--nudge {
+  background: var(--mustard-wash);
+}
+
+.fb--complete {
+  background: var(--cobalt);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ---- Responsive (tablet hero) -------------------------------------------- */
+
+@media (max-width: 1199px) {
+  .wb-body {
+    grid-template-columns: minmax(0, 1fr) 216px;
+  }
+
+  .tray {
+    grid-column: 1 / -1;
+    position: static;
+  }
+
+  .tray-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+  }
+
+  .tray-piece {
+    width: auto;
+    padding: var(--sp-2);
+  }
+
+  .tray-help {
+    margin-top: var(--sp-2);
+  }
+}
+
+@media (max-width: 900px) {
+  .wb-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .inspector {
+    position: static;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slot--hint {
+    animation: none;
+    stroke-width: 0.2;
+  }
+}

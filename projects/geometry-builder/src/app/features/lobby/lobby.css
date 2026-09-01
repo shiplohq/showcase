@@ -1,0 +1,294 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Drawing index — dense sheet tabs, stamped progress, grid-backed previews.
+ */
+
+.lobby {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.lobby-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.lobby-head h2 {
+  font-size: clamp(20px, 3vw, 28px);
+}
+
+.lobby-progress {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  border: 2px solid var(--ink);
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-hard);
+  padding: var(--sp-1) var(--sp-3);
+}
+
+.progress-pips {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.ppip {
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid var(--ink);
+  display: inline-block;
+  background: var(--paper);
+}
+
+.ppip--on {
+  background: var(--vermilion);
+}
+
+.lobby-progress .mono-chip {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ---- Track groups ------------------------------------------------------ */
+
+.track {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.track-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1.5px solid var(--ink-soft);
+  padding-bottom: var(--sp-1);
+  color: var(--ink);
+}
+
+.track-count {
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+}
+
+.tabs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+/* ---- Mission tab ------------------------------------------------------- */
+
+.mission-tab {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: var(--sp-2);
+  border: 2px solid var(--ink);
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-hard-ink);
+  padding: var(--sp-2);
+}
+
+.tab-open {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: var(--sp-4);
+  min-height: var(--touch-lg);
+  padding: var(--sp-1) var(--sp-2);
+  text-align: left;
+}
+
+.tab-open:hover {
+  background: var(--cobalt-wash);
+}
+
+.tab-open:hover .tab-cue {
+  text-decoration: underline;
+}
+
+.tab-sheet {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cobalt);
+  border: 1.5px solid currentColor;
+  padding: 1px 6px;
+}
+
+.tab-main {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  min-width: 0;
+}
+
+.tab-title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(17px, 2vw, 20px);
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tab-preview {
+  height: 56px;
+  width: auto;
+  flex: 0 1 300px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 7px, var(--grid-minor) 7px 8px),
+    repeating-linear-gradient(90deg, transparent 0 7px, var(--grid-minor) 7px 8px);
+  border: 1px solid var(--line);
+  padding: 3px;
+}
+
+.tab-preview polygon {
+  stroke: var(--ink);
+  stroke-width: 0.5;
+  opacity: 0.92;
+}
+
+.tab-preview .pv-printed {
+  opacity: 0.35;
+}
+
+.tab-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--sp-1);
+}
+
+.tab-lv {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  border: 1.5px solid var(--ink-soft);
+  padding: 1px 6px;
+}
+
+.tab-cue {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--cobalt);
+}
+
+/* DONE state — approved drawing */
+.mission-tab.is-done {
+  background: var(--mustard-wash);
+}
+
+.tab-stamp {
+  position: absolute;
+  top: calc(var(--sp-2) * -1);
+  right: var(--sp-6);
+  transform: rotate(-6deg);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--vermilion);
+  border: 2px solid var(--vermilion);
+  padding: 2px 8px;
+  background: var(--paper-raised);
+  pointer-events: none;
+}
+
+.tab-walked {
+  position: absolute;
+  bottom: calc(var(--sp-2) * -1);
+  right: var(--sp-3);
+  font-size: 11px;
+  color: var(--ink-soft);
+  background: var(--paper-raised);
+  padding: 0 6px;
+}
+
+.tab-review {
+  align-self: center;
+  flex: 0 0 auto;
+  min-height: var(--touch);
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  box-shadow: var(--shadow-hard);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: var(--sp-2) var(--sp-3);
+}
+
+.tab-review:hover {
+  background: var(--cobalt-wash);
+}
+
+.tab-review:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+/* ---- Footer ------------------------------------------------------------ */
+
+.lobby-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line);
+  padding-top: var(--sp-4);
+}
+
+.lobby-note {
+  max-width: 56ch;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
+
+.btn.is-armed {
+  background: var(--vermilion-wash);
+  border-color: var(--vermilion-deep);
+  color: var(--vermilion-deep);
+}
+
+@media (max-width: 900px) {
+  .tab-open {
+    grid-template-columns: auto minmax(0, 1fr);
+    row-gap: var(--sp-1);
+  }
+
+  .tab-side {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .mission-tab {
+    flex-direction: column;
+  }
+
+  .tab-review {
+    align-self: stretch;
+  }
+
+  .tab-title {
+    white-space: normal;
+  }
+}

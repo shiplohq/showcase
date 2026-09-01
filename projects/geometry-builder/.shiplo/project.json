@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "geometry-builder",
+  "site_id": "8cf23c93-f924-477f-b577-aebd24058584",
+  "subdomain": "geometry-builder",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}

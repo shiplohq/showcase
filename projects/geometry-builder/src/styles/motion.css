@@ -1,0 +1,17 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Motion layer — CSS-side motion defaults + prefers-reduced-motion guards.
+ * GSAP tweens route through src/app/lib/gsap.ts which applies the same guard;
+ * anything here is a fallback/secondary cue only (design §11).
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

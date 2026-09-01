@@ -1,0 +1,40 @@
+{
+  "id": "geometry-builder",
+  "title": "Geometry Builder",
+  "summary": "A minimal architect's desk where children build houses, bridges and robots from polygons by applying shape properties.",
+  "category": "education-math",
+  "number": 3,
+  "audience": "7-11",
+  "mobileSupport": "limited",
+  "mobileSupportNote": "Phone layout stacks the drawing index and workbench vertically with full touch and keyboard paths; drag precision is reduced on the small canvas — tablet is the intended viewport.",
+  "screenshots": {
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://geometry-builder.shiplo.site",
+      "capturedAt": "2026-09-01T05:16:30Z",
+      "alt": "The Mirror Bridge workbench mid-build: a blue deck plank and a red right triangle on graph paper with a dashed mirror line, the triangle selected with crop marks and its spec sheet (3 sides, 90·45·45° angles) in the inspector."
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://geometry-builder.shiplo.site",
+      "capturedAt": "2026-09-01T05:16:30Z",
+      "alt": "Drawing index on desktop: eight blueprint sheet tabs across Houses, Bridges and Robots tracks, each with sheet number, title, grid-backed preview, level chip and OPEN cue."
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://geometry-builder.shiplo.site",
+      "capturedAt": "2026-09-01T05:16:30Z",
+      "alt": "Drawing index at tablet size — the hero viewport for this classroom showcase: the same eight blueprint tabs comfortably stacked with large touch targets."
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://geometry-builder.shiplo.site",
+      "capturedAt": "2026-09-01T05:16:30Z",
+      "alt": "Drawing index on a phone: mission cards stack vertically with readable titles and level chips; limited support, tablet is the intended viewport."
+    }
+  }
+}

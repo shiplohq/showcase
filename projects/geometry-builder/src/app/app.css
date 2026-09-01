@@ -1,0 +1,128 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * App shell — the drawing sheet frame, masthead, title block, stage grid.
+ */
+
+:host {
+  display: block;
+  min-height: 100dvh;
+}
+
+.sheet {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  margin: 0 auto;
+  width: min(100%, 1360px);
+  padding: 0 var(--sp-5);
+  /* ISO-style double sheet border drawn inward */
+  box-shadow:
+    inset 0 0 0 2px var(--ink),
+    inset 0 0 0 3px var(--paper),
+    inset 0 0 0 4px var(--ink);
+}
+
+/* ---- Masthead ---------------------------------------------------------- */
+
+.masthead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-2) var(--sp-3);
+  border-bottom: 1px solid var(--ink);
+}
+
+.masthead h1 {
+  font-size: clamp(20px, 3vw, 30px);
+  letter-spacing: 0.01em;
+}
+
+.tagline {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+/* ---- Stage ------------------------------------------------------------- */
+
+.stage {
+  padding: var(--sp-4) 0 var(--sp-3);
+  min-height: 0;
+}
+
+.status-line {
+  font-family: var(--font-mono);
+  color: var(--ink-soft);
+  padding: var(--sp-8) var(--sp-2);
+}
+
+.error-panel {
+  max-width: 560px;
+  margin: var(--sp-8) auto;
+  border: 2px solid var(--ink);
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-hard-ink);
+  padding: var(--sp-5);
+}
+
+.error-panel p {
+  margin: var(--sp-2) 0;
+}
+
+.error-hint {
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.error-panel code {
+  font-family: var(--font-mono);
+  background: var(--paper-deep);
+  padding: 0 4px;
+}
+
+/* ---- Title block ------------------------------------------------------- */
+
+.titleblock {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+
+.tb-cell {
+  padding: var(--sp-2) var(--sp-3) var(--sp-2) 0;
+  border-right: 1px solid var(--line);
+  padding-right: var(--sp-3);
+  margin-right: var(--sp-3);
+  border-left: none;
+}
+
+.tb-cell:last-child {
+  border-right: none;
+}
+
+.tb-project {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+@media (max-width: 767px) {
+  .sheet {
+    padding: 0 var(--sp-2);
+    box-shadow:
+      inset 0 0 0 2px var(--ink);
+  }
+
+  .masthead {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}

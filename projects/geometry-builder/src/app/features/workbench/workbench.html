@@ -1,0 +1,271 @@
+<!--
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+-->
+<section class="wb" #wbRoot>
+  <header class="wb-top">
+    <div class="wb-title">
+      <p class="label-tag">
+        <span class="mono-chip wb-sheet">{{ mission().sheetNo }}</span>
+        · {{ mission().difficulty }} of 3 difficulty ·
+        {{ validation().filledCount }} / {{ validation().totalSlots }} locked
+      </p>
+      <h2>{{ mission().title }}</h2>
+      <p class="wb-brief">{{ mission().brief }}</p>
+    </div>
+    <div class="wb-tools">
+      <button type="button" class="btn btn--icon" (click)="doUndo()" [disabled]="!canUndoNow()" aria-label="Undo the last move">
+        <svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M8 4 3 9l5 5" /><path d="M3 9h9a5 5 0 0 1 0 10h-3" />
+        </svg>
+      </button>
+      <button type="button" class="btn btn--icon" (click)="doRedo()" [disabled]="!canRedoNow()" aria-label="Redo the undone move">
+        <svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 4l5 5-5 5" /><path d="M17 9H8a5 5 0 0 0 0 10h3" />
+        </svg>
+      </button>
+      <button type="button" class="btn" (click)="doHint()" [disabled]="locked() || session().hintLevel >= 3">
+        Hint {{ session().hintLevel }}/3
+      </button>
+      <button type="button" class="btn btn--primary cta-check" (click)="doCheck()" [disabled]="locked()">
+        Check fit
+      </button>
+    </div>
+  </header>
+
+  <div class="wb-body">
+    <!-- Parts bin -->
+    <aside class="tray" aria-label="Parts bin">
+      <p class="label-tag tray-label">Parts bin</p>
+      <ul class="tray-list">
+        @for (entry of trayEntries(); track entry.shapeId) {
+          <li>
+            <button
+              type="button"
+              class="tray-piece"
+              [class.is-selected]="session().selectedTrayShape === entry.shapeId"
+              [disabled]="locked() || entry.left <= 0"
+              [attr.aria-label]="entry.shape ? 'Add ' + entry.shape.label + ', ' + entry.left + ' left in the bin' : 'Part'"
+              (pointerdown)="onTrayPointerDown($event, entry.shapeId)"
+              (pointermove)="onTrayPointerMove($event)"
+              (pointerup)="onTrayPointerUp()"
+              (pointercancel)="onTrayPointerUp()"
+              (keydown.enter)="onTrayKeyActivate($event, entry.shapeId)"
+              (keydown.space)="onTrayKeyActivate($event, entry.shapeId)"
+            >
+              @if (entry.shape) {
+                <svg
+                  class="tray-svg"
+                  [attr.viewBox]="'-4.5 -4.5 9 9'"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <svg:g appShape [shape]="entry.shape" [shadow]="0" />
+                </svg>
+              }
+              <span class="tray-count mono-chip" aria-hidden="true">×{{ entry.left }}</span>
+            </button>
+          </li>
+        }
+      </ul>
+      <p class="tray-help">Drag a part onto its dashed outline — or press Enter to drop it on the sheet.</p>
+    </aside>
+
+    <!-- Blueprint sheet: the cap keeps the whole workbench inside one viewport
+         on the hero viewports (tablet/desktop). The ratio is per-mission. -->
+    <div class="canvas-wrap" [style.--gb-ratio]="mission().canvas.w / mission().canvas.h">
+      <svg
+        #svgEl
+        class="canvas"
+        [attr.viewBox]="'0 0 ' + mission().canvas.w + ' ' + mission().canvas.h"
+        [style.aspect-ratio]="mission().canvas.w + ' / ' + mission().canvas.h"
+        role="application"
+        [attr.aria-label]="'Blueprint sheet for ' + mission().title + '. Pieces on the sheet are reachable with Tab; arrow keys move the selected piece.'"
+        (pointerdown)="onCanvasPointerDown($event)"
+        (pointermove)="onCanvasPointerMove($event)"
+        (pointerup)="onCanvasPointerUp($event)"
+        (pointercancel)="onCanvasPointerUp($event)"
+      >
+        <defs>
+          <pattern id="gb-grid-minor" width="1" height="1" patternUnits="userSpaceOnUse">
+            <path d="M1 0 L0 0 0 1" fill="none" [attr.stroke]="'var(--grid-minor)'" stroke-width="0.04" />
+          </pattern>
+          <pattern id="gb-grid-major" width="4" height="4" patternUnits="userSpaceOnUse">
+            <rect width="4" height="4" fill="url(#gb-grid-minor)" />
+            <path d="M4 0 L0 0 0 4" fill="none" [attr.stroke]="'var(--grid-major)'" stroke-width="0.08" />
+          </pattern>
+        </defs>
+
+        <rect class="grid-bg" x="0" y="0" [attr.width]="mission().canvas.w" [attr.height]="mission().canvas.h" fill="url(#gb-grid-major)" />
+
+        <!-- scale bar -->
+        <g class="scalebar" aria-hidden="true">
+          <path [attr.d]="scalebar().main" />
+          <path [attr.d]="scalebar().t1" />
+          <path [attr.d]="scalebar().t2" />
+          <text [attr.x]="3" [attr.y]="scalebar().textY">4 u</text>
+        </g>
+
+        <!-- mirror line -->
+        @if (mission().constraints.symmetry === 'vertical') {
+          <g class="mirror-line" aria-hidden="true">
+            <line [attr.x1]="mirrorX()" [attr.x2]="mirrorX()" y1="0.8" [attr.y2]="mission().canvas.h - 0.8" />
+            <text [attr.x]="mirrorX() + 0.4" y="2">MIRROR</text>
+          </g>
+        }
+
+        <!-- printed (already drawn) half -->
+        @for (slot of mission().slots; track slot.id) {
+          @if (!slot.buildable) {
+            <g class="printed-piece" [attr.transform]="'translate(' + slot.x + ' ' + slot.y + ') rotate(' + slot.rot + ')'">
+              <svg:g appShape [shape]="shapes().get(slot.shapeId)!" [x]="0" [y]="0" [rot]="0" [shadow]="0" />
+            </g>
+          }
+        }
+
+        <!-- dashed outlines -->
+        @for (slot of mission().slots; track slot.id) {
+          @if (slot.buildable) {
+            <polygon
+              class="slot"
+              [class.slot--matched]="slotMatched(slot)"
+              [class.slot--hint]="hintSlot()?.id === slot.id"
+              [attr.points]="shapePts(slot.shapeId)"
+              [attr.transform]="'translate(' + slot.x + ' ' + slot.y + ') rotate(' + slot.rot + ')'"
+            />
+          }
+        }
+
+        <!-- hint ghost (level 2+) -->
+        @if (hintSlot(); as hs) {
+          @if (session().hintLevel >= 2) {
+            <g [attr.transform]="'translate(' + hs.x + ' ' + hs.y + ') rotate(' + hs.rot + ')'">
+              <polygon class="hint-ghost" [attr.points]="shapePts(hs.shapeId)" />
+              @if (session().hintLevel >= 3) {
+                <text class="hint-rot" [attr.transform]="'rotate(' + (-hs.rot) + ')'" y="-3.4">
+                  ↻ {{ hs.rot }}°
+                </text>
+              }
+            </g>
+          }
+        }
+
+        <!-- placed pieces -->
+        @for (piece of session().pieces; track piece.uid) {
+          <g
+            class="piece"
+            [class.is-selected]="session().selectedUid === piece.uid"
+            [class.is-unmatched]="validation().unmatchedPieces.includes(piece.uid)"
+            [attr.data-uid]="piece.uid"
+            [attr.transform]="'translate(' + piece.x + ' ' + piece.y + ') rotate(' + piece.rot + ')'"
+            [attr.aria-label]="pieceAria(piece)"
+            [attr.tabindex]="locked() ? -1 : 0"
+            role="button"
+            (pointerdown)="onCanvasPointerDown($event)"
+            (keydown)="onPieceKeydown($event, piece.uid)"
+          >
+            <svg:g appShape [shape]="shapes().get(piece.shapeId)!" [x]="0" [y]="0" [rot]="0" [shadow]="0.35" />
+          </g>
+        }
+
+        <!-- selection crop marks (world space) -->
+        @if (selectedPiece()) {
+          <g class="sel-marks" aria-hidden="true">
+            @for (d of selectedBrackets(); track $index) {
+              <path [attr.d]="d" />
+            }
+          </g>
+        }
+
+        <!-- completed silhouette -->
+        @if (locked() && completeOutlineD(); as d) {
+          <path class="complete-outline" [attr.d]="d" />
+        }
+      </svg>
+
+      @if (locked()) {
+        <div class="stamp" aria-hidden="true">CHECKED</div>
+        <div class="complete-panel">
+          <button type="button" class="btn btn--primary cta-measure" (click)="goMeasure()">
+            Measure the perimeter
+          </button>
+          <button type="button" class="btn" (click)="nextMission.emit()">Next blueprint</button>
+          <button type="button" class="btn btn--danger-clear" (click)="buildAgain()">Build again</button>
+        </div>
+      }
+    </div>
+
+    <!-- Specifications -->
+    <aside class="inspector" aria-label="Specifications">
+      <p class="label-tag">Specifications</p>
+      @if (inspectedShape(); as shape) {
+        <h3 class="insp-name">{{ shape.label }}</h3>
+        <dl class="props">
+          <dt>Sides</dt>
+          <dd class="mono-chip">{{ shape.properties.sides }}</dd>
+          <dt>Interior angles</dt>
+          <dd class="mono-chip">{{ angleList(shape) }}</dd>
+          <dt>Parallel pairs</dt>
+          <dd class="mono-chip">{{ shape.properties.parallelPairs }}</dd>
+          <dt>Right angles</dt>
+          <dd class="mono-chip">{{ shape.properties.rightAngles }}</dd>
+          <dt>Mirror lines</dt>
+          <dd class="mono-chip">{{ shape.properties.symmetryLines }}</dd>
+        </dl>
+        @if (selectedPiece()) {
+          <p class="insp-state" [class.insp-state--ok]="inspectedPieceMatchesSlot()">
+            {{ inspectedPieceMatchesSlot() ? 'Locked on its outline.' : 'On the sheet — not on its outline yet.' }}
+          </p>
+          <div class="move-pad" role="group" aria-label="Move or rotate the selected piece">
+            <span></span>
+            <button type="button" class="btn btn--tiny" (click)="moveSelected(0, -1)" aria-label="Move up one unit" [disabled]="locked()">▲</button>
+            <span></span>
+            <button type="button" class="btn btn--tiny" (click)="moveSelected(-1, 0)" aria-label="Move left one unit" [disabled]="locked()">◀</button>
+            <button type="button" class="btn btn--tiny btn--danger-clear" (click)="binSelected()" aria-label="Send back to the parts bin" [disabled]="locked()">BIN</button>
+            <button type="button" class="btn btn--tiny" (click)="moveSelected(1, 0)" aria-label="Move right one unit" [disabled]="locked()">▶</button>
+            <span></span>
+            <button type="button" class="btn btn--tiny" (click)="moveSelected(0, 1)" aria-label="Move down one unit" [disabled]="locked()">▼</button>
+            <span></span>
+          </div>
+          <div class="rotate-row">
+            <button type="button" class="btn btn--tiny" (click)="rotateSelected(-15)" aria-label="Rotate 15 degrees counter-clockwise" [disabled]="locked()">↺ 15°</button>
+            <button type="button" class="btn btn--tiny" (click)="rotateSelected(15)" aria-label="Rotate 15 degrees clockwise" [disabled]="locked()">↻ 15°</button>
+          </div>
+        } @else {
+          <button type="button" class="btn btn--primary insp-place" (click)="placeInspected()" [disabled]="locked() || (session().tray[inspectedShapeId() || ''] || 0) <= 0">
+            Place on sheet
+          </button>
+        }
+      } @else {
+        <p class="insp-empty">
+          Select a part from the bin or a piece on the sheet to read its properties.
+        </p>
+      }
+
+      <div class="targets">
+        <p class="label-tag">This blueprint teaches</p>
+        <ul>
+          @for (prop of mission().targetProperties; track prop) {
+            <li>{{ propertyLabels[prop] || prop }}</li>
+          }
+          @if (mission().constraints.symmetry === 'vertical') {
+            <li>Mirror symmetry about the dashed line</li>
+          }
+        </ul>
+        <p class="targets-count mono-chip">
+          SHEET {{ mission().sheetNo }} · {{ validation().totalSlots }} PIECES · MAX {{ mission().constraints.maxPieces }}
+        </p>
+      </div>
+    </aside>
+  </div>
+
+  <p
+    class="wb-feedback"
+    role="status"
+    aria-live="polite"
+    [class.fb--nudge]="session().feedback.kind === 'nudge'"
+    [class.fb--complete]="session().feedback.kind === 'complete'"
+  >
+    {{ session().feedback.text || 'Drag parts from the bin onto the dashed outlines, then press Check fit.' }}
+  </p>
+</section>

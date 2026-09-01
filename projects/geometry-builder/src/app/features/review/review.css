@@ -1,0 +1,235 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Measurement review — the finished build with dimension annotations.
+ */
+
+.rv {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.rv-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.rv-sheet {
+  border: 1.5px solid var(--cobalt);
+  color: var(--cobalt);
+  padding: 0 5px;
+  font-weight: 600;
+}
+
+.rv-title h2 {
+  font-size: clamp(19px, 2.6vw, 26px);
+  margin: var(--sp-1) 0;
+}
+
+.rv-note {
+  max-width: 58ch;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
+
+.rv-total {
+  border: 2px solid var(--ink);
+  background: var(--cobalt);
+  color: #fff;
+  box-shadow: var(--shadow-hard-ink);
+  padding: var(--sp-2) var(--sp-4);
+  min-width: 170px;
+}
+
+.rv-total .label-tag {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.rv-total-value {
+  font-size: clamp(26px, 3.4vw, 36px);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.rv-total-sub {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* ---- Body ---------------------------------------------------------------- */
+
+.rv-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 232px;
+  gap: var(--sp-4);
+  align-items: start;
+}
+
+.canvas-wrap {
+  border: 2px solid var(--ink);
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-hard-ink);
+  padding: var(--sp-2);
+}
+
+.canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* edges: fat invisible hit areas */
+.edge-hit {
+  stroke: transparent;
+  stroke-width: 1.3;
+  fill: none;
+  cursor: pointer;
+}
+
+.edge-hit:hover {
+  stroke: rgba(26, 67, 191, 0.18);
+}
+
+.edge-measured {
+  stroke: var(--vermilion);
+  stroke-width: 0.14;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.dim-bg {
+  fill: var(--paper-raised);
+  stroke: var(--ink-soft);
+  stroke-width: 0.05;
+}
+
+.dim-text {
+  font-family: var(--font-mono);
+  font-size: 1.05px;
+  fill: var(--vermilion-deep);
+  font-weight: 600;
+}
+
+.right-angle {
+  stroke: var(--cobalt-deep);
+  stroke-width: 0.09;
+  fill: none;
+}
+
+.tick {
+  stroke: var(--ink);
+  stroke-width: 0.09;
+  fill: none;
+}
+
+.walk-marker {
+  fill: var(--vermilion);
+  stroke: var(--paper-raised);
+  stroke-width: 0.12;
+  opacity: 0;
+}
+
+/* ---- Panel ------------------------------------------------------------------ */
+
+.rv-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.rv-edges {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-2);
+}
+
+.rv-edge-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-1);
+  padding: var(--sp-1) var(--sp-2);
+}
+
+.rv-edge-btn.is-measured {
+  background: var(--vermilion-wash);
+  box-shadow: var(--shadow-hard);
+  border-color: var(--vermilion-deep);
+}
+
+.rv-edge-len {
+  font-size: 12.5px;
+}
+
+.rv-done {
+  border: 2px solid var(--ink);
+  background: var(--mustard-wash);
+  box-shadow: var(--shadow-hard);
+  padding: var(--sp-3);
+}
+
+.rv-big {
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.rv-summary {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: var(--sp-2) 0;
+}
+
+.rv-legend {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  flex-wrap: wrap;
+}
+
+.lg-ra {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--cobalt-deep);
+  display: inline-block;
+}
+
+.lg-tick {
+  width: 2px;
+  height: 14px;
+  background: var(--ink);
+  display: inline-block;
+  transform: rotate(65deg);
+}
+
+.rv-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-top: auto;
+}
+
+.rv-actions .btn {
+  width: 100%;
+}
+
+@media (max-width: 1199px) {
+  .rv-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .rv-edges {
+    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  }
+}

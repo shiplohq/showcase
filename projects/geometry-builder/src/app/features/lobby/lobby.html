@@ -1,0 +1,93 @@
+<!--
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+-->
+<section class="lobby" #lobbyRoot aria-label="Drawing index — choose a blueprint">
+  <header class="lobby-head">
+    <h2>Drawing index</h2>
+    <p class="lobby-progress" aria-label="{{ doneCount() }} of {{ missions().length }} blueprints checked">
+      <span class="progress-pips" aria-hidden="true">
+        @for (mission of missions(); track mission.id) {
+          <i class="ppip" [class.ppip--on]="isDone(mission.id)"></i>
+        }
+      </span>
+      <span class="mono-chip">{{ doneCount() }} / {{ missions().length }} checked</span>
+    </p>
+  </header>
+
+  @for (group of tracks(); track group.track) {
+    <section class="track" aria-label="{{ trackLabels[group.track] }} blueprints">
+      <p class="label-tag track-label">
+        {{ trackLabels[group.track] }}
+        <span class="track-count mono-chip">{{ group.missions.length }} sheets</span>
+      </p>
+      <ul class="tabs">
+        @for (mission of group.missions; track mission.id) {
+          <li>
+            <div class="mission-tab" [class.is-done]="isDone(mission.id)">
+              <button
+                type="button"
+                class="tab-open"
+                (click)="startMission.emit(mission.id)"
+                [attr.aria-label]="'Open blueprint ' + mission.sheetNo + ' ' + mission.title + '. Level ' + mission.difficulty + ' of 3.'"
+              >
+                <span class="tab-sheet mono-chip">{{ mission.sheetNo }}</span>
+                <span class="tab-main">
+                  <span class="tab-title">{{ mission.title }}</span>
+                  <svg
+                    class="tab-preview"
+                    [attr.viewBox]="'-1 -1 ' + (mission.canvas.w + 2) + ' ' + (mission.canvas.h + 2)"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    @for (poly of previewPolys(mission); track $index) {
+                      <polygon
+                        [attr.points]="poly.points"
+                        [style.fill]="poly.fill"
+                        [class.pv-printed]="poly.printed"
+                      />
+                    }
+                  </svg>
+                </span>
+                <span class="tab-side" aria-hidden="true">
+                  <span class="tab-lv mono-chip">LVL {{ mission.difficulty }}</span>
+                  <span class="tab-cue mono-chip">OPEN →</span>
+                </span>
+              </button>
+
+              @if (isDone(mission.id)) {
+                <button
+                  type="button"
+                  class="tab-review"
+                  (click)="openReview.emit(mission.id)"
+                  aria-label="Measure the finished {{ mission.title }}"
+                >
+                  Measure
+                </button>
+                <span class="tab-stamp" aria-hidden="true">CHECKED</span>
+                @if (isWalked(mission.id)) {
+                  <span class="tab-walked mono-chip">measured ✓</span>
+                }
+              }
+            </div>
+          </li>
+        }
+      </ul>
+    </section>
+  }
+
+  <footer class="lobby-foot">
+    <p class="lobby-note">
+      Build houses, bridges and robots from polygons. Fit every piece onto its dashed outline —
+      then measure the perimeter of what you built.
+    </p>
+    <button
+      type="button"
+      class="btn btn--tiny btn--danger-clear"
+      (click)="onReset()"
+      [class.is-armed]="resetArmed()"
+    >
+      {{ resetArmed() ? 'Tap again to erase progress' : 'Reset progress' }}
+    </button>
+  </footer>
+</section>

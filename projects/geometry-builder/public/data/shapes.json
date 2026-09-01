@@ -1,0 +1,250 @@
+{
+  "shapes": [
+    {
+      "id": "rect-6x4",
+      "label": "Rectangle 6×4",
+      "family": "rectangle",
+      "fill": "cobalt",
+      "pts": [
+        { "x": -3, "y": -2 },
+        { "x": 3, "y": -2 },
+        { "x": 3, "y": 2 },
+        { "x": -3, "y": 2 }
+      ],
+      "properties": {
+        "sides": 4,
+        "angles": [90, 90, 90, 90],
+        "parallelPairs": 2,
+        "rightAngles": 4,
+        "symmetryLines": 2
+      }
+    },
+    {
+      "id": "rect-4x6",
+      "label": "Rectangle 4×6",
+      "family": "rectangle",
+      "fill": "cobalt",
+      "pts": [
+        { "x": -2, "y": -3 },
+        { "x": 2, "y": -3 },
+        { "x": 2, "y": 3 },
+        { "x": -2, "y": 3 }
+      ],
+      "properties": {
+        "sides": 4,
+        "angles": [90, 90, 90, 90],
+        "parallelPairs": 2,
+        "rightAngles": 4,
+        "symmetryLines": 2
+      }
+    },
+    {
+      "id": "rect-8x2",
+      "label": "Plank 8×2",
+      "family": "rectangle",
+      "fill": "cobalt",
+      "pts": [
+        { "x": -4, "y": -1 },
+        { "x": 4, "y": -1 },
+        { "x": 4, "y": 1 },
+        { "x": -4, "y": 1 }
+      ],
+      "properties": {
+        "sides": 4,
+        "angles": [90, 90, 90, 90],
+        "parallelPairs": 2,
+        "rightAngles": 4,
+        "symmetryLines": 2
+      }
+    },
+    {
+      "id": "rect-4x2",
+      "label": "Brick 4×2",
+      "family": "rectangle",
+      "fill": "cobalt",
+      "pts": [
+        { "x": -2, "y": -1 },
+        { "x": 2, "y": -1 },
+        { "x": 2, "y": 1 },
+        { "x": -2, "y": 1 }
+      ],
+      "properties": {
+        "sides": 4,
+        "angles": [90, 90, 90, 90],
+        "parallelPairs": 2,
+        "rightAngles": 4,
+        "symmetryLines": 2
+      }
+    },
+    {
+      "id": "square-4x4",
+      "label": "Square 4×4",
+      "family": "square",
+      "fill": "cobalt",
+      "pts": [
+        { "x": -2, "y": -2 },
+        { "x": 2, "y": -2 },
+        { "x": 2, "y": 2 },
+        { "x": -2, "y": 2 }
+      ],
+      "properties": {
+        "sides": 4,
+        "angles": [90, 90, 90, 90],
+        "parallelPairs": 2,
+        "rightAngles": 4,
+        "symmetryLines": 4
+      }
+    },
+    {
+      "id": "square-2x2",
+      "label": "Square 2×2",
+      "family": "square",
+      "fill": "cobalt",
+      "pts": [
+        { "x": -1, "y": -1 },
+        { "x": 1, "y": -1 },
+        { "x": 1, "y": 1 },
+        { "x": -1, "y": 1 }
+      ],
+      "properties": {
+        "sides": 4,
+        "angles": [90, 90, 90, 90],
+        "parallelPairs": 2,
+        "rightAngles": 4,
+        "symmetryLines": 4
+      }
+    },
+    {
+      "id": "tri-iso-6x4",
+      "label": "Roof triangle 6×4",
+      "family": "triangle",
+      "fill": "vermilion",
+      "pts": [
+        { "x": -3, "y": 2 },
+        { "x": 3, "y": 2 },
+        { "x": 0, "y": -2 }
+      ],
+      "properties": {
+        "sides": 3,
+        "angles": [73.74, 53.13, 53.13],
+        "parallelPairs": 0,
+        "rightAngles": 0,
+        "symmetryLines": 1
+      }
+    },
+    {
+      "id": "tri-right-4x4",
+      "label": "Right triangle 4×4",
+      "family": "triangle",
+      "fill": "vermilion",
+      "pts": [
+        { "x": -2, "y": -2 },
+        { "x": 2, "y": -2 },
+        { "x": -2, "y": 2 }
+      ],
+      "properties": {
+        "sides": 3,
+        "angles": [90, 45, 45],
+        "parallelPairs": 0,
+        "rightAngles": 1,
+        "symmetryLines": 1
+      }
+    },
+    {
+      "id": "tri-right-2x2",
+      "label": "Right triangle 2×2",
+      "family": "triangle",
+      "fill": "vermilion",
+      "pts": [
+        { "x": -1, "y": -1 },
+        { "x": 1, "y": -1 },
+        { "x": -1, "y": 1 }
+      ],
+      "properties": {
+        "sides": 3,
+        "angles": [90, 45, 45],
+        "parallelPairs": 0,
+        "rightAngles": 1,
+        "symmetryLines": 1
+      }
+    },
+    {
+      "id": "para-6x4",
+      "label": "Parallelogram 6×4",
+      "family": "parallelogram",
+      "fill": "mustard",
+      "pts": [
+        { "x": -3, "y": -2 },
+        { "x": 1, "y": -2 },
+        { "x": 3, "y": 2 },
+        { "x": -1, "y": 2 }
+      ],
+      "properties": {
+        "sides": 4,
+        "angles": [63.43, 116.57, 63.43, 116.57],
+        "parallelPairs": 2,
+        "rightAngles": 0,
+        "symmetryLines": 0
+      }
+    },
+    {
+      "id": "trap-6x4",
+      "label": "Trapezoid 6×4",
+      "family": "trapezoid",
+      "fill": "mustard",
+      "pts": [
+        { "x": -3, "y": 2 },
+        { "x": 3, "y": 2 },
+        { "x": 2, "y": -2 },
+        { "x": -2, "y": -2 }
+      ],
+      "properties": {
+        "sides": 4,
+        "angles": [104.04, 104.04, 75.96, 75.96],
+        "parallelPairs": 1,
+        "rightAngles": 0,
+        "symmetryLines": 1
+      }
+    },
+    {
+      "id": "trap-6x2",
+      "label": "Trapezoid 6×2",
+      "family": "trapezoid",
+      "fill": "mustard",
+      "pts": [
+        { "x": -3, "y": 1 },
+        { "x": 3, "y": 1 },
+        { "x": 2, "y": -1 },
+        { "x": -2, "y": -1 }
+      ],
+      "properties": {
+        "sides": 4,
+        "angles": [116.57, 116.57, 63.43, 63.43],
+        "parallelPairs": 1,
+        "rightAngles": 0,
+        "symmetryLines": 1
+      }
+    },
+    {
+      "id": "hex-8x6",
+      "label": "Hexagon 8×6",
+      "family": "hexagon",
+      "fill": "mustard",
+      "pts": [
+        { "x": -2, "y": -3 },
+        { "x": 2, "y": -3 },
+        { "x": 4, "y": 0 },
+        { "x": 2, "y": 3 },
+        { "x": -2, "y": 3 },
+        { "x": -4, "y": 0 }
+      ],
+      "properties": {
+        "sides": 6,
+        "angles": [123.69, 123.69, 112.62, 123.69, 123.69, 112.62],
+        "parallelPairs": 3,
+        "rightAngles": 0,
+        "symmetryLines": 2
+      }
+    }
+  ]
+}

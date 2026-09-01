@@ -1,0 +1,132 @@
+<!--
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+-->
+<section class="rv" #rvRoot>
+  <header class="rv-top">
+    <div class="rv-title">
+      <p class="label-tag"><span class="mono-chip rv-sheet">{{ mission().sheetNo }}</span> · Measurement review</p>
+      <h2>Walk the perimeter of “{{ mission().title }}”</h2>
+      <p class="rv-note">{{ mission().reviewNote ?? 'Click each edge of the structure to measure it. The total adds up as you walk.' }}</p>
+    </div>
+    <div class="rv-total" role="status" aria-live="polite">
+      <p class="label-tag">Perimeter so far</p>
+      <p class="rv-total-value mono-chip">{{ formatLength(walk().total) }} u</p>
+      <p class="rv-total-sub mono-chip">{{ walk().measured.length }} / {{ edges().length }} edges</p>
+    </div>
+  </header>
+
+  <div class="rv-body">
+    <div class="canvas-wrap">
+      <svg
+        #svgEl
+        class="canvas"
+        [attr.viewBox]="'-2 -2 ' + (mission().canvas.w + 4) + ' ' + (mission().canvas.h + 4)"
+        [style.aspect-ratio]="(mission().canvas.w + 4) + ' / ' + (mission().canvas.h + 4)"
+        role="img"
+        [attr.aria-label]="'Finished ' + mission().title + ' with measurement annotations. ' + angleSummary()"
+      >
+        <defs>
+          <pattern id="rv-grid" width="4" height="4" patternUnits="userSpaceOnUse">
+            <path d="M4 0 L0 0 0 4" fill="none" [attr.stroke]="'var(--grid-major)'" stroke-width="0.07" />
+          </pattern>
+        </defs>
+        <rect x="-2" y="-2" [attr.width]="mission().canvas.w + 4" [attr.height]="mission().canvas.h + 4" fill="url(#rv-grid)" />
+
+        <!-- frozen structure -->
+        @for (piece of structure(); track piece.uid) {
+          <g [attr.transform]="'translate(' + piece.x + ' ' + piece.y + ') rotate(' + piece.rot + ')'">
+            <svg:g appShape [shape]="shapes().get(piece.shapeId)!" [x]="0" [y]="0" [rot]="0" [shadow]="0.3" />
+          </g>
+        }
+
+        <!-- walkable edges: fat invisible strokes with visible dash when measured -->
+        <g class="edges">
+          @for (edge of edges(); track edge.index) {
+            <path
+              class="edge-hit"
+              [attr.d]="'M ' + edge.a.x + ' ' + edge.a.y + ' L ' + edge.b.x + ' ' + edge.b.y"
+              (click)="measure(edge.index)"
+            />
+          }
+        </g>
+        <g class="edges-measured" aria-hidden="true">
+          @for (edge of edges(); track edge.index) {
+            @if (isMeasured(edge.index)) {
+              <path
+                class="edge-measured"
+                [attr.d]="'M ' + edge.a.x + ' ' + edge.a.y + ' L ' + edge.b.x + ' ' + edge.b.y"
+              />
+              <g class="dim" [attr.transform]="'translate(' + edge.labelX + ' ' + edge.labelY + ')'">
+                <rect class="dim-bg" x="-1.5" y="-0.85" width="3" height="1.7" rx="0.2" />
+                <text class="dim-text" text-anchor="middle" dy="0.34">{{ formatLength(edge.length) }} u</text>
+              </g>
+            }
+          }
+        </g>
+
+        <!-- annotations unlocked by a full walk -->
+        @if (walk().complete) {
+          <g class="angles" aria-hidden="true">
+            @for (mark of rightAngleMarks(); track $index) {
+              <path class="right-angle" [attr.d]="mark.path" />
+            }
+            @for (edge of edges(); track edge.index) {
+              @if (edge.ticks > 0) {
+                <g
+                  class="ticks"
+                  [attr.transform]="'translate(' + edge.mid.x + ' ' + edge.mid.y + ') rotate(' + edge.angleDeg + ')'"
+                >
+                  @for (t of tickArray(edge.ticks); track t) {
+                    <path class="tick" [attr.d]="tickPath(t, edge.ticks)" />
+                  }
+                </g>
+              }
+            }
+          </g>
+        }
+
+        <circle class="walk-marker" r="0.45" cx="0" cy="0" />
+      </svg>
+    </div>
+
+    <aside class="rv-panel">
+      <p class="label-tag">Edges — tap to measure</p>
+      <ul class="rv-edges">
+        @for (edge of edges(); track edge.index) {
+          <li>
+            <button
+              type="button"
+              class="btn btn--tiny rv-edge-btn"
+              [class.is-measured]="isMeasured(edge.index)"
+              (click)="measure(edge.index)"
+              [disabled]="isMeasured(edge.index)"
+              [attr.aria-label]="'Measure edge ' + (edge.index + 1) + (isMeasured(edge.index) ? ', already measured as ' + formatLength(edge.length) + ' units' : '')"
+            >
+              <span class="mono-chip">E{{ edge.index + 1 }}</span>
+              <span class="rv-edge-len mono-chip">{{ isMeasured(edge.index) ? formatLength(edge.length) + ' u' : '· · ·' }}</span>
+            </button>
+          </li>
+        }
+      </ul>
+
+      @if (walk().complete) {
+        <div class="rv-done">
+          <p class="label-tag">Perimeter complete</p>
+          <p class="rv-big mono-chip">{{ formatLength(perimeterTotal()) }} u</p>
+          <p class="rv-summary">{{ angleSummary() }}</p>
+          <p class="rv-legend">
+            <span class="lg-ra" aria-hidden="true"></span> right angle
+            <span class="lg-tick" aria-hidden="true"></span> parallel pair
+          </p>
+        </div>
+      }
+
+      <div class="rv-actions">
+        <button type="button" class="btn btn--primary cta-next" (click)="nextMission.emit()">Next blueprint</button>
+        <button type="button" class="btn" (click)="exit.emit()">Drawing index</button>
+        <button type="button" class="btn btn--danger-clear" (click)="resetWalk()">Walk again</button>
+      </div>
+    </aside>
+  </div>
+</section>

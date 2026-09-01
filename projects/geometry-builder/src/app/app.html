@@ -1,0 +1,72 @@
+<!--
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+-->
+<div class="sheet">
+  <header class="masthead">
+    <div class="masthead-title">
+      <h1>Geometry Builder</h1>
+      <p class="tagline">Xưởng hình học · an architect's desk for young builders</p>
+    </div>
+    @if (screen().name !== 'lobby' && content().status === 'ready') {
+      <button type="button" class="btn btn--tiny" (click)="backToLobby()">
+        <svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 4 6 10l6 6" />
+        </svg>
+        Drawing index
+      </button>
+    }
+  </header>
+
+  <main class="stage">
+    @switch (content().status) {
+      @case ('loading') {
+        <p class="status-line" role="status">Unrolling the blueprints…</p>
+      }
+      @case ('error') {
+        <div class="error-panel">
+          <p class="label-tag">Data error</p>
+          <p>{{ content().error }}</p>
+          <p class="error-hint">Re-publish the site with intact <code>data/*.json</code> files, then reload.</p>
+        </div>
+      }
+      @case ('ready') {
+        @if (screen().name === 'lobby') {
+          <app-lobby
+            [missions]="data!.missions"
+            [shapes]="data!.shapes"
+            [progress]="progressView()"
+            (startMission)="startMission($event)"
+            (openReview)="reopenReview($event)"
+            (resetProgress)="resetProgress()"
+          />
+        } @else if (wbMission(); as mission) {
+          <app-workbench
+            [mission]="mission"
+            [shapes]="data!.shapes"
+            (exit)="backToLobby()"
+            (nextMission)="nextBlueprint()"
+            (missionComplete)="onMissionComplete($event)"
+            (reviewRequest)="onReviewRequest($event)"
+          />
+        } @else if (rvMission(); as mission) {
+          <app-review
+            [mission]="mission"
+            [shapes]="data!.shapes"
+            [solved]="rvSolved()"
+            (exit)="backToLobby()"
+            (nextMission)="nextBlueprint()"
+            (walked)="onWalked($event)"
+          />
+        }
+      }
+    }
+  </main>
+
+  <footer class="titleblock" aria-hidden="true">
+    <span class="tb-cell tb-project">GEOMETRY BUILDER</span>
+    <span class="tb-cell">SHIPLO SHOWCASE #03</span>
+    <span class="tb-cell">SCALE 1:1 · UNIT u</span>
+    <span class="tb-cell">REV 2026-09</span>
+  </footer>
+</div>

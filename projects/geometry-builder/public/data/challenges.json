@@ -1,0 +1,235 @@
+{
+  "missions": [
+    {
+      "id": "house-01",
+      "track": "houses",
+      "sheetNo": "H-01",
+      "title": "The Corner House",
+      "brief": "Every house starts with two shapes: walls with right angles, a roof that must span them exactly. Fit both onto the blueprint.",
+      "difficulty": 1,
+      "canvas": { "w": 24, "h": 16 },
+      "tray": [
+        { "shapeId": "rect-6x4", "count": 1 },
+        { "shapeId": "tri-iso-6x4", "count": 1 }
+      ],
+      "slots": [
+        { "id": "wall", "shapeId": "rect-6x4", "x": 12, "y": 11, "rot": 0, "buildable": true },
+        { "id": "roof", "shapeId": "tri-iso-6x4", "x": 12, "y": 7, "rot": 0, "buildable": true }
+      ],
+      "constraints": { "maxPieces": 6 },
+      "targetProperties": ["right-angle", "parallel-lines"],
+      "hints": [
+        "The dashed outlines show where each piece belongs — start with the big rectangle.",
+        "The wall is a rectangle: 4 sides, 4 right angles, opposite sides parallel. It fills the lower outline.",
+        "The roof triangle must sit with its base exactly on top of the wall."
+      ],
+      "reviewNote": "Walk the perimeter of the house. Which sides are parallel? Where are the right angles?"
+    },
+    {
+      "id": "house-02",
+      "track": "houses",
+      "sheetNo": "H-02",
+      "title": "House With a Wing",
+      "brief": "A main room, a square wing, one pitched roof and one shed roof. The shed roof may overhang its wall — that is what eaves do.",
+      "difficulty": 2,
+      "canvas": { "w": 24, "h": 16 },
+      "tray": [
+        { "shapeId": "rect-6x4", "count": 1 },
+        { "shapeId": "square-4x4", "count": 1 },
+        { "shapeId": "tri-iso-6x4", "count": 1 },
+        { "shapeId": "trap-6x4", "count": 1 }
+      ],
+      "slots": [
+        { "id": "main-wall", "shapeId": "rect-6x4", "x": 10, "y": 11, "rot": 0, "buildable": true },
+        { "id": "wing-wall", "shapeId": "square-4x4", "x": 15, "y": 11, "rot": 0, "buildable": true },
+        { "id": "main-roof", "shapeId": "tri-iso-6x4", "x": 10, "y": 7, "rot": 0, "buildable": true },
+        { "id": "wing-roof", "shapeId": "trap-6x4", "x": 16, "y": 7, "rot": 0, "buildable": true }
+      ],
+      "constraints": { "maxPieces": 8 },
+      "targetProperties": ["right-angle", "parallel-lines", "one-pair-parallel"],
+      "hints": [
+        "Build the walls first — the two lower outlines — then find a roof for each.",
+        "The square wing carries the trapezoid roof. A trapezoid has exactly ONE pair of parallel sides.",
+        "Rotate the trapezoid so its parallel pair runs horizontally: long side at the bottom."
+      ],
+      "reviewNote": "The trapezoid roof has exactly one pair of parallel sides. The walls have two pairs. Count them on the drawing."
+    },
+    {
+      "id": "tower-01",
+      "track": "houses",
+      "sheetNo": "H-03",
+      "title": "Lookout Tower",
+      "brief": "Stack a base, a tall shaft and a watch room, then plant the flag. Watch which sides stay parallel all the way up.",
+      "difficulty": 2,
+      "canvas": { "w": 24, "h": 16 },
+      "tray": [
+        { "shapeId": "rect-6x4", "count": 1 },
+        { "shapeId": "rect-4x6", "count": 1 },
+        { "shapeId": "square-4x4", "count": 1 },
+        { "shapeId": "tri-right-2x2", "count": 1 }
+      ],
+      "slots": [
+        { "id": "base", "shapeId": "rect-6x4", "x": 12, "y": 13, "rot": 0, "buildable": true },
+        { "id": "shaft", "shapeId": "rect-4x6", "x": 12, "y": 8, "rot": 0, "buildable": true },
+        { "id": "room", "shapeId": "square-4x4", "x": 12, "y": 3, "rot": 0, "buildable": true },
+        { "id": "flag", "shapeId": "tri-right-2x2", "x": 15, "y": 2, "rot": 0, "buildable": true }
+      ],
+      "constraints": { "maxPieces": 8 },
+      "targetProperties": ["parallel-lines", "right-angle"],
+      "hints": [
+        "Widest piece at the bottom: the base keeps the tower steady.",
+        "The shaft is the tall rectangle — its short sides must line up with the base's top.",
+        "The flag is a right triangle — its vertical side glues to the watch room's wall."
+      ],
+      "reviewNote": "Without the flag the tower has a mirror line. The flag breaks it — can you see why?"
+    },
+    {
+      "id": "bridge-01",
+      "track": "bridges",
+      "sheetNo": "B-01",
+      "title": "Plank Bridge",
+      "brief": "One long plank and two piers. The piers must stand plumb — perfectly vertical — or the deck will tilt.",
+      "difficulty": 1,
+      "canvas": { "w": 24, "h": 16 },
+      "tray": [
+        { "shapeId": "rect-8x2", "count": 1 },
+        { "shapeId": "rect-4x2", "count": 2 }
+      ],
+      "slots": [
+        { "id": "deck", "shapeId": "rect-8x2", "x": 12, "y": 8, "rot": 0, "buildable": true },
+        { "id": "pier-left", "shapeId": "rect-4x2", "x": 9, "y": 11, "rot": 90, "buildable": true },
+        { "id": "pier-right", "shapeId": "rect-4x2", "x": 15, "y": 11, "rot": 90, "buildable": true }
+      ],
+      "constraints": { "maxPieces": 8 },
+      "targetProperties": ["parallel-lines", "right-angle"],
+      "hints": [
+        "The long plank is the deck — it lies flat across the top.",
+        "The piers are bricks standing on end. Rotate a brick 90° so it stands tall.",
+        "Each pier slides under the deck at the dashes, one left and one right."
+      ],
+      "reviewNote": "Both piers are the same rectangle. Are their long sides parallel to each other?"
+    },
+    {
+      "id": "bridge-02",
+      "track": "bridges",
+      "sheetNo": "B-02",
+      "title": "Mirror Bridge",
+      "brief": "This bridge must be perfectly symmetric: whatever stands on the left must stand, mirrored, on the right. Both support triangles are congruent.",
+      "difficulty": 2,
+      "canvas": { "w": 24, "h": 16 },
+      "tray": [
+        { "shapeId": "rect-8x2", "count": 1 },
+        { "shapeId": "tri-right-4x4", "count": 2 },
+        { "shapeId": "square-2x2", "count": 2 }
+      ],
+      "slots": [
+        { "id": "deck", "shapeId": "rect-8x2", "x": 12, "y": 8, "rot": 0, "buildable": true },
+        { "id": "leg-left", "shapeId": "tri-right-4x4", "x": 10, "y": 11, "rot": 0, "buildable": true },
+        { "id": "leg-right", "shapeId": "tri-right-4x4", "x": 14, "y": 11, "rot": 90, "buildable": true },
+        { "id": "rail-left", "shapeId": "square-2x2", "x": 9, "y": 6, "rot": 0, "buildable": true },
+        { "id": "rail-right", "shapeId": "square-2x2", "x": 15, "y": 6, "rot": 0, "buildable": true }
+      ],
+      "constraints": { "symmetry": "vertical", "mirrorLine": 12, "maxPieces": 12 },
+      "targetProperties": ["parallel-lines", "right-angle"],
+      "hints": [
+        "The deck goes first — flat across the middle dashed outline.",
+        "The right support is the left support flipped across the mirror line. Same triangle, mirrored.",
+        "Rotate the second triangle 180° so its slope mirrors the first one."
+      ],
+      "reviewNote": "Fold the bridge along the center line in your head: deck, triangles and rails all pair up. That is reflection symmetry."
+    },
+    {
+      "id": "robot-01",
+      "track": "robots",
+      "sheetNo": "R-01",
+      "title": "Blocky Bot",
+      "brief": "Seven pieces, one robot — and every piece must respect the mirror line down its middle.",
+      "difficulty": 2,
+      "canvas": { "w": 24, "h": 16 },
+      "tray": [
+        { "shapeId": "square-4x4", "count": 1 },
+        { "shapeId": "square-2x2", "count": 1 },
+        { "shapeId": "rect-4x6", "count": 1 },
+        { "shapeId": "rect-4x2", "count": 4 }
+      ],
+      "slots": [
+        { "id": "head", "shapeId": "square-4x4", "x": 12, "y": 4, "rot": 0, "buildable": true },
+        { "id": "neck", "shapeId": "square-2x2", "x": 12, "y": 7, "rot": 0, "buildable": true },
+        { "id": "body", "shapeId": "rect-4x6", "x": 12, "y": 11, "rot": 0, "buildable": true },
+        { "id": "arm-left", "shapeId": "rect-4x2", "x": 9, "y": 10, "rot": 90, "buildable": true },
+        { "id": "arm-right", "shapeId": "rect-4x2", "x": 15, "y": 10, "rot": 90, "buildable": true },
+        { "id": "leg-left", "shapeId": "rect-4x2", "x": 10, "y": 15, "rot": 0, "buildable": true },
+        { "id": "leg-right", "shapeId": "rect-4x2", "x": 14, "y": 15, "rot": 0, "buildable": true }
+      ],
+      "constraints": { "symmetry": "vertical", "mirrorLine": 12, "maxPieces": 12 },
+      "targetProperties": ["right-angle", "parallel-lines"],
+      "hints": [
+        "Body first: the tall rectangle in the middle of the sheet.",
+        "Arms are bricks rotated 90° — they hang off the body's sides, level with each other.",
+        "Legs sit under the body, one per side of the mirror line. So does everything else."
+      ],
+      "reviewNote": "Blocky Bot is symmetric: arms, legs and rails each have a mirror partner. Trace the mirror line with your eye."
+    },
+    {
+      "id": "robot-02",
+      "track": "robots",
+      "sheetNo": "R-02",
+      "title": "Hexapal",
+      "brief": "A six-sided body on trapezoid feet. Hexagons hide three pairs of parallel sides — count them all.",
+      "difficulty": 3,
+      "canvas": { "w": 24, "h": 16 },
+      "tray": [
+        { "shapeId": "hex-8x6", "count": 1 },
+        { "shapeId": "tri-right-2x2", "count": 1 },
+        { "shapeId": "square-2x2", "count": 2 },
+        { "shapeId": "trap-6x2", "count": 2 }
+      ],
+      "slots": [
+        { "id": "body", "shapeId": "hex-8x6", "x": 12, "y": 8, "rot": 0, "buildable": true },
+        { "id": "antenna", "shapeId": "tri-right-2x2", "x": 12, "y": 4, "rot": 180, "buildable": true },
+        { "id": "leg-left", "shapeId": "square-2x2", "x": 10, "y": 12, "rot": 0, "buildable": true },
+        { "id": "leg-right", "shapeId": "square-2x2", "x": 14, "y": 12, "rot": 0, "buildable": true },
+        { "id": "foot-left", "shapeId": "trap-6x2", "x": 8, "y": 14, "rot": 0, "buildable": true },
+        { "id": "foot-right", "shapeId": "trap-6x2", "x": 16, "y": 14, "rot": 0, "buildable": true }
+      ],
+      "constraints": { "maxPieces": 10 },
+      "targetProperties": ["parallel-lines", "six-sides", "one-pair-parallel"],
+      "hints": [
+        "The hexagon is the body — biggest piece, middle of the sheet.",
+        "Feet are trapezoids: rotate so the long parallel side is at the bottom, like a shoe.",
+        "The antenna is a small right triangle standing on the body's top edge, tip pointing up-left."
+      ],
+      "reviewNote": "Hexapal's feet each have one pair of parallel sides; its body has three. But the antenna breaks the mirror line — Hexapal is NOT symmetric."
+    },
+    {
+      "id": "mirror-house",
+      "track": "robots",
+      "sheetNo": "R-03",
+      "title": "Half a House",
+      "brief": "The architect only drew the left half. Build the right half as its exact mirror image — the mirror line is already on the sheet.",
+      "difficulty": 3,
+      "canvas": { "w": 24, "h": 16 },
+      "tray": [
+        { "shapeId": "square-4x4", "count": 1 },
+        { "shapeId": "tri-right-4x4", "count": 1 },
+        { "shapeId": "rect-4x2", "count": 1 }
+      ],
+      "slots": [
+        { "id": "wall-left", "shapeId": "square-4x4", "x": 10, "y": 10, "rot": 0, "buildable": false },
+        { "id": "roof-left", "shapeId": "tri-right-4x4", "x": 10, "y": 6, "rot": 180, "buildable": false },
+        { "id": "base-left", "shapeId": "rect-4x2", "x": 10, "y": 13, "rot": 0, "buildable": false },
+        { "id": "wall-right", "shapeId": "square-4x4", "x": 14, "y": 10, "rot": 0, "buildable": true },
+        { "id": "roof-right", "shapeId": "tri-right-4x4", "x": 14, "y": 6, "rot": 270, "buildable": true },
+        { "id": "base-right", "shapeId": "rect-4x2", "x": 14, "y": 13, "rot": 0, "buildable": true }
+      ],
+      "constraints": { "symmetry": "vertical", "mirrorLine": 12, "maxPieces": 8 },
+      "targetProperties": ["symmetry", "right-angle", "parallel-lines"],
+      "hints": [
+        "The finished house is symmetric about the dashed mirror line — every printed piece needs a twin.",
+        "The roof halves are right triangles. Mirror the left one across the line: rotate it 180°.",
+        "Each dashed outline is the same distance from the mirror line as its printed twin."
+      ],
+      "reviewNote": "Every side of the right half matches a side of the left half, the same distance from the mirror line. Same shape, same size, flipped."
+    }
+  ]
+}
