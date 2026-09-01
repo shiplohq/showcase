@@ -37,17 +37,35 @@ Eight blueprints in three tracks, all defined in
   (mirror challenge: the left half is printed, build the right half).
 
 A new mission is added by adding JSON — never by touching components.
+The shape catalog (`public/data/shapes.json`) defines 13 polygons; 12 are
+used by the shipped missions (the parallelogram sits in the kit for future
+sheets).
+
+## Screenshots
+
+All captures are from the live deployment — [geometry-builder.shiplo.site](https://geometry-builder.shiplo.site).
+
+| | |
+|---|---|
+| ![Cover — the Mirror Bridge workbench mid-build](showcase/cover.webp) | **Cover** — Mirror Bridge mid-build: deck and one mirrored support placed, triangle selected with its spec sheet, the draggable mirror line down the middle. |
+| ![Desktop — drawing index](showcase/desktop.webp) | **Desktop 1440×900** — the drawing index with all eight blueprint tabs. |
+| ![Tablet — drawing index](showcase/tablet.webp) | **Tablet 1024×768** — the hero viewport for classroom use. |
+| ![Mobile — drawing index](showcase/mobile.webp) | **Mobile 390×844** — limited support: cards stack, tablet is the intended viewport. |
 
 ## Interactions
 
 - **Drag** pieces from the parts bin onto the dashed outlines (pointer
   events, mouse and touch). Pieces snap to the unit grid; rotation snaps
-  to 15° steps.
+  to 15° steps. On mirror missions the **mirror line itself is draggable**
+  — grab its grip and slide it; symmetry is checked about wherever the
+  child leaves it, so a mis-placed line is a discoverable mistake, not a
+  hidden one (arrow keys move it in steps, Home or the inspector's
+  *Reset mirror line* button restore the blueprint's own line).
 - **Full keyboard path** (definition of done): Tab to a bin piece, Enter
   drops it on the sheet; arrow keys move 1 unit (Shift = 4), `R`/`E` rotate
   ±15°, Delete returns the piece to the bin. The inspector also exposes
   real move / rotate / bin buttons — dragging is never the only way.
-- **Undo / redo** of every action, in memory, unlimited.
+- **Undo / redo** of every action, in memory, up to 50 steps back.
 - **3-level hint ladder**: pulse the next slot → reveal the ghost shape →
   show the rotation it needs.
 - **Check fit** validates coverage, piece budget and true mirror symmetry
@@ -68,9 +86,10 @@ state) built by `@angular/build:application` into a fully static artifact:
 
 - All geometry and rules live in a **pure engine**
   (`src/app/features/workbench/engine.ts`, zero Angular imports) that is
-  also exercised headless by `npm run test:engine` — 317 checks over every
+  also exercised headless by `npm run test:engine` — 300+ checks over every
   mission: data validation, solve/nudge/undo paths, outline computation,
-  perimeter walks, mirror twin verification.
+  perimeter walks, mirror twin verification (including the moved mirror
+  line).
 - Content is fetched from local JSON at runtime — no API, no database, no
   server runtime, document-relative URLs so the artifact works from any
   base path.

@@ -110,6 +110,8 @@ export interface Session {
   hintLevel: number; // 0 = off, 1..3
   status: 'building' | 'complete';
   feedback: Feedback;
+  /** Current mirror-line column (units). Tool setting — not part of undo history. */
+  mirrorX: number | null;
   past: Snapshot[];
   future: Snapshot[];
 }
@@ -274,9 +276,16 @@ function pieceKeySet(shapes: ShapeMap, pieces: Piece[]): Set<string> {
  * Vertical-mirror symmetry check: the multiset of piece polygons must be
  * invariant under reflection across `lineX`. Printed (non-buildable) slots
  * are included as fixed pieces so half-printed blueprints verify too.
+ * `lineOverride` carries the child-moved mirror line (spec: the mirror line
+ * is draggable); it defaults to the blueprint's authored line.
  */
-export function checkSymmetry(mission: Mission, shapes: ShapeMap, pieces: Piece[]): boolean {
-  const line = mission.constraints.mirrorLine ?? mission.canvas.w / 2;
+export function checkSymmetry(
+  mission: Mission,
+  shapes: ShapeMap,
+  pieces: Piece[],
+  lineOverride?: number,
+): boolean {
+  const line = lineOverride ?? mission.constraints.mirrorLine ?? mission.canvas.w / 2;
   const all: Piece[] = [
     ...pieces,
     ...mission.slots.filter((s) => !s.buildable).map((s) => slotPiece(s)),
@@ -296,7 +305,12 @@ export function checkSymmetry(mission: Mission, shapes: ShapeMap, pieces: Piece[
   return true;
 }
 
-export function validate(mission: Mission, shapes: ShapeMap, pieces: Piece[]): Validation {
+export function validate(
+  mission: Mission,
+  shapes: ShapeMap,
+  pieces: Piece[],
+  mirrorX?: number | null,
+): Validation {
   const buildable = mission.slots.filter((s) => s.buildable);
   const slotMatch: Record<string, string | null> = {};
   const used = new Set<string>();
@@ -315,7 +329,9 @@ export function validate(mission: Mission, shapes: ShapeMap, pieces: Piece[]): V
   const filledCount = buildable.filter((s) => slotMatch[s.id] !== null).length;
   const piecesOk = pieces.length <= mission.constraints.maxPieces;
   const symmetryOk =
-    mission.constraints.symmetry === 'vertical' ? checkSymmetry(mission, shapes, pieces) : null;
+    mission.constraints.symmetry === 'vertical'
+      ? checkSymmetry(mission, shapes, pieces, mirrorX ?? undefined)
+      : null;
   const complete =
     filledCount === buildable.length &&
     unmatchedPieces.length === 0 &&
@@ -511,9 +527,52 @@ export function createSession(mission: Mission): Session {
     hintLevel: 0,
     status: 'building',
     feedback: { kind: 'idle', text: '' },
+    mirrorX: mission.constraints.symmetry === 'vertical'
+      ? (mission.constraints.mirrorLine ?? Math.round(mission.canvas.w / 2))
+      : null,
     past: [],
     future: [],
   };
+}
+
+/** The blueprint's authored mirror line (the position that validates). */
+export function defaultMirrorX(mission: Mission): number {
+  return mission.constraints.mirrorLine ?? Math.round(mission.canvas.w / 2);
+}
+
+/** Move the mirror line (pointer drag). Snapped, clamped inside the sheet. */
+export function setMirrorX(s: Session, x: number, mission: Mission): Session {
+  if (s.mirrorX === null) return s;
+  const clamped = Math.min(Math.max(snap(x), 1), mission.canvas.w - 1);
+  if (clamped === s.mirrorX) return s;
+  return {
+    ...s,
+    mirrorX: clamped,
+    feedback: { kind: 'info', text: `Mirror line at column ${clamped}.` },
+  };
+}
+
+/** Keyboard step for the mirror line — mirrors piece nudging (1u, Shift = 4u). */
+export function nudgeMirrorX(s: Session, delta: number, mission: Mission): Session {
+  if (s.mirrorX === null) return s;
+  return setMirrorX(s, s.mirrorX + delta, mission);
+}
+
+/** Snap the line back to the blueprint's authored position. */
+export function resetMirrorX(s: Session, mission: Mission): Session {
+  if (s.mirrorX === null) return s;
+  const x = defaultMirrorX(mission);
+  if (x === s.mirrorX) return s;
+  return {
+    ...s,
+    mirrorX: x,
+    feedback: { kind: 'info', text: `Mirror line back at column ${x} — the blueprint's own line.` },
+  };
+}
+
+/** True when the child moved the line away from the blueprint's line. */
+export function mirrorMoved(s: Session, mission: Mission): boolean {
+  return s.mirrorX !== null && s.mirrorX !== defaultMirrorX(mission);
 }
 
 function snapshot(s: Session): Snapshot {
@@ -719,11 +778,19 @@ export function pieceAtPoint(shapes: ShapeMap, pieces: Piece[], pt: Pt): Piece |
 // Copy (single source so engine-sim can verify feedback wording)
 // ---------------------------------------------------------------------------
 
-export function feedbackFor(validation: Validation, mission: Mission): Feedback {
+export function feedbackFor(validation: Validation, mission: Mission, mirrorMovedFlag = false): Feedback {
   if (validation.complete) {
     return {
       kind: 'complete',
       text: `CHECKED — “${mission.title}” matches the blueprint.`,
+    };
+  }
+  if (validation.symmetryOk === false) {
+    return {
+      kind: 'nudge',
+      text: mirrorMovedFlag
+        ? 'The halves do not match — slide the mirror line back to the middle of the drawing, or press the Reset mirror line button.'
+        : 'The halves do not match about the mirror line — build the right half as the exact mirror of the printed left half.',
     };
   }
   if (validation.unmatchedPieces.length > 0) {

@@ -106,11 +106,11 @@ SPDX-License-Identifier: Apache-2.0
           <text [attr.x]="3" [attr.y]="scalebar().textY">4 u</text>
         </g>
 
-        <!-- mirror line -->
-        @if (mission().constraints.symmetry === 'vertical') {
+        <!-- mirror line visuals (decorative — the grip below carries interaction) -->
+        @if (mission().constraints.symmetry === 'vertical' && hasMirror()) {
           <g class="mirror-line" aria-hidden="true">
-            <line [attr.x1]="mirrorX()" [attr.x2]="mirrorX()" y1="0.8" [attr.y2]="mission().canvas.h - 0.8" />
-            <text [attr.x]="mirrorX() + 0.4" y="2">MIRROR</text>
+            <line class="mirror-stem" [attr.x1]="mirrorX()" [attr.x2]="mirrorX()" y1="1.6" [attr.y2]="mission().canvas.h - 1.6" />
+            <text [attr.x]="mirrorX() + 0.45" y="2">MIRROR</text>
           </g>
         }
 
@@ -180,6 +180,41 @@ SPDX-License-Identifier: Apache-2.0
         <!-- completed silhouette -->
         @if (locked() && completeOutlineD(); as d) {
           <path class="complete-outline" [attr.d]="d" />
+        }
+
+        <!-- mirror grip — draggable slider, rendered last so it stays grabbable
+             above slots and pieces (spec: "đường gương kéo được") -->
+        @if (mission().constraints.symmetry === 'vertical' && hasMirror()) {
+          <g
+            class="mirror-grip"
+            role="slider"
+            [attr.tabindex]="locked() ? -1 : 0"
+            [attr.aria-label]="'Mirror line. The structure must be symmetric about it. Arrow keys move it one unit, Shift plus arrows four units, Home resets it.'"
+            [attr.aria-valuemin]="1"
+            [attr.aria-valuemax]="mission().canvas.w - 1"
+            [attr.aria-valuenow]="mirrorX()"
+            [attr.aria-valuetext]="'column ' + mirrorX()"
+            (keydown)="onMirrorKeydown($event)"
+            (pointerdown)="onCanvasPointerDown($event)"
+          >
+            <rect
+              class="grip-hit"
+              [attr.x]="mirrorX() - 1.2"
+              [attr.y]="mission().canvas.h / 2 - 1.2"
+              width="2.4"
+              height="2.4"
+            />
+            <rect
+              class="grip-knob"
+              [attr.x]="mirrorX() - 0.8"
+              [attr.y]="mission().canvas.h / 2 - 0.8"
+              width="1.6"
+              height="1.6"
+            />
+            <text class="mirror-pos" [attr.x]="mirrorX()" [attr.y]="mission().canvas.h / 2 + 2.6" text-anchor="middle">
+              ⬍ {{ mirrorX() }}
+            </text>
+          </g>
         }
       </svg>
 
@@ -252,6 +287,11 @@ SPDX-License-Identifier: Apache-2.0
             <li>Mirror symmetry about the dashed line</li>
           }
         </ul>
+        @if (mission().constraints.symmetry === 'vertical' && mirrorIsMoved()) {
+          <button type="button" class="btn btn--tiny insp-mirror-reset" (click)="resetMirror()" [disabled]="locked()">
+            Reset mirror line
+          </button>
+        }
         <p class="targets-count mono-chip">
           SHEET {{ mission().sheetNo }} · {{ validation().totalSlots }} PIECES · MAX {{ mission().constraints.maxPieces }}
         </p>

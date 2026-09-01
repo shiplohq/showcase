@@ -30,7 +30,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: var(--sp-4);
-  padding: var(--sp-4) var(--sp-2) var(--sp-3);
+  padding: var(--sp-3) var(--sp-2) var(--sp-2);
   border-bottom: 1px solid var(--ink);
 }
 

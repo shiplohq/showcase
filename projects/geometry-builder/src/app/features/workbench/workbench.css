@@ -170,6 +170,7 @@
   stroke: var(--ink-soft);
   stroke-width: 0.06;
   fill: none;
+  pointer-events: none;
 }
 
 .scalebar text {
@@ -179,10 +180,17 @@
   text-anchor: middle;
 }
 
-.mirror-line line {
+/* Draggable mirror line (spec IA): decorative stem + topmost grip slider. */
+.mirror-line,
+.mirror-grip {
+  cursor: ew-resize;
+}
+
+.mirror-stem {
   stroke: var(--vermilion);
   stroke-width: 0.09;
   stroke-dasharray: 0.55 0.4;
+  pointer-events: none;
 }
 
 .mirror-line text {
@@ -190,15 +198,55 @@
   font-size: 0.85px;
   letter-spacing: 0.12em;
   fill: var(--vermilion);
+  pointer-events: none;
 }
 
-/* dashed blueprint outlines */
+.grip-hit {
+  fill: transparent;
+  stroke: none;
+}
+
+.grip-knob {
+  fill: var(--paper-raised);
+  stroke: var(--vermilion);
+  stroke-width: 0.12;
+  pointer-events: none;
+}
+
+.mirror-grip:focus,
+.mirror-grip:focus-visible {
+  outline: none;
+}
+
+.mirror-grip:focus-visible .grip-knob {
+  stroke: var(--cobalt-deep);
+  stroke-width: 0.24;
+}
+
+.mirror-pos {
+  font-family: var(--font-mono);
+  font-size: 1.05px;
+  font-weight: 600;
+  fill: var(--vermilion-deep);
+  letter-spacing: 0;
+  pointer-events: none;
+}
+
+.insp-mirror-reset {
+  width: 100%;
+  margin: var(--sp-2) 0;
+  border-color: var(--vermilion-deep);
+  color: var(--vermilion-deep);
+}
+
+/* dashed blueprint outlines (visual only — never intercept the pointer) */
 .slot {
   fill: none;
   stroke: var(--cobalt);
   stroke-width: 0.11;
   stroke-dasharray: 0.5 0.32;
   stroke-linejoin: round;
+  pointer-events: none;
 }
 
 .slot--matched {
@@ -220,6 +268,7 @@
 /* printed half of a mirror blueprint */
 .printed-piece {
   opacity: 0.45;
+  pointer-events: none;
 }
 
 .printed-piece .shape-body {

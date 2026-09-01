@@ -3,10 +3,10 @@
   "provider": "Shiplo",
   "status": "verified",
   "url": "https://geometry-builder.shiplo.site",
-  "sourceCommitSha": "5023a7ccc764a585cb7706ac79738399dc52c553",
+  "sourceCommitSha": null,
   "buildCommand": "npm run build",
-  "artifactSha256": "4dfb6aaa8955991d9310e84c48c510a70e25751c15550db63be5f001f4bb1002",
-  "deployedAt": "2026-09-01T05:14:02Z",
-  "verifiedAt": "2026-09-01T05:19:22Z",
-  "notes": "First deploy (release 368c02d2-2bfa-4d71-9c12-c84e009ff8ff, deployment 2b086b64-972f-451e-990e-9fbcbf3ba0dd, activated 2026-09-01T05:14:02.457Z, 32 files / 682,580 bytes). sourceCommitSha finalized by orchestrator to the integration commit after review. artifactSha256 recomputed at integration: the tar-of-dist method embeds mtimes, so a rebuild of byte-identical content yields a different tar hash (review verified all 32 deployed files are sha256-identical to a fresh local build — content identity is proven, only mtimes differ from the original deploy-time hash). Live verification: full build-mission flow (mouse drag from tray, keyboard arrows/R/E, undo/redo, nudge, 3-level hint ladder, Check fit → CHECKED, perimeter walk 24 u on house-01) re-driven headless against the public URL at 1440x900 and 1024x768, smoke at 390x844 — zero console errors; document.fonts.check passes for Space Grotesk (400/500/700) and IBM Plex Mono (400/500/600) over latin+digits; HTTP 200. Artifact hash = tar -czf - -C dist . | sha256sum per docs/DEPLOYMENT.md."
+  "artifactSha256": "7fe6078a76c69a13ecdaee07fb48ae5e54c83fc93a6e03726a3e6ecb5ec4dd7d",
+  "deployedAt": "2026-09-01T15:46:08Z",
+  "verifiedAt": "2026-09-01T15:49:53Z",
+  "notes": "Deploy #2 (release 040720d1-9f06-48bf-b2fa-6534f41b403f, deployment 7cb85d61-f9cd-4302-9bee-0ad9251198f6, activated 2026-09-01T15:46:08.534Z, 32 files / 687,379 bytes) — reviewer P3 fixes: draggable mirror line (spec IA 'đường gương kéo được') with grip handle, slider role/aria-valuenow, arrow-key/Home keyboard path, Reset-mirror-line button and symmetry feedback that points at a moved line; README screenshots section + undo-history cap wording + shape-count correction (13 defined, 12 used); lobby density so the drawing index fits one 1440×900 and 1024×768 screen (0 px overflow both). Deploy #1 was deployment 2b086b64-972f-451e-990e-9fbcbf3ba0dd (activated 2026-09-01T05:14:02.457Z, 32 files / 682,580 bytes). Live verification of this release: full build-mission flow PLUS the new mirror-line flow (mouse drag, reset button, keyboard arrows/Home, moved-line nudge) re-driven headless against the public URL at 1440x900 and 1024x768, smoke at 390x844 — zero console errors; document.fonts.check passes for Space Grotesk (400/500/700) and IBM Plex Mono (400/500/600) over latin+digits; HTTP 200; screenshots re-captured from this release. sourceCommitSha: null — finalized by orchestrator to the integration commit after review. Artifact hash = tar -czf - -C dist . | sha256sum per docs/DEPLOYMENT.md."
 }

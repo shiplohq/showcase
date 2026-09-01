@@ -25,20 +25,25 @@ import {
   canUndo,
   computeOutline,
   createSession,
+  defaultMirrorX,
   dragPieceTo,
   endDrag,
   feedbackFor,
   matchesSlot,
+  mirrorMoved,
   nextHintSlot,
   normalizeRot,
+  nudgeMirrorX,
   nudgePiece,
   pieceAtPoint,
   placeFromTray,
   redo,
   removePiece,
+  resetMirrorX,
   rotatePieceBy,
   selectPiece,
   selectTrayShape,
+  setMirrorX,
   snap,
   undo,
   validate,
@@ -55,6 +60,7 @@ import {
 
 interface DragState {
   uid: string | null;
+  mirror: boolean;
   offset: Pt;
   pendingTrayShape: string | null;
   started: boolean;
@@ -84,7 +90,7 @@ export class Workbench implements AfterViewInit {
 
   protected readonly session = linkedSignal<Session>(() => createSession(this.mission()));
 
-  private readonly drag: DragState = { uid: null, offset: { x: 0, y: 0 }, pendingTrayShape: null, started: false, startX: 0, startY: 0 };
+  private readonly drag: DragState = { uid: null, mirror: false, offset: { x: 0, y: 0 }, pendingTrayShape: null, started: false, startX: 0, startY: 0 };
   private readonly tweens: gsap.core.Tween[] = [];
 
   protected readonly propertyLabels = PROPERTY_LABELS;
@@ -92,7 +98,7 @@ export class Workbench implements AfterViewInit {
   // ---- derived state ------------------------------------------------------
 
   protected readonly validation = computed<Validation>(() =>
-    validate(this.mission(), this.shapes(), this.session().pieces),
+    validate(this.mission(), this.shapes(), this.session().pieces, this.session().mirrorX),
   );
 
   protected readonly locked = computed(() => this.session().status === 'complete');
@@ -135,9 +141,14 @@ export class Workbench implements AfterViewInit {
     return cornerBrackets(poly, 0.9);
   });
 
-  protected readonly mirrorX = computed(
-    () => this.mission().constraints.mirrorLine ?? this.mission().canvas.w / 2,
+  /** The blueprint's mirror line now lives on the session (draggable, spec IA). */
+  protected readonly hasMirror = computed(() => this.session().mirrorX !== null);
+
+  protected readonly mirrorX = computed<number>(
+    () => this.session().mirrorX ?? defaultMirrorX(this.mission()),
   );
+
+  protected readonly mirrorIsMoved = computed(() => mirrorMoved(this.session(), this.mission()));
 
   protected readonly scalebar = computed(() => {
     const h = this.mission().canvas.h;
@@ -221,13 +232,24 @@ export class Workbench implements AfterViewInit {
   protected onCanvasPointerDown(event: PointerEvent): void {
     if (this.locked()) return;
     const target = event.target as Element;
-    const pieceG = target.closest?.('g.piece');
     const world = this.toWorld(event.clientX, event.clientY);
+    // Mirror line first: the grip slider is the tool layer for the symmetry line.
+    if (target.closest?.('g.mirror-grip, g.mirror-line')) {
+      this.drag.uid = null;
+      this.drag.mirror = true;
+      this.drag.pendingTrayShape = null;
+      this.drag.started = true;
+      (event.currentTarget as SVGSVGElement).setPointerCapture(event.pointerId);
+      this.session.update((s) => selectPiece(s, null));
+      return;
+    }
+    const pieceG = target.closest?.('g.piece');
     if (pieceG) {
       const uid = pieceG.getAttribute('data-uid')!;
       const piece = this.session().pieces.find((p) => p.uid === uid);
       if (!piece) return;
       this.drag.uid = uid;
+      this.drag.mirror = false;
       this.drag.pendingTrayShape = null;
       this.drag.offset = { x: world.x - piece.x, y: world.y - piece.y };
       this.drag.started = true;
@@ -241,6 +263,11 @@ export class Workbench implements AfterViewInit {
   }
 
   protected onCanvasPointerMove(event: PointerEvent): void {
+    if (this.drag.mirror) {
+      const world = this.toWorld(event.clientX, event.clientY);
+      this.session.update((s) => setMirrorX(s, world.x, this.mission()));
+      return;
+    }
     if (!this.drag.uid) return;
     const world = this.toWorld(event.clientX, event.clientY);
     const pos = this.clampToWorld({ x: world.x - this.drag.offset.x, y: world.y - this.drag.offset.y });
@@ -248,6 +275,10 @@ export class Workbench implements AfterViewInit {
   }
 
   protected onCanvasPointerUp(event: PointerEvent): void {
+    if (this.drag.mirror) {
+      this.drag.mirror = false;
+      return;
+    }
     if (!this.drag.uid) return;
     const uid = this.drag.uid;
     this.drag.uid = null;
@@ -257,6 +288,30 @@ export class Workbench implements AfterViewInit {
     this.session.update((s) => endDrag(s, uid, !!overTray, this.shapes()));
     if (!overTray) this.settle(uid);
     else this.announceReturn(uid);
+  }
+
+  /** Keyboard path for the mirror line — same steps as piece movement. */
+  protected onMirrorKeydown(event: KeyboardEvent): void {
+    if (this.locked()) return;
+    const step = event.shiftKey ? 4 : 1;
+    switch (event.key) {
+      case 'ArrowLeft':
+        this.session.update((s) => nudgeMirrorX(s, -step, this.mission()));
+        break;
+      case 'ArrowRight':
+        this.session.update((s) => nudgeMirrorX(s, step, this.mission()));
+        break;
+      case 'Home':
+        this.session.update((s) => resetMirrorX(s, this.mission()));
+        break;
+      default:
+        return;
+    }
+    event.preventDefault();
+  }
+
+  protected resetMirror(): void {
+    this.session.update((s) => resetMirrorX(s, this.mission()));
   }
 
   /** pointerdown on a tray piece: arm a drag-from-tray; a plain tap selects. */
@@ -420,7 +475,8 @@ export class Workbench implements AfterViewInit {
         this.hostEl().nativeElement.querySelector<HTMLButtonElement>('.cta-measure')?.focus();
       }, 0);
     } else {
-      this.session.update((s) => ({ ...s, feedback: feedbackFor(v, this.mission()) }));
+      const moved = this.mirrorIsMoved();
+      this.session.update((s) => ({ ...s, feedback: feedbackFor(v, this.mission(), moved) }));
     }
   }
 

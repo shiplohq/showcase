@@ -2,7 +2,7 @@
 
 **Project:** Geometry Builder (#03) — Xưởng hình học
 **Spec:** `.showcase/03_geometry-builder.md`
-**Status:** Lifecycle complete through live verification; root registry integration pending (orchestrator).
+**Status:** Deploy #2 live & verified (reviewer P3 list closed); registry `live` from deploy #1 remains — orchestrator may wish to refresh `demo.deployedAt`/provenance to the deploy-#2 values below.
 
 ## Build: PASS
 - `npm run build` (= `ng build && node scripts/flatten-dist.mjs`) — 0 warnings, 0 errors.
@@ -59,6 +59,34 @@ Manual equivalent passes (vision-model critique + CDP/DOM ground-truth verificat
 NONE known. Notes (accepted, not defects): mobile is declared "limited" per spec (stacked layout, scrollable workbench — intended); hexagon/trapezoid edge lengths display 1-decimal values (irrational by nature, shown like a real drawing); `previewPolys` recomputes per lobby render (8 missions × ≤7 slots — negligible).
 
 ## Root integration required
-- `showcase.json` (#03): `status: "live"`, `demo.url = "https://geometry-builder.shiplo.site"`, `demo.deployedAt = "2026-09-01T05:14:02Z"`, `screenshots.cover/desktop/tablet/mobile = "projects/geometry-builder/showcase/*.webp"`, `mobileSupport` note mirrored from metadata if the schema supports it.
+- `showcase.json` (#03): `status: "live"`, `demo.url = "https://geometry-builder.shiplo.site"`, `demo.deployedAt = "2026-09-01T15:46:08Z"` (deploy #2 — refresh from the current value if desired), `screenshots.cover/desktop/tablet/mobile = "projects/geometry-builder/showcase/*.webp"`, `mobileSupport` note mirrored from metadata if the schema supports it.
 - README gallery: via `npm run gallery`.
 - `sourceCommitSha` finalization: **YES** — `showcase/deployment.json` has `sourceCommitSha: null` with a notes line explaining the orchestrator finalizes it to the integration commit after review.
+
+---
+
+# Deploy #2 — reviewer P3 fix list (2026-09-01)
+
+**Release:** `040720d1-9f06-48bf-b2fa-6534f41b403f` · deployment `7cb85d61-f9cd-4302-9bee-0ad9251198f6` · activated **2026-09-01T15:46:08Z** · 32 files / 687,379 bytes · same site (id `8cf23c93-f924-477f-b577-aebd24058584`, no new site created).
+
+## 1. Draggable mirror line (spec IA) — DONE, the substantive fix
+- The symmetry line is now a real tool: **mouse/touch drag** via a topmost grip handle (2.4u ≈ 70px hit area, ≥44px floor), **keyboard path** mirroring piece movement (arrows ±1u, Shift ±4u, Home resets), `role="slider"` with `aria-valuenow/valuetext` ("column N") and a live-region position announcement.
+- Engine extended, not rewritten: `Session.mirrorX` (tool setting — deliberately outside undo history, sim-verified), `setMirrorX` (snap+clamp), `nudgeMirrorX`, `resetMirrorX`, `mirrorMoved`; `checkSymmetry`/`validate` accept the moved line. A moved line that breaks symmetry produces a dedicated nudge ("slide the mirror line back to the middle…"), and the inspector grows a **Reset mirror line** button while the line is displaced.
+- Implementation notes: slot strokes / printed pieces are now `pointer-events: none` (they were intercepting grip grabs), and the interactive grip renders after pieces so it is always grabbable.
+- Verified: engine-sim section 6 (13 new checks → **330 total**), CDP live flow asserts slider role, drag moves aria-valuenow, reset button restores 12, arrows step to 14, Home restores, and Check-fit with a moved line nudges about the mirror.
+
+## 2–4. README corrections — DONE
+- Screenshots section added (4-image table, same pattern as the other showcases).
+- Undo/redo now says "up to 50 steps back" (matches the engine's 50-snapshot cap).
+- Shape claim corrected: **13 polygons defined, 12 used** (para-6x4 stays in the kit for future sheets — stated explicitly); "317 checks" → "300+".
+
+## 5. Lobby density — DONE (measured, not eyeballed)
+- Drawing index now fits **exactly one screen** at 1440×900 (scrollHeight 900/900) and 1024×768 (768/768) — 0 px overflow on both hero viewports; cards compacted (preview 40px/32px tablet, tab-side row on tablet, tighter paddings, 44px touch floor kept).
+
+## Gates re-run for deploy #2
+- `npm run test:engine` → 330/330. `npm run build` → 0 warnings. `npm run verify:static -- geometry-builder` → PASS (32 files, 0.66 MB).
+- Live: full CDP flow (now including the mirror-line block) at 1440×900 + 1024×768 and smoke at 390×844 against the public URL — **zero console errors**; `check:fonts` all OK; HTTP 200.
+- All four screenshots re-captured from this release (cover re-staged: grip handle + ⬍12 label visible on the line); `metadata.json` refreshed; `deployment.json` updated with the new deployment id, real timestamps, fresh artifactSha256 `7fe6078a76c69a13ecdaee07fb48ae5e54c83fc93a6e03726a3e6ecb5ec4dd7d`, and `sourceCommitSha: null` + finalization note.
+
+## Remaining issues after deploy #2
+NONE known from the reviewer list or re-verification.

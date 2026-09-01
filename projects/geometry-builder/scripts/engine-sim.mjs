@@ -50,6 +50,11 @@ const {
   validateShapes,
   validateMission,
   normalizeWinding,
+  setMirrorX,
+  nudgeMirrorX,
+  resetMirrorX,
+  mirrorMoved,
+  defaultMirrorX,
 } = mod;
 
 const shapesJson = JSON.parse(readFileSync(new URL('../public/data/shapes.json', import.meta.url), 'utf8'));
@@ -299,6 +304,54 @@ console.log('\n— Mirror mission specifics');
   const bad = mirrored.map((p, i) => (i === 0 ? { ...p, x: p.x + 2 } : p));
   check(!checkSymmetry(mission, shapes, bad), 'asymmetric build fails symmetry check');
   console.log('  ✔ mirror twins validate; asymmetry rejected');
+}
+
+// ---------------------------------------------------------------------------
+// 6. Draggable mirror line (deploy #2 — spec IA "đường gương kéo được")
+// ---------------------------------------------------------------------------
+
+console.log('\n— Draggable mirror line');
+{
+  const mission = missionsJson.missions.find((m) => m.id === 'mirror-house');
+  const printed = mission.slots.filter((x) => !x.buildable);
+  const solved = printed.map((slot, i) => {
+    const shape = shapes.get(slot.shapeId);
+    const refl = reflectPolyX(worldPolygon(shape, slot.x, slot.y, slot.rot), mission.constraints.mirrorLine);
+    const twin = mission.slots
+      .filter((x) => x.buildable)
+      .find((x) => polyKey(worldPolygon(shapes.get(x.shapeId), x.x, x.y, x.rot)) === polyKey(refl));
+    return { uid: `m${i}`, shapeId: slot.shapeId, x: twin.x, y: twin.y, rot: twin.rot };
+  });
+
+  let s = createSession(mission);
+  check(s.mirrorX === defaultMirrorX(mission) && s.mirrorX === 12, `session starts at the blueprint line (12), got ${s.mirrorX}`);
+  check(validate(mission, shapes, solved, s.mirrorX).complete, 'solved build validates at the authored line');
+  check(mirrorMoved(s, mission) === false, 'line not flagged as moved at start');
+
+  s = setMirrorX(s, 14.4, mission); // pointer drop snaps
+  check(s.mirrorX === 14, `drag snaps to whole units (14), got ${s.mirrorX}`);
+  check(mirrorMoved(s, mission) === true, 'moved line detected');
+  const vMoved = validate(mission, shapes, solved, s.mirrorX);
+  check(!vMoved.complete && vMoved.symmetryOk === false, 'moved line correctly fails symmetry on the solved build');
+  const fbMoved = feedbackFor(vMoved, mission, mirrorMoved(s, mission));
+  check(fbMoved.kind === 'nudge' && /mirror line/i.test(fbMoved.text), `feedback points at the moved line: "${fbMoved.text.slice(0, 60)}"`);
+
+  s = nudgeMirrorX(s, -2, mission);
+  check(s.mirrorX === 12, 'keyboard nudge −2 returns to 12');
+  check(validate(mission, shapes, solved, s.mirrorX).complete, 'symmetry passes again at 12');
+
+  s = setMirrorX(s, 99, mission);
+  check(s.mirrorX === mission.canvas.w - 1, `line clamps inside the sheet (${mission.canvas.w - 1}), got ${s.mirrorX}`);
+  s = resetMirrorX(s, mission);
+  check(s.mirrorX === 12 && mirrorMoved(s, mission) === false, 'reset restores the blueprint line');
+  check(validate(mission, shapes, solved, s.mirrorX).complete, 'solved build validates after reset');
+
+  // The line is a tool setting: undo of piece moves must not roll it back.
+  s = addPiece(s, shapes, 'square-4x4', 5, 5, 0);
+  s = setMirrorX(s, 15, mission);
+  s = undo(s);
+  check(s.mirrorX === 15, 'undo keeps the moved mirror line (tool setting, not history)');
+  console.log('  ✔ drag/snap/clamp/keyboard/reset + validation + feedback + undo independence');
 }
 
 // ---------------------------------------------------------------------------

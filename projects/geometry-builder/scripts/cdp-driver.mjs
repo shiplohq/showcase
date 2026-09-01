@@ -311,6 +311,49 @@ try {
   if (stamp2 < 1) throw new Error('completed mission does not show its CHECKED stamp in the lobby');
   console.log('  ✔ touch returns to lobby; mission tab stamped CHECKED');
 
+  // -- draggable mirror line (deploy #2: mouse drag + keyboard + reset) -------------------
+  await evaluate(`document.querySelectorAll('.mission-tab .tab-open')[7].click()`); // Half a House
+  await sleep(800);
+  const lineOk = await evaluate(`(() => { const g = document.querySelector('g.mirror-grip'); return g ? { role: g.getAttribute('role'), now: g.getAttribute('aria-valuenow'), tab: g.getAttribute('tabindex') } : null; })()`);
+  if (!lineOk || lineOk.role !== 'slider' || lineOk.now !== '12') {
+    throw new Error(`mirror line not an accessible slider at 12: ${JSON.stringify(lineOk)}`);
+  }
+  // Mouse drag the grip right by ~4 units (canvas ≈ 660px wide / 24 units).
+  const grip = await center('g.mirror-grip', 'mirror grip');
+  await send('Input.dispatchMouseEvent', { type: 'mousePressed', x: grip.x, y: grip.y, button: 'left', clickCount: 1 });
+  await sleep(120);
+  await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: grip.x + 110, y: grip.y, button: 'left', clickCount: 1 });
+  await sleep(160);
+  await send('Input.dispatchMouseEvent', { type: 'mouseReleased', x: grip.x + 110, y: grip.y, button: 'left', clickCount: 1 });
+  await sleep(300);
+  const dragged = await evaluate(`document.querySelector('g.mirror-grip').getAttribute('aria-valuenow')`);
+  if (dragged === '12' || dragged === null) throw new Error(`mirror drag did not move the line (aria-valuenow=${dragged})`);
+  const resetBtn = await evaluate(`!!document.querySelector('.insp-mirror-reset')`);
+  if (!resetBtn) throw new Error('moved line did not reveal the Reset mirror line button');
+  await click('.insp-mirror-reset', 'reset mirror line');
+  const afterReset = await evaluate(`document.querySelector('g.mirror-grip').getAttribute('aria-valuenow')`);
+  if (afterReset !== '12') throw new Error(`reset did not restore line to 12 (${afterReset})`);
+  // Keyboard: focus the slider, arrows step it, Home restores.
+  await evaluate(`document.querySelector('g.mirror-grip').focus()`);
+  await key('ArrowRight');
+  await key('ArrowRight');
+  let kb = await evaluate(`document.querySelector('g.mirror-grip').getAttribute('aria-valuenow')`);
+  if (kb !== '14') throw new Error(`keyboard arrows moved line to ${kb}, expected 14`);
+  await key('Home');
+  kb = await evaluate(`document.querySelector('g.mirror-grip').getAttribute('aria-valuenow')`);
+  if (kb !== '12') throw new Error(`Home did not restore the line (${kb})`);
+  // With the line moved, Check fit on the empty build must nudge about the line.
+  await evaluate(`document.querySelector('g.mirror-grip').focus()`);
+  await key('ArrowRight');
+  await click('.cta-check', 'check fit with moved line');
+  const mirrorNudge = await evaluate(`document.querySelector('.wb-feedback').textContent.trim()`);
+  if (!/mirror/i.test(mirrorNudge)) throw new Error(`expected mirror-line nudge, got "${mirrorNudge}"`);
+  console.log(`  ✔ mirror line: mouse drag + reset button + keyboard (arrows/Home) + moved-line nudge "${mirrorNudge.slice(0, 52)}…"`);
+  await evaluate(`document.querySelector('g.mirror-grip').focus()`);
+  await key('Home');
+  await evaluate(`document.querySelector('.masthead .btn').click()`); // back to lobby
+  await sleep(500);
+
   // -- touch target sanity: all interactive elements ≥ 44px ---------------------------
   const small = await evaluate(`[...document.querySelectorAll('button')].filter(b => { const r = b.getBoundingClientRect(); return r.width > 0 && (r.width < 44 || r.height < 44); }).length`);
   if (small > 0) throw new Error(`${small} button(s) smaller than 44px`);

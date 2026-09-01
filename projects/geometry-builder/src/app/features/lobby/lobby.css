@@ -7,7 +7,7 @@
 .lobby {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-5);
+  gap: var(--sp-3);
 }
 
 .lobby-head {
@@ -19,7 +19,7 @@
 }
 
 .lobby-head h2 {
-  font-size: clamp(20px, 3vw, 28px);
+  font-size: clamp(18px, 2.6vw, 24px);
 }
 
 .lobby-progress {
@@ -60,7 +60,7 @@
 .track {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-2);
+  gap: var(--sp-1);
 }
 
 .track-label {
@@ -83,7 +83,7 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--sp-2);
+  gap: var(--sp-1);
 }
 
 /* ---- Mission tab ------------------------------------------------------- */
@@ -96,7 +96,7 @@
   border: 2px solid var(--ink);
   background: var(--paper-raised);
   box-shadow: var(--shadow-hard-ink);
-  padding: var(--sp-2);
+  padding: 4px;
 }
 
 .tab-open {
@@ -105,8 +105,8 @@
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   column-gap: var(--sp-4);
-  min-height: var(--touch-lg);
-  padding: var(--sp-1) var(--sp-2);
+  min-height: var(--touch);
+  padding: 2px var(--sp-2);
   text-align: left;
 }
 
@@ -144,14 +144,14 @@
 }
 
 .tab-preview {
-  height: 56px;
+  height: 40px;
   width: auto;
-  flex: 0 1 300px;
+  flex: 0 1 240px;
   background:
     repeating-linear-gradient(0deg, transparent 0 7px, var(--grid-minor) 7px 8px),
     repeating-linear-gradient(90deg, transparent 0 7px, var(--grid-minor) 7px 8px);
   border: 1px solid var(--line);
-  padding: 3px;
+  padding: 2px;
 }
 
 .tab-preview polygon {
@@ -194,7 +194,7 @@
 
 .tab-stamp {
   position: absolute;
-  top: calc(var(--sp-2) * -1);
+  top: -9px;
   right: var(--sp-6);
   transform: rotate(-6deg);
   font-family: var(--font-mono);
@@ -251,12 +251,12 @@
   gap: var(--sp-4);
   flex-wrap: wrap;
   border-top: 1px solid var(--line);
-  padding-top: var(--sp-4);
+  padding-top: var(--sp-2);
 }
 
 .lobby-note {
   max-width: 56ch;
-  font-size: 14.5px;
+  font-size: 13.5px;
   color: var(--ink-soft);
 }
 
@@ -264,6 +264,42 @@
   background: var(--vermilion-wash);
   border-color: var(--vermilion-deep);
   color: var(--vermilion-deep);
+}
+
+/* Tablet compaction — keep the whole index on one 1024×768 screen. */
+@media (max-width: 1199.98px) {
+  .lobby {
+    gap: var(--sp-1);
+  }
+
+  .mission-tab {
+    padding: 2px;
+  }
+
+  .tab-open {
+    column-gap: var(--sp-3);
+    min-height: 44px; /* touch floor */
+  }
+
+  .tab-preview {
+    height: 32px;
+    flex-basis: 200px;
+  }
+
+  .tab-side {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--sp-3);
+  }
+
+  .lobby-note {
+    font-size: 12.5px;
+    max-width: 48ch;
+  }
+
+  .lobby-foot {
+    padding-top: var(--sp-1);
+  }
 }
 
 @media (max-width: 900px) {
