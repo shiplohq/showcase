@@ -3,7 +3,7 @@
   "provider": "Shiplo",
   "status": "verified",
   "url": "https://clock-quest.shiplo.site",
-  "sourceCommitSha": null,
+  "sourceCommitSha": "c0287940e2f394300f77b31bc4ce2dc07ebc6135",
   "buildCommand": "npm run build",
   "artifactSha256": "58b31c3c00a3d034ae42554868026efbf23462037fc5d1c07dc2ca2bebfcbf80",
   "deployedAt": "2026-09-01T15:44:09.193Z",

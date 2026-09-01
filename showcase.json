@@ -121,7 +121,7 @@
       "summary": "An island of train schedules, markets and a lighthouse; turn the clock hands to arrive at the right place at the right time.",
       "category": "education-math",
       "audience": "6-9",
-      "status": "building",
+      "status": "live",
       "stack": [
         "jquery",
         "html",
@@ -133,14 +133,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://clock-quest.shiplo.site",
+        "deployedAt": "2026-09-01T15:44:09.193Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/clock-quest/showcase/cover.webp",
+        "desktop": "projects/clock-quest/showcase/desktop.webp",
+        "tablet": "projects/clock-quest/showcase/tablet.webp",
+        "mobile": "projects/clock-quest/showcase/mobile.webp"
       }
     },
     {

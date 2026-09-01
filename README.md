@@ -18,6 +18,7 @@ no backend, no database, no SSR. Human-readable source is Apache-2.0
 | <img src="projects/fraction-bistro/showcase/cover.webp" alt="Fraction Bistro cover" width="360"> | **[Fraction Bistro](https://fraction-bistro.shiplo.site)**<br>A modern Italian-style bistro where learners cut pizza, tarts and focaccia into equal parts to serve exact orders. | education-math |
 | <img src="projects/geometry-builder/showcase/cover.webp" alt="Geometry Builder cover" width="360"> | **[Geometry Builder](https://geometry-builder.shiplo.site)**<br>A minimal architect's desk where children build houses, bridges and robots from polygons by applying shape properties. | education-math |
 | <img src="projects/multiplication-galaxy/showcase/cover.webp" alt="Multiplication Galaxy cover" width="360"> | **[Multiplication Galaxy](https://multiplication-galaxy.shiplo.site)**<br>A space probe flying planet clusters arranged as arrays; answer multiplication facts to lock stable orbits. | education-math |
+| <img src="projects/clock-quest/showcase/cover.webp" alt="Clock Quest cover" width="360"> | **[Clock Quest](https://clock-quest.shiplo.site)**<br>An island of train schedules, markets and a lighthouse; turn the clock hands to arrive at the right place at the right time. | education-math |
 <!-- showcase:gallery:end -->
 
 ## Catalog
@@ -33,7 +34,7 @@ All planned and in-progress showcases. Status lives in
 | 02 | **Fraction Bistro** — [live demo](https://fraction-bistro.shiplo.site) | education-math | vue · vite · typescript | live |
 | 03 | **Geometry Builder** — [live demo](https://geometry-builder.shiplo.site) | education-math | angular · typescript | live |
 | 04 | **Multiplication Galaxy** — [live demo](https://multiplication-galaxy.shiplo.site) | education-math | react · vite · typescript | live |
-| 05 | **Clock Quest** | education-math | jquery · html · css · gsap | building |
+| 05 | **Clock Quest** — [live demo](https://clock-quest.shiplo.site) | education-math | jquery · html · css · gsap | live |
 | 06 | **Money Market Junior** | education-math | angular · typescript | building |
 | 07 | **Vocabulary Expedition** | education-language | vue · vite · typescript | building |
 | 08 | **Phonics Forest** | education-language | typescript · vite | building |
