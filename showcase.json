@@ -77,7 +77,7 @@
       "demo": {
         "provider": "Shiplo",
         "url": "https://geometry-builder.shiplo.site",
-        "deployedAt": "2026-09-01T05:14:02Z"
+        "deployedAt": "2026-09-01T15:46:08Z"
       },
       "screenshots": {
         "cover": "projects/geometry-builder/showcase/cover.webp",
@@ -93,7 +93,7 @@
       "summary": "A space probe flying planet clusters arranged as arrays; answer multiplication facts to lock stable orbits.",
       "category": "education-math",
       "audience": "7-10",
-      "status": "building",
+      "status": "live",
       "stack": [
         "react",
         "vite",
@@ -104,14 +104,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://multiplication-galaxy.shiplo.site",
+        "deployedAt": "2026-09-01T15:36:14Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/multiplication-galaxy/showcase/cover.webp",
+        "desktop": "projects/multiplication-galaxy/showcase/desktop.webp",
+        "tablet": "projects/multiplication-galaxy/showcase/tablet.webp",
+        "mobile": "projects/multiplication-galaxy/showcase/mobile.webp"
       }
     },
     {
