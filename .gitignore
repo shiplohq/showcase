@@ -50,3 +50,11 @@ skills-lock.json
 
 # Project-local data
 .showcase/
+
+# Working artifacts from headless-capture runs & quality tooling (never commit)
+.shots/
+.chrome-profile-*/
+.chrome-*/
+.cp-*/
+.impeccable/
+projects/*/.vscode/

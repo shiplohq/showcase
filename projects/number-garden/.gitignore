@@ -24,3 +24,11 @@ Thumbs.db
 # tsc composite emits for vite.config.ts (regenerated on build)
 vite.config.js
 vite.config.d.ts
+
+# Working artifacts (headless-capture scratch, tooling cache, editor config — never commit)
+.shots/
+.chrome-profile-*/
+.chrome-*/
+.cp-*/
+.impeccable/
+.vscode/
