@@ -205,7 +205,7 @@
       "summary": "A sound forest where every tree is a phoneme; children match graphemes to sounds and sort words.",
       "category": "education-language",
       "audience": "Pre-A1",
-      "status": "building",
+      "status": "live",
       "stack": [
         "typescript",
         "vite"
@@ -215,14 +215,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://phonics-forest.shiplo.site",
+        "deployedAt": "2026-09-02T13:56:32Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/phonics-forest/showcase/cover.webp",
+        "desktop": "projects/phonics-forest/showcase/desktop.webp",
+        "tablet": "projects/phonics-forest/showcase/tablet.webp",
+        "mobile": "projects/phonics-forest/showcase/mobile.webp"
       }
     },
     {
