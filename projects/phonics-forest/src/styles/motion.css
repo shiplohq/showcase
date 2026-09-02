@@ -1,0 +1,135 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Motion styles: the CSS half of the motion budget (GSAP half lives in
+ * src/lib/gsap.ts). Feedback ripples and pulses only — every rule collapses
+ * under prefers-reduced-motion (see base.css).
+ */
+
+/* Sound stone "sounding" — one visible pulse per playback. */
+.stone-btn.sounding .stone-svg {
+  animation: stone-pulse 180ms ease-out;
+}
+
+@keyframes stone-pulse {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Ripple ring emitted from the stone (added by JS as .stone-ripple). */
+.stone-ripple {
+  position: fixed;
+  z-index: 30;
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  border: 3px solid var(--lantern);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: ripple-out 360ms ease-out forwards;
+}
+
+@keyframes ripple-out {
+  from {
+    transform: scale(0.4);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+
+/* Hint: the right leaf breathes softly (paired with copy — never color-only). */
+@keyframes hint-pulse {
+  0%,
+  100% {
+    background: var(--ivory-raised);
+  }
+  50% {
+    background: var(--lantern-glow);
+  }
+}
+
+/* A wrong drop returns home — gentle slide, no shake, no red. */
+@keyframes gentle-return {
+  0% {
+    transform: translateX(0);
+  }
+  35% {
+    transform: translateX(5px);
+  }
+  70% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* The flying firefly (JS-driven along a motion path; this is its glow). */
+.firefly-dot {
+  position: fixed;
+  z-index: 45;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--lantern-glow) 34%, rgba(242, 206, 132, 0) 72%);
+  box-shadow: 0 0 0 2px rgba(46, 42, 34, 0.35) inset;
+  pointer-events: none;
+}
+
+.firefly-dot::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: 4px;
+  width: 5px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+/* Firefly slot glow-in when it lights up. */
+.fly-slot.lit circle {
+  animation: fly-glow 300ms ease-out;
+}
+
+/* Lantern glow blooming behind a mastered tree's sign (wake finale). */
+.tree-sign.sign-glow rect:first-of-type {
+  fill: var(--lantern-glow);
+  transition: fill 500ms ease-out;
+}
+
+/* Reduced-motion substitute for the firefly flight: the sign itself
+   flashes once so the sound→letters link still has a visual mark. */
+.tree-sign.sign-flash rect:first-of-type {
+  animation: sign-flash-on 420ms ease-out;
+}
+
+@keyframes sign-flash-on {
+  0%,
+  100% {
+    fill: var(--ivory-raised);
+  }
+  45% {
+    fill: var(--lantern-glow);
+  }
+}
+
+@keyframes fly-glow {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}

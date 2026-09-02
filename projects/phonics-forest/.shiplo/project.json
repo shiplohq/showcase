@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "phonics-forest",
+  "site_id": "445abfc8-b942-4285-aea5-ffa01c96a359",
+  "subdomain": "phonics-forest",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}

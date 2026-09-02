@@ -1,0 +1,40 @@
+{
+  "id": "phonics-forest",
+  "title": "Phonics Forest",
+  "summary": "A sound forest where every tree is a phoneme; children match graphemes to sounds and sort word creatures.",
+  "category": "education-language",
+  "number": 8,
+  "audience": "Pre-A1",
+  "mobileSupport": "limited",
+  "mobileSupportNote": "Full learning loop verified live at 390x844: compact clearing keeps all three answer leaves above the fold, tap-tap is the primary sort path and every tree is reachable. Declared limited because the grove scrolls past the last tree row and drag precision is lower than tablet — keyboard carry and tap-tap remain fully available.",
+  "screenshots": {
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://phonics-forest.shiplo.site",
+      "capturedAt": "2026-09-02T14:05:00Z",
+      "alt": "Staged mastery finale in the sh-tree clearing: one Nordic woodcut conifer centre-frame, its carved sign glowing lantern-gold with 'sh /ʃ/', all three fireflies lit beneath, caption reading 'The tree is awake! — All sounds found. Every firefly is glowing.' with a ghost 'Play again' button and the berry 'Back to the forest' button"
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://phonics-forest.shiplo.site",
+      "capturedAt": "2026-09-02T14:08:00Z",
+      "alt": "Honest desktop landing: five sound trees (sh, ch, ng, ee, oo) staggered on a fogged hillside, empty firefly slots, 'Every tree keeps one sound' caption"
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://phonics-forest.shiplo.site",
+      "capturedAt": "2026-09-02T14:08:00Z",
+      "alt": "Hero tablet view of the grove: all five phoneme trees with carved signs visible on one screen, no scrolling"
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://phonics-forest.shiplo.site",
+      "capturedAt": "2026-09-02T14:08:00Z",
+      "alt": "Honest mobile landing at 390px: four sound trees fully visible in the two-column forest path, the fifth partially below the fold (see the mobile-support note)"
+    }
+  }
+}

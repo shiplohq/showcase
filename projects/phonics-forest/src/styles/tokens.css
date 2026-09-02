@@ -1,0 +1,60 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Design tokens — Nordic storybook woodcut (design/DESIGN_DECISIONS.md §4–6).
+ * Ivory paper, pine/moss greens, fog blue, berry red; hatch carve instead of
+ * shadows; thick uniform ink outlines.
+ */
+
+:root {
+  /* Neutrals — book paper & ink */
+  --ivory: #f3edde;
+  --ivory-raised: #fbf7ec;
+  --ivory-deep: #e7dfc8;
+  --ink: #2e2a22;
+  --ink-soft: #655d4c;
+  --line: #c9be9f;
+
+  /* Forest */
+  --pine: #3d5a46;
+  --pine-deep: #2c4234;
+  --moss: #71875c;
+  --moss-deep: #55693f;
+  --fir: #5f7b54;
+  --lichen: #a9b48a;
+  --fog: #a7b8b5;
+  --fog-deep: #7e938f;
+  --fog-pale: #d5ddda;
+  --bark: #7a5a3e;
+  --bark-deep: #5c422c;
+
+  /* Warm & state (never color-only) */
+  --berry: #a6442e;
+  --berry-deep: #8a3624;
+  --lantern: #d9a03f;
+  --lantern-glow: #f2ce84;
+  --stone: #8e8a7c;
+
+  /* Type */
+  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-text: 'Andika', 'Segoe UI', Verdana, sans-serif;
+
+  /* Spacing (base 4) */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+
+  /* Ink carving */
+  --outline: 3px solid var(--ink);
+  --radius-sign: 10px;
+  --focus-ring: 3px solid var(--ink);
+
+  color-scheme: light;
+}

@@ -1,0 +1,837 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Base layout: HUD strip, full-bleed forest stage, picture-book caption band.
+ * Tablet-first (768–1199 is the hero viewport); text reflows at 200% zoom
+ * (fluid clamps, no fixed-height traps).
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  min-height: 480px;
+}
+
+/* ---- HUD (minimal chrome) --------------------------------------------------- */
+
+.hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-2) var(--sp-4);
+  border-bottom: 3px solid var(--ink);
+  background: var(--ivory-raised);
+  z-index: 5;
+}
+
+.hud-brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(18px, 2.4vw, 24px);
+  letter-spacing: 0.01em;
+}
+
+.hud-brand::first-letter {
+  color: var(--berry);
+}
+
+.hud-actions {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+.hud-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 3px solid var(--ink);
+  border-radius: 10px;
+  background: var(--ivory);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.hud-btn .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.hud-btn:hover {
+  background: var(--ivory-deep);
+}
+
+/* ---- Stage ------------------------------------------------------------------- */
+
+.stage {
+  position: relative;
+  flex: 1;
+  overflow: hidden auto;
+  outline: none;
+}
+
+.stage:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: -4px;
+}
+
+.grove,
+.clearing,
+.roundup {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+}
+
+.backdrop-svg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: min(72vh, 560px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ---- Grove ------------------------------------------------------------------- */
+
+.grove-trees {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  align-items: flex-end;
+  justify-content: center;
+  padding: clamp(var(--sp-8), 6vh, var(--sp-16)) var(--sp-6) var(--sp-16);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .grove-trees {
+    display: block;
+    /* Trees are anchored by their base (bottom %) so the grove always fits
+       the stage — no vertical scroll on tablet/desktop. */
+    height: clamp(420px, 56vh, 540px);
+    padding: 0;
+  }
+
+  .tree-btn {
+    position: absolute;
+    left: var(--tx);
+    bottom: var(--ty);
+    transform: translateX(-50%);
+    transform-origin: 50% 100%;
+  }
+}
+
+.tree-btn {
+  width: clamp(150px, 17vw, 210px);
+  padding: var(--sp-2);
+  border: 3px solid transparent;
+  border-radius: 14px;
+  background: none;
+  cursor: pointer;
+  transition: transform 150ms ease, background-color 150ms ease;
+}
+
+.tree-btn:hover {
+  background: rgba(46, 42, 34, 0.06);
+  transform-origin: 50% 100%;
+}
+
+.tree-btn.mastered .tree-sign .sg-grapheme {
+  fill: var(--berry-deep);
+}
+
+.tree-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.sg-grapheme {
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: 34px;
+  fill: var(--ink);
+}
+
+.sg-ipa {
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: 14px;
+  fill: var(--ink-soft);
+}
+
+.fly-slot {
+  transition: opacity 200ms ease;
+}
+
+.fly-slot.lit circle {
+  fill: var(--lantern-glow);
+}
+
+/* ---- Clearing ------------------------------------------------------------------ */
+
+.clearing {
+  display: grid;
+  grid-template-columns: minmax(300px, 40%) 1fr;
+  align-items: end;
+  gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-6) var(--sp-8);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Tree + sound stone share the left column in normal flow — the stone sits
+   at the tree's foot and can never overlap the answer leaves. */
+.clearing-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  z-index: 1;
+}
+
+.clearing-tree {
+  position: relative;
+  width: min(86%, 400px);
+}
+
+/* Height cap keeps the whole clearing inside the stage at every hero
+   viewport (the sign + fireflies must never go below the fold). */
+.clearing-tree .tree-svg {
+  max-height: 52vh;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.stone-btn {
+  position: relative;
+  z-index: 2;
+  width: clamp(124px, 12vw, 156px);
+  /* Sits at the tree's right foot — clear of the firefly row under the sign. */
+  margin-top: -24px;
+  margin-left: 66%;
+  padding: var(--sp-2);
+  border: 3px solid transparent;
+  border-radius: 24px;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-1);
+}
+
+.stone-btn::after {
+  content: 'tap to listen';
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+.stone-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.stone-btn:hover {
+  border-color: var(--ink);
+}
+
+.leaves {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: var(--sp-4);
+  align-content: end;
+  padding-bottom: var(--sp-8);
+}
+
+.leaf-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-1);
+  min-height: 96px;
+  padding: var(--sp-4) var(--sp-3);
+  border: 3px solid var(--ink);
+  border-radius: 18px 72px 18px 72px;
+  background: var(--ivory-raised);
+  cursor: pointer;
+  transition: transform 140ms ease, background-color 140ms ease;
+}
+
+.leaf-btn:hover {
+  background: var(--ivory-deep);
+  transform: translateY(-2px);
+}
+
+.leaf-btn .leaf-grapheme {
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.05;
+  color: var(--ink);
+}
+
+.leaf-btn .leaf-ipa {
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+.leaf-btn .leaf-hidden-note {
+  font-size: 14px;
+  color: var(--ink-soft);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.leaf-btn.hint {
+  animation: hint-pulse 1.4s ease-in-out 2;
+}
+
+.leaf-btn.picked-wrong {
+  background: var(--fog-pale);
+}
+
+.leaf-btn.picked-right {
+  border-color: var(--pine);
+  background: var(--lichen);
+}
+
+.leaf-btn.tilt .leaf-grapheme {
+  display: inline-block;
+  transform: rotate(-2.5deg);
+  color: var(--ink-soft);
+}
+
+/* ---- Roundup -------------------------------------------------------------------- */
+
+.roundup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4) var(--sp-4);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.nests {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  justify-content: center;
+  padding-top: clamp(var(--sp-4), 4vh, var(--sp-8));
+}
+
+.nest {
+  position: relative;
+  width: clamp(104px, 12vw, 148px);
+  padding: var(--sp-1);
+  border: 3px solid transparent;
+  border-radius: 14px;
+  background: none;
+  cursor: pointer;
+  transition: transform 140ms ease, border-color 140ms ease;
+}
+
+.nest-art {
+  display: block;
+}
+
+.nest-art svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.nest-grapheme {
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: 21px;
+  fill: var(--ink);
+}
+
+.nest-ipa {
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: 11.5px;
+  fill: var(--ink-soft);
+}
+
+.nest.open {
+  border-color: var(--lantern);
+  transform: translateY(3px);
+}
+
+.nest.near {
+  border-color: var(--berry);
+  transform: scale(1.09);
+}
+
+.nest-count {
+  position: absolute;
+  top: -6px;
+  right: 2px;
+  min-width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: 2.5px solid var(--ink);
+  border-radius: 999px;
+  background: var(--lantern);
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.nest-cards {
+  position: absolute;
+  inset: auto -4px -46px -4px;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  gap: 3px;
+  pointer-events: none;
+}
+
+.nest-cards .creature-btn {
+  pointer-events: none;
+}
+
+.tray {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: var(--sp-3);
+  align-items: flex-end;
+  padding: var(--sp-2) var(--sp-2) var(--sp-3);
+  margin: var(--sp-2) var(--sp-2) var(--sp-3);
+  border: 3px solid var(--ink);
+  border-radius: 16px;
+  background: var(--ivory-raised);
+  overflow-x: auto;
+  min-height: 132px;
+}
+
+.creature-btn {
+  flex: 0 0 auto;
+  width: clamp(104px, 12vw, 136px);
+  padding: var(--sp-1);
+  border: 3px solid transparent;
+  border-radius: 14px;
+  background: none;
+  cursor: pointer;
+  transition: transform 140ms ease, border-color 140ms ease;
+}
+
+.creature-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.creature-word {
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: 15px;
+  fill: var(--ivory);
+}
+
+.creature-btn:hover {
+  border-color: var(--ink);
+}
+
+.creature-btn.carrying {
+  border-color: var(--berry);
+  transform: translateY(-6px);
+}
+
+.creature-btn.dragging {
+  z-index: 40;
+  border-color: var(--berry);
+  cursor: grabbing;
+}
+
+.creature-btn.returned {
+  animation: gentle-return 0.45s ease;
+}
+
+.creature-btn.mini {
+  width: 72px;
+  border: none;
+  padding: 0;
+  pointer-events: none;
+}
+
+.creature-btn.mini .creature-word {
+  font-size: 12px;
+}
+
+/* Roundup finale: the emptied tray folds into a carved summary line. */
+.tray.done {
+  min-height: 0;
+  padding: var(--sp-3) var(--sp-4);
+  border-style: dashed;
+  display: block;
+}
+
+.tray-done-note {
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+  color: var(--pine);
+}
+
+/* Ring of lantern light sweeping the nests on completion. */
+.hum-ring {
+  position: absolute;
+  inset: -14px;
+  margin: auto;
+  width: 68%;
+  height: 68%;
+  border: 4px solid var(--lantern);
+  border-radius: 999px;
+  pointer-events: none;
+  animation: hum-sweep 0.9s ease-out forwards;
+}
+
+@keyframes hum-sweep {
+  from {
+    transform: scale(0.55);
+    opacity: 0.85;
+  }
+  to {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+.creature-btn.homed {
+  cursor: default;
+}
+
+/* ---- Caption band ------------------------------------------------------------------ */
+
+.caption {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    'kicker kicker'
+    'prompt actions'
+    'feedback feedback';
+  gap: var(--sp-1) var(--sp-4);
+  align-items: center;
+  min-height: 132px;
+  padding: var(--sp-3) var(--sp-5);
+  border-top: 3px solid var(--ink);
+  background: var(--ivory-raised);
+  z-index: 5;
+}
+
+.caption-kicker {
+  grid-area: kicker;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.caption-prompt {
+  grid-area: prompt;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(20px, 2.6vw, 30px);
+  line-height: 1.22;
+  max-width: 62ch;
+}
+
+.caption-feedback {
+  grid-area: feedback;
+  margin: 0;
+  font-size: clamp(16px, 1.4vw, 18px);
+  min-height: 24px;
+  color: var(--ink-soft);
+}
+
+.caption-feedback[data-tone='good'] {
+  color: var(--pine);
+  font-weight: 700;
+}
+
+.caption-feedback[data-tone='nudge'] {
+  color: var(--bark-deep);
+}
+
+.caption-actions {
+  grid-area: actions;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  justify-content: flex-end;
+}
+
+.caption-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-height: 52px;
+  padding: var(--sp-2) var(--sp-5);
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.caption-btn-primary {
+  background: var(--berry);
+  color: var(--ivory-raised);
+}
+
+.caption-btn-primary:hover {
+  background: var(--berry-deep);
+}
+
+.caption-btn-ghost {
+  background: var(--ivory);
+  color: var(--ink);
+}
+
+.caption-btn-ghost:hover {
+  background: var(--ivory-deep);
+}
+
+.caption-btn .icon {
+  width: 20px;
+  height: 20px;
+}
+
+.caption-btn-icon {
+  display: inline-grid;
+}
+
+.caption-btn-icon:empty {
+  display: none;
+}
+
+/* ---- Focus (never removed) ------------------------------------------------------------ */
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Visually hidden (screen-reader only) live region. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Boot error ----------------------------------------------------------------------- */
+
+.boot-error {
+  display: grid;
+  gap: var(--sp-3);
+  place-items: center;
+  text-align: center;
+  padding: var(--sp-16) var(--sp-6);
+  max-width: 56ch;
+  margin: 0 auto;
+}
+
+.boot-error h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(22px, 3vw, 32px);
+  margin: 0;
+}
+
+/* ---- Responsive -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  /* Single column: tree + stone stacked, answer leaves full-width beneath. */
+  .clearing {
+    grid-template-columns: 1fr;
+    gap: var(--sp-3);
+  }
+
+  .clearing-tree {
+    width: min(70%, 250px);
+  }
+
+  .clearing-tree .tree-svg {
+    max-height: 38vh;
+  }
+
+  .stone-btn {
+    width: clamp(116px, 32vw, 148px);
+    margin-top: -22px;
+    margin-left: 18%;
+  }
+
+  .leaves {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .caption {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'kicker'
+      'prompt'
+      'feedback'
+      'actions';
+  }
+
+  .caption-actions {
+    justify-content: flex-start;
+  }
+
+  .nests {
+    gap: var(--sp-2);
+  }
+}
+
+@media (max-width: 479px) {
+  /* Compact clearing: tree (capped) left, stone at its foot, the three
+     answer leaves stacked beside them — question and choices share the
+     first viewport, nothing answerable below the fold. */
+  .clearing {
+    grid-template-columns: minmax(118px, 40%) minmax(0, 1fr);
+    align-items: start;
+    gap: var(--sp-2);
+  }
+
+  .clearing-left {
+    align-self: start;
+  }
+
+  .clearing-tree {
+    width: 100%;
+  }
+
+  .clearing-tree .tree-svg {
+    max-height: 40vh;
+  }
+
+  .stone-btn {
+    width: clamp(92px, 26vw, 116px);
+    margin-top: -16px;
+    margin-left: 16%;
+  }
+
+  .stone-btn::after {
+    content: 'tap to listen';
+    font-size: 12px;
+  }
+
+  .leaves {
+    grid-template-columns: 1fr;
+    gap: var(--sp-2);
+    padding-bottom: var(--sp-2);
+  }
+
+  .leaf-btn {
+    min-height: 78px;
+    padding: var(--sp-3) var(--sp-3);
+  }
+
+  .leaf-btn .leaf-grapheme {
+    font-size: clamp(28px, 9vw, 38px);
+  }
+
+  /* Grove: two-column forest path — every sign readable, the path scrolls
+     only past the last row (declared limited in showcase metadata). */
+  .grove-trees {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-1);
+    padding: var(--sp-4) var(--sp-3) var(--sp-4);
+  }
+
+  .tree-btn {
+    width: 100%;
+    max-width: 190px;
+    justify-self: center;
+  }
+
+  .backdrop-svg {
+    height: 46vh;
+  }
+
+  .caption {
+    min-height: 118px;
+    padding: var(--sp-2) var(--sp-4);
+  }
+}
+
+/* 200% text reflow: let the caption grow, keep everything reachable. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .caption {
+    min-height: 128px;
+  }
+}
+
+/* ---- Reduced motion (visual half; JS half lives in lib/gsap) ------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

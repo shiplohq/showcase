@@ -1,0 +1,12 @@
+{
+  "project": "phonics-forest",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://phonics-forest.shiplo.site",
+  "sourceCommitSha": null,
+  "buildCommand": "npm run build",
+  "artifactSha256": "0238301c639dfc1017050c71b2806de227a781499fcb964ec7ffbbe5a40d5f1b",
+  "deployedAt": "2026-09-02T13:56:32Z",
+  "verifiedAt": "2026-09-02T14:10:00Z",
+  "notes": "Deploy #2 (release a5f39f0b-48aa-4712-8bdc-32558d9b0ce0, deployment ecab1250-ff60-4602-b69b-d3fe1c200cd8, site 445abfc8-b942-4285-aea5-ffa01c96a359, activated 2026-09-02T13:56:32.720Z, 20 files / 710,020 bytes) — finale fix: nextRound() now assigns engine state before finale(), so the tree-mastery finale renders its designed 'Play again / Back to the forest' actions instead of a stale 'Next' (independent review follow-up; found by pixel-verification of the cover staging). Live verification of this release: finale buttons confirmed as [Play again, Back to the forest] with 3/3 fireflies and back-nav landing on the grove (progress persisted); full activity flow re-driven headless against the public URL at 1440x900 and 1024x768 — zero console errors; geometry and font gates re-passed (Fraunces 600 / Andika 700 latin+digits+vietnamese); engine-sim green. All four screenshots re-captured from this release (cover = art-directed staged finale with the corrected buttons; desktop/tablet/mobile honest grove defaults) and metadata alts match the pixels. First deploy was release 142c9ea2 / deployment 9e91febb-df1b-4f14-88c3-3fe099573ef5 (activated 2026-09-01T20:31:41.156Z, artifactSha256 4acb906701db59c05ea8f6c9a77d6d18e9a0fd4411f811ff0ccf1a90b57c3570). sourceCommitSha null: finalized by orchestrator to the integration commit after review. Artifact hash = tar -czf - -C dist . | sha256sum computed from the exact dist uploaded (GNU tar embeds mtimes, so a later re-run may differ; byte-identity of this release's code is independently checkable via dist/assets/index-BXnFlaQL.js sha256 fa6bcd681f4ad6b2bef184045e9d6edadcb854e47810a95453a0838025f5850f, which the live URL serves byte-identically)."
+}
