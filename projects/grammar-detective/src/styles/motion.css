@@ -1,0 +1,58 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Motion layer — GSAP drives purposeful motion through src/lib/gsap.ts;
+ * these rules are the reduced-motion contract and the few CSS-side
+ * transitions that must respect it (spec: thiết kế reduced-motion).
+ *
+ * Budgets (DESIGN_DECISIONS §11): feedback 120–220ms · spatial 250–500ms ·
+ * delight ≤900ms. Under prefers-reduced-motion: final states appear
+ * instantly or with ≤150ms fades, no transforms, no stagger.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .token__mark {
+    transform: none !important;
+  }
+}
+
+/* Gentle non-blocking attention cue for the verdict strip (feedback ≤220ms).
+   Disabled wholesale by the reduced-motion block above. */
+@keyframes verdict-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.verdict[data-fresh='true'] {
+  animation: verdict-in 180ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .verdict[data-fresh='true'] {
+    animation: fade-only 120ms ease-out;
+  }
+
+  @keyframes fade-only {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

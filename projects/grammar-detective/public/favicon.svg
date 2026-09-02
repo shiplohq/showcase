@@ -1,0 +1,10 @@
+<!--
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="4" fill="#F8F5EE"/>
+  <circle cx="14" cy="14" r="7.5" fill="none" stroke="#252A3D" stroke-width="2.4"/>
+  <path d="M19.5 19.5 26 26" stroke="#252A3D" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M10.8 14h6.4M14 10.8v6.4" stroke="#2748C8" stroke-width="1.7" stroke-linecap="round"/>
+</svg>

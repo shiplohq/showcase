@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "grammar-detective",
+  "site_id": "4d929e64-cd77-428a-9ca1-ae6614b9d536",
+  "subdomain": "grammar-detective",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}

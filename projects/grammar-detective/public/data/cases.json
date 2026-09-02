@@ -1,0 +1,214 @@
+{
+  "dossiers": [
+    {
+      "id": "dossier-a",
+      "code": "FILE A",
+      "title": "Naming Words & Action Words",
+      "brief": "Open the pen tray and mark the evidence: nouns, verbs and adjectives.",
+      "cases": [
+        {
+          "id": "case-01",
+          "title": "The Sleepy Witness",
+          "taskType": "highlight",
+          "sentence": "The old dog sleeps in the garden.",
+          "tokens": ["The", "old", "dog", "sleeps", "in", "the", "garden", "."],
+          "categories": ["noun"],
+          "expectedMarks": { "noun": [2, 6] },
+          "clues": [
+            "A noun names a person, a place, an animal or a thing.",
+            "Look for one animal and one place hiding in this sentence.",
+            "The two nouns are the animal 'dog' and the place 'garden'."
+          ],
+          "rule": "Rule 01 - Nouns name things",
+          "explanation": "A noun names a person, a place, an animal or a thing. In this case file, 'dog' is the animal and 'garden' is the place, so both take the NOUN pen. The other words describe or connect - they stay unmarked."
+        },
+        {
+          "id": "case-02",
+          "title": "The Library Clue",
+          "taskType": "highlight",
+          "sentence": "My sister reads a funny book.",
+          "tokens": ["My", "sister", "reads", "a", "funny", "book", "."],
+          "categories": ["noun", "verb"],
+          "expectedMarks": { "noun": [1, 5], "verb": [2] },
+          "clues": [
+            "A verb is an action word - it tells us what someone does.",
+            "What does the sister do? Find that action word, then find the two things.",
+            "Mark 'sister' and 'book' with the NOUN pen, and 'reads' with the VERB pen."
+          ],
+          "rule": "Rule 02 - Verbs are action words",
+          "explanation": "The verb 'reads' is the action - it tells us what the sister does. 'Sister' is a person and 'book' is a thing, so they are nouns. 'Funny' describes the book, but this case did not ask for adjectives - good detectives only mark what the case asks for."
+        },
+        {
+          "id": "case-03",
+          "title": "The Kitchen Case",
+          "taskType": "highlight",
+          "sentence": "The hungry cat drinks cold milk.",
+          "tokens": ["The", "hungry", "cat", "drinks", "cold", "milk", "."],
+          "categories": ["noun", "verb", "adjective"],
+          "expectedMarks": { "noun": [2, 5], "verb": [3], "adjective": [1, 4] },
+          "clues": [
+            "An adjective describes a noun - it tells us more about it.",
+            "Which words tell us more about the cat and more about the milk?",
+            "Mark 'hungry' and 'cold' with the ADJECTIVE pen, then finish the nouns and the verb."
+          ],
+          "rule": "Rule 03 - Adjectives describe nouns",
+          "explanation": "'Hungry' and 'cold' are adjectives - they describe the nouns 'cat' and 'milk'. 'Cat' and 'milk' are nouns, and 'drinks' is the action verb. Every marking pen in the tray was needed for this case."
+        },
+        {
+          "id": "case-04",
+          "title": "The Saturday Game",
+          "taskType": "highlight",
+          "sentence": "Tom and his best friend play football in the park.",
+          "tokens": ["Tom", "and", "his", "best", "friend", "play", "football", "in", "the", "park", "."],
+          "categories": ["noun", "verb", "adjective"],
+          "expectedMarks": { "noun": [0, 4, 6, 9], "verb": [5], "adjective": [3] },
+          "clues": [
+            "Read the whole sentence first. Names like 'Tom' are nouns too.",
+            "This case has four nouns, one verb and one adjective. 'His' is not a noun - it just points to Tom.",
+            "Mark 'Tom', 'friend', 'football' and 'park' as NOUN, 'play' as VERB, and 'best' as ADJECTIVE."
+          ],
+          "rule": "Rule 04 - Full evidence sweep",
+          "explanation": "Names of people are nouns, so 'Tom' counts. 'Friend', 'football' and 'park' are also nouns - four in total. 'Play' is the action verb, and 'best' is the adjective describing the friend. 'His' only points at Tom, so it stays unmarked."
+        }
+      ]
+    },
+    {
+      "id": "dossier-b",
+      "code": "FILE B",
+      "title": "The Word Order Desk",
+      "brief": "The sentences fell apart on the desk. Rebuild them word by word.",
+      "cases": [
+        {
+          "id": "case-05",
+          "title": "The Broken Lunch Line",
+          "taskType": "reorder",
+          "sentence": "We eat apples after school.",
+          "tokens": ["We", "eat", "apples", "after", "school", "."],
+          "acceptedAnswers": ["We eat apples after school."],
+          "clues": [
+            "English sentences usually start with the person - the subject.",
+            "Who eats? Start with 'We', then the action, then the food.",
+            "The order is: We - eat - apples - after school."
+          ],
+          "rule": "Rule 05 - Subject first",
+          "explanation": "An English sentence usually goes subject - verb - object: who, then the action, then the thing. 'We eat apples' follows that line, and 'after school' tells the time at the end."
+        },
+        {
+          "id": "case-06",
+          "title": "The Night Reader",
+          "taskType": "reorder",
+          "sentence": "She reads books every night.",
+          "tokens": ["She", "reads", "books", "every", "night", "."],
+          "acceptedAnswers": ["She reads books every night.", "Every night she reads books."],
+          "clues": [
+            "Start with the subject and its verb, then place the time words.",
+            "Time words like 'every night' usually come at the end - but there is another correct home for them.",
+            "Two orders are accepted here: 'She reads books every night.' or 'Every night she reads books.'"
+          ],
+          "rule": "Rule 06 - Where time words live",
+          "explanation": "Time words like 'every night' can come after the verb phrase: 'She reads books every night.' Or they can open the sentence: 'Every night, she reads books.' The bureau accepts both - this case file has two correct answers."
+        },
+        {
+          "id": "case-07",
+          "title": "The Bus Route",
+          "taskType": "reorder",
+          "sentence": "She goes to school by bus.",
+          "tokens": ["She", "goes", "to", "school", "by", "bus", "."],
+          "acceptedAnswers": ["She goes to school by bus."],
+          "clues": [
+            "The subject 'She' comes first, then the verb 'goes'.",
+            "Place comes before travel way: 'to school' comes before 'by bus'.",
+            "The full line is: She - goes - to school - by bus."
+          ],
+          "rule": "Rule 07 - Adverbial phrases at the end",
+          "explanation": "Adverbial phrase comes after the main clause here. 'She goes' is the main clause, and the phrases 'to school' (place) then 'by bus' (way) follow it."
+        },
+        {
+          "id": "case-08",
+          "title": "The Tea Question",
+          "taskType": "reorder",
+          "sentence": "Do you like green tea?",
+          "tokens": ["Do", "you", "like", "green", "tea", "?"],
+          "acceptedAnswers": ["Do you like green tea?"],
+          "clues": [
+            "Questions in English borrow a helper: 'Do' opens the question.",
+            "After 'Do' comes the person, then the action, then the thing.",
+            "The order is: Do - you - like - green tea?"
+          ],
+          "rule": "Rule 08 - Question order",
+          "explanation": "In yes/no questions, the helper 'Do' jumps to the front: Do - you - like - green tea? The verb 'like' stays after the subject 'you', and the question mark card closes the case."
+        }
+      ]
+    },
+    {
+      "id": "dossier-c",
+      "code": "FILE C",
+      "title": "The Review Vault",
+      "brief": "Mixed evidence from every desk. Marks and order both count.",
+      "cases": [
+        {
+          "id": "case-09",
+          "title": "The Hidden Key",
+          "taskType": "highlight",
+          "sentence": "Two young detectives found a heavy key under the old bridge.",
+          "tokens": ["Two", "young", "detectives", "found", "a", "heavy", "key", "under", "the", "old", "bridge", "."],
+          "categories": ["noun", "verb", "adjective"],
+          "expectedMarks": { "noun": [2, 6, 10], "verb": [3], "adjective": [1, 5, 9] },
+          "clues": [
+            "Sweep the sentence left to right: naming words, action word, describing words.",
+            "Watch out: 'Two' is a number, not an adjective in this case file.",
+            "NOUN: detectives, key, bridge. VERB: found. ADJECTIVE: young, heavy, old."
+          ],
+          "rule": "Rule 09 - The number trap",
+          "explanation": "'Detectives', 'key' and 'bridge' are nouns; 'found' is the verb; 'young', 'heavy' and 'old' are adjectives. 'Two' looks like it describes the detectives, but numbers are not adjectives in this bureau - that was the trap."
+        },
+        {
+          "id": "case-10",
+          "title": "The Slow Door",
+          "taskType": "highlight",
+          "sentence": "The quiet boy slowly opened the small door.",
+          "tokens": ["The", "quiet", "boy", "slowly", "opened", "the", "small", "door", "."],
+          "categories": ["noun", "verb", "adjective"],
+          "expectedMarks": { "noun": [2, 7], "verb": [4], "adjective": [1, 6] },
+          "clues": [
+            "Three pens, three jobs: naming, action, describing.",
+            "Careful: 'slowly' ends in -ly but it tells HOW the action happens - it is not one of the three pens here.",
+            "NOUN: boy, door. VERB: opened. ADJECTIVE: quiet, small. Leave 'slowly' unmarked."
+          ],
+          "rule": "Rule 10 - The -ly decoy",
+          "explanation": "'Boy' and 'door' are nouns, 'opened' is the verb, and 'quiet' and 'small' are adjectives. 'Slowly' describes the action, not a noun - words like that belong to another case file, so the pen tray correctly leaves it unmarked."
+        },
+        {
+          "id": "case-11",
+          "title": "The Long Afternoon",
+          "taskType": "reorder",
+          "sentence": "The children play in the park after school.",
+          "tokens": ["The", "children", "play", "in", "the", "park", "after", "school", "."],
+          "acceptedAnswers": ["The children play in the park after school."],
+          "clues": [
+            "Subject and verb make the engine of the sentence - build that first.",
+            "When a place and a time both wait at the end, the place steps in first.",
+            "The line reads: The children - play - in the park - after school."
+          ],
+          "rule": "Rule 11 - Place before time",
+          "explanation": "When both a place and a time come at the end, English puts the place first: 'in the park' before 'after school'. So the mended line is 'The children play in the park after school.'"
+        },
+        {
+          "id": "case-12",
+          "title": "The Backyard Tree",
+          "taskType": "reorder",
+          "sentence": "There is a big tree behind our house.",
+          "tokens": ["There", "is", "a", "big", "tree", "behind", "our", "house", "."],
+          "acceptedAnswers": ["There is a big tree behind our house."],
+          "clues": [
+            "'There is' is how English points at something that exists - keep the pair together at the front.",
+            "After 'There is' comes the thing you point at, with its describing word in front of it.",
+            "The line is: There - is - a big tree - behind our house."
+          ],
+          "rule": "Rule 12 - Pointing with 'there is'",
+          "explanation": "'There is' points at something that exists: There is - a big tree - behind our house. The place phrase 'behind our house' closes the sentence, exactly like 'in the park' did in the last case."
+        }
+      ]
+    }
+  ]
+}

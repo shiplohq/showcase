@@ -1,0 +1,40 @@
+{
+  "id": "grammar-detective",
+  "title": "Grammar Detective",
+  "summary": "Investigate broken 'case file' sentences with a highlighter pen, word cards and readable verdicts.",
+  "category": "education-language",
+  "number": 9,
+  "audience": "9-13",
+  "mobileSupport": "supported",
+  "mobileSupportNote": "Full learning loop works at 390x844 (verified live): stacked case rows with chevron open-cues, tap marking, ◀ ▶ card buttons as the primary reorder path (HTML5 drag is desktop-mouse only by design). Longer explanation memos scroll vertically on phone.",
+  "screenshots": {
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://grammar-detective.shiplo.site",
+      "capturedAt": "2026-09-02T05:48:00Z",
+      "alt": "Staged real moment on the live app: case file 'The Sleepy Witness' mid-investigation — 'dog' and 'garden' inked with the yellow NOUN highlighter pen with NOUN chips under them, clue 1 open in its yellow strip, NOUN pen active in the tray"
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://grammar-detective.shiplo.site",
+      "capturedAt": "2026-09-02T05:48:00Z",
+      "alt": "Honest default landing: the case board — Grammar Detective masthead with bureau seal, 0/12 cases resolved counter, three manila dossier folders (FILE A Naming Words & Action Words, FILE B The Word Order Desk, FILE C The Review Vault) with index-card case rows"
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://grammar-detective.shiplo.site",
+      "capturedAt": "2026-09-02T05:48:00Z",
+      "alt": "Hero tablet view of the evidence screen: 'The Sleepy Witness' case sheet with the sentence under investigation (dotted-baseline tappable words), NOUN pen tray, three clue buttons (1 open, 2 and 3 locked) and the cobalt 'File verdict' button — fits the viewport with no scrolling"
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://grammar-detective.shiplo.site",
+      "capturedAt": "2026-09-02T05:48:00Z",
+      "alt": "Honest mobile landing: the case board stacked vertically at 390px — masthead, 0/12 progress, FILE A folder with case rows (chevron open cues)"
+    }
+  }
+}

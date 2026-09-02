@@ -1,0 +1,12 @@
+{
+  "project": "grammar-detective",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://grammar-detective.shiplo.site",
+  "sourceCommitSha": null,
+  "buildCommand": "npm run build",
+  "artifactSha256": "8d792087822201d9b44b13b63837bcfb6c08d9170e2c3abe56e4de010c6e4365",
+  "deployedAt": "2026-09-02T05:35:42Z",
+  "verifiedAt": "2026-09-02T05:52:00Z",
+  "notes": "Deployment cee44be8-2336-4b58-a8cb-69debd29f1c0 (release 52dd06b0-35a2-4413-935f-c678a47a737e, site 4d929e64-cd77-428a-9ca1-ae6614b9d536, activated 2026-09-02T05:35:42.854Z, 34 files / 716,390 bytes, live_wait 2614ms). sourceCommitSha null on purpose: finalized by orchestrator to the integration commit after review. Live verification: HTTP 200; CDP full case flow (mouse open + keyboard Space marking + stray-mark nudge verdict + clue gating 1→2 + pen switching NOUN→VERB + ◀ ▶ card rebuild + resolve memo with RESOLVED stamp + anonymous localStorage progress + reset arm) passed headless against the public URL at 1440x900, 1024x768 and 390x844 — zero console errors, no horizontal overflow at any size; case screens fit 1024x768 exactly (scrollHeight 768 on investigating/clue/verdict/resolved states); document.fonts.check passes for Fraunces 700/900, Atkinson Hyperlegible 400/700, IBM Plex Mono 400/500/600 (latin+digits); all four screenshots captured from this deployment only. Artifact hash = tar -czf - -C dist . | sha256sum per docs/DEPLOYMENT.md."
+}

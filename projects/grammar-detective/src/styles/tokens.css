@@ -1,0 +1,75 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Design tokens — locked by design/DESIGN_DECISIONS.md §4–§6.
+ * Paper dossier / cobalt ink / highlighter yellow / red pencil.
+ */
+
+:root {
+  /* Paper & ink */
+  --paper: #f8f5ee;
+  --sheet: #fffdf6;
+  --manila: #e9d8b2;
+  --manila-deep: #dbc79a;
+  --ink: #252a3d;
+  --ink-soft: #555b70;
+  --line: #d8d2c2;
+  --line-strong: #b9b19b;
+
+  /* Cobalt ink — primary actions, focus, verb pen */
+  --cobalt: #2748c8;
+  --cobalt-deep: #1b359c;
+  --cobalt-wash: #dce2fb;
+
+  /* Highlighter yellow — noun pen, clue accents */
+  --hl: #ffe24a;
+  --hl-deep: #e9c816;
+  --hl-soft: #fbf0be;
+
+  /* Red pencil — gentle "not yet" verdicts only (never punitive) */
+  --pencil: #b8402f;
+  --pencil-soft: #f6ddd6;
+
+  /* Resolved stamp green */
+  --stamp: #2a6e46;
+  --stamp-soft: #ddebe1;
+
+  /* Category marks (wash + underline pattern + label = never color-only) */
+  --mark-noun-wash: var(--hl);
+  --mark-noun-line: #d9a900;
+  --mark-verb-wash: var(--cobalt-wash);
+  --mark-verb-line: var(--cobalt);
+  --mark-adj-wash: #d9ede0;
+  --mark-adj-line: var(--stamp);
+
+  /* Typography */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Atkinson Hyperlegible', 'Segoe UI', Verdana, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  /* Spacing (base 4) */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s8: 32px;
+  --s10: 40px;
+  --s12: 48px;
+  --s16: 64px;
+  --s20: 80px;
+
+  /* Paper offset shadows — thin, like two sheets stacked (no soft drama) */
+  --shadow-paper: 0 2px 0 rgba(37, 42, 61, 0.08);
+  --shadow-sheet: 0 2px 0 rgba(37, 42, 61, 0.1), 0 8px 24px -18px rgba(37, 42, 61, 0.35);
+
+  /* Focus */
+  --focus-ring: 3px solid var(--cobalt);
+  --focus-offset: 2px;
+
+  /* Layout */
+  --gutter: 24px;
+  --content-max: 1100px;
+  --reading-max: 760px;
+}
