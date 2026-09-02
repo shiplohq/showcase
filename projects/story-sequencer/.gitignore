@@ -29,3 +29,6 @@ vite.config.d.ts
 .cp-*/
 .impeccable/
 .vscode/
+
+# Angular CLI cache (generated, never commit)
+.angular/
