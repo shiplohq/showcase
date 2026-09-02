@@ -1,0 +1,705 @@
+{
+  "meta": {
+    "expedition": "Vocabulary Expedition",
+    "target": "English Pre-A1/A1 · ages 6-10",
+    "note": "Content source of truth. Add a unit by appending to units[] plus a matching scene component; nothing else changes."
+  },
+  "units": [
+    {
+      "id": "home",
+      "scene": "living-room",
+      "title": "The Living Room",
+      "nativeTitle": "Phòng khách",
+      "mapPos": [9, 70],
+      "mapBlurb": "cosy sofa, tick-tock clock",
+      "items": [
+        {
+          "id": "sofa",
+          "word": "sofa",
+          "translation": "ghế sofa",
+          "say": "/ˈsəʊ.fə/",
+          "phrase": "Sit on the sofa.",
+          "clue": "It is long and soft. You sit on it to read.",
+          "bbox": [6, 54, 36, 26],
+          "asset": "scene:living-room#sofa",
+          "audio": null
+        },
+        {
+          "id": "clock",
+          "word": "clock",
+          "translation": "đồng hồ",
+          "say": "/klɒk/",
+          "phrase": "The clock says three.",
+          "clue": "It has two hands, but no arms!",
+          "bbox": [46, 10, 11, 15],
+          "asset": "scene:living-room#clock",
+          "audio": null
+        },
+        {
+          "id": "picture",
+          "word": "picture",
+          "translation": "bức tranh",
+          "say": "/ˈpɪk.tʃə/",
+          "phrase": "A picture of the sea.",
+          "clue": "It hangs on the wall. It shows the sea.",
+          "bbox": [20, 18, 15, 15],
+          "asset": "scene:living-room#picture",
+          "audio": null
+        },
+        {
+          "id": "lamp",
+          "word": "lamp",
+          "translation": "đèn cây",
+          "say": "/læmp/",
+          "phrase": "Turn on the lamp.",
+          "clue": "It gives light when the room is dark.",
+          "bbox": [72, 26, 12, 32],
+          "asset": "scene:living-room#lamp",
+          "audio": null
+        },
+        {
+          "id": "bookshelf",
+          "word": "bookshelf",
+          "translation": "kệ sách",
+          "say": "/ˈbʊk.ʃelf/",
+          "phrase": "Books on the bookshelf.",
+          "clue": "Books sleep here, side by side.",
+          "bbox": [44, 38, 14, 34],
+          "asset": "scene:living-room#bookshelf",
+          "audio": null
+        },
+        {
+          "id": "plant",
+          "word": "plant",
+          "translation": "chậu cây",
+          "say": "/plɑːnt/",
+          "phrase": "Water the plant.",
+          "clue": "It is green. It drinks water every day.",
+          "bbox": [86, 56, 11, 24],
+          "asset": "scene:living-room#plant",
+          "audio": null
+        },
+        {
+          "id": "rug",
+          "word": "rug",
+          "translation": "thảm",
+          "say": "/rʌɡ/",
+          "phrase": "A rug on the floor.",
+          "clue": "It lies on the floor. Soft feet walk on it.",
+          "bbox": [34, 81, 26, 11],
+          "asset": "scene:living-room#rug",
+          "audio": null
+        }
+      ],
+      "clueItems": ["sofa", "clock", "lamp", "plant"],
+      "labelItems": ["picture", "bookshelf", "rug", "sofa"],
+      "sentences": [
+        {
+          "id": "home-s1",
+          "text": "The ___ is warm. Grandpa sleeps on it.",
+          "answer": "sofa",
+          "distractors": ["clock", "rug"],
+          "full": "The sofa is warm. Grandpa sleeps on it.",
+          "translation": "Chiếc sofa ấm áp. Ông ngủ trên đó."
+        },
+        {
+          "id": "home-s2",
+          "text": "Please turn on the ___. It is dark.",
+          "answer": "lamp",
+          "distractors": ["rug", "clock"],
+          "full": "Please turn on the lamp. It is dark.",
+          "translation": "Bật giúp ông chiếc đèn nhé. Trời tối rồi."
+        },
+        {
+          "id": "home-s3",
+          "text": "Look at the ___! It shows a red boat.",
+          "answer": "picture",
+          "distractors": ["plant", "sofa"],
+          "full": "Look at the picture! It shows a red boat.",
+          "translation": "Nhìn bức tranh kìa! Có chiếc thuyền đỏ."
+        }
+      ],
+      "distractors": ["table", "door", "bed"]
+    },
+    {
+      "id": "kitchen",
+      "scene": "kitchen",
+      "title": "The Kitchen",
+      "nativeTitle": "Nhà bếp",
+      "mapPos": [27, 46],
+      "mapBlurb": "singing kettle, cold fridge",
+      "items": [
+        {
+          "id": "fridge",
+          "word": "fridge",
+          "translation": "tủ lạnh",
+          "say": "/frɪdʒ/",
+          "phrase": "Milk is in the fridge.",
+          "clue": "It is big and cold. Milk lives inside.",
+          "bbox": [3, 16, 17, 58],
+          "asset": "scene:kitchen#fridge",
+          "audio": null
+        },
+        {
+          "id": "kettle",
+          "word": "kettle",
+          "translation": "ấm đun nước",
+          "say": "/ˈket.l/",
+          "phrase": "The kettle sings.",
+          "clue": "It boils water for tea. Psssss!",
+          "bbox": [40, 46, 14, 20],
+          "asset": "scene:kitchen#kettle",
+          "audio": null
+        },
+        {
+          "id": "apple",
+          "word": "apple",
+          "translation": "quả táo",
+          "say": "/ˈæp.l/",
+          "phrase": "A red apple.",
+          "clue": "It is red and round. Crunch!",
+          "bbox": [64, 52, 9, 12],
+          "asset": "scene:kitchen#apple",
+          "audio": null
+        },
+        {
+          "id": "bread",
+          "word": "bread",
+          "translation": "bánh mì",
+          "say": "/bred/",
+          "phrase": "Fresh bread for breakfast.",
+          "clue": "You eat it at breakfast, with jam.",
+          "bbox": [78, 50, 16, 13],
+          "asset": "scene:kitchen#bread",
+          "audio": null
+        },
+        {
+          "id": "cup",
+          "word": "cup",
+          "translation": "cái cốc",
+          "say": "/kʌp/",
+          "phrase": "Tea in a cup.",
+          "clue": "Tea goes in it. Careful — hot!",
+          "bbox": [55, 62, 8, 10],
+          "asset": "scene:kitchen#cup",
+          "audio": null
+        },
+        {
+          "id": "pot",
+          "word": "pot",
+          "translation": "cái nồi",
+          "say": "/pɒt/",
+          "phrase": "Soup in the pot.",
+          "clue": "Mum cooks soup in it. Mmm, it smells good!",
+          "bbox": [24, 52, 14, 18],
+          "asset": "scene:kitchen#pot",
+          "audio": null
+        },
+        {
+          "id": "bowl",
+          "word": "bowl",
+          "translation": "cái bát",
+          "say": "/bəʊl/",
+          "phrase": "Rice in the bowl.",
+          "clue": "It is round and deep. Rice goes inside.",
+          "bbox": [84, 66, 10, 10],
+          "asset": "scene:kitchen#bowl",
+          "audio": null
+        }
+      ],
+      "clueItems": ["fridge", "kettle", "apple", "pot"],
+      "labelItems": ["bread", "cup", "bowl", "kettle"],
+      "sentences": [
+        {
+          "id": "kitchen-s1",
+          "text": "The ___ is cold. Ice cream sleeps in it.",
+          "answer": "fridge",
+          "distractors": ["kettle", "bowl"],
+          "full": "The fridge is cold. Ice cream sleeps in it.",
+          "translation": "Cái tủ lạnh lạnh lắm. Kem đang ngủ trong đó."
+        },
+        {
+          "id": "kitchen-s2",
+          "text": "Listen! The ___ sings. Tea is coming!",
+          "answer": "kettle",
+          "distractors": ["pot", "cup"],
+          "full": "Listen! The kettle sings. Tea is coming!",
+          "translation": "Nghe kìa! Chiếc ấm đang hát. Trà sắp nóng rồi!"
+        },
+        {
+          "id": "kitchen-s3",
+          "text": "I eat an ___ every morning. Crunch!",
+          "answer": "apple",
+          "distractors": ["bread", "pot"],
+          "full": "I eat an apple every morning. Crunch!",
+          "translation": "Con ăn một quả táo mỗi sáng. Tách tách!"
+        }
+      ],
+      "distractors": ["spoon", "plate", "egg"]
+    },
+    {
+      "id": "classroom",
+      "scene": "classroom",
+      "title": "The Classroom",
+      "nativeTitle": "Lớp học",
+      "mapPos": [45, 66],
+      "mapBlurb": "words on the board",
+      "items": [
+        {
+          "id": "board",
+          "word": "board",
+          "translation": "bảng",
+          "say": "/bɔːd/",
+          "phrase": "Words on the board.",
+          "clue": "The teacher writes words on it. Squeak, squeak!",
+          "bbox": [30, 8, 40, 20],
+          "asset": "scene:classroom#board",
+          "audio": null
+        },
+        {
+          "id": "desk",
+          "word": "desk",
+          "translation": "bàn học",
+          "say": "/desk/",
+          "phrase": "My desk is by the window.",
+          "clue": "You sit at it to write and draw.",
+          "bbox": [8, 44, 26, 22],
+          "asset": "scene:classroom#desk",
+          "audio": null
+        },
+        {
+          "id": "chair",
+          "word": "chair",
+          "translation": "cái ghế",
+          "say": "/tʃeə/",
+          "phrase": "Sit on your chair.",
+          "clue": "Four legs and a back. You sit on it.",
+          "bbox": [38, 52, 10, 20],
+          "asset": "scene:classroom#chair",
+          "audio": null
+        },
+        {
+          "id": "bag",
+          "word": "bag",
+          "translation": "cặp sách",
+          "say": "/bæɡ/",
+          "phrase": "My bag is heavy.",
+          "clue": "It rides on your back. Books live inside.",
+          "bbox": [70, 50, 12, 16],
+          "asset": "scene:classroom#bag",
+          "audio": null
+        },
+        {
+          "id": "pencil",
+          "word": "pencil",
+          "translation": "bút chì",
+          "say": "/ˈpen.səl/",
+          "phrase": "Write with a pencil.",
+          "clue": "It writes. When it gets short, sharpen it!",
+          "bbox": [56, 60, 13, 10],
+          "asset": "scene:classroom#pencil",
+          "audio": null
+        },
+        {
+          "id": "ruler",
+          "word": "ruler",
+          "translation": "thước kẻ",
+          "say": "/ˈruː.lə/",
+          "phrase": "A ruler draws lines.",
+          "clue": "It draws straight lines. Do not bend it!",
+          "bbox": [84, 58, 13, 9],
+          "asset": "scene:classroom#ruler",
+          "audio": null
+        },
+        {
+          "id": "globe",
+          "word": "globe",
+          "translation": "quả địa cầu",
+          "say": "/ɡləʊb/",
+          "phrase": "Spin the globe.",
+          "clue": "It is a small round world. Spin it!",
+          "bbox": [8, 10, 11, 16],
+          "asset": "scene:classroom#globe",
+          "audio": null
+        }
+      ],
+      "clueItems": ["board", "desk", "bag", "pencil"],
+      "labelItems": ["chair", "ruler", "globe", "board"],
+      "sentences": [
+        {
+          "id": "classroom-s1",
+          "text": "The teacher writes on the ___.",
+          "answer": "board",
+          "distractors": ["globe", "chair"],
+          "full": "The teacher writes on the board.",
+          "translation": "Cô giáo viết lên bảng."
+        },
+        {
+          "id": "classroom-s2",
+          "text": "My ___ is heavy. Books are inside!",
+          "answer": "bag",
+          "distractors": ["pencil", "desk"],
+          "full": "My bag is heavy. Books are inside!",
+          "translation": "Cặp của em nặng quá. Sách nằm đầy trong đó!"
+        },
+        {
+          "id": "classroom-s3",
+          "text": "Draw a straight line with the ___.",
+          "answer": "ruler",
+          "distractors": ["pencil", "globe"],
+          "full": "Draw a straight line with the ruler.",
+          "translation": "Hãy kẻ một đường thẳng bằng thước nhé."
+        }
+      ],
+      "distractors": ["pen", "eraser", "book"]
+    },
+    {
+      "id": "market",
+      "scene": "market",
+      "title": "The Market",
+      "nativeTitle": "Chợ",
+      "mapPos": [62, 36],
+      "mapBlurb": "yellow bananas, fresh fish",
+      "items": [
+        {
+          "id": "basket",
+          "word": "basket",
+          "translation": "giỏ đựng",
+          "say": "/ˈbɑː.skɪt/",
+          "phrase": "A basket of apples.",
+          "clue": "You carry it. Fruit goes inside.",
+          "bbox": [6, 58, 16, 18],
+          "asset": "scene:market#basket",
+          "audio": null
+        },
+        {
+          "id": "banana",
+          "word": "banana",
+          "translation": "quả chuối",
+          "say": "/bəˈnɑː.nə/",
+          "phrase": "Yellow bananas.",
+          "clue": "It is yellow. Monkeys love it!",
+          "bbox": [34, 54, 14, 12],
+          "asset": "scene:market#banana",
+          "audio": null
+        },
+        {
+          "id": "fish",
+          "word": "fish",
+          "translation": "con cá",
+          "say": "/fɪʃ/",
+          "phrase": "Fresh fish on ice.",
+          "clue": "It swims in the sea. We buy it on ice.",
+          "bbox": [62, 52, 16, 12],
+          "asset": "scene:market#fish",
+          "audio": null
+        },
+        {
+          "id": "milk",
+          "word": "milk",
+          "translation": "sữa",
+          "say": "/mɪlk/",
+          "phrase": "Milk in a bottle.",
+          "clue": "It is the white drink from a cow.",
+          "bbox": [84, 50, 11, 14],
+          "asset": "scene:market#milk",
+          "audio": null
+        },
+        {
+          "id": "carrot",
+          "word": "carrot",
+          "translation": "củ cà rốt",
+          "say": "/ˈkær.ət/",
+          "phrase": "Orange carrots.",
+          "clue": "It is orange and long. Rabbits dig for it.",
+          "bbox": [24, 66, 13, 9],
+          "asset": "scene:market#carrot",
+          "audio": null
+        },
+        {
+          "id": "flower",
+          "word": "flower",
+          "translation": "bông hoa",
+          "say": "/ˈflaʊ.ə/",
+          "phrase": "Flowers for Mum.",
+          "clue": "It smells sweet. Bees visit it all day.",
+          "bbox": [48, 60, 11, 14],
+          "asset": "scene:market#flower",
+          "audio": null
+        },
+        {
+          "id": "cheese",
+          "word": "cheese",
+          "translation": "phô mai",
+          "say": "/tʃiːz/",
+          "phrase": "Cheese and bread.",
+          "clue": "The mouse says: please, a little piece!",
+          "bbox": [70, 66, 12, 10],
+          "asset": "scene:market#cheese",
+          "audio": null
+        }
+      ],
+      "clueItems": ["banana", "fish", "milk", "carrot"],
+      "labelItems": ["basket", "flower", "cheese", "banana"],
+      "sentences": [
+        {
+          "id": "market-s1",
+          "text": "The ___ is yellow. Monkeys love it!",
+          "answer": "banana",
+          "distractors": ["carrot", "milk"],
+          "full": "The banana is yellow. Monkeys love it!",
+          "translation": "Quả chuối vàng ươm. Khỉ rất thích chuối!"
+        },
+        {
+          "id": "market-s2",
+          "text": "I drink ___ every morning. Mmm, white and good!",
+          "answer": "milk",
+          "distractors": ["fish", "cheese"],
+          "full": "I drink milk every morning. Mmm, white and good!",
+          "translation": "Em uống sữa mỗi sáng. Mmm, trắng và ngon!"
+        },
+        {
+          "id": "market-s3",
+          "text": "Buy one ___ for Mum. It smells sweet.",
+          "answer": "flower",
+          "distractors": ["basket", "carrot"],
+          "full": "Buy one flower for Mum. It smells sweet.",
+          "translation": "Mua một bông hoa cho mẹ nhé. Hoa thơm lắm."
+        }
+      ],
+      "distractors": ["grape", "potato", "egg"]
+    },
+    {
+      "id": "farm",
+      "scene": "farm",
+      "title": "The Farm",
+      "nativeTitle": "Trang trại",
+      "mapPos": [80, 60],
+      "mapBlurb": "moo, baa, quack!",
+      "items": [
+        {
+          "id": "cow",
+          "word": "cow",
+          "translation": "con bò",
+          "say": "/kaʊ/",
+          "phrase": "The cow says moo.",
+          "clue": "It says moo. It gives us milk.",
+          "bbox": [10, 42, 24, 26],
+          "asset": "scene:farm#cow",
+          "audio": null
+        },
+        {
+          "id": "sheep",
+          "word": "sheep",
+          "translation": "con cừu",
+          "say": "/ʃiːp/",
+          "phrase": "A white sheep.",
+          "clue": "It is white and woolly. Baa, baa!",
+          "bbox": [40, 52, 18, 18],
+          "asset": "scene:farm#sheep",
+          "audio": null
+        },
+        {
+          "id": "chicken",
+          "word": "chicken",
+          "translation": "con gà",
+          "say": "/ˈtʃɪk.ɪn/",
+          "phrase": "The chicken lays eggs.",
+          "clue": "It says cluck-cluck and lays eggs.",
+          "bbox": [66, 58, 12, 14],
+          "asset": "scene:farm#chicken",
+          "audio": null
+        },
+        {
+          "id": "duck",
+          "word": "duck",
+          "translation": "con vịt",
+          "say": "/dʌk/",
+          "phrase": "Ducks on the pond.",
+          "clue": "It swims on the pond. Quack, quack!",
+          "bbox": [86, 66, 11, 10],
+          "asset": "scene:farm#duck",
+          "audio": null
+        },
+        {
+          "id": "horse",
+          "word": "horse",
+          "translation": "con ngựa",
+          "say": "/hɔːs/",
+          "phrase": "A big brown horse.",
+          "clue": "It is big and fast. It says neigh!",
+          "bbox": [58, 30, 20, 24],
+          "asset": "scene:farm#horse",
+          "audio": null
+        },
+        {
+          "id": "barn",
+          "word": "barn",
+          "translation": "chuồng trại",
+          "say": "/bɑːn/",
+          "phrase": "The red barn.",
+          "clue": "It is red. Animals sleep inside at night.",
+          "bbox": [6, 8, 20, 26],
+          "asset": "scene:farm#barn",
+          "audio": null
+        },
+        {
+          "id": "tractor",
+          "word": "tractor",
+          "translation": "máy kéo",
+          "say": "/ˈtræk.tə/",
+          "phrase": "The tractor is slow.",
+          "clue": "Big wheels, slow ride — it helps the farmer.",
+          "bbox": [76, 18, 20, 22],
+          "asset": "scene:farm#tractor",
+          "audio": null
+        }
+      ],
+      "clueItems": ["cow", "sheep", "duck", "tractor"],
+      "labelItems": ["chicken", "horse", "barn", "sheep"],
+      "sentences": [
+        {
+          "id": "farm-s1",
+          "text": "The ___ says moo. Drink your milk!",
+          "answer": "cow",
+          "distractors": ["sheep", "duck"],
+          "full": "The cow says moo. Drink your milk!",
+          "translation": "Con bò đang kêu đấy. Uống sữa đi con!"
+        },
+        {
+          "id": "farm-s2",
+          "text": "The ___ swims on the pond. Quack!",
+          "answer": "duck",
+          "distractors": ["chicken", "horse"],
+          "full": "The duck swims on the pond. Quack!",
+          "translation": "Con vịt bơi trên ao. Vạc vạc!"
+        },
+        {
+          "id": "farm-s3",
+          "text": "The ___ is red. Animals sleep in it.",
+          "answer": "barn",
+          "distractors": ["tractor", "horse"],
+          "full": "The barn is red. Animals sleep in it.",
+          "translation": "Chuồng trại màu đỏ. Các con vật ngủ trong đó."
+        }
+      ],
+      "distractors": ["pig", "goat", "duckling"]
+    },
+    {
+      "id": "park",
+      "scene": "park",
+      "title": "The Park",
+      "nativeTitle": "Công viên",
+      "mapPos": [92, 24],
+      "mapBlurb": "fly a kite, ride fast",
+      "items": [
+        {
+          "id": "kite",
+          "word": "kite",
+          "translation": "con diều",
+          "say": "/kaɪt/",
+          "phrase": "A kite in the sky.",
+          "clue": "It flies high on a windy day. Hold the string!",
+          "bbox": [70, 6, 18, 20],
+          "asset": "scene:park#kite",
+          "audio": null
+        },
+        {
+          "id": "ball",
+          "word": "ball",
+          "translation": "quả bóng",
+          "say": "/bɔːl/",
+          "phrase": "Kick the ball!",
+          "clue": "You kick it. It rolls and bounces.",
+          "bbox": [30, 62, 10, 11],
+          "asset": "scene:park#ball",
+          "audio": null
+        },
+        {
+          "id": "bicycle",
+          "word": "bicycle",
+          "translation": "xe đạp",
+          "say": "/ˈbaɪ.sɪ.kəl/",
+          "phrase": "My new bicycle.",
+          "clue": "Two wheels. Ring, ring — ride it fast!",
+          "bbox": [8, 50, 22, 22],
+          "asset": "scene:park#bicycle",
+          "audio": null
+        },
+        {
+          "id": "tree",
+          "word": "tree",
+          "translation": "cây",
+          "say": "/triː/",
+          "phrase": "A big green tree.",
+          "clue": "It is tall and green. Birds sing in it.",
+          "bbox": [50, 18, 16, 42],
+          "asset": "scene:park#tree",
+          "audio": null
+        },
+        {
+          "id": "bench",
+          "word": "bench",
+          "translation": "ghế dài",
+          "say": "/bentʃ/",
+          "phrase": "Sit on the bench.",
+          "clue": "You sit on it when your legs are tired.",
+          "bbox": [70, 58, 20, 12],
+          "asset": "scene:park#bench",
+          "audio": null
+        },
+        {
+          "id": "bird",
+          "word": "bird",
+          "translation": "con chim",
+          "say": "/bɜːd/",
+          "phrase": "A little bird.",
+          "clue": "It has wings and sings in the morning.",
+          "bbox": [40, 34, 9, 9],
+          "asset": "scene:park#bird",
+          "audio": null
+        },
+        {
+          "id": "butterfly",
+          "word": "butterfly",
+          "translation": "con bướm",
+          "say": "/ˈbʌt.ə.flɑɪ/",
+          "phrase": "A yellow butterfly.",
+          "clue": "It has colorful wings. It flies flower to flower.",
+          "bbox": [84, 40, 11, 10],
+          "asset": "scene:park#butterfly",
+          "audio": null
+        }
+      ],
+      "clueItems": ["kite", "bicycle", "bench", "bird"],
+      "labelItems": ["ball", "tree", "butterfly", "kite"],
+      "sentences": [
+        {
+          "id": "park-s1",
+          "text": "The ___ flies high. Hold the string!",
+          "answer": "kite",
+          "distractors": ["ball", "bird"],
+          "full": "The kite flies high. Hold the string!",
+          "translation": "Con diều bay cao lắm. Giữ chặt dây nhé!"
+        },
+        {
+          "id": "park-s2",
+          "text": "I ride my ___ to the park. Ring, ring!",
+          "answer": "bicycle",
+          "distractors": ["bench", "ball"],
+          "full": "I ride my bicycle to the park. Ring, ring!",
+          "translation": "Em đạp xe đến công viên. Kính coong!"
+        },
+        {
+          "id": "park-s3",
+          "text": "A ___ sings in the tree. Tweet, tweet!",
+          "answer": "bird",
+          "distractors": ["butterfly", "kite"],
+          "full": "A bird sings in the tree. Tweet, tweet!",
+          "translation": "Một chú chim hót trên cây. Líu lo!"
+        }
+      ],
+      "distractors": ["pond", "grass", "swing"]
+    }
+  ]
+}

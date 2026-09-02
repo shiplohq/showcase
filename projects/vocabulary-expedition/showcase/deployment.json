@@ -1,0 +1,12 @@
+{
+  "project": "vocabulary-expedition",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://vocabulary-expedition.shiplo.site",
+  "sourceCommitSha": null,
+  "buildCommand": "npm run build",
+  "artifactSha256": "4605f5c0416a000e10d662d498ec56ce7451c0255d30016939cd1565a514a91a",
+  "deployedAt": "2026-09-02T05:59:36.842Z",
+  "verifiedAt": "2026-09-02T06:12:00Z",
+  "notes": "Release 2, deployment e7bf1907-9203-434c-a3ec-e1ed1f3a24b8 (site 1b7a567e-e0db-4e62-a7a9-77d6902b5c8f, activated 2026-09-02T05:59:36.842Z, 18 files / 828,153 bytes) — review-fix redeploy: hotspot hit-rects enforced ≥44px on EVERY breakpoint incl. the 1024x768 tablet hero (was mobile-only), cover staging rewritten to real pointer events with an in-session pinned-state guard, mobile map (<=479px) switched to a vertical trail list (no clipping/overlap), README screenshots table, farm-s1 Vietnamese translation fix. Release 1 was deployment 3fb2d544-f8eb-44b6-a7fa-44f381f04593 (activated 2026-09-01T20:10:36.208Z, 18 files / 826,963 bytes). Live verification of release 2: full learning flow headless (CDP, fresh profile, no disk cache) at 1440x900, 1024x768, 390x844 — mouse/touch/keyboard/pointer-drag paths, clue hunt, label match, sentence builder, scrapbook, VI-layer toggle — zero console errors; ≥44px assertion now runs ON THE SCENE SCREENS (look-around + labels tabs) at every viewport plus the scrapbook; mobile trail list asserted fully inside the stage with no station overlap; no horizontal overflow; prefers-reduced-motion usable; cdp:smoke clean on release 1 flow retained. Font gate on live: Andika 400/700 latin+digits OK + vietnamese OK; Caveat latin-700 by document.fonts.check probe (no vietnamese subset ships by design — VI strings and IPA always Andika). Screenshots re-captured from this release (cover staged 3/4 labels pinned, verified in-session). sourceCommitSha null — finalized by orchestrator to the integration commit after review. Artifact hash = tar -czf - -C dist . | sha256sum per docs/DEPLOYMENT.md."
+}

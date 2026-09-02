@@ -1,0 +1,69 @@
+/*
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+
+Design tokens — DESIGN_DECISIONS.md §4–§8 is the source of truth.
+Gouache storybook: sunlit cream, sepia ink, meadow/lake/marmalade/berry/sunflower.
+Flat fills only — no gradients.
+*/
+
+:root {
+  /* Neutrals — paper & ink */
+  --canvas: #fff7e4;
+  --canvas-deep: #f7ecd3;
+  --plate: #fffdf4;
+  --ink: #4a3527;
+  --ink-soft: #7a6450;
+  --line: #e3d2ae;
+
+  /* Gouache accents */
+  --meadow: #5f8f3e;
+  --meadow-deep: #436b2a;
+  --lake: #3f7e8c;
+  --lake-deep: #2d5e6a;
+  --marmalade: #e08a3c;
+  --berry: #c0504a;
+  --sunflower: #f2c14e;
+  --bark: #8a6b4f;
+
+  /* Scene-art helpers (open gouache palette, art only) */
+  --art-sky: #bcd9e8;
+  --art-wall: #f3e2c3;
+  --art-floor: #cea97e;
+  --art-wood: #c89a66;
+  --art-leaf: #7fa84b;
+  --art-grass: #a4bf6b;
+
+  /* Typography */
+  --font-reading: 'Andika', 'Trebuchet MS', Verdana, sans-serif;
+  --font-journal: 'Caveat', 'Segoe Print', 'Comic Sans MS', cursive;
+
+  /* Spacing — base 4 */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s8: 32px;
+  --s10: 40px;
+  --s12: 48px;
+  --s16: 64px;
+  --s20: 80px;
+
+  /* Radii — soft, one sharp corner on plates (museum tag shape) */
+  --r-plate: 4px 14px 14px 4px;
+  --r-chip: 10px;
+  --r-btn: 12px;
+
+  /* Shadows — soft offset, no blur stacks, no plastic */
+  --shadow-plate: 0 2px 0 rgba(74, 53, 39, 0.08);
+  --shadow-cta: 0 3px 0 rgba(74, 53, 39, 0.18);
+
+  /* Z-scale (skill: 10/20/30/40/50) */
+  --z-art: 10;
+  --z-hotspot: 20;
+  --z-caption: 30;
+  --z-dock: 40;
+  --z-overlay: 50;
+}

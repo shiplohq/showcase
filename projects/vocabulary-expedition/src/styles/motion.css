@@ -1,0 +1,197 @@
+/*
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+
+Motion layer — CSS-side transitions only; GSAP runs through src/lib/gsap.ts.
+prefers-reduced-motion: final states immediate, only tiny fades (≤150ms).
+*/
+
+/* ---- view swap (map ↔ scene ↔ scrapbook) ---------------------------------- */
+
+.view-enter-active {
+  transition: opacity 260ms ease, transform 320ms ease-out;
+}
+
+.view-leave-active {
+  transition: opacity 180ms ease, transform 200ms ease-in;
+}
+
+.view-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.view-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+/* ---- hotspot halo ------------------------------------------------------------ */
+
+.hotspot {
+  position: absolute;
+  z-index: var(--z-hotspot);
+  background: transparent;
+  border: 2px dashed transparent;
+  border-radius: 14px;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 140ms ease, border-color 140ms ease;
+  /* Definition of done: ≥44px hit-rect on EVERY breakpoint incl. the tablet
+     hero 768–1199 — the hit area may exceed the bbox crop (anchored top-left);
+     idle borders are transparent so the larger rect is invisible. */
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.hotspot:hover {
+  background: rgba(74, 53, 39, 0.06);
+}
+
+.hotspot .pin-dot {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--berry);
+  border: 2px solid var(--plate);
+}
+
+/* a real check glyph drawn with borders — the dot reads as "found", not an
+   orphan decoration; meaning is duplicated in the aria-label anyway */
+.hotspot .pin-dot::after {
+  content: '';
+  position: absolute;
+  left: 3.5px;
+  top: 4px;
+  width: 7px;
+  height: 3.5px;
+  border-left: 2.5px solid #fff8ec;
+  border-bottom: 2.5px solid #fff8ec;
+  transform: rotate(-45deg);
+}
+
+.hotspot--target {
+  border-color: var(--marmalade);
+  background: rgba(224, 138, 60, 0.1);
+}
+
+.hotspot--glow {
+  border-color: var(--marmalade);
+  background: rgba(242, 193, 78, 0.22);
+}
+
+.hotspot--hit {
+  border-color: var(--meadow);
+  background: rgba(95, 143, 62, 0.14);
+}
+
+.hotspot--miss {
+  border-color: var(--marmalade);
+}
+
+/* ---- map ------------------------------------------------------------------------ */
+
+.map-stage {
+  position: relative;
+  width: 100%;
+}
+
+.map-stage svg.landscape {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.map-marker {
+  position: absolute;
+  z-index: var(--z-hotspot);
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-reading);
+  padding: var(--s2);
+}
+
+.map-marker .badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--plate);
+  border: 2.5px solid var(--ink);
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-plate);
+  transition: transform 140ms ease, border-color 140ms ease;
+}
+
+.map-marker .meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.map-marker:hover .badge {
+  transform: translateY(-3px) scale(1.04);
+}
+
+.map-marker--done .badge {
+  border-color: var(--berry);
+  background: #fbe9d2;
+}
+
+.map-marker .name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--plate);
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  padding: 1px 8px;
+  max-width: 160px;
+  white-space: nowrap;
+}
+
+.map-marker .native {
+  font-size: 14px;
+  color: var(--ink-soft);
+  background: var(--plate);
+  border-radius: 6px;
+  padding: 0 6px;
+}
+
+.map-marker--current .badge {
+  border-color: var(--lake);
+  border-style: solid;
+  border-width: 3.5px;
+}
+
+/* ---- reduced motion --------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .view-enter-active,
+  .view-leave-active {
+    transition: opacity 120ms linear;
+  }
+
+  .view-enter-from,
+  .view-leave-to {
+    transform: none;
+  }
+}

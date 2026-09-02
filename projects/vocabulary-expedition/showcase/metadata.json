@@ -1,0 +1,40 @@
+{
+  "id": "vocabulary-expedition",
+  "title": "Vocabulary Expedition",
+  "summary": "Large illustrated scenes where children find objects from clues, match words to pictures and use new words in short sentences.",
+  "category": "education-language",
+  "number": 7,
+  "audience": "Pre-A1/A1 · ages 6-10",
+  "mobileSupport": "supported",
+  "mobileSupportNote": "Full learning loop works at 390x844 (verified live): stations show as a vertical trail list (no clipping or overlap), the 1200x800 scene plate keeps its aspect, hotspots hold a 44px hit-rect minimum, and label match runs through tap-chip-then-tap-object pick-and-place. Pointer drag precision is lower than tablet — pick-and-place is the primary path on phones.",
+  "screenshots": {
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://vocabulary-expedition.shiplo.site",
+      "capturedAt": "2026-09-02T06:10:00Z",
+      "alt": "Staged mid-lesson moment on the Living Room gouache plate during the word-label task: three word labels pinned as museum annotations (picture on the framed art, bookshelf on the shelf, sofa on the couch), berry check pins marking the four clue-found words, and the label dock below reading Word labels 3/4 pinned with the last chip rug in the tray"
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://vocabulary-expedition.shiplo.site",
+      "capturedAt": "2026-09-02T06:10:00Z",
+      "alt": "Honest default landing: the expedition map — a gouache landscape with a dotted footpath connecting six illustrated stations (The Living Room, The Kitchen, The Classroom, The Market, The Farm, The Park), Pip the sparrow marking the start station"
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://vocabulary-expedition.shiplo.site",
+      "capturedAt": "2026-09-02T06:10:00Z",
+      "alt": "Hero tablet view of the scene screen: task-rail stamps (Look around, Clue hunt, Word labels, Sentences), the Living Room gouache plate, and a caption plate for sofa — sofa /ˈsəʊ.fə/ · ghế sofa — over the activity dock"
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://vocabulary-expedition.shiplo.site",
+      "capturedAt": "2026-09-02T06:10:00Z",
+      "alt": "Honest mobile landing: the six stations as a vertical trail list — round badge, English name and Vietnamese name per row, Pip the sparrow beside the start station, a dotted berry route running down the left edge"
+    }
+  }
+}

@@ -1,0 +1,465 @@
+/*
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+
+Base layer — semantic shell, early-reader typography, journal chrome.
+Tablet-first (768–1199 is the hero viewport); mobile stacks, desktop breathes.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-reading);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  /* Procedural paper grain — no raster asset (DESIGN_DECISIONS §9) */
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  /* NB: the filter ref inside the data URI keeps its parens percent-encoded
+     (url%28%23g%29) so CSS url() scanners never mistake it for an asset ref. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url%28%23g%29'/%3E%3C/svg%3E");
+}
+
+#app {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- shell -------------------------------------------------------------- */
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  flex-wrap: wrap;
+  padding: var(--s3) var(--s5);
+  border-bottom: 2px dashed var(--line);
+}
+
+.app-header .title {
+  font-family: var(--font-journal);
+  font-weight: 700;
+  font-size: clamp(26px, 3.4vw, 34px);
+  line-height: 1.05;
+  margin: 0;
+  color: var(--ink);
+}
+
+.app-header .title small {
+  display: block;
+  font-family: var(--font-reading);
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
+.app-header .spacer {
+  flex: 1;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--s4) var(--s5) var(--s6);
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ---- shared controls ------------------------------------------------------ */
+
+.btn {
+  font-family: var(--font-reading);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+  background: var(--plate);
+  border: 1.5px solid var(--ink);
+  border-radius: var(--r-btn);
+  min-height: 48px;
+  padding: var(--s2) var(--s4);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn--primary {
+  background: var(--sunflower);
+  box-shadow: var(--shadow-cta);
+  min-height: 56px;
+  font-size: 19px;
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--ink-soft);
+}
+
+.btn--icon {
+  min-width: 48px;
+  padding: var(--s2);
+  justify-content: center;
+}
+
+.btn[aria-pressed='true'] {
+  background: var(--sunflower);
+}
+
+.btn:focus-visible,
+.hotspot:focus-visible,
+.chip:focus-visible,
+.map-marker:focus-visible,
+.sticker:focus-visible {
+  outline: 2.5px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+  transform: none;
+}
+
+/* ---- caption plate (museum label) ---------------------------------------- */
+
+.caption-plate {
+  position: absolute;
+  z-index: var(--z-caption);
+  background: var(--plate);
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-plate);
+  box-shadow: var(--shadow-plate);
+  padding: var(--s3) var(--s4) var(--s3) var(--s4);
+  max-width: 240px;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.caption-plate .word {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.caption-plate .say {
+  font-size: 14px;
+  color: var(--lake-deep);
+  margin-left: 6px;
+}
+
+.caption-plate .phrase {
+  margin: 2px 0 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.caption-plate .pin {
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--berry);
+  border: 2px solid var(--plate);
+}
+
+.vi {
+  color: var(--ink-soft);
+}
+
+.vi::before {
+  content: 'VI ';
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--lake-deep);
+  font-weight: 700;
+}
+
+/* annotation — the small permanent label after a correct match */
+.annotation {
+  position: absolute;
+  z-index: var(--z-caption);
+  background: var(--plate);
+  border: 1.5px solid var(--line);
+  border-radius: 8px 12px 12px 8px;
+  padding: 4px 10px;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: var(--shadow-plate);
+  pointer-events: none;
+}
+
+.annotation .pin {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--berry);
+  margin-right: 6px;
+}
+
+/* ---- word chip ------------------------------------------------------------- */
+
+.chip {
+  font-family: var(--font-reading);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--ink);
+  background: var(--plate);
+  border: 1.5px solid var(--ink);
+  border-radius: var(--r-chip);
+  min-height: 48px;
+  padding: var(--s2) var(--s4);
+  cursor: pointer;
+  transition: transform 130ms ease, box-shadow 130ms ease, border-color 130ms ease;
+}
+
+.chip:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-plate);
+}
+
+.chip--held {
+  border-color: var(--lake);
+  border-width: 2.5px;
+  background: #eef6f4;
+  transform: translateY(-3px);
+}
+
+.chip--used {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.chip--drag {
+  position: fixed;
+  z-index: var(--z-overlay);
+  pointer-events: none;
+  transform: rotate(-2deg);
+  box-shadow: var(--shadow-plate);
+}
+
+/* ---- feedback strip -------------------------------------------------------- */
+
+.feedback-strip {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  border-radius: 10px;
+  padding: var(--s2) var(--s3);
+  font-weight: 700;
+  border: 1.5px solid transparent;
+}
+
+.feedback-strip[data-kind='correct'] {
+  background: #edf3e2;
+  border-color: var(--meadow);
+  color: var(--meadow-deep);
+}
+
+.feedback-strip[data-kind='nudge'] {
+  background: #fbf0e1;
+  border-color: var(--marmalade);
+  color: #8c5417;
+}
+
+/* ---- task stamps ------------------------------------------------------------ */
+
+.task-rail {
+  display: flex;
+  align-items: center;
+  gap: var(--s5);
+  flex-wrap: wrap;
+}
+
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  background: none;
+  border: none;
+  padding: var(--s1);
+  cursor: pointer;
+  font-family: var(--font-reading);
+  color: var(--ink);
+}
+
+.stamp .seal {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2.5px dashed var(--ink-soft);
+  display: grid;
+  place-items: center;
+  color: var(--ink-soft);
+  background: var(--plate);
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.stamp .label {
+  font-size: 15px;
+  font-weight: 700;
+  display: block;
+}
+
+.stamp .sub {
+  font-size: 14px;
+  color: var(--ink-soft);
+  display: block;
+  text-align: left;
+}
+
+.stamp--active .seal {
+  border-color: var(--lake);
+  border-style: solid;
+  color: var(--lake-deep);
+  background: #eaf2f0;
+}
+
+.stamp--done .seal {
+  border-style: solid;
+  border-color: var(--berry);
+  background: var(--berry);
+  color: #fff8ec;
+}
+
+.stamp--locked {
+  opacity: 0.55;
+}
+
+.stamp--locked .seal {
+  border-style: dotted;
+}
+
+/* ---- dock -------------------------------------------------------------------- */
+
+.dock {
+  background: var(--canvas-deep);
+  border: 2px dashed var(--line);
+  border-radius: 18px;
+  padding: var(--s4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+
+.dock-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+  flex-wrap: wrap;
+}
+
+.dock-head h2 {
+  font-family: var(--font-journal);
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.dock-head .count {
+  font-size: 15px;
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+/* ---- overlays ------------------------------------------------------------------ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  background: rgba(74, 53, 39, 0.32);
+  display: grid;
+  place-items: center;
+  padding: var(--s4);
+}
+
+.overlay .card {
+  background: var(--canvas);
+  border: 2px solid var(--ink);
+  border-radius: 18px;
+  padding: var(--s6);
+  max-width: 520px;
+  width: 100%;
+  box-shadow: var(--shadow-cta);
+}
+
+.overlay .card h2 {
+  font-family: var(--font-journal);
+  font-size: 34px;
+  margin: 0 0 var(--s2);
+}
+
+/* ---- responsive -------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+  body {
+    font-size: 16px;
+  }
+
+  .app-header {
+    padding: var(--s2) var(--s4);
+  }
+
+  .app-main {
+    padding: var(--s3) var(--s4) var(--s4);
+  }
+
+  .caption-plate .word {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    font-size: 18px;
+  }
+
+  .caption-plate {
+    max-width: 280px;
+  }
+}

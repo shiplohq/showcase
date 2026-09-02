@@ -1,0 +1,26 @@
+{
+  "name": "vocabulary-expedition",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Vocabulary Expedition — Hành trình từ vựng. Shiplo Showcase #07: an illustrated field journal where children 6-10 explore scenes, hunt objects from clues, match words to pictures and build short sentences.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test:engine": "node scripts/engine-sim.mjs"
+  },
+  "dependencies": {
+    "@fontsource/andika": "^5.1.0",
+    "@fontsource/caveat": "^5.1.0",
+    "gsap": "^3.15.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "typescript": "^5.5.4",
+    "vite": "^7.3.6",
+    "vue-tsc": "^3.0.0"
+  }
+}

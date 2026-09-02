@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "policy": {
+    "generator": "openai-codex-only",
+    "assetOutputScope": "public/assets/generated/",
+    "reviewRequired": true,
+    "internal": true,
+    "note": "Internal provenance record — this manifest lives in design/ and must NEVER ship in a deployed dist/. Showcase #07 shipped ZERO Codex-generated assets: every visual (6 scene plates, world map, mascot, icons, grain) is code-native SVG per design/IMAGE_BRIEF.md classification. AI-generated output does not automatically carry exclusive copyright ownership — see design/codex-image-producer.md (repo root)."
+  },
+  "assets": []
+}

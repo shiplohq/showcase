@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "vocabulary-expedition",
+  "site_id": "1b7a567e-e0db-4e62-a7a9-77d6902b5c8f",
+  "subdomain": "vocabulary-expedition",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}
