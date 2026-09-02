@@ -20,6 +20,7 @@ no backend, no database, no SSR. Human-readable source is Apache-2.0
 | <img src="projects/multiplication-galaxy/showcase/cover.webp" alt="Multiplication Galaxy cover" width="360"> | **[Multiplication Galaxy](https://multiplication-galaxy.shiplo.site)**<br>A space probe flying planet clusters arranged as arrays; answer multiplication facts to lock stable orbits. | education-math |
 | <img src="projects/clock-quest/showcase/cover.webp" alt="Clock Quest cover" width="360"> | **[Clock Quest](https://clock-quest.shiplo.site)**<br>An island of train schedules, markets and a lighthouse; turn the clock hands to arrive at the right place at the right time. | education-math |
 | <img src="projects/money-market-junior/showcase/cover.webp" alt="Money Market Junior cover" width="360"> | **[Money Market Junior](https://money-market-junior.shiplo.site)**<br>An illustrated 2D market where learners shop for a picnic within a fixed budget, computing totals and change. | education-math |
+| <img src="projects/vocabulary-expedition/showcase/cover.webp" alt="Vocabulary Expedition cover" width="360"> | **[Vocabulary Expedition](https://vocabulary-expedition.shiplo.site)**<br>Large illustrated scenes where children find objects from clues, match words to images and use new words in short sentences. | education-language |
 | <img src="projects/grammar-detective/showcase/cover.webp" alt="Grammar Detective cover" width="360"> | **[Grammar Detective](https://grammar-detective.shiplo.site)**<br>Investigate broken 'case file' sentences with a highlighter pen, word cards and readable verdicts. | education-language |
 <!-- showcase:gallery:end -->
 
@@ -38,7 +39,7 @@ All planned and in-progress showcases. Status lives in
 | 04 | **Multiplication Galaxy** — [live demo](https://multiplication-galaxy.shiplo.site) | education-math | react · vite · typescript | live |
 | 05 | **Clock Quest** — [live demo](https://clock-quest.shiplo.site) | education-math | jquery · html · css · gsap | live |
 | 06 | **Money Market Junior** — [live demo](https://money-market-junior.shiplo.site) | education-math | angular · typescript | live |
-| 07 | **Vocabulary Expedition** | education-language | vue · vite · typescript | building |
+| 07 | **Vocabulary Expedition** — [live demo](https://vocabulary-expedition.shiplo.site) | education-language | vue · vite · typescript | live |
 | 08 | **Phonics Forest** | education-language | typescript · vite | building |
 | 09 | **Grammar Detective** — [live demo](https://grammar-detective.shiplo.site) | education-language | react · vite · typescript | live |
 | 10 | **Story Sequencer** | education-language | angular · typescript | building |

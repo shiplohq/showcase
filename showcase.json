@@ -177,7 +177,7 @@
       "summary": "Large illustrated scenes where children find objects from clues, match words to images and use new words in short sentences.",
       "category": "education-language",
       "audience": "Pre-A1/A1",
-      "status": "building",
+      "status": "live",
       "stack": [
         "vue",
         "vite",
@@ -188,14 +188,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://vocabulary-expedition.shiplo.site",
+        "deployedAt": "2026-09-02T05:59:36.842Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/vocabulary-expedition/showcase/cover.webp",
+        "desktop": "projects/vocabulary-expedition/showcase/desktop.webp",
+        "tablet": "projects/vocabulary-expedition/showcase/tablet.webp",
+        "mobile": "projects/vocabulary-expedition/showcase/mobile.webp"
       }
     },
     {

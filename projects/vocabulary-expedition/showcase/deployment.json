@@ -3,7 +3,7 @@
   "provider": "Shiplo",
   "status": "verified",
   "url": "https://vocabulary-expedition.shiplo.site",
-  "sourceCommitSha": null,
+  "sourceCommitSha": "e0faf5d20806349cb32c48e8b52d0fd0337052a1",
   "buildCommand": "npm run build",
   "artifactSha256": "4605f5c0416a000e10d662d498ec56ce7451c0255d30016939cd1565a514a91a",
   "deployedAt": "2026-09-02T05:59:36.842Z",
