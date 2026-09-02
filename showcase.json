@@ -232,7 +232,7 @@
       "summary": "Investigate broken 'case file' sentences with a highlighter pen, word cards and readable verdicts.",
       "category": "education-language",
       "audience": "A1/A2",
-      "status": "building",
+      "status": "live",
       "stack": [
         "react",
         "vite",
@@ -243,14 +243,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://grammar-detective.shiplo.site",
+        "deployedAt": "2026-09-02T05:35:42Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/grammar-detective/showcase/cover.webp",
+        "desktop": "projects/grammar-detective/showcase/desktop.webp",
+        "tablet": "projects/grammar-detective/showcase/tablet.webp",
+        "mobile": "projects/grammar-detective/showcase/mobile.webp"
       }
     },
     {

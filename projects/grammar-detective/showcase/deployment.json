@@ -3,7 +3,7 @@
   "provider": "Shiplo",
   "status": "verified",
   "url": "https://grammar-detective.shiplo.site",
-  "sourceCommitSha": null,
+  "sourceCommitSha": "83b8e333da12070b0bcff07ee22f6128984f7bdf",
   "buildCommand": "npm run build",
   "artifactSha256": "8d792087822201d9b44b13b63837bcfb6c08d9170e2c3abe56e4de010c6e4365",
   "deployedAt": "2026-09-02T05:35:42Z",

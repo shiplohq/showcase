@@ -15,7 +15,7 @@ licensing blocks publication.
 ## Fonts (bundled as woff2 + woff fallback via @fontsource; subsets: latin + latin-ext)
 
 The UI ships English only; `latin` and `latin-ext` are the only subsets
-imported and the only font files emitted into `dist/assets/` (18 woff2 +
+imported and the only font files emitted into `dist/assets/` (14 woff2 +
 18 woff files). Every weight below maps to an actually-imported CSS entry
 in `src/main.tsx`.
 
