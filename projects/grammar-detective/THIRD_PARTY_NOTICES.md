@@ -16,7 +16,7 @@ licensing blocks publication.
 
 The UI ships English only; `latin` and `latin-ext` are the only subsets
 imported and the only font files emitted into `dist/assets/` (14 woff2 +
-18 woff files). Every weight below maps to an actually-imported CSS entry
+14 woff files). Every weight below maps to an actually-imported CSS entry
 in `src/main.tsx`.
 
 | Component / Asset | Version | Path | License | Source / Origin | Modified | Notes |
