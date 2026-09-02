@@ -3,7 +3,7 @@
   "provider": "Shiplo",
   "status": "verified",
   "url": "https://story-sequencer.shiplo.site",
-  "sourceCommitSha": null,
+  "sourceCommitSha": "f9f7c5f4f9e09e531da132a3030e3d8542da2c06",
   "buildCommand": "npm run build",
   "artifactSha256": "65a98b2b7a179d60fead96b74267c766c7a34ce7d4e2be5ee12f3f6ee913ac01",
   "deployedAt": "2026-09-02T19:26:28Z",

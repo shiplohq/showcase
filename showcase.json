@@ -260,7 +260,7 @@
       "summary": "A storyboard desk where shuffled 4-8 frame stories are reordered, cause-and-effect linked and titled.",
       "category": "education-language",
       "audience": "7-11",
-      "status": "building",
+      "status": "live",
       "stack": [
         "angular",
         "typescript"
@@ -270,14 +270,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://story-sequencer.shiplo.site",
+        "deployedAt": "2026-09-02T19:26:28Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/story-sequencer/showcase/cover.webp",
+        "desktop": "projects/story-sequencer/showcase/desktop.webp",
+        "tablet": "projects/story-sequencer/showcase/tablet.webp",
+        "mobile": "projects/story-sequencer/showcase/mobile.webp"
       }
     },
     {
