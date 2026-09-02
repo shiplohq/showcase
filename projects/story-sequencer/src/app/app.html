@@ -1,0 +1,65 @@
+<!--
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+-->
+@switch (content.state().status) {
+  @case ('loading') {
+    <div class="boot" role="status">
+      <div class="boot__card paper-card">
+        <span class="boot__mark" aria-hidden="true">?</span>
+        <p>Opening the storyboard desk…</p>
+      </div>
+    </div>
+  }
+  @case ('error') {
+    <div class="boot" role="alert">
+      <div class="boot__card paper-card">
+        <h1 class="boot__title">The storyboard pages are missing</h1>
+        <p class="boot__msg">{{ content.state().error }}</p>
+        <button class="btn btn--primary" type="button" (click)="retry()">Try again</button>
+      </div>
+    </div>
+  }
+  @default {
+    <a class="skip-link" href="#main">Skip to the storyboard</a>
+    <header class="masthead">
+      <div class="masthead__inner">
+        <button class="masthead__home" type="button" (click)="exitToShelf()" aria-label="Story Sequencer home">
+          <svg class="masthead__mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+            <path d="M32 10 L48 28 L32 50 L16 28 Z" fill="#d9a441" stroke="#26332f" stroke-width="4" stroke-linejoin="round"/>
+            <line x1="32" y1="10" x2="32" y2="50" stroke="#26332f" stroke-width="3"/>
+            <line x1="16" y1="28" x2="48" y2="28" stroke="#26332f" stroke-width="3"/>
+          </svg>
+          <span class="masthead__word">Story Sequencer</span>
+        </button>
+        <p class="masthead__progress" aria-live="polite">{{ completedCount() }} of {{ stories().length }} sequenced</p>
+      </div>
+    </header>
+    <main id="main">
+      @if (activeStory(); as story) {
+        <app-board
+          [story]="story"
+          [nextStory]="nextStory()"
+          (openStory)="openStory($event)"
+          (exit)="exitToShelf()"
+          (storyCompleted)="onStoryCompleted()"
+        />
+      } @else if (storyMissing()) {
+        <section class="boot" aria-labelledby="missing-title">
+          <div class="boot__card paper-card">
+            <h1 class="boot__title" id="missing-title">That issue isn't on the shelf</h1>
+            <p class="boot__msg">The story you asked for is not in this workshop yet.</p>
+            <button class="btn btn--primary" type="button" (click)="exitToShelf()">Back to the shelf</button>
+          </div>
+        </section>
+      } @else {
+        <app-shelf
+          [stories]="stories()"
+          [completed]="completedIds()"
+          (pickStory)="openStory($event)"
+          (resetProgress)="onResetProgress()"
+        />
+      }
+    </main>
+  }
+}

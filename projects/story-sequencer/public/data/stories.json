@@ -1,0 +1,350 @@
+{
+  "stories": [
+    {
+      "id": "rainy-kite",
+      "issueNo": 1,
+      "coverScene": "kite-flies",
+      "coverTint": "rust",
+      "titles": [
+        { "id": "t1", "text": "The Wind and the Wet Kite", "correct": true },
+        { "id": "t2", "text": "Mia Tidies Her Bedroom" },
+        { "id": "t3", "text": "Kites From Around the World" },
+        { "id": "t4", "text": "A Quiet Day Indoors" }
+      ],
+      "panels": [
+        {
+          "id": "p1",
+          "scene": "kite-build",
+          "caption": "One bright morning, Mia taped paper over her kite frame.",
+          "timeClues": ["One bright morning"]
+        },
+        {
+          "id": "p2",
+          "scene": "wind-rises",
+          "caption": "Soon the wind began to whoosh and pull at the ribbon.",
+          "timeClues": ["Soon"]
+        },
+        {
+          "id": "p3",
+          "scene": "kite-flies",
+          "caption": "Then the kite climbed high above the garden wall.",
+          "timeClues": ["Then"]
+        },
+        {
+          "id": "p4",
+          "scene": "rain-starts",
+          "caption": "Later, grey clouds rolled in and rain spotted the paper.",
+          "timeClues": ["Later"]
+        },
+        {
+          "id": "p5",
+          "scene": "run-home",
+          "caption": "Finally, Mia ran inside to dry her soggy kite.",
+          "timeClues": ["Finally"]
+        }
+      ],
+      "canonicalOrder": ["p1", "p2", "p3", "p4", "p5"],
+      "alternateValidOrders": [],
+      "causalLinks": [["p2", "p3"], ["p4", "p5"]],
+      "reflection": {
+        "prompt": "Which clue told you the rain came AFTER the kite flew?",
+        "options": [
+          {
+            "id": "r1",
+            "text": "The words 'Later' and 'Finally'",
+            "explanation": "Yes! Time words like 'Later' put the rain after the flying.",
+            "best": true
+          },
+          {
+            "id": "r2",
+            "text": "The colour of Mia's shoes",
+            "explanation": "Shoe colour is fun to spot, but it does not tell us the order of events."
+          },
+          {
+            "id": "r3",
+            "text": "The number of clouds in the sky",
+            "explanation": "Counting clouds is a good observation, but time words are the real order clues."
+          }
+        ]
+      }
+    },
+    {
+      "id": "birdhouse",
+      "issueNo": 2,
+      "coverScene": "bird-inspects",
+      "coverTint": "teal",
+      "titles": [
+        { "id": "t1", "text": "Spring Comes to the Birdhouse", "correct": true },
+        { "id": "t2", "text": "How to Paint a Fence" },
+        { "id": "t3", "text": "Sam Builds a Tree Fort" },
+        { "id": "t4", "text": "Birds of the Forest" }
+      ],
+      "panels": [
+        {
+          "id": "p1",
+          "scene": "empty-house",
+          "caption": "All winter the little birdhouse hung empty and quiet.",
+          "timeClues": ["All winter"]
+        },
+        {
+          "id": "p2",
+          "scene": "clean-house",
+          "caption": "One warm spring day, Sam swept it out and fixed the wobbly roof.",
+          "timeClues": ["One warm spring day"]
+        },
+        {
+          "id": "p3",
+          "scene": "hang-house",
+          "caption": "Next, he hung it back on the old maple tree.",
+          "timeClues": ["Next"]
+        },
+        {
+          "id": "p4",
+          "scene": "bird-inspects",
+          "caption": "Before long, a curious bluebird stopped to peek inside.",
+          "timeClues": ["Before long"]
+        },
+        {
+          "id": "p5",
+          "scene": "nest-chicks",
+          "caption": "At last, a family of chicks cheeped from the nest.",
+          "timeClues": ["At last"]
+        }
+      ],
+      "canonicalOrder": ["p1", "p2", "p3", "p4", "p5"],
+      "alternateValidOrders": [],
+      "causalLinks": [["p3", "p4"], ["p4", "p5"]],
+      "reflection": {
+        "prompt": "What clue told you the bird came AFTER the house was hung up?",
+        "options": [
+          {
+            "id": "r1",
+            "text": "'Next' comes before 'Before long'",
+            "explanation": "Right! The time words march the story forward, one step at a time.",
+            "best": true
+          },
+          {
+            "id": "r2",
+            "text": "The birdhouse is bigger than the bird",
+            "explanation": "Size can help us guess, but the time words are what prove the order."
+          },
+          {
+            "id": "r3",
+            "text": "The tree has leaves",
+            "explanation": "Good noticing — leaves hint at spring. The words 'Next' and 'Before long' make the order certain."
+          }
+        ]
+      }
+    },
+    {
+      "id": "tiny-seed",
+      "issueNo": 3,
+      "coverScene": "ripe-tomato",
+      "coverTint": "rust",
+      "titles": [
+        { "id": "t1", "text": "From Tiny Seed to Juicy Tomato", "correct": true },
+        { "id": "t2", "text": "Ana Waters the Cat" },
+        { "id": "t3", "text": "Vegetables You Can Buy" },
+        { "id": "t4", "text": "A Rainy Week Inside" }
+      ],
+      "panels": [
+        {
+          "id": "p1",
+          "scene": "seed-packet",
+          "caption": "Ana found a packet of tomato seeds in the kitchen drawer.",
+          "timeClues": []
+        },
+        {
+          "id": "p2",
+          "scene": "plant-seed",
+          "caption": "First, she tucked a seed into a pot of soft soil.",
+          "timeClues": ["First"]
+        },
+        {
+          "id": "p3",
+          "scene": "water-can",
+          "caption": "Every morning she sprinkled the pot with water.",
+          "timeClues": ["Every morning"]
+        },
+        {
+          "id": "p4",
+          "scene": "sprout",
+          "caption": "One day, a tiny green sprout pushed through the soil.",
+          "timeClues": ["One day"]
+        },
+        {
+          "id": "p5",
+          "scene": "stake-tie",
+          "caption": "As the weeks passed, she tied the tall vine to a stake.",
+          "timeClues": ["As the weeks passed"]
+        },
+        {
+          "id": "p6",
+          "scene": "ripe-tomato",
+          "caption": "By summer, three ripe tomatoes hung ready to pick.",
+          "timeClues": ["By summer"]
+        }
+      ],
+      "canonicalOrder": ["p1", "p2", "p3", "p4", "p5", "p6"],
+      "alternateValidOrders": [],
+      "causalLinks": [["p3", "p4"], ["p4", "p5"]],
+      "reflection": {
+        "prompt": "Which clue told you the sprout came AFTER the watering?",
+        "options": [
+          {
+            "id": "r1",
+            "text": "'Every morning' comes before 'One day'",
+            "explanation": "Exactly — the watering happened again and again, and then the sprout appeared.",
+            "best": true
+          },
+          {
+            "id": "r2",
+            "text": "The sprout is green",
+            "explanation": "Green tells us it is a plant, but the time words 'Every morning' and 'One day' give us the order."
+          },
+          {
+            "id": "r3",
+            "text": "The pot is small",
+            "explanation": "The pot stays the same size in every panel — it cannot order the story."
+          }
+        ]
+      }
+    },
+    {
+      "id": "night-lights",
+      "issueNo": 4,
+      "coverScene": "lights-out",
+      "coverTint": "ink",
+      "titles": [
+        { "id": "t1", "text": "The Night the Lights Went Out", "correct": true },
+        { "id": "t2", "text": "Leo's Morning at School" },
+        { "id": "t3", "text": "How Storms Are Predicted" },
+        { "id": "t4", "text": "A Visit to the Power Station" }
+      ],
+      "panels": [
+        {
+          "id": "p1",
+          "scene": "evening-read",
+          "caption": "That evening, Leo read his comic under the bright lamp.",
+          "timeClues": ["That evening"]
+        },
+        {
+          "id": "p2",
+          "scene": "storm-window",
+          "caption": "After bedtime, a big storm rattled the windows.",
+          "timeClues": ["After bedtime"]
+        },
+        {
+          "id": "p3",
+          "scene": "lights-out",
+          "caption": "Suddenly the lights went out, and the house went dark.",
+          "timeClues": ["Suddenly"]
+        },
+        {
+          "id": "p4",
+          "scene": "morning-line",
+          "caption": "When morning came, the lights blinked back on.",
+          "timeClues": ["When morning came"]
+        }
+      ],
+      "canonicalOrder": ["p1", "p2", "p3", "p4"],
+      "alternateValidOrders": [],
+      "causalLinks": [["p2", "p3"]],
+      "reflection": {
+        "prompt": "What clue told you the dark happened in the MIDDLE of the night?",
+        "options": [
+          {
+            "id": "r1",
+            "text": "'After bedtime' ... 'Suddenly' ... 'When morning came'",
+            "explanation": "Yes! The story walks evening to night to morning — the dark sits in the middle.",
+            "best": true
+          },
+          {
+            "id": "r2",
+            "text": "The moon is in the picture",
+            "explanation": "The moon is a strong picture clue! The words 'After bedtime' and 'When morning came' pin it down."
+          },
+          {
+            "id": "r3",
+            "text": "Leo's comic has pictures",
+            "explanation": "Every comic has pictures — that detail cannot order the events."
+          }
+        ]
+      }
+    },
+    {
+      "id": "paper-boat",
+      "issueNo": 5,
+      "coverScene": "float-boat",
+      "coverTint": "teal",
+      "titles": [
+        { "id": "t1", "text": "The Newspaper Boat's Big Sail", "correct": true },
+        { "id": "t2", "text": "Ben Reads the News" },
+        { "id": "t3", "text": "How Paper Is Made" },
+        { "id": "t4", "text": "Boats on the River" }
+      ],
+      "panels": [
+        {
+          "id": "p1",
+          "scene": "fold-boat",
+          "caption": "On a grey afternoon, Ben folded a newspaper into a little boat.",
+          "timeClues": ["On a grey afternoon"]
+        },
+        {
+          "id": "p2",
+          "scene": "rain-puddle",
+          "caption": "Then the rain tap-tap-tapped, and a puddle grew by the step.",
+          "timeClues": ["Then"]
+        },
+        {
+          "id": "p3",
+          "scene": "float-boat",
+          "caption": "Next, Ben set his boat sailing across the puddle.",
+          "timeClues": ["Next"]
+        },
+        {
+          "id": "p4",
+          "scene": "wind-wave",
+          "caption": "A gust of wind sent a wave rocking the little boat.",
+          "timeClues": []
+        },
+        {
+          "id": "p5",
+          "scene": "boat-soggy",
+          "caption": "The paper grew soggy, so Ben scooped the boat out of the water.",
+          "timeClues": []
+        },
+        {
+          "id": "p6",
+          "scene": "windowsill-dry",
+          "caption": "At last the sun came out, and the boat dried on the sill.",
+          "timeClues": ["At last"]
+        }
+      ],
+      "canonicalOrder": ["p1", "p2", "p3", "p4", "p5", "p6"],
+      "alternateValidOrders": [],
+      "causalLinks": [["p2", "p3"], ["p4", "p5"]],
+      "reflection": {
+        "prompt": "Which clue told you the boat sailed AFTER the rain made the puddle?",
+        "options": [
+          {
+            "id": "r1",
+            "text": "'Then' the rain ... 'Next' the sail",
+            "explanation": "Perfect — 'Then' and 'Next' line the rain up before the sailing.",
+            "best": true
+          },
+          {
+            "id": "r2",
+            "text": "The boat is made of newspaper",
+            "explanation": "Newpaper tells us what the boat is made of, not when things happened."
+          },
+          {
+            "id": "r3",
+            "text": "Ben is wearing a rain hat",
+            "explanation": "Nice detail spotting! The time words 'Then' and 'Next' are what fix the order."
+          }
+        ]
+      }
+    }
+  ]
+}

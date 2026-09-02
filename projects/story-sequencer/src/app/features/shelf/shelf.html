@@ -1,0 +1,55 @@
+<!--
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+-->
+<section class="shelf" aria-labelledby="shelf-title">
+  <div class="shelf__head">
+    <h1 class="shelf__title" id="shelf-title">The story shelf</h1>
+    <p class="shelf__sub">Pick an issue. Put its panels in order, link cause to effect, and write its title.</p>
+  </div>
+
+  <ul class="issues" role="list">
+    @for (story of stories(); track story.id) {
+      <li class="issue-wrap">
+        <button
+          type="button"
+          class="issue"
+          (click)="pickStory.emit(story.id)"
+          [attr.aria-label]="completed().has(story.id)
+            ? 'Reread ' + storyTitle(story) + ', issue ' + story.issueNo + ', finished'
+            : 'Open issue ' + story.issueNo + ', ' + story.panels.length + ' panels, not sequenced yet'"
+        >
+          <span class="issue__no" aria-hidden="true">No. {{ story.issueNo }}</span>
+          <span class="issue__cover" [class]="'issue__cover tint-' + story.coverTint">
+            <app-frame-scene [scene]="story.coverScene" />
+          </span>
+          @if (completed().has(story.id)) {
+            <span class="issue__title issue__title--done">{{ storyTitle(story) }}</span>
+            <span class="issue__stamp" aria-hidden="true">Sequenced!</span>
+          } @else {
+            <span class="issue__title issue__title--mystery">Title to be written</span>
+            <span class="issue__meta">{{ story.panels.length }} panels · {{ story.causalLinks.length }} link{{ story.causalLinks.length === 1 ? '' : 's' }}</span>
+          }
+        </button>
+      </li>
+    }
+  </ul>
+
+  <footer class="shelf__foot">
+    <p class="shelf__tag">Xưởng kể chuyện — a Shiplo showcase for young storytellers.</p>
+    <button
+      type="button"
+      class="shelf__reset"
+      aria-live="polite"
+      (click)="onResetClick()"
+      (blur)="onResetLeave()"
+      (mouseleave)="onResetLeave()"
+    >
+      @if (confirmingReset) {
+        Sure? Tap again to clear your stamps
+      } @else {
+        Reset progress
+      }
+    </button>
+  </footer>
+</section>

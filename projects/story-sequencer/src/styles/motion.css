@@ -1,0 +1,51 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Motion layer — CSS-side transitions + the global reduced-motion contract.
+ * JS motion goes through src/app/lib/gsap.ts which applies the same guard.
+ * Reduced mode: instant final states, fades capped at 150ms, no transforms.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Clue highlight — the spec's hint affordance (temporal words only) */
+.clue {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--mustard);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+}
+
+/* Wrong-link flash (also announced via live region — not motion-only) */
+@keyframes ss-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+
+.shake {
+  animation: ss-shake 200ms ease-in-out 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shake {
+    animation: none;
+  }
+}

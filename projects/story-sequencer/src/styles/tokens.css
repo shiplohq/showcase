@@ -1,0 +1,59 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Design tokens — DESIGN_DECISIONS.md §4 (color), §5 (type), §6 (space).
+ * Flat palette only: muted teal desk, sand paper, ink outlines, rust accents.
+ */
+
+:root {
+  /* Desk */
+  --desk: #1e5a54;
+  --desk-2: #174742;
+  /* Lifted to #b9d8d2: the old #9cc5be measured 4.2:1 on --desk — below AA
+   * for the 11–16px instructional text set in this token. */
+  --desk-line: #b9d8d2;
+
+  /* Paper */
+  --paper: #f5e9cf;
+  --paper-2: #eedcb8;
+  --paper-3: #e4ce9f;
+
+  /* Ink + accents */
+  --ink: #26332f;
+  --ink-2: #51615b;
+  --rust: #b4552d;
+  --rust-2: #8f3f1f;
+  --teal: #2e7d74;
+  --teal-soft: #9cc5be;
+  --mustard: #d9a441;
+  --cream: #fbf6ea;
+
+  /* Semantic */
+  --focus-ring: 3px solid var(--rust);
+  --ok: #2e7d74;
+  /* Look-again gold: #7d5a12 on paper ≈ 5.2:1 (AA). --look-bright is the
+   * on-dark variant for text on --desk/--desk-2 surfaces. */
+  --look: #7d5a12;
+  --look-bright: #e9c778;
+
+  /* Type */
+  --font-display: 'Bangers', 'Andika', 'Comic Sans MS', system-ui, sans-serif;
+  --font-body: 'Andika', 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+
+  /* Space (8px base) */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+
+  /* Structure */
+  --gutter: 14px;
+  --panel-radius: 10px;
+  --border-ink: 3px solid var(--ink);
+
+  /* Halftone print texture (the one allowed "gradient" — dot pattern) */
+  --halftone: radial-gradient(var(--desk-line) 1.1px, transparent 1.3px);
+  --halftone-size: 9px 9px;
+}

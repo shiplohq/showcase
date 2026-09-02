@@ -1,0 +1,12 @@
+{
+  "project": "story-sequencer",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://story-sequencer.shiplo.site",
+  "sourceCommitSha": null,
+  "buildCommand": "npm run build",
+  "artifactSha256": "65a98b2b7a179d60fead96b74267c766c7a34ce7d4e2be5ee12f3f6ee913ac01",
+  "deployedAt": "2026-09-02T19:26:28Z",
+  "verifiedAt": "2026-09-02T19:31:00Z",
+  "notes": "Release 2 (review deploy-2 fixes: chipbtn 48px touch targets + link-screen ≥44px assertion + accurate tablet alt). deployment_id c6a4fe5d-23f0-4cb6-b435-b93c3f88757a, release 0f395b34-5700-404b-860b-292d44f5380f, site 96e100e4-0eea-414d-88e3-5c66fdd22611 (23 files, 862117 logical bytes — the chip fix is length-neutral CSS so the total is unchanged). artifactSha256 = deterministic tar hash (normalized mtime/owner/sort). Verification on release 2: live main-EJIYY4XW.js contains .chipbtn{min-height:48px}; chips measured live at 1024x768 = 92x48/87x48; full story flow passed at 1440x900 and 1024x768 with the link-screen touch-target assertion, zero console errors; font gate 3/3; all four screenshots recaptured from the live URL. Supersedes release 1 (deployment 612a88fe-024e-4321-9d83-581bebc65b62, artifactSha256 534a83e4d90236e105c24dfde9a42f2723c95532e57287a1345c8c2e43a6e9d8, activated 2026-09-02T13:51:39Z). sourceCommitSha null — finalized by orchestrator."
+}

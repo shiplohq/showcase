@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "story-sequencer",
+  "site_id": "96e100e4-0eea-414d-88e3-5c66fdd22611",
+  "subdomain": "story-sequencer",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}

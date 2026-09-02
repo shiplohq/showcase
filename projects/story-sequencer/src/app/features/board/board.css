@@ -1,0 +1,958 @@
+/*
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+*/
+
+.board {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--sp-2) var(--sp-4) var(--sp-3);
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.ss-point-none {
+  pointer-events: none !important;
+}
+
+/* --- Head ----------------------------------------------------------------- */
+
+.board__head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+
+.board__issue {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--desk-line);
+  margin: 0;
+}
+
+.board__title {
+  font-size: clamp(26px, 3.2vw, 34px);
+  color: var(--cream);
+  text-shadow: 3px 3px 0 var(--ink);
+  outline: none;
+}
+
+.board__exit {
+  min-height: 44px;
+}
+
+/* --- Step strip ------------------------------------------------------------ */
+
+.steps {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.steps__chip {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  min-height: 44px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  border: 2px solid var(--desk-line);
+  background: transparent;
+  color: var(--desk-line);
+  cursor: pointer;
+}
+
+button.steps__chip:hover:not(:disabled) {
+  border-color: var(--cream);
+  color: var(--cream);
+}
+
+.steps__chip--done {
+  border-style: dashed;
+  color: var(--cream);
+  border-color: var(--cream);
+}
+
+.steps__chip--now {
+  background: var(--paper);
+  border: var(--border-ink);
+  color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.steps__chip--later {
+  opacity: 0.45;
+}
+
+.steps__arrow {
+  align-self: center;
+  color: var(--desk-line);
+}
+
+/* --- Instruction ------------------------------------------------------------ */
+
+.board__instruction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  color: var(--desk-line);
+  max-width: 78ch;
+  margin: 0;
+}
+
+.board__instruction strong {
+  color: var(--cream);
+}
+
+.board__hint {
+  min-height: 44px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 2.5px dashed var(--mustard);
+  background: transparent;
+  color: var(--cream);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.board__hint[aria-pressed='true'] {
+  border-style: solid;
+  background: var(--mustard);
+  color: var(--ink);
+}
+
+.board__linkcount {
+  font-weight: 700;
+  color: var(--cream);
+  white-space: nowrap;
+}
+
+/* --- Stage + panels ---------------------------------------------------------- */
+
+.stage {
+  position: relative;
+}
+
+.panels {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  gap: var(--gutter);
+}
+
+/* Panel-count-aware comic-page tiling (DESIGN §6): N panels ≤5 tile one row
+ * (no orphan card drowning in desk), 6-panel issues tile 2×3. */
+.panels--n4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.panels--n5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.panels--n6 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: var(--border-ink);
+  border-radius: var(--panel-radius);
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.22);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.panel:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.panel--lifted {
+  transform: scale(1.03) rotate(-0.8deg);
+  box-shadow: 8px 10px 0 rgba(0, 0, 0, 0.3);
+  z-index: 5;
+  cursor: grabbing;
+}
+
+.panel--drop {
+  outline: 4px dashed var(--teal);
+  outline-offset: 3px;
+}
+
+.panel--cause {
+  outline: 4px solid var(--rust);
+  outline-offset: 3px;
+}
+
+.panel--endpoint {
+  border-color: var(--rust-2);
+}
+
+/* Panel bar: slate number + drag handle + move buttons */
+.panel__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 6px;
+  border-bottom: 2px solid var(--paper-3);
+}
+
+.slate {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: 19px;
+}
+
+.panel__handle {
+  flex: 1;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: var(--ink-2);
+  cursor: grab;
+  touch-action: none;
+}
+
+.panel__handle:hover {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+
+.panel__handle svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.mv {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--paper-2);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.mv:hover:not(:disabled) {
+  background: var(--mustard);
+}
+
+.mv:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.mv:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.mv svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Connection chips — removable per-link (removal lives in the panel bar, not
+ * on the overlay, so nothing ever blocks another panel's tap target). */
+.chipbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  /* 48px = DESIGN §11 touch target on the tablet hero viewport (and above
+   * the 44px WCAG floor the driver asserts on the link screen). */
+  min-height: 48px;
+  min-width: 48px;
+  padding: 2px 12px;
+  border: 2.5px solid var(--ink);
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cream);
+  cursor: pointer;
+}
+
+.chipbtn svg {
+  width: 11px;
+  height: 11px;
+  stroke: currentColor;
+  stroke-width: 2.6;
+}
+
+.chipbtn--cause {
+  background: var(--rust);
+}
+
+.chipbtn--effect {
+  background: var(--teal);
+}
+
+.chipbtn:hover {
+  filter: brightness(1.12);
+}
+
+.panel__art {
+  aspect-ratio: 400 / 250;
+  background: var(--paper-2);
+  border-bottom: 2px solid var(--paper-3);
+  overflow: hidden;
+  border-radius: calc(var(--panel-radius) - 3px) calc(var(--panel-radius) - 3px) 0 0;
+  margin: 0 4px;
+}
+
+.panel__caption {
+  margin: 0;
+  padding: 7px 10px 9px;
+  font-size: 14px;
+  line-height: 1.38;
+  color: var(--ink);
+  overflow-wrap: break-word;
+}
+
+.panels--reading {
+  grid-template-columns: repeat(auto-fit, 200px);
+}
+
+.panels--reading .panel__art {
+  aspect-ratio: 400 / 250;
+}
+
+.panels--reading .panel__caption {
+  font-size: 13.5px;
+  padding: 5px 8px 7px;
+}
+
+.panels--reading .panel__bar {
+  padding: 3px 6px;
+}
+
+.panels--reading .slate {
+  width: 26px;
+  height: 26px;
+  font-size: 15px;
+}
+
+/* --- Connector overlay -------------------------------------------------------- */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.overlay__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.connector__path {
+  fill: none;
+  stroke: var(--rust);
+  stroke-width: 4.5;
+  stroke-linecap: round;
+}
+
+/* Paper halo under the pencil line keeps captions readable where a connector
+ * crosses a panel (the line itself never enters the art — see portsBetween). */
+.connector__halo {
+  fill: none;
+  stroke: var(--paper);
+  stroke-width: 10;
+  stroke-linecap: round;
+  opacity: 0.92;
+}
+
+.connector__halo--flash {
+  opacity: 0.75;
+}
+
+.connector__flash {
+  fill: none;
+  stroke: var(--mustard);
+  stroke-width: 4.5;
+  stroke-linecap: round;
+  opacity: 0.9;
+}
+
+/* Visible, non-motion wrong-link feedback (DESIGN §9/§12). */
+.board__wrongmsg {
+  margin: 0;
+  padding: 8px 14px;
+  width: fit-content;
+  max-width: 100%;
+  border-left: 5px solid var(--mustard);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 14.5px;
+}
+
+/* --- CTAs ------------------------------------------------------------------------ */
+
+.board__cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  min-height: 0;
+}
+
+.board__cta .btn {
+  min-height: 46px;
+}
+
+.board__cta--final {
+  justify-content: space-between;
+}
+
+/* --- Titles step ------------------------------------------------------------------ */
+
+.titles {
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.titles__label {
+  /* Body face, not the comic display face: long question sentences stay
+   * readable (DESIGN §5 — Bangers never for long copy). */
+  font-family: var(--font-body);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0;
+}
+
+.titles__options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: var(--sp-2);
+}
+
+.title-opt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 8px 12px;
+  text-align: left;
+  background: var(--paper);
+  border: var(--border-ink);
+  border-radius: 8px;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.title-opt:hover {
+  background: var(--paper-2);
+  transform: translateY(-1px);
+}
+
+.title-opt[aria-checked='true'] {
+  background: var(--paper-2);
+  outline: 4px solid var(--rust);
+  outline-offset: -2px;
+}
+
+.title-opt__tick {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border: 2.5px solid var(--ink);
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  color: transparent;
+  background: var(--paper);
+}
+
+.title-opt[aria-checked='true'] .title-opt__tick {
+  background: var(--rust);
+  border-color: var(--rust-2);
+  color: var(--cream);
+}
+
+.title-opt__tick svg {
+  width: 16px;
+  height: 16px;
+}
+
+.title-opt__text {
+  font-family: var(--font-display);
+  font-size: 19px;
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+}
+
+/* --- Verdict ------------------------------------------------------------------------- */
+
+.verdict {
+  display: grid;
+  gap: var(--sp-3);
+}
+
+.timeline-wrap {
+  background: var(--desk-2);
+  border: var(--border-ink);
+  border-radius: var(--panel-radius);
+  padding: 10px 12px 8px;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: var(--gutter);
+  align-items: start;
+}
+
+.stop {
+  max-width: 208px;
+}
+
+.timeline__line {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  top: 16px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--rust);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline__line {
+    transform: none;
+  }
+}
+
+.stop {
+  display: grid;
+  gap: 5px;
+  justify-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.stop__chip {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 3px solid var(--rust);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 17px;
+  position: relative;
+  z-index: 1;
+}
+
+.stop__art {
+  width: 100%;
+  border: 2.5px solid var(--ink);
+  border-radius: 5px;
+  overflow: hidden;
+  background: var(--paper-2);
+}
+
+.stop__cap {
+  font-size: 11.5px;
+  line-height: 1.3;
+  color: var(--desk-line);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.verdict__rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.vrow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 7px 12px;
+  background: var(--paper);
+  border: var(--border-ink);
+  border-radius: 8px;
+  color: var(--ink);
+}
+
+.vrow__icon {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 3px solid var(--look);
+  color: var(--look);
+}
+
+.vrow--ok .vrow__icon {
+  border-color: var(--ok);
+  color: var(--ok);
+}
+
+.vrow__icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.vrow__body {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.vrow__body strong {
+  font-family: var(--font-display);
+  font-size: 19px;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+}
+
+.vrow__detail {
+  flex-basis: 100%;
+  color: var(--ink-2);
+  font-size: 14px;
+}
+
+.vrow__fix {
+  min-height: 44px;
+  flex: none;
+  background: var(--rust);
+  color: var(--cream);
+}
+
+/* --- Celebration --------------------------------------------------------------------- */
+
+.celebrate {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  padding: 9px 14px;
+  background: var(--paper);
+  border: var(--border-ink);
+  border-radius: 8px;
+  color: var(--ink);
+}
+
+.celebrate__star {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+
+.celebrate__star--1 {
+  transform: rotate(-14deg);
+}
+
+.celebrate__star--2 {
+  width: 30px;
+  height: 30px;
+  transform: rotate(8deg);
+}
+
+.celebrate__star--3 {
+  transform: rotate(-4deg);
+}
+
+.celebrate__stamp {
+  font-family: var(--font-display);
+  font-size: 26px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rust);
+  border: 3px solid var(--rust);
+  border-radius: 6px;
+  padding: 0 10px;
+  transform: rotate(-4deg);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.celebrate__msg {
+  flex: 1;
+  min-width: 24ch;
+  font-size: 14.5px;
+}
+
+/* --- Reflection ------------------------------------------------------------------------ */
+
+.reflection {
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.reflection__label {
+  /* Body face: this is a reading-comprehension question (DESIGN §5). */
+  font-family: var(--font-body);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--cream);
+  letter-spacing: 0;
+}
+
+.reflection__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.reflection__opt {
+  min-height: 44px;
+  padding: 6px 14px;
+  background: var(--paper);
+  border: var(--border-ink);
+  border-radius: 999px;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.reflection__opt:hover {
+  background: var(--paper-2);
+}
+
+.reflection__opt[aria-checked='true'] {
+  outline: 4px solid var(--teal);
+  outline-offset: -2px;
+  background: var(--paper-2);
+}
+
+.reflection__answer {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  background: var(--desk-2);
+  border: 2px dashed var(--desk-line);
+  border-radius: 8px;
+  color: var(--cream);
+  font-size: 14.5px;
+}
+
+.reflection__answer .status--look {
+  color: var(--look-bright);
+}
+
+.reflection__answer p {
+  margin: 0;
+  color: var(--desk-line);
+}
+
+/* --- Responsive ---------------------------------------------------------------------------- */
+
+/* Tablet (768–1199): the hero learning viewport — compact density so the whole
+ * storyboard (even 6-panel issues) fits without vertical scroll at 1024×768. */
+@media (max-width: 1199px) {
+  .board {
+    padding: 6px 12px 10px;
+    gap: 6px;
+  }
+
+  .board__issue {
+    font-size: 11px;
+  }
+
+  .board__title {
+    font-size: 26px;
+  }
+
+  .board__instruction {
+    font-size: 13.5px;
+  }
+
+  .panels {
+    grid-template-columns: repeat(auto-fill, minmax(204px, 1fr));
+  }
+
+  /* Comic-page tiling on tablet: 4-panel issues 2×2, 5–6 panel issues rows
+   * of three. */
+  .panels--n4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .panels--n5,
+  .panels--n6 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .panel__art {
+    aspect-ratio: auto;
+    height: 116px;
+  }
+
+  .panel__bar {
+    padding: 2px 4px;
+  }
+
+  .slate {
+    width: 30px;
+    height: 30px;
+    font-size: 17px;
+  }
+
+  .panel__caption {
+    font-size: 12.5px;
+    line-height: 1.3;
+    padding: 4px 8px 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .board__cta .btn {
+    min-height: 44px;
+  }
+
+  .vrow {
+    padding: 4px 10px;
+  }
+
+  .vrow__icon {
+    width: 30px;
+    height: 30px;
+    border-width: 2.5px;
+  }
+
+  .stop {
+    max-width: 150px;
+  }
+
+  .stop__art {
+    max-height: 78px;
+    overflow: hidden;
+  }
+
+  .stop__cap {
+    font-size: 10.5px;
+    -webkit-line-clamp: 1;
+  }
+
+  .timeline-wrap {
+    padding: 8px 10px 7px;
+  }
+
+  .celebrate__stamp {
+    font-size: 22px;
+  }
+
+  .celebrate__msg {
+    font-size: 13.5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .reflection__label {
+    font-size: 18px;
+  }
+
+  .reflection__answer {
+    font-size: 13.5px;
+    padding: 6px 10px;
+  }
+
+  .verdict {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 620px) {
+  .board {
+    padding: var(--sp-3) var(--sp-3) var(--sp-4);
+  }
+
+  .panels {
+    grid-template-columns: 1fr;
+  }
+
+  .panel__caption {
+    font-size: 15px;
+  }
+
+  .timeline {
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+  }
+
+  .timeline__line {
+    display: none;
+  }
+
+  .stop {
+    grid-template-columns: 88px 1fr;
+    justify-items: start;
+    align-items: center;
+    text-align: left;
+    gap: 10px;
+  }
+
+  .stop__cap {
+    -webkit-line-clamp: 3;
+  }
+
+  .vrow {
+    flex-wrap: wrap;
+  }
+
+  .vrow__fix {
+    flex-basis: 100%;
+  }
+}

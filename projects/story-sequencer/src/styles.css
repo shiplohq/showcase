@@ -1,0 +1,24 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Global stylesheet — font bundles first (Andika 400/700 + Bangers 400; each
+ * @fontsource per-weight css carries every subset incl. vietnamese with
+ * unicode-range, so no missing-subset fallback can occur), then tokens,
+ * base and motion layers (design/DESIGN_DECISIONS.md §4–§10).
+ */
+
+/* Subset-pinned imports — the artifact ships exactly latin, latin-ext and
+ * vietnamese faces (font policy + font-check gate; nothing else is bundled). */
+@import '@fontsource/andika/latin-400.css';
+@import '@fontsource/andika/latin-700.css';
+@import '@fontsource/andika/latin-ext-400.css';
+@import '@fontsource/andika/latin-ext-700.css';
+@import '@fontsource/andika/vietnamese-400.css';
+@import '@fontsource/andika/vietnamese-700.css';
+@import '@fontsource/bangers/latin-400.css';
+@import '@fontsource/bangers/latin-ext-400.css';
+@import '@fontsource/bangers/vietnamese-400.css';
+
+@import './styles/tokens.css';
+@import './styles/base.css';
+@import './styles/motion.css';

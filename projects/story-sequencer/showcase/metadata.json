@@ -1,0 +1,40 @@
+{
+  "id": "story-sequencer",
+  "title": "Story Sequencer",
+  "summary": "A storyboard desk where shuffled 4-8 frame stories are reordered, cause-and-effect linked and titled.",
+  "category": "education-language",
+  "number": 10,
+  "audience": null,
+  "mobileSupport": "limited",
+  "mobileSupportNote": "Phone portrait works in a compact two-column shelf and a single-column board with move buttons as the primary reorder path, but the storyboard experience is designed for tablet and desktop.",
+  "screenshots": {
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://story-sequencer.shiplo.site",
+      "capturedAt": "2026-09-02T19:29:30Z",
+      "alt": "Staged mid-story state of the storyboard: five comic panels in one row on the teal desk, issue 1 in its solved order with yellow-highlighted time clues (One bright morning, Soon, Then, Later, Finally) underlined in the captions, and two rust pencil connectors with large cause/effect chips linking the wind to the flying kite and the rain to the run home; step chips show 2. LINK active."
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://story-sequencer.shiplo.site",
+      "capturedAt": "2026-09-02T19:29:40Z",
+      "alt": "Honest default landing state at 1440x900: the story shelf with the STORY SEQUENCER masthead (0 of 5 sequenced), five sand-paper comic issue cards in one row showing cover art (kite, birdhouse, tomatoes, night window, paper boat), each titled 'Title to be written' with panel and link counts."
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://story-sequencer.shiplo.site",
+      "capturedAt": "2026-09-02T19:29:50Z",
+      "alt": "Honest tablet view of the story shelf at 1024x768: four comic issue cards fill the first row and the fifth wraps alone onto a second row beneath the first card; the whole shelf fits with no scrollbar, teal desk and masthead progress counter visible."
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://story-sequencer.shiplo.site",
+      "capturedAt": "2026-09-02T19:30:00Z",
+      "alt": "Limited mobile support at 390x844: the shelf reflows to a two-column grid of comic issue cards (limited support — the board itself favours tablet and desktop)."
+    }
+  }
+}
