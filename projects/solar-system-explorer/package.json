@@ -1,0 +1,28 @@
+{
+  "name": "solar-system-explorer",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Solar System Explorer — Shiplo Showcase #11: a museum-style space atlas where children 8-13 walk the orbital corridor and switch between size, distance and day/year views.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test:engine": "node scripts/engine-sim.mjs"
+  },
+  "dependencies": {
+    "@fontsource/gentium-book-plus": "^5.2.5",
+    "@fontsource/space-mono": "^5.3.0",
+    "gsap": "^3.15.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "typescript": "^5.5.4",
+    "vite": "^7.3.6"
+  }
+}

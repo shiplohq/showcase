@@ -1,0 +1,134 @@
+{
+  "schemaNote": "Exhibit copy for Shiplo Showcase #11. All visitor-facing strings live here so new content ships as JSON, not code.",
+  "exhibit": {
+    "title": "Solar System Explorer",
+    "subtitle": "An exhibition of eight worlds, hung three ways",
+    "intro": "Walk the corridor from the Sun outwards. Each planet is a specimen on the ecliptic line. Re-hang the collection — a hang is simply the museum word for an arrangement — to compare size, distance, or the length of days and years.",
+    "loading": "calibrating instruments…",
+    "errorTitle": "The exhibit could not open",
+    "errorCopy": "Planet data failed to load. Check that data/planets.json was published with the build, then reload.",
+    "reload": "Reload the exhibit"
+  },
+  "views": [
+    {
+      "id": "distance",
+      "label": "Distance",
+      "shortLabel": "Distances compressed on a log ruler",
+      "caveat": "Log ruler: each step right multiplies the distance from the Sun. True scale would put Neptune 30× farther than Earth — no screen can hold that."
+    },
+    {
+      "id": "size",
+      "label": "Size",
+      "shortLabel": "Radii compressed — Jupiter is 11× Earth",
+      "caveat": "Radii are compressed so Mercury stays visible beside Jupiter — truly 11 Earths span Jupiter's face. The exact numbers ride every plate."
+    },
+    {
+      "id": "time",
+      "label": "Day & Year",
+      "shortLabel": "Ring speeds normalized, ratios preserved",
+      "caveat": "Day rings spin at normalized speeds — Venus truly turns 243× slower than Earth, which would look frozen. The readouts keep the truth."
+    }
+  ],
+  "stations": {
+    "sunCaption": "SOL · G2V · our star",
+    "openLabel": "Open the {name} specimen sheet",
+    "visitedLabel": "visited",
+    "corridorLabel": "Orbital corridor — {count} planet specimens on the ecliptic line",
+    "scrollLeft": "Scroll corridor towards the Sun",
+    "scrollRight": "Scroll corridor outwards",
+    "progressLabel": "Corridor position: {percent}% of the walk"
+  },
+  "focus": {
+    "close": "Close specimen sheet",
+    "addCompare": "Add to compare",
+    "inCompare": "In compare",
+    "catalogue": "Catalogue no. {order}",
+    "measurementsTitle": "Measurements",
+    "rows": {
+      "radius": "Mean radius",
+      "day": "Day (one spin)",
+      "year": "Year (one orbit)",
+      "moons": "Confirmed moons",
+      "distance": "Distance from Sun"
+    },
+    "factsTitle": "Field notes",
+    "sourceTitle": "Source"
+  },
+  "compare": {
+    "title": "Compare specimens",
+    "intro": "Choose up to three planets. Their measurements line up row by row — bars are on a log scale, numbers are exact.",
+    "pick": "Add a planet",
+    "pickNone": "Pick planets above to line them up here.",
+    "remove": "Remove {name} from compare",
+    "maxNote": "Three is the limit — remove one to add another.",
+    "rows": {
+      "radius": "Mean radius (km)",
+      "day": "Day length (hours)",
+      "year": "Year length (Earth days)",
+      "moons": "Confirmed moons",
+      "distance": "Distance from Sun (AU)"
+    },
+    "logNote": "Bars use a log scale so small values stay visible; read the numbers for exact comparisons.",
+    "back": "Back to the corridor"
+  },
+  "quiz": {
+    "title": "Curator's challenge",
+    "intro": "Two ways to test your orbital instincts — order the planets, or match a record to its holder. No timers, no scores to lose.",
+    "modeOrder": "Sort the order",
+    "modeMatch": "Match the record",
+    "sortIntro": "Drag the medallions into order from the Sun outwards — or lift with Enter and move with the arrow buttons.",
+    "sortSlot": "Position {n} from the Sun",
+    "sortPool": "Unplaced planets",
+    "lift": "Lift {name}",
+    "drop": "Drop {name} here",
+    "moveLeft": "Move {name} left",
+    "moveRight": "Move {name} right",
+    "place": "tap to place a planet here",
+    "check": "Check the order",
+    "reset": "Shuffle again",
+    "correct": "That is the Solar System, inner to outer. {first} through {last}.",
+    "incorrect": "Not yet — {count} of 8 stand in the right place. The brass-edged ones are settled; lift the others and try again.",
+    "allPlacedHint": "All eight placed — check your work when ready.",
+    "matchIntro": "Which planet holds this record? Choose one medallion.",
+    "matchCheck": "Next record",
+    "matchCorrect": "Yes — {fact}",
+    "matchIncorrect": "Not this one. {name} holds it: {fact}",
+    "solved": "Record solved",
+    "progress": "{solved} of {total} records solved",
+    "bestNote": "Best visit: {solved}/{total} records",
+    "back": "Back to the corridor"
+  },
+  "caveatPanel": {
+    "open": "Reading this atlas",
+    "title": "Reading this atlas",
+    "body": [
+      "This corridor is honest about being a diagram. Real space is mostly emptiness: line up the true sizes and true distances on one screen and every planet becomes a pixel.",
+      "So each hang compresses one thing and labels the compromise. Distance uses a logarithmic ruler. Size compresses radii so Mercury stays visible beside Jupiter. Day and year rings spin at normalized speeds with the true ratios printed beside them.",
+      "Whenever you see a bar, ring or sphere, the exact number stands next to it in mono type — trust the number, sense the scale."
+    ],
+    "close": "Close"
+  },
+  "expedition": {
+    "label": "Expedition log",
+    "visited": "{count} of {total} specimens visited",
+    "reset": "Reset my log",
+    "resetConfirm": "Reset the expedition log? This clears visited planets and your best quiz visit.",
+    "storageNote": "Your log is saved anonymously in this browser only — no accounts, no data sent anywhere."
+  },
+  "footer": {
+    "sourceNote": "NASA Planetary Fact Sheet · moons as of 2025",
+    "creditsNote": "A Shiplo Showcase — static site, no APIs"
+  },
+  "dataTable": {
+    "toggle": "Show the data table",
+    "hide": "Hide the data table",
+    "caption": "All specimens and measurements — text version of the corridor",
+    "headName": "Planet",
+    "headOrder": "Order",
+    "headRadius": "Radius (km)",
+    "headDay": "Day (hours)",
+    "headYear": "Year (Earth days)",
+    "headMoons": "Moons",
+    "headDistance": "Distance (AU)"
+  }
+}

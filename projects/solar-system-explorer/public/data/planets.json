@@ -1,0 +1,206 @@
+{
+  "schemaNote": "Shiplo Showcase #11 planet data. Mean values from NASA Planetary Fact Sheet; dayHours = sidereal rotation period; moons confirmed as of 2025 (counts still growing). Distances in astronomical units (AU). No runtime API: this file is the whole content source.",
+  "sourceNote": "NASA Planetary Fact Sheet (mean values), moon counts as of 2025.",
+  "planets": [
+    {
+      "id": "mercury",
+      "name": "Mercury",
+      "order": 1,
+      "radiusKm": 2439.7,
+      "dayHours": 1407.6,
+      "yearDays": 88,
+      "moons": 0,
+      "distanceAu": 0.387,
+      "colorStops": [
+        "#CDC5BA",
+        "#9A938B",
+        "#45413A"
+      ],
+      "pigment": "#9A938B",
+      "bands": false,
+      "hasRings": false,
+      "retrograde": false,
+      "facts": [
+        "A year on Mercury lasts just 88 Earth days — the shortest in the Solar System.",
+        "With almost no atmosphere to hold heat, its nights turn bitterly cold.",
+        "Its cratered surface looks much like our Moon."
+      ],
+      "sourceNote": "NASA Planetary Fact Sheet (mean values); sidereal rotation 58.6 Earth days."
+    },
+    {
+      "id": "venus",
+      "name": "Venus",
+      "order": 2,
+      "radiusKm": 6051.8,
+      "dayHours": 5832.5,
+      "yearDays": 224.7,
+      "moons": 0,
+      "distanceAu": 0.723,
+      "colorStops": [
+        "#F3E1A4",
+        "#E2C26D",
+        "#6F5926"
+      ],
+      "pigment": "#E2C26D",
+      "bands": false,
+      "hasRings": false,
+      "retrograde": true,
+      "facts": [
+        "Venus spins so slowly that one day there lasts 243 Earth days.",
+        "Thick sulfuric-acid clouds trap heat — Venus is hotter than Mercury.",
+        "It spins backwards: on Venus, the Sun rises in the west."
+      ],
+      "sourceNote": "NASA Planetary Fact Sheet (mean values); sidereal rotation 243 Earth days, retrograde."
+    },
+    {
+      "id": "earth",
+      "name": "Earth",
+      "order": 3,
+      "radiusKm": 6371,
+      "dayHours": 23.9,
+      "yearDays": 365.2,
+      "moons": 1,
+      "distanceAu": 1,
+      "colorStops": [
+        "#93C7EA",
+        "#4C8FC4",
+        "#1B3B60"
+      ],
+      "pigment": "#4C8FC4",
+      "bands": false,
+      "hasRings": false,
+      "retrograde": false,
+      "facts": [
+        "Earth is the only known world with liquid-water oceans on its surface.",
+        "One large Moon steadies Earth's tilt — and our seasons.",
+        "The planet's blue color, seen from space, is ocean and sky."
+      ],
+      "sourceNote": "NASA Planetary Fact Sheet (mean values); the atlas's reference for day and year."
+    },
+    {
+      "id": "mars",
+      "name": "Mars",
+      "order": 4,
+      "radiusKm": 3389.5,
+      "dayHours": 24.6,
+      "yearDays": 687,
+      "moons": 2,
+      "distanceAu": 1.524,
+      "colorStops": [
+        "#E19064",
+        "#C25B33",
+        "#52230D"
+      ],
+      "pigment": "#C25B33",
+      "bands": false,
+      "hasRings": false,
+      "retrograde": false,
+      "facts": [
+        "Rusty iron oxide in the soil gives Mars its red color.",
+        "It hosts Olympus Mons, the tallest volcano in the Solar System.",
+        "Dried riverbeds show water once flowed across Mars."
+      ],
+      "sourceNote": "NASA Planetary Fact Sheet (mean values); moons: Phobos and Deimos."
+    },
+    {
+      "id": "jupiter",
+      "name": "Jupiter",
+      "order": 5,
+      "radiusKm": 69911,
+      "dayHours": 9.9,
+      "yearDays": 4331,
+      "moons": 95,
+      "distanceAu": 5.203,
+      "colorStops": [
+        "#E9CA9C",
+        "#C89B5E",
+        "#553A1B"
+      ],
+      "pigment": "#C89B5E",
+      "bands": true,
+      "hasRings": false,
+      "retrograde": false,
+      "facts": [
+        "Jupiter is the giant of the system — every other planet would fit inside.",
+        "Its Great Red Spot is a storm wider than Earth, raging for centuries.",
+        "For all its size, Jupiter has the shortest day: 9.9 hours."
+      ],
+      "sourceNote": "NASA Planetary Fact Sheet (mean values); 95 confirmed moons as of 2025."
+    },
+    {
+      "id": "saturn",
+      "name": "Saturn",
+      "order": 6,
+      "radiusKm": 58232,
+      "dayHours": 10.7,
+      "yearDays": 10759,
+      "moons": 274,
+      "distanceAu": 9.537,
+      "colorStops": [
+        "#EFDCA9",
+        "#D8BE80",
+        "#66542B"
+      ],
+      "pigment": "#D8BE80",
+      "bands": true,
+      "hasRings": true,
+      "retrograde": false,
+      "facts": [
+        "Saturn's rings are billions of chunks of ice and rock.",
+        "The planet is so light it would float in a giant bathtub.",
+        "Saturn leads the moon count — well over two hundred confirmed."
+      ],
+      "sourceNote": "NASA Planetary Fact Sheet (mean values); 274 confirmed moons as of 2025."
+    },
+    {
+      "id": "uranus",
+      "name": "Uranus",
+      "order": 7,
+      "radiusKm": 25362,
+      "dayHours": 17.2,
+      "yearDays": 30687,
+      "moons": 28,
+      "distanceAu": 19.191,
+      "colorStops": [
+        "#ABD9CF",
+        "#6FB8AC",
+        "#275349"
+      ],
+      "pigment": "#6FB8AC",
+      "bands": false,
+      "hasRings": false,
+      "retrograde": true,
+      "facts": [
+        "Uranus rolls around the Sun on its side, tilted almost 98 degrees.",
+        "Methane high in its atmosphere paints the planet teal.",
+        "Each pole gets 42 years of sunlight, then 42 years of night."
+      ],
+      "sourceNote": "NASA Planetary Fact Sheet (mean values); rotation retrograde, tilted axis ~98°."
+    },
+    {
+      "id": "neptune",
+      "name": "Neptune",
+      "order": 8,
+      "radiusKm": 24622,
+      "dayHours": 16.1,
+      "yearDays": 60190,
+      "moons": 16,
+      "distanceAu": 30.069,
+      "colorStops": [
+        "#92A6E1",
+        "#5A79C4",
+        "#1F2D59"
+      ],
+      "pigment": "#5A79C4",
+      "bands": false,
+      "hasRings": false,
+      "retrograde": false,
+      "facts": [
+        "Neptune's winds are the fastest known — over 2,000 km/h.",
+        "Mathematicians found it before telescopes: its gravity gave it away.",
+        "One Neptune year lasts 165 Earth years — one orbit since its discovery."
+      ],
+      "sourceNote": "NASA Planetary Fact Sheet (mean values); sidereal rotation 16.1 hours."
+    }
+  ]
+}

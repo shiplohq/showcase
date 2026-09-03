@@ -1,0 +1,40 @@
+{
+  "id": "solar-system-explorer",
+  "title": "Solar System Explorer",
+  "summary": "A data-driven space atlas with scrollable orbits and switchable size, distance and day/year views.",
+  "category": "education-science",
+  "number": 11,
+  "audience": "8-13",
+  "mobileSupport": "supported",
+  "mobileSupportNote": "Full atlas flow verified live at 390x844 (30/30 headless checks): the corridor is natively a horizontal touch walk, the specimen sheet becomes a bottom sheet, compare scrolls in its own aligned region, and quiz medallions wrap. Drag precision is lower than tablet - the tap-lift + move-button paths are the primary reorder interaction on small screens.",
+  "screenshots": {
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://solar-system-explorer.shiplo.site",
+      "capturedAt": "2026-09-02T20:13:05Z",
+      "alt": "Staged Size-view moment of the live app: Jupiter's large banded ochre sphere and ringed Saturn centred on the horizontal datum line over a near-black navy starfield, parchment specimen plates beneath reading Jupiter 69,911 km 11.0x Earth and Saturn 58,232 km 9.1x Earth, Neptune partly visible at the right edge; DISTANCE / SIZE / DAY & YEAR tabs sit top centre with SIZE active in parchment"
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://solar-system-explorer.shiplo.site",
+      "capturedAt": "2026-09-02T20:13:05Z",
+      "alt": "Honest default landing at 1440x900: Distance view with the Sun anchoring the left edge of the datum line and Mercury, Venus and Earth specimen stations at their log-ruler AU ticks (0.39, 0.72, 1.0 AU), each with a parchment plate showing name, catalogue number and moon count, Mars just entering at the right edge; intro wall text above, corridor arrows and progress rail below, expedition log footer"
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://solar-system-explorer.shiplo.site",
+      "capturedAt": "2026-09-02T20:13:05Z",
+      "alt": "Honest tablet view at 1024x768, the hero education viewport: the header wraps into rows (title with subtitle, then the DISTANCE / SIZE / DAY & YEAR switch beside Compare specimens and Curator's challenge, with Reading this atlas on its own wrapped row) above the same Distance corridor - Sun at left, Mercury, Venus and Earth fully visible on the datum line with their parchment plates and a sliver of Mars entering at the right edge, log-ruler caveat line and corridor controls below"
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://solar-system-explorer.shiplo.site",
+      "capturedAt": "2026-09-02T20:13:05Z",
+      "alt": "Honest mobile view at 390x844: the header stacks the exhibit title above the wrapped view switch and action buttons; the corridor shows the Sun doorway and the first planet stations with their parchment plates on the narrow datum line; corridor arrows and progress rail run under the walk, with the expedition log footer stacked below"
+    }
+  }
+}

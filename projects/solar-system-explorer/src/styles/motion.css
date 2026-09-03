@@ -1,0 +1,19 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Motion layer. Budget (locked): feedback 120–220 ms, spatial 250–500 ms,
+ * delight <= 900 ms, natural easing, no bounce/elastic. Reduced-motion is
+ * handled centrally in src/lib/gsap.ts (tweens collapse to instant sets);
+ * these CSS rules cover the remaining declarative transitions.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

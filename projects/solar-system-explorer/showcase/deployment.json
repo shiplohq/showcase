@@ -1,0 +1,12 @@
+{
+  "project": "solar-system-explorer",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://solar-system-explorer.shiplo.site",
+  "sourceCommitSha": null,
+  "buildCommand": "npm run build",
+  "artifactSha256": "949fb456a3354e8ab1bc3ce646ff403c9aec6b6b5487f1dfa5fb29fbc1b9488e",
+  "deployedAt": "2026-09-03T17:36:22.420Z",
+  "verifiedAt": "2026-09-03T17:42:00Z",
+  "notes": "Deploy 2 — independent-review fixes (release fd4fbf8c-74f8-4bef-acdf-e0c26352eb6f, deployment 81e86131-cc0a-4304-a00b-6d87f0da093e, site 78e09937-475d-40ab-83d1-f7cac3dd7733, activated 2026-09-03T17:36:22.420Z, 27 files / 967,497 bytes — matches local dist). Changes: (1) three yearDays values corrected to NASA Planetary Fact Sheet means (Saturn 10747→10759, Uranus 30589→30687, Neptune 59800→60190; engine-sim expectation updated, 279/279); (2) quiz move-control aria-labels interpolated with real planet names (were literal 'Move {name} left/right'); (3) empty-slot copy no longer carries a placeholder; (4) desktop/tablet screenshot alts rewritten to ground truth (Mars, not Jupiter, is the edge planet; Earth reads '1.0 AU'; tablet shows three full plates + a Mars sliver with 'Reading this atlas' on its own wrapped row). artifactSha256 = deterministic tar hash (normalized mtime/owner/sort): tar --sort=name --mtime='1970-01-01 UTC' --owner=0 --group=0 --numeric-owner -czf - -C dist . | sha256sum. sourceCommitSha null by design: showcase lead works uncommitted; orchestrator records the final SHA at integration. Live re-verification of this release: HTTP 200; full atlas flow 30/30 with zero console errors at 1440x900 and 1024x768; fonts.check OK (Gentium Book Plus, Space Mono — latin+digits + vietnamese); corrected year values served in /data/planets.json; quiz aria-labels read 'Move Jupiter left / Move Jupiter right' (DOM-verified). Screenshots intentionally NOT re-captured: DOM ground truth shows the visible plates at scroll 0 are Mercury/Venus/Earth (+ a ~40px Mars sliver) with year readouts 88/225/365/687 d — none of the corrected values (Saturn/Uranus/Neptune years) are rendered in any captured frame, so the existing webp images remain pixel-accurate depictions of this release. Earlier releases: ac393445… (initial, 29 files) and c45bc3e8… (placeholder cleanup, 27 files, screenshots captured from it)."
+}

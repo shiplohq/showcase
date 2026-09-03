@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "solar-system-explorer",
+  "site_id": "78e09937-475d-40ab-83d1-f7cac3dd7733",
+  "subdomain": "solar-system-explorer",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}

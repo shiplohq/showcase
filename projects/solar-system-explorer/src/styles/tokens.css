@@ -1,0 +1,67 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Design tokens — locked by design/DESIGN_DECISIONS.md §4–§6.
+ * Mineral exhibition hall: near-black navy ground, parchment specimen
+ * labels, one brass interactive accent. No glow, no neon.
+ */
+
+:root {
+  /* ground — hall */
+  --hall: #0b0e16;
+  --hall-raised: #121724;
+  --hall-deep: #070910;
+  --line: #2a3143;
+  --line-soft: #1c2232;
+
+  /* parchment plates */
+  --parchment: #ede2c8;
+  --parchment-deep: #e0d2af;
+  --plate-ink: #2b2416;
+  --plate-ink-soft: #5c5138;
+
+  /* text on hall */
+  --text: #e9e3d2;
+  --text-soft: #b4af9e;
+
+  /* mineral pigments (per-planet identities) */
+  --min-mercury: #9a938b;
+  --min-venus: #e2c26d;
+  --min-earth: #4c8fc4;
+  --min-earth-green: #4e9e6b;
+  --min-mars: #c25b33;
+  --min-jupiter: #c89b5e;
+  --min-saturn: #d8be80;
+  --min-uranus: #6fb8ac;
+  --min-neptune: #5a79c4;
+
+  /* interactive / status — never color-only */
+  --brass: #d5a85c;
+  --brass-deep: #b98f45;
+  --ok: #79b98d;
+  --ok-deep: #5c9a70;
+  --retry: #d9a441;
+  --focus: #f2e7cd;
+
+  /* typography */
+  --font-serif: 'Gentium Book Plus', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-mono: 'Space Mono', 'Courier New', ui-monospace, monospace;
+
+  /* spacing scale (base 4) */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --s8: 64px;
+  --s9: 96px;
+
+  /* shell metrics */
+  --header-h: 128px;
+  --footer-h: 56px;
+  --radius-plate: 3px;
+  --plate-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+  --hit: 48px; /* minimum touch target */
+}
