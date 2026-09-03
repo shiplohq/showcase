@@ -1,0 +1,40 @@
+{
+  "id": "human-body-lab",
+  "title": "Human Body Lab",
+  "summary": "A layer-by-layer vector body model: toggle systems, inspect organs, and route oxygen and food through the body.",
+  "category": "education-science",
+  "number": 12,
+  "audience": "9-14",
+  "mobileSupport": "supported",
+  "mobileSupportNote": "Phone-width layouts stack (plate first, controls after) with 44px targets; the body plate keeps a readable size, so the landing and Explore screens scroll vertically by design.",
+  "screenshots": {
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://human-body-lab.shiplo.site",
+      "capturedAt": "2026-09-02T20:28:30Z",
+      "alt": "Art-directed staged state of the Explore screen: the anatomical plate on the left shows the skeletal layer (skull, rib cage, spine, pelvis in bone tones) with the circulatory layer (oxblood heart and vessels) lifted on top, mono specimen labels with leader lines in the margins, and the Heart organ sheet open on the right listing its job and field notes."
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://human-body-lab.shiplo.site",
+      "capturedAt": "2026-09-02T20:26:10Z",
+      "alt": "Honest desktop landing at 1440x900: header with the Human Body Lab wordmark and Overview/Explore/Pathways/Quiz tabs; left column with the serif headline 'An atlas you can operate.', a short paragraph and three entry cards; right column with the framed 'PLATE I — THE HUMAN BODY' figure whose ghosted body shows skeletal, circulatory and digestive layers."
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://human-body-lab.shiplo.site",
+      "capturedAt": "2026-09-02T20:26:55Z",
+      "alt": "Honest tablet landing at 1024x768, fitting the viewport with no scrollbar: same atlas composition as desktop at tablet proportions — headline, three entry cards and LAB RECORD line on the left, the ghosted body plate with ruler-topped frame on the right."
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://human-body-lab.shiplo.site",
+      "capturedAt": "2026-09-02T20:27:40Z",
+      "alt": "Honest mobile landing at 390x844: single stacked column with the serif headline, the intro paragraph and the three entry cards; all four nav tabs (Home, Layers, Routes, Quiz) fit the header; the framed body plate enters the bottom of the viewport showing the head and shoulders of the ghosted figure."
+    }
+  }
+}

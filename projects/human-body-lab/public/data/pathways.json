@@ -1,0 +1,157 @@
+{
+  "stops": [
+    { "id": "nose", "name": "Nose", "node": [210, 96], "blurb": "Air enters here, warmed and cleaned." },
+    { "id": "mouth", "name": "Mouth", "node": [210, 112], "blurb": "Teeth grind; saliva starts dissolving." },
+    {
+      "id": "trachea",
+      "name": "Trachea",
+      "node": [210, 160],
+      "organId": "trachea",
+      "blurb": "The windpipe carries air down."
+    },
+    {
+      "id": "lungs",
+      "name": "Lungs",
+      "node": [172, 236],
+      "organId": "lungs",
+      "blurb": "Oxygen hops into the blood."
+    },
+    {
+      "id": "heart",
+      "name": "Heart",
+      "node": [228, 210],
+      "organId": "heart",
+      "blurb": "The pump pushes blood out."
+    },
+    {
+      "id": "esophagus",
+      "name": "Esophagus",
+      "node": [206, 196],
+      "organId": "esophagus",
+      "blurb": "Swallowing waves squeeze food down."
+    },
+    {
+      "id": "stomach",
+      "name": "Stomach",
+      "node": [226, 282],
+      "organId": "stomach",
+      "blurb": "Acid and churning make chyme."
+    },
+    {
+      "id": "small-intestine",
+      "name": "Small intestine",
+      "node": [210, 352],
+      "organId": "small-intestine",
+      "blurb": "Nutrients cross into the blood."
+    },
+    {
+      "id": "liver",
+      "name": "Liver",
+      "node": [176, 266],
+      "organId": "liver",
+      "blurb": "Nutrients get sorted and stored."
+    },
+    {
+      "id": "body-cells",
+      "name": "Body cells",
+      "node": [296, 394],
+      "blurb": "Every cell takes its delivery."
+    }
+  ],
+  "pathways": [
+    {
+      "id": "oxygen",
+      "title": "The oxygen route",
+      "subtitle": "One breath, nose to cell",
+      "ink": "slate",
+      "intro": "You just took a breath. Guide the fresh air from the nose to a hungry cell.",
+      "steps": [
+        {
+          "stop": "nose",
+          "explanation": "Air enters through the nose, where tiny hairs and warm mucus clean it and warm it up."
+        },
+        {
+          "stop": "trachea",
+          "explanation": "Air slides down the windpipe — rings of cartilage keep the tube open."
+        },
+        {
+          "stop": "lungs",
+          "explanation": "In the lungs, oxygen hops across spongy walls into the blood, and carbon dioxide hops out."
+        },
+        {
+          "stop": "heart",
+          "explanation": "The fresh, oxygen-rich blood returns to the heart, ready for a big push."
+        },
+        {
+          "stop": "body-cells",
+          "explanation": "The heart pumps the blood through arteries to every cell — oxygen is handed over and work begins."
+        }
+      ],
+      "recap": "Air in, oxygen across, blood carries, heart pushes, cells burn fuel. One breath's journey — repeated about 20,000 times a day."
+    },
+    {
+      "id": "food",
+      "title": "The food route",
+      "subtitle": "One bite, plate to cell",
+      "ink": "sage",
+      "intro": "Breakfast time. Steer each bite from the mouth all the way to the bloodstream.",
+      "steps": [
+        {
+          "stop": "mouth",
+          "explanation": "Teeth grind the bite into mush and saliva starts turning starch into sugar."
+        },
+        {
+          "stop": "esophagus",
+          "explanation": "The tongue pushes the mush into a swallowing wave — eight seconds to the stomach."
+        },
+        {
+          "stop": "stomach",
+          "explanation": "Acid and churning squeeze the food until it becomes a soup called chyme."
+        },
+        {
+          "stop": "small-intestine",
+          "explanation": "Enzymes finish the job, and nutrients slip through millions of villi into the blood."
+        },
+        {
+          "stop": "liver",
+          "explanation": "Nutrient-rich blood heads straight to the liver, which sorts, stores and releases."
+        },
+        {
+          "stop": "body-cells",
+          "explanation": "The liver ships the sorted fuel on — cells everywhere take what they need for energy and repair."
+        }
+      ],
+      "recap": "Grind, squeeze, churn, absorb, sort, deliver. A bite's trip from plate to cell."
+    },
+    {
+      "id": "blood",
+      "title": "The blood loop",
+      "subtitle": "One drop, double circuit",
+      "ink": "oxblood",
+      "intro": "Follow one drop of blood around its double loop — the lung loop first, then the body loop.",
+      "steps": [
+        {
+          "stop": "heart",
+          "explanation": "Start at the right side of the heart — this blood is dark and loaded with carbon dioxide."
+        },
+        {
+          "stop": "lungs",
+          "explanation": "The right pump sends it to the lungs, where it drops off carbon dioxide and grabs oxygen."
+        },
+        {
+          "stop": "heart",
+          "explanation": "Bright red now, the blood returns to the left side of the heart."
+        },
+        {
+          "stop": "body-cells",
+          "explanation": "The left pump pushes it out through arteries to the whole body — brain, muscles, skin."
+        },
+        {
+          "stop": "heart",
+          "explanation": "Cells trade oxygen for carbon dioxide, and the blood flows home through veins — back to the right side. The loop begins again."
+        }
+      ],
+      "recap": "Two loops, one pump pair: out to the lungs for oxygen, out to the body to spend it. Nonstop, for a lifetime."
+    }
+  ]
+}

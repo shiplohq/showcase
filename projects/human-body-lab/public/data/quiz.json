@@ -1,0 +1,74 @@
+{
+  "quiz": [
+    {
+      "id": "q1",
+      "prompt": "Which organ pushes blood around the body?",
+      "options": ["Lungs", "Heart", "Stomach", "Brain"],
+      "answer": 1,
+      "explain": "The heart is a muscle pump — it beats about 100,000 times a day."
+    },
+    {
+      "id": "q2",
+      "prompt": "Where does oxygen move into the blood?",
+      "options": ["Small intestine", "Trachea", "Lungs", "Liver"],
+      "answer": 2,
+      "explain": "In the lungs, oxygen crosses thin spongy walls into tiny blood vessels."
+    },
+    {
+      "id": "q3",
+      "prompt": "Which organ turns food into a soup called chyme?",
+      "options": ["Stomach", "Esophagus", "Mouth", "Large intestine"],
+      "answer": 0,
+      "explain": "The stomach churns food with acid until it becomes chyme."
+    },
+    {
+      "id": "q4",
+      "prompt": "Which system carries signals from brain to toes?",
+      "options": ["Circulatory", "Digestive", "Skeletal", "Nervous"],
+      "answer": 3,
+      "explain": "Nerves are the wiring — brain, spinal cord and the whole network."
+    },
+    {
+      "id": "q5",
+      "prompt": "Which bone structure protects the brain?",
+      "options": ["Rib cage", "Skull", "Spine", "Pelvis"],
+      "answer": 1,
+      "explain": "The skull is a bony helmet locked together around the brain."
+    },
+    {
+      "id": "q6",
+      "prompt": "Most nutrients pass into the blood in the…",
+      "options": ["Stomach", "Liver", "Small intestine", "Large intestine"],
+      "answer": 2,
+      "explain": "The small intestine's villi are where nutrients cross into the blood."
+    },
+    {
+      "id": "q7",
+      "prompt": "Which muscle pulls down to fill the lungs with air?",
+      "options": ["Diaphragm", "Heart", "Trachea", "Veins"],
+      "answer": 0,
+      "explain": "The diaphragm pulls downward, the chest gets bigger, and air rushes in."
+    },
+    {
+      "id": "q8",
+      "prompt": "What is the next stop after the esophagus?",
+      "options": ["Small intestine", "Stomach", "Liver", "Mouth"],
+      "answer": 1,
+      "explain": "The esophagus squeezes food down into the stomach — about an eight-second trip."
+    },
+    {
+      "id": "q9",
+      "prompt": "Blood returns to the heart through the…",
+      "options": ["Arteries", "Veins", "Nerves", "Bronchi"],
+      "answer": 1,
+      "explain": "Veins carry blood back to the heart, helped by one-way valves."
+    },
+    {
+      "id": "q10",
+      "prompt": "The liver's main job is to…",
+      "options": ["Pump blood", "Clean and sort nutrients", "Breathe in air", "Send nerve signals"],
+      "answer": 1,
+      "explain": "The liver is the chemical factory: everything absorbed from food passes through it."
+    }
+  ]
+}

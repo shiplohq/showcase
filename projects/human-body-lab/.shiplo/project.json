@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "human-body-lab",
+  "site_id": "ef7be5b6-30dd-4cc8-a140-71fab84a7265",
+  "subdomain": "human-body-lab",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}

@@ -1,0 +1,255 @@
+{
+  "systems": [
+    {
+      "id": "skeletal",
+      "name": "Skeletal",
+      "tagline": "The living frame — support, shape and armor.",
+      "organs": [
+        {
+          "id": "skull",
+          "name": "Skull",
+          "pathId": "organ-skull",
+          "function": "A bony helmet that protects the brain and shapes the face.",
+          "facts": [
+            "It is made of 22 bones locked together by puzzle-like joints called sutures.",
+            "The lower jaw is the only skull bone that moves freely.",
+            "A baby's skull bones finish growing together at around 18 months."
+          ],
+          "label": { "side": "left", "y": 54, "anchor": [270, 54] }
+        },
+        {
+          "id": "ribcage",
+          "name": "Rib cage",
+          "pathId": "organ-ribcage",
+          "function": "A cage of ribs that shields the heart and lungs and helps breathing.",
+          "facts": [
+            "Twelve pairs of ribs curve from the spine to the front of the chest.",
+            "Muscles between the ribs lift the chest when you breathe in.",
+            "The lowest two pairs float — they attach only at the back."
+          ],
+          "label": { "side": "right", "y": 186, "anchor": [330, 196] }
+        },
+        {
+          "id": "spine",
+          "name": "Spine",
+          "pathId": "organ-spine",
+          "function": "A stack of 33 bones that holds you upright and protects the spinal cord.",
+          "facts": [
+            "Squishy cushions between the bones let you bend and twist.",
+            "Seen from the side it forms a gentle S curve.",
+            "You are a few millimetres taller in the morning, when the cushions are most relaxed."
+          ],
+          "label": { "side": "left", "y": 302, "anchor": [276, 300] }
+        },
+        {
+          "id": "pelvis",
+          "name": "Pelvis",
+          "pathId": "organ-pelvis",
+          "function": "A bowl of bone at the hip that carries the body's weight down to the legs.",
+          "facts": [
+            "It cradles the digestive organs like a basket.",
+            "The leg bones plug into sockets on each side of the pelvis.",
+            "Its wide, flat shape is part of what makes human walking efficient."
+          ],
+          "label": { "side": "right", "y": 452, "anchor": [316, 444] }
+        }
+      ]
+    },
+    {
+      "id": "circulatory",
+      "name": "Circulatory",
+      "tagline": "The delivery loop — blood, pumped everywhere.",
+      "organs": [
+        {
+          "id": "heart",
+          "name": "Heart",
+          "pathId": "organ-heart",
+          "function": "A muscle pump, about the size of your fist, that pushes blood around the body.",
+          "facts": [
+            "It beats around 100,000 times a day without taking a rest.",
+            "Its right side pumps blood to the lungs; its left side pumps to the rest of the body.",
+            "One-way doors called valves keep blood from flowing backwards."
+          ],
+          "label": { "side": "right", "y": 216, "anchor": [314, 202] }
+        },
+        {
+          "id": "arteries",
+          "name": "Arteries",
+          "pathId": "organ-arteries",
+          "function": "Thick-walled tubes that carry blood away from the heart.",
+          "facts": [
+            "The aorta, the biggest artery, is as wide as a garden hose.",
+            "Artery walls pulse in time with the heartbeat — that's your pulse.",
+            "They branch like a tree, ending in vessels thinner than a hair."
+          ],
+          "label": { "side": "left", "y": 342, "anchor": [264, 344] }
+        },
+        {
+          "id": "veins",
+          "name": "Veins",
+          "pathId": "organ-veins",
+          "function": "Tubes that return used blood to the heart.",
+          "facts": [
+            "Veins hold one-way valves so blood cannot slide back down.",
+            "Moving muscles squeeze veins and help push blood home.",
+            "About two thirds of your blood is stored in the veins at any moment."
+          ],
+          "label": { "side": "left", "y": 400, "anchor": [256, 398] }
+        }
+      ]
+    },
+    {
+      "id": "respiratory",
+      "name": "Respiratory",
+      "tagline": "The air exchange — oxygen in, carbon dioxide out.",
+      "organs": [
+        {
+          "id": "trachea",
+          "name": "Trachea",
+          "pathId": "organ-trachea",
+          "function": "The windpipe: a firm tube that carries air between the throat and the lungs.",
+          "facts": [
+            "Rings of cartilage keep it propped open, like the hose of a vacuum.",
+            "A flap called the epiglottis covers it whenever you swallow.",
+            "At the bottom it splits into two bronchi, one for each lung."
+          ],
+          "label": { "side": "left", "y": 150, "anchor": [277, 152] }
+        },
+        {
+          "id": "lungs",
+          "name": "Lungs",
+          "pathId": "organ-lungs",
+          "function": "Two spongy sacs where oxygen moves into the blood and carbon dioxide moves out.",
+          "facts": [
+            "You breathe in and out about 20,000 times a day.",
+            "The right lung has three lobes; the left has two, leaving room for the heart.",
+            "Breathing out is relaxed — the muscle work happens when you breathe in."
+          ],
+          "label": { "side": "left", "y": 240, "anchor": [232, 244] }
+        },
+        {
+          "id": "diaphragm",
+          "name": "Diaphragm",
+          "pathId": "organ-diaphragm",
+          "function": "A dome-shaped muscle under the lungs that powers breathing.",
+          "facts": [
+            "When it pulls downward the chest gets bigger and air rushes in.",
+            "A hiccup is a sudden, surprise squeeze of the diaphragm.",
+            "It works with the rib muscles day and night, without you thinking about it."
+          ],
+          "label": { "side": "right", "y": 308, "anchor": [326, 296] }
+        }
+      ]
+    },
+    {
+      "id": "digestive",
+      "name": "Digestive",
+      "tagline": "The fuel line — food broken down to nutrients.",
+      "organs": [
+        {
+          "id": "esophagus",
+          "name": "Esophagus",
+          "pathId": "organ-esophagus",
+          "function": "A muscular tube that squeezes food from the mouth down to the stomach.",
+          "facts": [
+            "It moves food in waves — strong enough that you could swallow upside down.",
+            "The journey from throat to stomach takes about eight seconds.",
+            "A ring of muscle at the bottom keeps the stomach tightly shut."
+          ],
+          "label": { "side": "left", "y": 210, "anchor": [272, 214] }
+        },
+        {
+          "id": "stomach",
+          "name": "Stomach",
+          "pathId": "organ-stomach",
+          "function": "A stretchy mixing bag where food is broken down by acid and churning.",
+          "facts": [
+            "It can stretch from the size of a fist to the size of a melon.",
+            "Stomach acid is strong — a slimy lining protects the walls from it.",
+            "Food leaves the stomach as a soup called chyme."
+          ],
+          "label": { "side": "right", "y": 282, "anchor": [302, 288] }
+        },
+        {
+          "id": "liver",
+          "name": "Liver",
+          "pathId": "organ-liver",
+          "function": "The body's chemical factory: it cleans, stores and sends out nutrients.",
+          "facts": [
+            "It is the largest organ inside the body.",
+            "It makes bile, a liquid that breaks fat into tiny drops.",
+            "Everything the intestines absorb passes through the liver first."
+          ],
+          "label": { "side": "left", "y": 264, "anchor": [230, 266] }
+        },
+        {
+          "id": "small-intestine",
+          "name": "Small intestine",
+          "pathId": "organ-small-intestine",
+          "function": "A long coiled tube where most nutrients pass into the blood.",
+          "facts": [
+            "Uncoiled it is about six metres — roughly three times your height.",
+            "Millions of finger-like villi give its surface the texture of a towel.",
+            "Food spends three to five hours travelling through it."
+          ],
+          "label": { "side": "left", "y": 362, "anchor": [252, 356] }
+        },
+        {
+          "id": "large-intestine",
+          "name": "Large intestine",
+          "pathId": "organ-large-intestine",
+          "function": "The final stretch: it soaks up water and packs away what is left.",
+          "facts": [
+            "It is shorter but much wider than the small intestine — about 1.5 metres.",
+            "Trillions of helpful bacteria live here.",
+            "Whatever the body cannot use becomes waste and leaves."
+          ],
+          "label": { "side": "right", "y": 380, "anchor": [314, 382] }
+        }
+      ]
+    },
+    {
+      "id": "nervous",
+      "name": "Nervous",
+      "tagline": "The wiring — signals from brain to toes.",
+      "organs": [
+        {
+          "id": "brain",
+          "name": "Brain",
+          "pathId": "organ-brain",
+          "function": "The control centre: it thinks, remembers and commands the whole body.",
+          "facts": [
+            "It contains about 86 billion nerve cells.",
+            "It runs on roughly 20 watts of power — like a dim light bulb.",
+            "Some signals between brain cells travel at up to 400 km/h."
+          ],
+          "label": { "side": "right", "y": 44, "anchor": [292, 54] }
+        },
+        {
+          "id": "spinal-cord",
+          "name": "Spinal cord",
+          "pathId": "organ-spinal-cord",
+          "function": "A thick cable of nerves running from the brain down inside the spine.",
+          "facts": [
+            "It is about 45 centimetres long and as thick as your thumb.",
+            "Fast reflexes, like snapping back from something hot, are handled here.",
+            "The vertebrae of the spine shield it all the way down."
+          ],
+          "label": { "side": "right", "y": 150, "anchor": [284, 150] }
+        },
+        {
+          "id": "nerves",
+          "name": "Nerves",
+          "pathId": "organ-nerves",
+          "function": "A wiring network that carries signals between brain, spinal cord and body.",
+          "facts": [
+            "The longest nerve runs from your spine all the way to your big toe.",
+            "Nerves tell muscles to move and skin to feel.",
+            "Laid end to end, the body's nerves would stretch almost four times around the Earth."
+          ],
+          "label": { "side": "left", "y": 424, "anchor": [246, 420] }
+        }
+      ]
+    }
+  ]
+}

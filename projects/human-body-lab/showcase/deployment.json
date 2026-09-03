@@ -1,0 +1,12 @@
+{
+  "project": "human-body-lab",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://human-body-lab.shiplo.site",
+  "sourceCommitSha": null,
+  "buildCommand": "npm run build",
+  "artifactSha256": "e580f0b91fd471687f0e53965315348174461c9d54533cac580999ec5a8abd7f",
+  "deployedAt": "2026-09-02T20:25:37.616Z",
+  "verifiedAt": "2026-09-02T20:29:00Z",
+  "notes": "Deterministic tar hash (normalized mtime/owner/sort). Final deployment id e9a0e333-5c3c-4764-8c30-bfe26330f21a, activated 2026-09-02T20:25:39.586Z, 20 files / 483510 bytes (matches local dist exactly). Earlier same-URL releases bf489f83 (20:09Z), 21f04035 (20:17Z) and b498634d (20:23Z) were superseded by impeccable follow-ups (tablet landing fit, mobile masthead fit, 44px nav-tab min-width). Live verification of the FINAL deploy: full CDP flow passed at 1440x900, 1024x768, 390x844 with zero console errors; keyboard (organ list + SVG organ buttons, Esc sheet close, arrow-key nav), touch and mouse paths exercised; all visible buttons >= 44px on every screen; no horizontal scroll anywhere; prefers-reduced-motion emulated, content intact; font-check passed on live for all 6 shipped faces (Source Serif 4 600, Work Sans 400/500/600, IBM Plex Mono 400/500). Landing (Overview) and Quiz fit the viewport exactly at 1440x900 and 1024x768 (scrollHeight === innerHeight asserted); Explore and Pathways scroll vertically by design (portrait 560x780 body figure prioritized over shrinking; documented in DESIGN_DECISIONS §12 and screenshot alts). sourceCommitSha null at lead handoff — orchestrator records the integration commit SHA."
+}

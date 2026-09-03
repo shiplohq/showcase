@@ -1,0 +1,95 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Design tokens — Human Body Lab (DESIGN_DECISIONS §4–6).
+ * Medical-editorial inks on warm paper; flat colors only, no gradients.
+ */
+
+:root {
+  /* Paper neutrals */
+  --paper: #fbf7ef;
+  --paper-raised: #fffcf6;
+  --paper-deep: #f1e9da;
+  --ink: #312a24;
+  --ink-soft: #6b6156;
+  --line: #e2d8c6;
+  --bone: #ede4d2;
+  --bone-edge: #b5a789;
+
+  /* System inks */
+  --oxblood: #843838;
+  --oxblood-deep: #67282a;
+  --slate: #40607e;
+  --slate-deep: #2f4a63;
+  --sage: #5f7a50;
+  --sage-deep: #485d3b;
+  --nerve: #7d5ba6;
+  --nerve-deep: #604487;
+
+  /* Feedback */
+  --ok: #3f6b43;
+  /* warn ink darkened for ≥4.5:1 on its tint backgrounds (impeccable A5) */
+  --warn: #7a4f1d;
+  --focus: #843838;
+
+  /* System ink accessors (set on elements by system id) */
+  color-scheme: light;
+
+  /* Typography */
+  --font-display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-body: 'Work Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  /* Spacing scale (4px steps) */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --s8: 64px;
+
+  /* Structure */
+  --shell-max: 1200px;
+  --header-h: 64px;
+  --radius: 10px;
+  --hairline: 1px solid var(--line);
+
+  /* Shadow — exactly one soft shadow, for the overlay sheet only */
+  --sheet-shadow: 0 18px 48px rgba(49, 42, 36, 0.18);
+
+  /* Motion (mirrors GSAP durations in lib/gsap.ts) */
+  --dur-feedback: 0.16s;
+  --dur-spatial: 0.3s;
+  --dur-delight: 0.9s;
+  --ease: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* System ink variables — components read these per-system instead of
+   hard-coding hexes (no color-only meaning; glyphs + labels always pair). */
+.sys-skeletal {
+  --sys-ink: var(--bone-edge);
+  --sys-ink-deep: #8f7f5f;
+  --sys-fill: var(--bone);
+}
+.sys-circulatory {
+  --sys-ink: var(--oxblood);
+  --sys-ink-deep: var(--oxblood-deep);
+  --sys-fill: #f0d9d4;
+}
+.sys-respiratory {
+  --sys-ink: var(--slate);
+  --sys-ink-deep: var(--slate-deep);
+  --sys-fill: #dae2e9;
+}
+.sys-digestive {
+  --sys-ink: var(--sage);
+  --sys-ink-deep: var(--sage-deep);
+  --sys-fill: #e2e7d5;
+}
+.sys-nervous {
+  --sys-ink: var(--nerve);
+  --sys-ink-deep: var(--nerve-deep);
+  --sys-fill: #e6def0;
+}

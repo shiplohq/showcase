@@ -1,0 +1,39 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Motion layer — CSS keyframes used for mount/fades. GSAP drives the
+ * purposeful spatial motion (layer separation, route draw-on) via
+ * src/lib/gsap.ts; these are the cheap always-on counterparts.
+ * prefers-reduced-motion: everything collapses to near-instant.
+ */
+
+@keyframes screen-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes soft-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
