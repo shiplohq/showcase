@@ -315,7 +315,7 @@
       "summary": "A layer-by-layer vector body model: toggle systems, inspect organs, and route oxygen and food through the body.",
       "category": "education-science",
       "audience": "9-14",
-      "status": "building",
+      "status": "live",
       "stack": [
         "vue",
         "vite",
@@ -326,14 +326,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://human-body-lab.shiplo.site",
+        "deployedAt": "2026-09-02T20:25:37.616Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/human-body-lab/showcase/cover.webp",
+        "desktop": "projects/human-body-lab/showcase/desktop.webp",
+        "tablet": "projects/human-body-lab/showcase/tablet.webp",
+        "mobile": "projects/human-body-lab/showcase/mobile.webp"
       }
     },
     {

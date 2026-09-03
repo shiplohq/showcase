@@ -3,7 +3,7 @@
   "provider": "Shiplo",
   "status": "verified",
   "url": "https://human-body-lab.shiplo.site",
-  "sourceCommitSha": null,
+  "sourceCommitSha": "f9fbc263f779b3d683135973f6d73fd2d9b4e232",
   "buildCommand": "npm run build",
   "artifactSha256": "e580f0b91fd471687f0e53965315348174461c9d54533cac580999ec5a8abd7f",
   "deployedAt": "2026-09-02T20:25:37.616Z",
