@@ -3,7 +3,7 @@
   "provider": "Shiplo",
   "status": "verified",
   "url": "https://solar-system-explorer.shiplo.site",
-  "sourceCommitSha": null,
+  "sourceCommitSha": "341b160e373085896e8a61a0ad1a10b8bb7ab793",
   "buildCommand": "npm run build",
   "artifactSha256": "949fb456a3354e8ab1bc3ce646ff403c9aec6b6b5487f1dfa5fb29fbc1b9488e",
   "deployedAt": "2026-09-03T17:36:22.420Z",

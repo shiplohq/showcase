@@ -287,7 +287,7 @@
       "summary": "A data-driven space atlas with scrollable orbits and switchable size, distance and day/year views.",
       "category": "education-science",
       "audience": "8-13",
-      "status": "building",
+      "status": "live",
       "stack": [
         "react",
         "vite",
@@ -298,14 +298,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://solar-system-explorer.shiplo.site",
+        "deployedAt": "2026-09-03T17:36:22.420Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/solar-system-explorer/showcase/cover.webp",
+        "desktop": "projects/solar-system-explorer/showcase/desktop.webp",
+        "tablet": "projects/solar-system-explorer/showcase/tablet.webp",
+        "mobile": "projects/solar-system-explorer/showcase/mobile.webp"
       }
     },
     {

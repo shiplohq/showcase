@@ -24,6 +24,7 @@ no backend, no database, no SSR. Human-readable source is Apache-2.0
 | <img src="projects/phonics-forest/showcase/cover.webp" alt="Phonics Forest cover" width="360"> | **[Phonics Forest](https://phonics-forest.shiplo.site)**<br>A sound forest where every tree is a phoneme; children match graphemes to sounds and sort words. | education-language |
 | <img src="projects/grammar-detective/showcase/cover.webp" alt="Grammar Detective cover" width="360"> | **[Grammar Detective](https://grammar-detective.shiplo.site)**<br>Investigate broken 'case file' sentences with a highlighter pen, word cards and readable verdicts. | education-language |
 | <img src="projects/story-sequencer/showcase/cover.webp" alt="Story Sequencer cover" width="360"> | **[Story Sequencer](https://story-sequencer.shiplo.site)**<br>A storyboard desk where shuffled 4-8 frame stories are reordered, cause-and-effect linked and titled. | education-language |
+| <img src="projects/solar-system-explorer/showcase/cover.webp" alt="Solar System Explorer cover" width="360"> | **[Solar System Explorer](https://solar-system-explorer.shiplo.site)**<br>A data-driven space atlas with scrollable orbits and switchable size, distance and day/year views. | education-science |
 <!-- showcase:gallery:end -->
 
 ## Catalog
@@ -45,7 +46,7 @@ All planned and in-progress showcases. Status lives in
 | 08 | **Phonics Forest** — [live demo](https://phonics-forest.shiplo.site) | education-language | typescript · vite | live |
 | 09 | **Grammar Detective** — [live demo](https://grammar-detective.shiplo.site) | education-language | react · vite · typescript | live |
 | 10 | **Story Sequencer** — [live demo](https://story-sequencer.shiplo.site) | education-language | angular · typescript | live |
-| 11 | **Solar System Explorer** | education-science | react · vite · typescript | building |
+| 11 | **Solar System Explorer** — [live demo](https://solar-system-explorer.shiplo.site) | education-science | react · vite · typescript | live |
 | 12 | **Human Body Lab** | education-science | vue · vite · typescript | building |
 | 13 | **EcoBalance** | education-science | typescript · vite | building |
 | 14 | **Atom Forge** | education-science | react · vite · typescript | building |
