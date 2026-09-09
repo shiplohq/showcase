@@ -215,7 +215,12 @@ await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFac
 
 try {
   await send('Page.navigate', { url });
-  await sleep(2600); // fonts + JSON fetch settle
+  // Wait for content (JSON fetch + fonts) — a fixed sleep loses the race on a
+  // cold CDN edge (seen once on the live URL first hit).
+  await waitFor(async () => await evaluate(`document.querySelectorAll('.mission-row, .error-screen').length > 0`), 20000, 'ledger or error screen');
+  const isError = await evaluate(`!!document.querySelector('.error-screen')`);
+  if (isError) throw new Error('app degraded to the content-error screen: ' + await evaluate(`document.querySelector('.error-screen p')?.textContent`));
+  await sleep(600); // fonts settle
 
   const title = await evaluate('document.title');
   console.log(`▶ ${url} — "${title}" @ ${width}x${height}`);
