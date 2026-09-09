@@ -1,0 +1,260 @@
+{
+  "biomes": [
+    {
+      "id": "meadow",
+      "name": "Willow Meadow",
+      "tagline": "A quiet grassland watched by fox and hawk",
+      "habitatNote": "Deep grass on clay soil, hedgerows at the edge, one old oak.",
+      "rules": [
+        "Grass is the only food that makes itself: it grows back toward what the soil can carry.",
+        "Every consumer eats, then births follow food — well-fed animals multiply, hungry ones starve.",
+        "Nothing here hunts foxes or hawks: their numbers are set by food alone."
+      ],
+      "species": [
+        {
+          "id": "grass",
+          "label": "Grass",
+          "singular": "grass",
+          "trophic": "plant",
+          "zone": "ground",
+          "initialPopulation": 60,
+          "limits": [
+            0,
+            220
+          ],
+          "colorToken": "leaf",
+          "art": "grass",
+          "growth": {
+            "rate": 0.3,
+            "capacity": 140
+          },
+          "notes": [
+            "Grows logistically: the closer to capacity, the slower it grows.",
+            "Above capacity (after drought or a grazing spike) it dies back."
+          ]
+        },
+        {
+          "id": "rabbit",
+          "label": "Rabbits",
+          "singular": "rabbit",
+          "trophic": "herbivore",
+          "zone": "ground",
+          "initialPopulation": 26,
+          "limits": [
+            0,
+            150
+          ],
+          "colorToken": "ochre",
+          "art": "rabbit",
+          "diet": {
+            "prey": {
+              "grass": {
+                "rate": 0.0034
+              }
+            }
+          },
+          "metabolism": {
+            "birthMax": 0.3,
+            "foodNeed": 0.18,
+            "starveRate": 0.26,
+            "baseDeath": 0.06
+          },
+          "notes": [
+            "Each rabbit harvests a small share of the standing grass every season.",
+            "Rabbit births scale with how well the herd was fed; scarce grass means starvation."
+          ]
+        },
+        {
+          "id": "fox",
+          "label": "Foxes",
+          "singular": "fox",
+          "trophic": "predator",
+          "zone": "ground",
+          "initialPopulation": 7,
+          "limits": [
+            0,
+            40
+          ],
+          "colorToken": "clay",
+          "art": "fox",
+          "diet": {
+            "prey": {
+              "rabbit": {
+                "rate": 0.012
+              }
+            }
+          },
+          "metabolism": {
+            "birthMax": 0.22,
+            "foodNeed": 0.34,
+            "starveRate": 0.36,
+            "baseDeath": 0.05
+          },
+          "notes": [
+            "Foxes eat rabbits; a fox family needs a dense rabbit population to stay fed.",
+            "When rabbits crash, foxes starve the next season — watch the lag."
+          ]
+        },
+        {
+          "id": "hawk",
+          "label": "Hawks",
+          "singular": "hawk",
+          "trophic": "top",
+          "zone": "air",
+          "initialPopulation": 2,
+          "limits": [
+            0,
+            20
+          ],
+          "colorToken": "sky",
+          "art": "hawk",
+          "diet": {
+            "prey": {
+              "rabbit": {
+                "rate": 0.011
+              }
+            }
+          },
+          "metabolism": {
+            "birthMax": 0.14,
+            "foodNeed": 0.32,
+            "starveRate": 0.34,
+            "baseDeath": 0.04
+          },
+          "notes": [
+            "Hawks hunt the same rabbits as foxes — two hunters share one meal.",
+            "Wide wings need open sky: hawks only multiply when rabbits are plentiful."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wetland",
+      "name": "Heron Wetland",
+      "tagline": "A slow marsh where everything begins with reeds",
+      "habitatNote": "Shallow water, reed islands, warmer air than the meadow.",
+      "rules": [
+        "Reeds are the engine: every other species traces back to them in one or two steps.",
+        "Frogs sit in the middle — eaten by herons, fed by hoppers.",
+        "A long food chain amplifies mistakes: small changes at the bottom arrive big at the top."
+      ],
+      "species": [
+        {
+          "id": "reeds",
+          "label": "Reeds",
+          "singular": "reeds",
+          "trophic": "plant",
+          "zone": "water",
+          "initialPopulation": 70,
+          "limits": [
+            0,
+            200
+          ],
+          "colorToken": "leaf",
+          "art": "reeds",
+          "growth": {
+            "rate": 0.28,
+            "capacity": 130
+          },
+          "notes": [
+            "Grows back toward the marsh's carrying capacity each season.",
+            "Reed beds shrink for good when habitat is drained — capacity, not just stems, is lost."
+          ]
+        },
+        {
+          "id": "hopper",
+          "label": "Hoppers",
+          "singular": "hopper",
+          "trophic": "herbivore",
+          "zone": "shore",
+          "initialPopulation": 34,
+          "limits": [
+            0,
+            150
+          ],
+          "colorToken": "ochre",
+          "art": "hopper",
+          "diet": {
+            "prey": {
+              "reeds": {
+                "rate": 0.003
+              }
+            }
+          },
+          "metabolism": {
+            "birthMax": 0.32,
+            "foodNeed": 0.26,
+            "starveRate": 0.34,
+            "baseDeath": 0.1
+          },
+          "notes": [
+            "Hoppers (marsh grasshoppers) graze reeds and multiply fast when fed.",
+            "They are the bridge species: almost everything above them depends on their numbers."
+          ]
+        },
+        {
+          "id": "frog",
+          "label": "Frogs",
+          "singular": "frog",
+          "trophic": "predator",
+          "zone": "shore",
+          "initialPopulation": 14,
+          "limits": [
+            0,
+            80
+          ],
+          "colorToken": "clay",
+          "art": "frog",
+          "diet": {
+            "prey": {
+              "hopper": {
+                "rate": 0.01
+              }
+            }
+          },
+          "metabolism": {
+            "birthMax": 0.18,
+            "foodNeed": 0.4,
+            "starveRate": 0.36,
+            "baseDeath": 0.06
+          },
+          "notes": [
+            "Frogs eat hoppers; a frog needs a thick cloud of hoppers to breed.",
+            "Frogs respond one season after hoppers move — count the lag in the chart."
+          ]
+        },
+        {
+          "id": "heron",
+          "label": "Herons",
+          "singular": "heron",
+          "trophic": "top",
+          "zone": "water",
+          "initialPopulation": 3,
+          "limits": [
+            0,
+            15
+          ],
+          "colorToken": "sky",
+          "art": "heron",
+          "diet": {
+            "prey": {
+              "frog": {
+                "rate": 0.013
+              }
+            }
+          },
+          "metabolism": {
+            "birthMax": 0.16,
+            "foodNeed": 0.3,
+            "starveRate": 0.34,
+            "baseDeath": 0.05
+          },
+          "notes": [
+            "Herons spear frogs in the shallows; they need the deepest frog population of any hunter.",
+            "Lose the frogs and the herons stand empty-beaked — then leave."
+          ]
+        }
+      ]
+    }
+  ]
+}

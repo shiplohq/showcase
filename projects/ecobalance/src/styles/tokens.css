@@ -1,0 +1,68 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * EcoBalance design tokens — natural-history field study.
+ * Locked in design/DESIGN_DECISIONS.md §4–§6, §4b.
+ */
+
+:root {
+  /* Neutrals — paper & ink */
+  --paper: #f2eedd;
+  --paper-raised: #faf7ea;
+  --paper-deep: #e7e2cc;
+  --grid: #d3ccae;
+  --ink: #24301f;
+  --ink-soft: #57604b;
+  --line: #c6bfa2;
+
+  /* Landscape bands */
+  --forest: #24462f;
+  --forest-deep: #183221;
+  --leaf: #4d7a54;
+  --leaf-deep: #3a5f42;
+  --sage: #8fa982;
+  --sky: #aeccd1;
+  --sky-deep: #5f8894;
+  --clay: #c08156;
+  --clay-deep: #9c5238;
+  --sun: #e0b44c;
+
+  /* Species accents (chart + chips; never color-only — icon/label always) */
+  --sp-leaf: var(--leaf);
+  --sp-ochre: #8f6b1f;
+  --sp-clay: var(--clay-deep);
+  --sp-sky: var(--sky-deep);
+
+  /* Semantics */
+  --focus: var(--ink);
+  --ok-tint: #e4ecdd;
+  --miss-tint: #f0e2d6;
+
+  /* Typography */
+  --font-display: 'IBM Plex Serif', Georgia, 'Times New Roman', serif;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Cascadia Mono', Consolas, monospace;
+
+  /* Space (base 4) */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s8: 32px;
+  --s10: 40px;
+  --s12: 48px;
+  --s16: 64px;
+
+  /* Shape — restrained, plate-like */
+  --radius: 6px;
+  --radius-lg: 10px;
+
+  /* Ink-only borders (no drop shadows — linocut flat) */
+  --border: 2px solid var(--ink);
+  --border-thin: 1.5px solid var(--line);
+
+  /* Motion */
+  --ease: cubic-bezier(0.33, 1, 0.68, 1);
+}

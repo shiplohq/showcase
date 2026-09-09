@@ -1,0 +1,40 @@
+{
+  "id": "ecobalance",
+  "title": "EcoBalance",
+  "summary": "A small ecosystem diorama; raise and lower populations and watch transparent rules play out.",
+  "category": "education-science",
+  "number": 13,
+  "audience": "10-14",
+  "mobileSupport": "supported",
+  "mobileSupportNote": "Full learning loop verified live at 390x844: the field desk stacks vertically and scrolls as one page (diorama ~44vh, then all four species rows, controls and assignments), every control stays at or above 44px and the slider/step/challenge flow completed end-to-end in the live driver run. Declared supported rather than flawless because the diorama shares the viewport with the ledger by scrolling, unlike the always-visible tablet layout.",
+  "screenshots": {
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://ecobalance.shiplo.site",
+      "capturedAt": "2026-09-09T15:34:00Z",
+      "alt": "Art-directed moment in the Willow Meadow field study at season 1: linocut diorama on the left (sky with sun and two hawks, sage ridge with foxes, clay ground with rabbits and grass tufts) with four readable specimen tags — 'Hawks 2', 'Foxes 8 · 4 shown', 'Rabbits 29 · 10 shown', 'Grass 58 · 6 shown' — and the food-web overlay on: three dashed ink arrows labelled 'rabbit eats grass', 'fox eats rabbit', 'hawk eats rabbit', under a Drought banner reading 'Drought — the soil can carry only half as much grass'; the graph-paper field notebook on the right shows ledger rows Grass 58 falling, Rabbits 29 rising, Foxes 8 rising, Hawks 2 steady, the assignment card 'The Dry Summer' with four target chips (Grass 40-120 now 58, Rabbits 14-42 now 29, Foxes 4-13 now 8, Hawks 1-6 now 2) and the streak line '1 of 4 steady seasons · season 1 of 18'"
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://ecobalance.shiplo.site",
+      "capturedAt": "2026-09-09T15:34:00Z",
+      "alt": "Honest desktop landing: the field-guide cover with the EcoBalance title in IBM Plex Serif above the line 'Shiplo Field Studies · No. 13', a lede paragraph, and two unequal biome plates side by side — the larger Willow Meadow and the smaller Heron Wetland — each with a linocut diorama preview, species strip with counts (Grass 60, Rabbits 26, Foxes 7, Hawks 2 / Reeds 70, Hoppers 34, Frogs 14, Herons 3), habitat note, a dark-green 'Open' button and '2 field assignments' in its footer; a single bar below both plates carries 'Model notes', 'Reset saved data' and the note that progress is saved anonymously on this device"
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://ecobalance.shiplo.site",
+      "capturedAt": "2026-09-09T15:34:00Z",
+      "alt": "Hero tablet view of the Willow Meadow field desk at season 2, everything on one screen with no scrolling: diorama plate on the left with readable specimen tags and silhouettes, notebook ledger on the right reading Grass 66 rising (+11 grew, -9 eaten by rabbit), Rabbits 37 rising (-5 eaten by fox, -1 eaten by hawk and more), Foxes 12 rising (-1 you removed, +3 born), Hawks 4 rising (+1 born), with the field-notes caption 'Season 2 — rabbits rose 34 → 37', Step/Play/Reset/speed controls and the two field-assignment cards below"
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://ecobalance.shiplo.site",
+      "capturedAt": "2026-09-09T15:34:00Z",
+      "alt": "Honest mobile view at 390px of the Willow Meadow field desk at season 0: header row with back button and 'Willow Meadow / Season 0', the Food web / Model notes / Field chart tabs, and the diorama filling the top of the screen with four readable specimen tags ('Grass 60 · 6 shown', 'Rabbits 26 · 9 shown', 'Foxes 7 · 4 shown', 'Hawks 2'); the stacked ledger begins below — the Grass row with its sow/mow slider and the Rabbits row are both in view, the top of the Foxes row just entering at the bottom edge, and the remaining rows continue below the fold (see mobile-support note)"
+    }
+  }
+}

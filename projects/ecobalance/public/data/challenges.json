@@ -1,0 +1,192 @@
+{
+  "challenges": [
+    {
+      "id": "dry-summer",
+      "biomeId": "meadow",
+      "title": "The Dry Summer",
+      "brief": "No rain since spring. The soil can carry far less grass this season — keep every species alive through the drought.",
+      "seed": 101,
+      "events": [
+        {
+          "turn": 1,
+          "type": "capacityFactor",
+          "speciesId": "grass",
+          "value": 0.55,
+          "duration": 5,
+          "label": "Drought",
+          "message": "Drought — the soil can carry only half as much grass."
+        },
+        {
+          "turn": 7,
+          "type": "capacityFactor",
+          "speciesId": "grass",
+          "value": 0.8,
+          "duration": 3,
+          "label": "Late heat",
+          "message": "Late heat — the dry spell returns, softer this time."
+        }
+      ],
+      "targetRanges": {
+        "grass": [
+          40,
+          120
+        ],
+        "rabbit": [
+          14,
+          42
+        ],
+        "fox": [
+          4,
+          13
+        ],
+        "hawk": [
+          1,
+          6
+        ]
+      },
+      "holdTurns": 4,
+      "maxTurns": 18,
+      "tip": "Fewer rabbits eat less grass. A gentle hand now saves the foxes later."
+    },
+    {
+      "id": "empty-sky",
+      "biomeId": "meadow",
+      "title": "Empty Sky",
+      "brief": "The old nesting pines were cut, and the hawks left. You are the top predator now — the rabbits do not know that.",
+      "seed": 102,
+      "events": [
+        {
+          "turn": 1,
+          "type": "populationSet",
+          "speciesId": "hawk",
+          "value": 0,
+          "label": "Hawks leave",
+          "message": "The nesting pines are gone — the hawks have left the meadow."
+        },
+        {
+          "turn": 9,
+          "type": "populationAdd",
+          "speciesId": "hawk",
+          "value": 2,
+          "label": "Hawks return",
+          "message": "New nest boxes went up — two young hawks return."
+        }
+      ],
+      "targetRanges": {
+        "grass": [
+          40,
+          120
+        ],
+        "rabbit": [
+          14,
+          42
+        ],
+        "fox": [
+          4,
+          13
+        ],
+        "hawk": [
+          0,
+          6
+        ]
+      },
+      "holdTurns": 4,
+      "maxTurns": 18,
+      "tip": "Without hawks the rabbits grow fast — thin them before the grass pays for it."
+    },
+    {
+      "id": "shrinking-reeds",
+      "biomeId": "wetland",
+      "title": "Shrinking Reeds",
+      "brief": "A drain was cut upstream and the reed bed lost ground. The whole marsh narrows from the bottom up.",
+      "seed": 201,
+      "events": [
+        {
+          "turn": 1,
+          "type": "populationSet",
+          "speciesId": "reeds",
+          "value": 38,
+          "label": "The drain is cut",
+          "message": "The drain was cut overnight — half the reed bed is gone."
+        },
+        {
+          "turn": 1,
+          "type": "capacityFactor",
+          "speciesId": "reeds",
+          "value": 0.45,
+          "duration": 6,
+          "label": "Habitat loss",
+          "message": "The marsh can carry less than half its reeds until the drain is closed."
+        }
+      ],
+      "targetRanges": {
+        "reeds": [
+          60,
+          100
+        ],
+        "hopper": [
+          20,
+          40
+        ],
+        "frog": [
+          10,
+          18
+        ],
+        "heron": [
+          2,
+          5
+        ]
+      },
+      "holdTurns": 4,
+      "maxTurns": 18,
+      "tip": "Half the reed bed is gone. Replant reeds, and trim the crowd to what the smaller marsh can feed."
+    },
+    {
+      "id": "bumper-season",
+      "biomeId": "wetland",
+      "title": "Bumper Season",
+      "brief": "Warm rains made the reeds explode — and the extra food is climbing the food chain toward the herons. Keep the boom inside the banks.",
+      "seed": 202,
+      "events": [
+        {
+          "turn": 1,
+          "type": "growthFactor",
+          "speciesId": "reeds",
+          "value": 1.6,
+          "duration": 4,
+          "label": "Warm rains",
+          "message": "Warm rains — the reeds are growing half again as fast."
+        },
+        {
+          "turn": 6,
+          "type": "populationAdd",
+          "speciesId": "heron",
+          "value": 2,
+          "label": "Herons arrive",
+          "message": "Two travelling herons settle on the reed islands."
+        }
+      ],
+      "targetRanges": {
+        "reeds": [
+          35,
+          130
+        ],
+        "hopper": [
+          8,
+          38
+        ],
+        "frog": [
+          4,
+          18
+        ],
+        "heron": [
+          1,
+          6
+        ]
+      },
+      "holdTurns": 4,
+      "maxTurns": 16,
+      "tip": "Booms overshoot. Thin the hoppers while the reeds surge — the top of the chain follows with a lag."
+    }
+  ]
+}

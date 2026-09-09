@@ -1,0 +1,24 @@
+{
+  "name": "ecobalance",
+  "private": true,
+  "version": "1.0.0",
+  "description": "EcoBalance — Shiplo Showcase #13: a natural-history diorama where learners 10-14 raise and lower populations and watch transparent ecosystem rules play out.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test:engine": "node --experimental-strip-types scripts/engine-sim.mjs"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.2.5",
+    "@fontsource/ibm-plex-sans": "^5.2.5",
+    "@fontsource/ibm-plex-serif": "^5.2.5",
+    "gsap": "^3.15.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "vite": "^7.3.6"
+  }
+}

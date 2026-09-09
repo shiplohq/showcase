@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "ecobalance",
+  "site_id": "da54b429-7bb2-4cd0-87a2-cac3f6f63b13",
+  "subdomain": "ecobalance",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}
