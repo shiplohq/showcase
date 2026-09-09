@@ -1,0 +1,12 @@
+{
+  "project": "roboroute",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://roboroute.shiplo.site",
+  "sourceCommitSha": "5088c81f96a9bc1f259ed2347265b695aee14ce5",
+  "buildCommand": "npm run build",
+  "artifactSha256": "8f738ed292ff1b93c6f569b16e9e6093a54dade53dab6b10704c114f9402e736",
+  "deployedAt": "2026-09-09T15:36:09.532Z",
+  "verifiedAt": "2026-09-09T15:40:41Z",
+  "notes": "Release 1. deployment_id d4980ccb-2719-498f-a95d-1479aa7bf650, release_id 317bbbae-6a1f-45c5-8dc9-75ac7428117b, site_id 8eb12edc-c71a-4c06-a44d-2bd9f8be6e55 (31 files, 647903 logical bytes). artifactSha256 = deterministic tar hash (normalized mtime/owner/sort). Live verification: full CDP flow passed at 1440x900, 1024x768 and 390x844 with zero console errors (first 1440 attempt hit the cold edge pre-TLS and was retried clean); font gate 4/4 on live (Space Grotesk 500/700, IBM Plex Mono 500/600 — latin+digits and vietnamese OK for every weight the UI renders); four screenshots captured from the live URL."
+}

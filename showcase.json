@@ -398,7 +398,7 @@
       "summary": "A paper robot on a grid museum: lay down command tiles — forward, turn, repeat — then step through and debug.",
       "category": "education-computing",
       "audience": "7-12",
-      "status": "building",
+      "status": "live",
       "stack": [
         "react",
         "vite",
@@ -409,14 +409,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://roboroute.shiplo.site",
+        "deployedAt": "2026-09-09T15:36:09.532Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/roboroute/showcase/cover.webp",
+        "desktop": "projects/roboroute/showcase/desktop.webp",
+        "tablet": "projects/roboroute/showcase/tablet.webp",
+        "mobile": "projects/roboroute/showcase/mobile.webp"
       }
     },
     {
