@@ -1,0 +1,24 @@
+{
+  "elements": [
+    { "symbol": "H", "atomicNumber": 1, "name": "Hydrogen", "commonIsotopes": [1], "shellModel": [1], "note": "The lightest atom of all — most hydrogen nuclei are a single proton." },
+    { "symbol": "He", "atomicNumber": 2, "name": "Helium", "commonIsotopes": [4], "shellModel": [2], "note": "Shell 1 is completely full — that is why helium refuses to react." },
+    { "symbol": "Li", "atomicNumber": 3, "name": "Lithium", "commonIsotopes": [7], "shellModel": [2, 1], "note": "One lonely electron in shell 2 — lithium hands it away easily." },
+    { "symbol": "Be", "atomicNumber": 4, "name": "Beryllium", "commonIsotopes": [9], "shellModel": [2, 2], "note": "Two protons, two neutrons, two shell-2 electrons — tidy pairs." },
+    { "symbol": "B", "atomicNumber": 5, "name": "Boron", "commonIsotopes": [11], "shellModel": [2, 3], "note": "Three electrons in shell 2 make boron a builder of odd structures." },
+    { "symbol": "C", "atomicNumber": 6, "name": "Carbon", "commonIsotopes": [12], "shellModel": [2, 4], "note": "Four bindable electrons — the backbone of every living thing." },
+    { "symbol": "N", "atomicNumber": 7, "name": "Nitrogen", "commonIsotopes": [14], "shellModel": [2, 5], "note": "78% of the air you are breathing is nitrogen atoms." },
+    { "symbol": "O", "atomicNumber": 8, "name": "Oxygen", "commonIsotopes": [16], "shellModel": [2, 6], "note": "Two electrons short of a full shell — oxygen grabs electrons." },
+    { "symbol": "F", "atomicNumber": 9, "name": "Fluorine", "commonIsotopes": [19], "shellModel": [2, 7], "note": "One electron short of full — the most reactive non-metal." },
+    { "symbol": "Ne", "atomicNumber": 10, "name": "Neon", "commonIsotopes": [20], "shellModel": [2, 8], "note": "A sealed shell 2 — neon glows alone and reacts with no one." },
+    { "symbol": "Na", "atomicNumber": 11, "name": "Sodium", "commonIsotopes": [23], "shellModel": [2, 8, 1], "note": "That single shell-3 electron is why sodium is desperate to react." },
+    { "symbol": "Mg", "atomicNumber": 12, "name": "Magnesium", "commonIsotopes": [24], "shellModel": [2, 8, 2], "note": "Two outer electrons — the green heart of every chlorophyll leaf." },
+    { "symbol": "Al", "atomicNumber": 13, "name": "Aluminium", "commonIsotopes": [27], "shellModel": [2, 8, 3], "note": "Light, shiny and third in shell 3 — foil and aeroplanes." },
+    { "symbol": "Si", "atomicNumber": 14, "name": "Silicon", "commonIsotopes": [28], "shellModel": [2, 8, 4], "note": "Half a shell to share — the skeleton of sand, glass and chips." },
+    { "symbol": "P", "atomicNumber": 15, "name": "Phosphorus", "commonIsotopes": [31], "shellModel": [2, 8, 5], "note": "Carries energy in every cell — strike-anywhere chemistry." },
+    { "symbol": "S", "atomicNumber": 16, "name": "Sulfur", "commonIsotopes": [32], "shellModel": [2, 8, 6], "note": "Yellow crystals of eight atoms — the smell of volcanoes." },
+    { "symbol": "Cl", "atomicNumber": 17, "name": "Chlorine", "commonIsotopes": [35, 37], "shellModel": [2, 8, 7], "note": "One electron short of full — a fierce electron thief." },
+    { "symbol": "Ar", "atomicNumber": 18, "name": "Argon", "commonIsotopes": [40], "shellModel": [2, 8, 8], "note": "Shell 3 full under the simple rule — a calm, lazy gas." },
+    { "symbol": "K", "atomicNumber": 19, "name": "Potassium", "commonIsotopes": [39], "shellModel": [2, 8, 8, 1], "note": "One electron far from home — bananas and nerve signals." },
+    { "symbol": "Ca", "atomicNumber": 20, "name": "Calcium", "commonIsotopes": [40], "shellModel": [2, 8, 8, 2], "note": "Two shell-4 electrons — bones, shells and limestone." }
+  ]
+}

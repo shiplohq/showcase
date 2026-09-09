@@ -1,0 +1,72 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Motion layer — CSS-side micro motion only (placement pop, ring pulse,
+ * reveal rise). Spatial/delight tweens go through the GSAP wrapper
+ * (src/lib/gsap.ts) which collapses to final states under reduced motion.
+ * Everything here ALSO collapses under prefers-reduced-motion.
+ */
+
+@keyframes af-pop-in {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.af-pop {
+  animation: af-pop-in 160ms var(--ease-out) both;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes af-ring-pulse {
+  0% {
+    stroke-opacity: 0.55;
+  }
+  40% {
+    stroke-opacity: 1;
+  }
+  100% {
+    stroke-opacity: 0.55;
+  }
+}
+
+.af-ring-pulse {
+  animation: af-ring-pulse 450ms var(--ease-out) 1;
+}
+
+@keyframes af-rise-in {
+  from {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.af-rise {
+  animation: af-rise-in 240ms var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .af-pop,
+  .af-ring-pulse,
+  .af-rise {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

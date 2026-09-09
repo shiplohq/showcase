@@ -1,0 +1,112 @@
+{
+  "missions": [
+    {
+      "id": "m01-first-spark",
+      "title": "First Spark",
+      "focus": "build",
+      "brief": "Every element is defined by one number: its count of protons. Forge the simplest atom in the universe — one proton, one electron, no neutrons.",
+      "targetElement": "H",
+      "neutronCount": 0,
+      "charge": 0
+    },
+    {
+      "id": "m02-full-first-shell",
+      "title": "Seal the First Shell",
+      "focus": "shells",
+      "brief": "Shell 1 is tiny — it holds exactly 2 electrons. Give helium its full first shell and a nucleus of 2 protons + 2 neutrons.",
+      "targetElement": "He",
+      "neutronCount": 2,
+      "charge": 0
+    },
+    {
+      "id": "m03-third-proton",
+      "title": "The Third Proton",
+      "focus": "build",
+      "brief": "Change the proton count and you change the element itself. Three protons make lithium — the extra electron starts a brand-new shell.",
+      "targetElement": "Li",
+      "neutronCount": 4,
+      "charge": 0
+    },
+    {
+      "id": "m04-carbon-core",
+      "title": "Carbon Core",
+      "focus": "build",
+      "brief": "Six protons make carbon — the atom every living thing is built from. Forge carbon-12: 6 protons, 6 neutrons, 6 electrons.",
+      "targetElement": "C",
+      "neutronCount": 6,
+      "charge": 0
+    },
+    {
+      "id": "m05-oxygen-eight",
+      "title": "Oxygen, Two Short",
+      "focus": "shells",
+      "brief": "Oxygen has 8 electrons but shell 2 holds 8 — count them: 2 in shell 1, 6 in shell 2. Two empty seats explain why oxygen pulls electrons from other atoms.",
+      "targetElement": "O",
+      "neutronCount": 8,
+      "charge": 0
+    },
+    {
+      "id": "m06-neon-sealed",
+      "title": "Neon, Sealed",
+      "focus": "shells",
+      "brief": "Fill shell 2 all the way to 8 and the atom is sealed — no seats left, no reason to react. Forge neon-20.",
+      "targetElement": "Ne",
+      "neutronCount": 10,
+      "charge": 0
+    },
+    {
+      "id": "m07-sodium-lonely",
+      "title": "Sodium's Lonely Electron",
+      "focus": "shells",
+      "brief": "Eleven electrons: 2 + 8 fill two shells, and number 11 starts shell 3 alone. Forge sodium-23.",
+      "targetElement": "Na",
+      "neutronCount": 12,
+      "charge": 0
+    },
+    {
+      "id": "m08-carbon-14",
+      "title": "Carbon-14, the Timekeeper",
+      "focus": "isotope",
+      "brief": "Same protons, different neutrons — that is an isotope. Keep carbon's 6 protons and 6 electrons, but pack in 8 neutrons. Archaeologists date ancient things with this exact atom.",
+      "targetElement": "C",
+      "neutronCount": 8,
+      "charge": 0
+    },
+    {
+      "id": "m09-sodium-cation",
+      "title": "Sodium's Lost Electron",
+      "focus": "ion",
+      "brief": "Atoms become ions when electrons are gained or lost. Take neutral sodium and remove its lonely shell-3 electron: still sodium (11 protons), but charge +1.",
+      "targetElement": "Na",
+      "neutronCount": 12,
+      "charge": 1
+    },
+    {
+      "id": "m10-chlorine-thief",
+      "title": "Chlorine, the Electron Thief",
+      "focus": "build",
+      "brief": "Chlorine-35 has 17 protons, 18 neutrons and 17 electrons — one seat empty in shell 3. This is why chlorine steals electrons.",
+      "targetElement": "Cl",
+      "neutronCount": 18,
+      "charge": 0
+    },
+    {
+      "id": "m11-chloride-anion",
+      "title": "Chloride, Sealed by Theft",
+      "focus": "ion",
+      "brief": "When chlorine steals one electron it becomes a chloride ion: charge −1 and a sealed outer shell. 17 protons, 18 electrons.",
+      "targetElement": "Cl",
+      "neutronCount": 18,
+      "charge": -1
+    },
+    {
+      "id": "m12-calcium-builder",
+      "title": "Calcium, Bone Builder",
+      "focus": "shells",
+      "brief": "The fourth shell opens with just 2 electrons. Forge calcium-40 — 20 protons, 20 neutrons, shells of 2 · 8 · 8 · 2 — the atom of bones and shells.",
+      "targetElement": "Ca",
+      "neutronCount": 20,
+      "charge": 0
+    }
+  ]
+}

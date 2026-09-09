@@ -1,0 +1,74 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Design tokens — Atom Forge (design/DESIGN_DECISIONS.md §4–§6).
+ * Swiss scientific poster: warm off-white paper, charcoal ink, ultramarine,
+ * safety orange. Flat color, hairline rules, no decorative gradients.
+ */
+
+:root {
+  /* Paper & ink */
+  --paper: #f3f0e8;
+  --paper-dim: #eae6da;
+  --paper-deep: #e2ddcd;
+  --ink: #23262b;
+  --ink-soft: #565b63;
+  --line: #c9c3b4;
+
+  /* Signal colors (spec thesis) */
+  --ultramarine: #2c39c9;
+  --ultramarine-deep: #1f2aa6;
+  --ultramarine-wash: #dfe2f5;
+  --orange: #e8501a;
+  --orange-deep: #b93d10;
+  --orange-wash: #fbe3d6;
+  --neutron: #4a5057;
+
+  /* Semantic */
+  --focus-ring: #23262b;
+
+  /* Typography */
+  --font-sans: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Spline Sans Mono', 'Courier New', monospace;
+
+  /* Spacing (base 4) */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s8: 32px;
+  --s10: 40px;
+  --s12: 48px;
+  --s16: 64px;
+  --s20: 80px;
+  --s24: 96px;
+
+  /* Layout */
+  --gutter: 24px;
+  --max-width: 1360px;
+
+  /* Touch (activity screens ≥48px) */
+  --touch: 48px;
+
+  /* Motion (design budget; reduced-motion handled in motion.css + gsap wrapper) */
+  --t-fast: 160ms;
+  --t-med: 280ms;
+  --t-slow: 450ms;
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  color-scheme: light;
+}
+
+@media (max-width: 479.98px) {
+  :root {
+    --gutter: 16px; /* design §6 mobile gutter — keeps canvas labels ≥13px rendered */
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --gutter: 40px;
+  }
+}
