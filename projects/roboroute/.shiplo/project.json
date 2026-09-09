@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "roboroute",
+  "site_id": "8eb12edc-c71a-4c06-a44d-2bd9f8be6e55",
+  "subdomain": "roboroute",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}
