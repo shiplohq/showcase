@@ -1,7 +1,7 @@
 {
   "$schema": "schemas/showcase-registry.schema.json",
   "version": 1,
-  "updated": "2026-09-01",
+  "updated": "2026-09-09",
   "projects": [
     {
       "id": "number-garden",
@@ -343,7 +343,7 @@
       "summary": "A small ecosystem diorama; raise and lower populations and watch transparent rules play out.",
       "category": "education-science",
       "audience": "10-14",
-      "status": "building",
+      "status": "live",
       "stack": [
         "typescript",
         "vite"
@@ -353,14 +353,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://ecobalance.shiplo.site",
+        "deployedAt": "2026-09-09T15:29:46Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/ecobalance/showcase/cover.webp",
+        "desktop": "projects/ecobalance/showcase/desktop.webp",
+        "tablet": "projects/ecobalance/showcase/tablet.webp",
+        "mobile": "projects/ecobalance/showcase/mobile.webp"
       }
     },
     {

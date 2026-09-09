@@ -26,6 +26,7 @@ no backend, no database, no SSR. Human-readable source is Apache-2.0
 | <img src="projects/story-sequencer/showcase/cover.webp" alt="Story Sequencer cover" width="360"> | **[Story Sequencer](https://story-sequencer.shiplo.site)**<br>A storyboard desk where shuffled 4-8 frame stories are reordered, cause-and-effect linked and titled. | education-language |
 | <img src="projects/solar-system-explorer/showcase/cover.webp" alt="Solar System Explorer cover" width="360"> | **[Solar System Explorer](https://solar-system-explorer.shiplo.site)**<br>A data-driven space atlas with scrollable orbits and switchable size, distance and day/year views. | education-science |
 | <img src="projects/human-body-lab/showcase/cover.webp" alt="Human Body Lab cover" width="360"> | **[Human Body Lab](https://human-body-lab.shiplo.site)**<br>A layer-by-layer vector body model: toggle systems, inspect organs, and route oxygen and food through the body. | education-science |
+| <img src="projects/ecobalance/showcase/cover.webp" alt="EcoBalance cover" width="360"> | **[EcoBalance](https://ecobalance.shiplo.site)**<br>A small ecosystem diorama; raise and lower populations and watch transparent rules play out. | education-science |
 <!-- showcase:gallery:end -->
 
 ## Catalog
@@ -49,7 +50,7 @@ All planned and in-progress showcases. Status lives in
 | 10 | **Story Sequencer** — [live demo](https://story-sequencer.shiplo.site) | education-language | angular · typescript | live |
 | 11 | **Solar System Explorer** — [live demo](https://solar-system-explorer.shiplo.site) | education-science | react · vite · typescript | live |
 | 12 | **Human Body Lab** — [live demo](https://human-body-lab.shiplo.site) | education-science | vue · vite · typescript | live |
-| 13 | **EcoBalance** | education-science | typescript · vite | building |
+| 13 | **EcoBalance** — [live demo](https://ecobalance.shiplo.site) | education-science | typescript · vite | live |
 | 14 | **Atom Forge** | education-science | react · vite · typescript | building |
 | 15 | **RoboRoute** | education-computing | react · vite · typescript | building |
 | 16 | **GeoTrail** | education-geography | vue · vite · typescript | building |
