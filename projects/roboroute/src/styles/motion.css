@@ -1,0 +1,92 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * CSS-side motion: tiny loops (spark bob, caret blink, bump flash).
+ * GSAP handles robot/tile tweens via lib/gsap.ts; everything collapses
+ * under prefers-reduced-motion (spec motion direction).
+ */
+
+@keyframes rr-caret-blink {
+  0%,
+  60% {
+    opacity: 1;
+  }
+  61%,
+  100% {
+    opacity: 0.15;
+  }
+}
+
+@keyframes rr-spark-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.rr-spark {
+  animation: rr-spark-bob 2.4s ease-in-out infinite;
+  transform-origin: 50px 50px;
+}
+
+@keyframes rr-bump-pulse {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.85;
+  }
+}
+
+.rr-bump-cell {
+  animation: rr-bump-pulse 0.15s ease-out both;
+}
+
+@keyframes rr-focus-flash {
+  0% {
+    background: var(--blueprint-wash);
+  }
+  100% {
+    background: transparent;
+  }
+}
+
+.rr-start-mark {
+  opacity: 0.7;
+}
+
+/* ------------------------------------------------------------------ */
+/* Reduced motion — final states appear at once; no loops, no blink.    */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .rr-spark {
+    animation: none !important;
+  }
+
+  .rr-caret {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
+  .rr-btn,
+  .rr-token,
+  .rr-tile,
+  .rr-plaque {
+    transition: none !important;
+  }
+}

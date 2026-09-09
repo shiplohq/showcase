@@ -1,0 +1,26 @@
+{
+  "concepts": [
+    {
+      "id": "sequence",
+      "title": "Sequence",
+      "tagline": "A program is a list of steps, read in order.",
+      "lines": [
+        "The robot does exactly what the tiles say — first tile first, one tile at a time.",
+        "Change one tile and every step after it happens somewhere else. Order matters.",
+        "When you step through a run, watch the lit tile: that is the step the robot is doing right now."
+      ],
+      "diagram": "sequence"
+    },
+    {
+      "id": "loop",
+      "title": "Loop",
+      "tagline": "Repeating steps can fold into one REPEAT token.",
+      "lines": [
+        "A REPEAT token holds a list of tiles inside it and does the whole list, round after round.",
+        "REPEAT x 3 with two Forward tiles inside makes 6 moves — from 2 tiles.",
+        "The round badge (2 of 3) tells you which lap the robot is on. Loops are how short programs do long jobs."
+      ],
+      "diagram": "loop"
+    }
+  ]
+}

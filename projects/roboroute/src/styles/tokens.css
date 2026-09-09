@@ -1,0 +1,44 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Design tokens — locked in design/DESIGN_DECISIONS.md §4–§6.
+ * Friendly industrial blueprint: bone paper, engineering blue, signal orange,
+ * graphite. Flat fills; shadows are hard 2px paper offsets, never blurred.
+ */
+
+:root {
+  /* neutrals — paper & graphite */
+  --paper: #f2eee2;
+  --paper-raised: #fbf8ef;
+  --paper-well: #e7e2d0;
+  --ink: #26251f;
+  --ink-soft: #5c584b;
+  --hairline: #cfc9b4;
+
+  /* blueprint blue */
+  --blueprint: #2c5fa8;
+  --blueprint-deep: #1e4478;
+  --blueprint-wash: #dce5f2;
+  --plan-line: #9db3d6;
+
+  /* signal orange */
+  --orange: #e2620b;
+  --orange-deep: #b14e07;
+  --orange-wash: #f8e3ce;
+
+  /* greens — success (never the only cue) */
+  --moss: #3f7a4e;
+  --moss-wash: #dfeadf;
+
+  /* type */
+  --font-display: 'Space Grotesk', 'Trebuchet MS', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
+
+  /* hard paper offset shadows */
+  --shadow-tile: 2px 2px 0 var(--ink);
+  --shadow-tile-blue: 2px 2px 0 var(--blueprint-deep);
+  --shadow-raised: 3px 3px 0 rgba(38, 37, 31, 0.14);
+
+  /* focus */
+  --focus-ring: 2px solid var(--blueprint-deep);
+}
