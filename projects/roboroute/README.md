@@ -2,7 +2,7 @@
 
 > Shiplo Showcase #15 — A paper robot on a grid museum: lay down command tiles — forward, turn, repeat — then step through and debug.
 
-**Live demo:** _deployed URL will be linked here after verification_
+**Live demo:** https://roboroute.shiplo.site
 **Category:** education-computing · **License:** Apache-2.0 (original work)
 
 RoboRoute teaches sequence, loops and debugging to children 7–12. A paper

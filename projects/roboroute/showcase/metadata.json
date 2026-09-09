@@ -4,13 +4,37 @@
   "summary": "A paper robot on a grid museum: lay down command tiles — forward, turn, repeat — then step through and debug.",
   "category": "education-computing",
   "number": 15,
-  "audience": null,
+  "audience": "children 7-12",
   "mobileSupport": "supported",
-  "mobileSupportNote": null,
+  "mobileSupportNote": "Full loop works at 390x844: room stacks on top, palette + program dock below; editing favors tap + toolbar over drag. Tablet remains the hero target.",
   "screenshots": {
-    "cover": { "path": "showcase/cover.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "desktop": { "path": "showcase/desktop.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "tablet": { "path": "showcase/tablet.webp", "viewport": "1024x768", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "mobile": { "path": "showcase/mobile.webp", "viewport": "390x844", "capturedFrom": null, "capturedAt": null, "alt": null }
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://roboroute.shiplo.site",
+      "capturedAt": "2026-09-09T15:40:41Z",
+      "alt": "Mission 'Spark Circuit' mid-run: the blueprint museum room with exhibits and lightning sparks, a collected spark tallied on the dock ring (1 of 3), and the program strip showing a REPEAT token executing its second of three rounds with the inner turn-left tile lit."
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://roboroute.shiplo.site",
+      "capturedAt": "2026-09-09T15:40:41Z",
+      "alt": "The museum map landing screen at desktop size: a drafting title block reading ROBOROUTE - The Museum of Ways - Sheet 15, and two wing rooms (Sequence Hall missions 01-04, Loop Gallery missions 05-08) hung with mission plaques and spark pips."
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://roboroute.shiplo.site",
+      "capturedAt": "2026-09-09T15:40:41Z",
+      "alt": "The same museum map landing screen at tablet size (1024x768): title block on top, Sequence Hall and Loop Gallery wing rooms side by side with their eight mission plaques."
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://roboroute.shiplo.site",
+      "capturedAt": "2026-09-09T15:40:41Z",
+      "alt": "The museum map on a 390x844 phone: the ROBOROUTE title block with mission and spark tallies, followed by the Sequence Hall wing with its four mission plaques stacked vertically."
+    }
   }
 }
