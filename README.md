@@ -27,6 +27,7 @@ no backend, no database, no SSR. Human-readable source is Apache-2.0
 | <img src="projects/solar-system-explorer/showcase/cover.webp" alt="Solar System Explorer cover" width="360"> | **[Solar System Explorer](https://solar-system-explorer.shiplo.site)**<br>A data-driven space atlas with scrollable orbits and switchable size, distance and day/year views. | education-science |
 | <img src="projects/human-body-lab/showcase/cover.webp" alt="Human Body Lab cover" width="360"> | **[Human Body Lab](https://human-body-lab.shiplo.site)**<br>A layer-by-layer vector body model: toggle systems, inspect organs, and route oxygen and food through the body. | education-science |
 | <img src="projects/ecobalance/showcase/cover.webp" alt="EcoBalance cover" width="360"> | **[EcoBalance](https://ecobalance.shiplo.site)**<br>A small ecosystem diorama; raise and lower populations and watch transparent rules play out. | education-science |
+| <img src="projects/atom-forge/showcase/cover.webp" alt="Atom Forge cover" width="360"> | **[Atom Forge](https://atom-forge.shiplo.site)**<br>Drag protons, neutrons and electrons into nuclei and shells to forge elements mission by mission. | education-science |
 | <img src="projects/roboroute/showcase/cover.webp" alt="RoboRoute cover" width="360"> | **[RoboRoute](https://roboroute.shiplo.site)**<br>A paper robot on a grid museum: lay down command tiles — forward, turn, repeat — then step through and debug. | education-computing |
 <!-- showcase:gallery:end -->
 
@@ -52,7 +53,7 @@ All planned and in-progress showcases. Status lives in
 | 11 | **Solar System Explorer** — [live demo](https://solar-system-explorer.shiplo.site) | education-science | react · vite · typescript | live |
 | 12 | **Human Body Lab** — [live demo](https://human-body-lab.shiplo.site) | education-science | vue · vite · typescript | live |
 | 13 | **EcoBalance** — [live demo](https://ecobalance.shiplo.site) | education-science | typescript · vite | live |
-| 14 | **Atom Forge** | education-science | react · vite · typescript | building |
+| 14 | **Atom Forge** — [live demo](https://atom-forge.shiplo.site) | education-science | react · vite · typescript | live |
 | 15 | **RoboRoute** — [live demo](https://roboroute.shiplo.site) | education-computing | react · vite · typescript | live |
 | 16 | **GeoTrail** | education-geography | vue · vite · typescript | building |
 | 17 | **Rhythm Canvas** | creative-tool | typescript · vite · web-audio-api · gsap | building |

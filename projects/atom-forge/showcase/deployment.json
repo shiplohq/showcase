@@ -1,0 +1,12 @@
+{
+  "project": "atom-forge",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://atom-forge.shiplo.site",
+  "sourceCommitSha": "09ab69899e3404b2e977b3f212d2870d69567515",
+  "buildCommand": "npm run build",
+  "artifactSha256": "7ea518012637fe3c6442f7a2eff093e5b96e8a3786173a01c5cc272aee67ac3c",
+  "deployedAt": "2026-09-09T16:05:58Z",
+  "verifiedAt": "2026-09-09T16:11:04Z",
+  "notes": "Release 1. Site 47b60fa1-69d8-437f-9296-b6dff2099da6, release d9b0d794-3e35-4dd5-b8a3-1c2d42f62fdc, deployment b01531bf-2ae6-4c4c-960b-4b2525440c28 (activated 2026-09-09T16:05:58.096Z, 29 files / 638,056 logical bytes — byte-identical to dist). artifactSha256 = deterministic tar hash (normalized mtime/owner/sort). Verification on live: full CDP flow passed at 1440x900 and 1024x768 (22 asserts each incl. worst-case mission-12-with-teach fit, brief disclosure toggle, canvas labels inside viewBox, trusted-pointer reveal dismissal) and mobile flow at 390x844, zero console errors on every run; keyboard end-to-end (mission 12 Calcium forged by keyboard alone), focus trap + focus return probes all green; font gate 7/7 on live (Archivo 400/600/700/800 + Spline Sans Mono 400/500/600, latin+digits and vietnamese, no fallback); engine-sim 257 checks. One transient first-hit failure (fixed 2600ms sleep lost to cold-edge JSON fetch) did not reproduce and the driver now waits for content instead of sleeping — that fix is dev-only (scripts/, not in dist), so source=deployed holds for the artifact. sourceCommitSha is the feat commit; a later dev-only scripts commit may follow."
+}

@@ -370,7 +370,7 @@
       "summary": "Drag protons, neutrons and electrons into nuclei and shells to forge elements mission by mission.",
       "category": "education-science",
       "audience": "11-15",
-      "status": "building",
+      "status": "live",
       "stack": [
         "react",
         "vite",
@@ -381,14 +381,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://atom-forge.shiplo.site",
+        "deployedAt": "2026-09-09T16:05:58Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/atom-forge/showcase/cover.webp",
+        "desktop": "projects/atom-forge/showcase/desktop.webp",
+        "tablet": "projects/atom-forge/showcase/tablet.webp",
+        "mobile": "projects/atom-forge/showcase/mobile.webp"
       }
     },
     {

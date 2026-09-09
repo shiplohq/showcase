@@ -4,13 +4,37 @@
   "summary": "Drag protons, neutrons and electrons into nuclei and shells to forge elements mission by mission.",
   "category": "education-science",
   "number": 14,
-  "audience": null,
-  "mobileSupport": "supported",
-  "mobileSupportNote": null,
+  "audience": "11-15",
+  "mobileSupport": "limited",
+  "mobileSupportNote": "Stacked vertical-scroll layout works end-to-end at 390x844 (steppers and tap-a-token are the primary paths; pointer drag works but drop targets are compact below 480px).",
   "screenshots": {
-    "cover": { "path": "showcase/cover.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "desktop": { "path": "showcase/desktop.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "tablet": { "path": "showcase/tablet.webp", "viewport": "1024x768", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "mobile": { "path": "showcase/mobile.webp", "viewport": "390x844", "capturedFrom": null, "capturedAt": null, "alt": null }
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://atom-forge.shiplo.site",
+      "capturedAt": "2026-09-09T16:09:04Z",
+      "alt": "Atom Forge mid-mission on the Carbon Core mission: a Swiss scientific-poster workbench with the atom canvas centre-right — six orange protons and six grey neutrons packed in the nucleus, shell 1 sealed at 2/2 electrons and shell 2 holding 3 of 8 ultramarine electrons. The left readout names the element Carbon with counters Z 6, N 6, electrons 5, mass 12, charge +1, and an orange forge note explains the missing sixth electron; the periodic strip at the foot shows H, He and Li stamped ultramarine with the carbon target outlined in orange."
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://atom-forge.shiplo.site",
+      "capturedAt": "2026-09-09T16:09:04Z",
+      "alt": "The Atom Forge mission ledger at 1440x900: a poster-style index of twelve mission rows (First Spark, Seal the First Shell, up to Calcium, Bone Builder) on warm off-white paper with hairline rules, mono isotope notations and FORGED/OPEN/LOCKED status stamps — mission 01 is open, the rest locked; a progress counter reads 0/12 and the periodic mini-strip of the first 20 elements runs along the foot."
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://atom-forge.shiplo.site",
+      "capturedAt": "2026-09-09T16:09:04Z",
+      "alt": "The atom builder at 1024x768, the hero viewport: Mission 01 First Spark is open with one orange proton in the nucleus and no electrons yet — the readout identifies Hydrogen with charge +1 and an orange note asking for one electron. Canvas, live counters, zone steppers (48px) and the three-token particle tray dock all fit the screen without scrolling."
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://atom-forge.shiplo.site",
+      "capturedAt": "2026-09-09T16:09:04Z",
+      "alt": "The same First Spark bench stacked vertically at 390x844: mission brief and target on top, the Hydrogen readout with counters, the atom canvas with its single proton, zone steppers, the horizontal three-token particle tray, and the periodic strip of 20 element tiles below."
+    }
   }
 }

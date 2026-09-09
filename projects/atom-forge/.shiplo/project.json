@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "atom-forge",
+  "site_id": "47b60fa1-69d8-437f-9296-b6dff2099da6",
+  "subdomain": "atom-forge",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}
