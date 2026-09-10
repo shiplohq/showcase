@@ -11,28 +11,28 @@
     "cover": {
       "path": "showcase/cover.webp",
       "viewport": "1440x900",
-      "capturedFrom": "https://habit-bloom.shiplo.site/",
+      "capturedFrom": "https://habit-bloom.shiplo.site",
       "capturedAt": "2026-09-10T00:44:26Z",
       "alt": "Today garden of Habit Bloom on warm fog paper: five habit rows, each habit a procedural SVG stem with alternating leaves beside serif habit names, mono field tags, leaf counts and dark pine check-in buttons."
     },
     "desktop": {
       "path": "showcase/desktop.webp",
       "viewport": "1440x900",
-      "capturedFrom": "https://habit-bloom.shiplo.site/",
+      "capturedFrom": "https://habit-bloom.shiplo.site",
       "capturedAt": "2026-09-10T00:44:26Z",
       "alt": "Habit Bloom on first visit at desktop size: an italic serif wordmark over Today/Insights navigation, with the storage opt-in banner above the first habit specimen rows."
     },
     "tablet": {
       "path": "showcase/tablet.webp",
       "viewport": "1024x768",
-      "capturedFrom": "https://habit-bloom.shiplo.site/",
+      "capturedFrom": "https://habit-bloom.shiplo.site",
       "capturedAt": "2026-09-10T00:44:26Z",
       "alt": "Habit Bloom at 1024x768: the storage banner and the first two specimen rows fill the narrower notebook column; stems, move buttons and check-in buttons keep their size."
     },
     "mobile": {
       "path": "showcase/mobile.webp",
       "viewport": "390x844",
-      "capturedFrom": "https://habit-bloom.shiplo.site/",
+      "capturedFrom": "https://habit-bloom.shiplo.site",
       "capturedAt": "2026-09-10T00:44:26Z",
       "alt": "Habit Bloom on a 390px phone: each habit row stacks the stem with its leaf count and check-in button on top, the habit name and tags below, and drag plus move-up/move-down controls at the bottom."
     }
