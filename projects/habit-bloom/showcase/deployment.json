@@ -1,0 +1,12 @@
+{
+  "project": "habit-bloom",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://habit-bloom.shiplo.site",
+  "sourceCommitSha": "89d6824c615d4fe44a0a81147a0fc150ac9468b3",
+  "buildCommand": "npm run build",
+  "artifactSha256": "453dfebbe42f5a45c96487a3ec77c29c65211c11a0e1915f8c003c88e4b935fd",
+  "deployedAt": "2026-09-10T00:42:46.592Z",
+  "verifiedAt": "2026-09-10T00:44:43Z",
+  "notes": "Release 1. Site 987c1632-186d-4316-aaea-3598e53aefbb, release 0a92f183-919c-463e-a1be-32bb6efa3fe4, deployment 93508c9a-6e1f-4998-8f88-7f5cad18b2ee (activated 2026-09-10T00:42:46.592Z, 40 files / 1,069,334 logical bytes — byte-identical to the local dist rebuild). artifactSha256 = deterministic tar hash (normalized mtime/owner/sort). Live verification: HTTP 200 on / and on data/habits.seed.json, real title rendered, CDP capture on the live URL with zero console errors at 1440x900 / 1024x768 / 390x844; all four screenshots captured from the live URL (cover art-directed with the storage banner answered, desktop shows the first-visit banner state). Per batch directive (2026-09-09) the deep post-deploy test matrix (console sweep, touch/focus asserts, font-check gate, multi-viewport flow) was skipped; the pre-deploy local CDP smoke passed (render, all visible buttons >= 44px, prefers-reduced-motion intact, zero console errors) and verify:static passed on the artifact. sourceCommitSha is the feat commit; provenance files were committed separately."
+}
