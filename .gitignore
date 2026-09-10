@@ -62,3 +62,6 @@ projects/*/.vscode/
 # Local tool sessions (Codex/agents configs — may contain runtime tokens, never commit)
 .agents/
 .codex/
+
+# claude-mem auto-generated session context (regenerates, never commit)
+AGENTS.md
