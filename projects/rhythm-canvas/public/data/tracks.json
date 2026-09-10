@@ -1,0 +1,665 @@
+{
+  "schema": 1,
+  "copy": {
+    "appTitle": "RHYTHM CANVAS",
+    "tagline": "A browser-native rhythm visualizer",
+    "stageHint": "Tap anywhere to accent — T key works too",
+    "playCta": "PLAY",
+    "aboutTitle": "About this instrument",
+    "aboutBody": [
+      "Every sound here is synthesized in your browser with the Web Audio API from a small JSON score — there is no audio file, no microphone and no server. The beat grid you see is the same precomputed beats array that schedules the drums.",
+      "Switch loops, pick a visual mode and tap accents on the beat. Your preferences (volume, motion, last loop) stay in this browser only."
+    ],
+    "aboutClientOnly": "CLIENT-ONLY — 0 network requests after load",
+    "aboutMotion": "Motion can be reduced at any time: the stage becomes a static poster with a progress bar, and nothing animates except short fades.",
+    "shortcutsTitle": "Keyboard",
+    "shortcuts": [
+      {
+        "keys": "Space",
+        "action": "play / pause"
+      },
+      {
+        "keys": "1 2 3",
+        "action": "mode — pulse / orbit / type"
+      },
+      {
+        "keys": "T",
+        "action": "tap accent"
+      },
+      {
+        "keys": "M",
+        "action": "mute"
+      },
+      {
+        "keys": "← →",
+        "action": "seek one beat"
+      },
+      {
+        "keys": "Esc",
+        "action": "close panel"
+      }
+    ],
+    "modes": [
+      {
+        "id": "pulse",
+        "key": "1",
+        "label": "PULSE",
+        "blurb": "Concentric rings breathe on the beat grid."
+      },
+      {
+        "id": "orbit",
+        "key": "2",
+        "label": "ORBIT",
+        "blurb": "Beats travel concentric orbits, one lap per bar."
+      },
+      {
+        "id": "type",
+        "key": "3",
+        "label": "TYPE",
+        "blurb": "Poster typography lands on every downbeat."
+      }
+    ],
+    "autoLabel": "AUTO",
+    "manualLabel": "MANUAL",
+    "motionLabel": "MOTION",
+    "motionOn": "FULL",
+    "motionOff": "REDUCED",
+    "loopLabel": "LOOP",
+    "trackLabel": "Track",
+    "resetLabel": "Reset preferences",
+    "errorTitle": "SIGNAL LOST",
+    "errorBody": "The local score data failed to load or validate. This showcase runs entirely from data/tracks.json — check the file and reload.",
+    "sectionLabel": "SECTION",
+    "barLabel": "BAR",
+    "beatLabel": "BEAT"
+  },
+  "tracks": [
+    {
+      "id": "night-signal",
+      "title": "NIGHT SIGNAL",
+      "subtitle": "midnight groove loop",
+      "bpm": 96,
+      "beatsPerBar": 4,
+      "bars": 8,
+      "beats": [
+        0,
+        0.625,
+        1.25,
+        1.875,
+        2.5,
+        3.125,
+        3.75,
+        4.375,
+        5,
+        5.625,
+        6.25,
+        6.875,
+        7.5,
+        8.125,
+        8.75,
+        9.375,
+        10,
+        10.625,
+        11.25,
+        11.875,
+        12.5,
+        13.125,
+        13.75,
+        14.375,
+        15,
+        15.625,
+        16.25,
+        16.875,
+        17.5,
+        18.125,
+        18.75,
+        19.375
+      ],
+      "duration": 20,
+      "root": 55,
+      "scale": [
+        0,
+        3,
+        5,
+        7,
+        10
+      ],
+      "sections": [
+        {
+          "from": 0,
+          "to": 8,
+          "mode": "pulse",
+          "energy": 0.5,
+          "label": "A — INTRO"
+        },
+        {
+          "from": 8,
+          "to": 16,
+          "mode": "orbit",
+          "energy": 0.7,
+          "label": "B — ORBIT"
+        },
+        {
+          "from": 16,
+          "to": 24,
+          "mode": "type",
+          "energy": 1,
+          "label": "C — PEAK"
+        },
+        {
+          "from": 24,
+          "to": 32,
+          "mode": "pulse",
+          "energy": 0.85,
+          "label": "D — OUTRO"
+        }
+      ],
+      "pattern": {
+        "kick": [
+          {
+            "i": 0,
+            "v": 1
+          },
+          {
+            "i": 10,
+            "v": 0.85
+          }
+        ],
+        "snare": [
+          {
+            "i": 4,
+            "v": 0.9
+          },
+          {
+            "i": 12,
+            "v": 0.9
+          }
+        ],
+        "hat": [
+          {
+            "i": 0,
+            "v": 0.35
+          },
+          {
+            "i": 2,
+            "v": 0.6
+          },
+          {
+            "i": 4,
+            "v": 0.35
+          },
+          {
+            "i": 6,
+            "v": 0.6
+          },
+          {
+            "i": 8,
+            "v": 0.35
+          },
+          {
+            "i": 10,
+            "v": 0.6
+          },
+          {
+            "i": 12,
+            "v": 0.35
+          },
+          {
+            "i": 14,
+            "v": 0.7
+          }
+        ],
+        "bass": [
+          {
+            "i": 0,
+            "n": 0,
+            "v": 0.9
+          },
+          {
+            "i": 3,
+            "n": 0,
+            "v": 0.6
+          },
+          {
+            "i": 7,
+            "n": -2,
+            "v": 0.7
+          },
+          {
+            "i": 8,
+            "n": 0,
+            "v": 0.85
+          },
+          {
+            "i": 11,
+            "n": 3,
+            "v": 0.6
+          },
+          {
+            "i": 14,
+            "n": 5,
+            "v": 0.6
+          }
+        ],
+        "pluck": [
+          {
+            "i": 2,
+            "n": 12,
+            "v": 0.5
+          },
+          {
+            "i": 6,
+            "n": 15,
+            "v": 0.45
+          },
+          {
+            "i": 10,
+            "n": 10,
+            "v": 0.5
+          },
+          {
+            "i": 15,
+            "n": 17,
+            "v": 0.4
+          }
+        ]
+      },
+      "tokens": [
+        "NIGHT",
+        "SIGNAL",
+        "LOOP",
+        "96",
+        "BPM",
+        "CLIENT",
+        "ONLY",
+        "NO",
+        "SERVER"
+      ]
+    },
+    {
+      "id": "acid-corridor",
+      "title": "ACID CORRIDOR",
+      "subtitle": "four-on-the-floor line",
+      "bpm": 120,
+      "beatsPerBar": 4,
+      "bars": 8,
+      "beats": [
+        0,
+        0.5,
+        1,
+        1.5,
+        2,
+        2.5,
+        3,
+        3.5,
+        4,
+        4.5,
+        5,
+        5.5,
+        6,
+        6.5,
+        7,
+        7.5,
+        8,
+        8.5,
+        9,
+        9.5,
+        10,
+        10.5,
+        11,
+        11.5,
+        12,
+        12.5,
+        13,
+        13.5,
+        14,
+        14.5,
+        15,
+        15.5
+      ],
+      "duration": 16,
+      "root": 82.41,
+      "scale": [
+        0,
+        3,
+        5,
+        6,
+        7,
+        10
+      ],
+      "sections": [
+        {
+          "from": 0,
+          "to": 8,
+          "mode": "pulse",
+          "energy": 0.45,
+          "label": "A — SIGNAL"
+        },
+        {
+          "from": 8,
+          "to": 16,
+          "mode": "orbit",
+          "energy": 0.7,
+          "label": "B — CORRIDOR"
+        },
+        {
+          "from": 16,
+          "to": 24,
+          "mode": "type",
+          "energy": 1,
+          "label": "C — ACID"
+        },
+        {
+          "from": 24,
+          "to": 32,
+          "mode": "pulse",
+          "energy": 0.9,
+          "label": "D — EXIT"
+        }
+      ],
+      "pattern": {
+        "kick": [
+          {
+            "i": 0,
+            "v": 1
+          },
+          {
+            "i": 4,
+            "v": 1
+          },
+          {
+            "i": 8,
+            "v": 1
+          },
+          {
+            "i": 12,
+            "v": 1
+          }
+        ],
+        "snare": [
+          {
+            "i": 4,
+            "v": 0.75
+          },
+          {
+            "i": 12,
+            "v": 0.75
+          }
+        ],
+        "hat": [
+          {
+            "i": 2,
+            "v": 0.7
+          },
+          {
+            "i": 6,
+            "v": 0.7
+          },
+          {
+            "i": 10,
+            "v": 0.7
+          },
+          {
+            "i": 14,
+            "v": 0.85
+          }
+        ],
+        "bass": [
+          {
+            "i": 0,
+            "n": 0,
+            "v": 0.8
+          },
+          {
+            "i": 2,
+            "n": 0,
+            "v": 0.55
+          },
+          {
+            "i": 3,
+            "n": 12,
+            "v": 0.5
+          },
+          {
+            "i": 4,
+            "n": 0,
+            "v": 0.7
+          },
+          {
+            "i": 6,
+            "n": 0,
+            "v": 0.55
+          },
+          {
+            "i": 7,
+            "n": 10,
+            "v": 0.5
+          },
+          {
+            "i": 8,
+            "n": 0,
+            "v": 0.75
+          },
+          {
+            "i": 10,
+            "n": 0,
+            "v": 0.55
+          },
+          {
+            "i": 11,
+            "n": 12,
+            "v": 0.5
+          },
+          {
+            "i": 12,
+            "n": 0,
+            "v": 0.7
+          },
+          {
+            "i": 14,
+            "n": 3,
+            "v": 0.55
+          },
+          {
+            "i": 15,
+            "n": 5,
+            "v": 0.5
+          }
+        ],
+        "pluck": [
+          {
+            "i": 6,
+            "n": 19,
+            "v": 0.45
+          },
+          {
+            "i": 14,
+            "n": 15,
+            "v": 0.4
+          }
+        ]
+      },
+      "tokens": [
+        "ACID",
+        "CORRIDOR",
+        "120",
+        "FOUR",
+        "ON",
+        "THE",
+        "FLOOR",
+        "SIGNAL"
+      ]
+    },
+    {
+      "id": "half-time-harbor",
+      "title": "HALF-TIME HARBOR",
+      "subtitle": "slow tide loop",
+      "bpm": 72,
+      "beatsPerBar": 4,
+      "bars": 8,
+      "beats": [
+        0,
+        0.8333,
+        1.6667,
+        2.5,
+        3.3333,
+        4.1667,
+        5,
+        5.8333,
+        6.6667,
+        7.5,
+        8.3333,
+        9.1667,
+        10,
+        10.8333,
+        11.6667,
+        12.5,
+        13.3333,
+        14.1667,
+        15,
+        15.8333,
+        16.6667,
+        17.5,
+        18.3333,
+        19.1667,
+        20,
+        20.8333,
+        21.6667,
+        22.5,
+        23.3333,
+        24.1667,
+        25,
+        25.8333
+      ],
+      "duration": 26.6667,
+      "root": 65.41,
+      "scale": [
+        0,
+        3,
+        7,
+        10,
+        14
+      ],
+      "sections": [
+        {
+          "from": 0,
+          "to": 8,
+          "mode": "type",
+          "energy": 0.4,
+          "label": "A — DOCK"
+        },
+        {
+          "from": 8,
+          "to": 16,
+          "mode": "pulse",
+          "energy": 0.6,
+          "label": "B — TIDE"
+        },
+        {
+          "from": 16,
+          "to": 24,
+          "mode": "orbit",
+          "energy": 0.85,
+          "label": "C — OPEN WATER"
+        },
+        {
+          "from": 24,
+          "to": 32,
+          "mode": "type",
+          "energy": 0.65,
+          "label": "D — RETURN"
+        }
+      ],
+      "pattern": {
+        "kick": [
+          {
+            "i": 0,
+            "v": 1
+          },
+          {
+            "i": 10,
+            "v": 0.8
+          }
+        ],
+        "snare": [
+          {
+            "i": 8,
+            "v": 0.95
+          }
+        ],
+        "hat": [
+          {
+            "i": 0,
+            "v": 0.3
+          },
+          {
+            "i": 4,
+            "v": 0.45
+          },
+          {
+            "i": 8,
+            "v": 0.3
+          },
+          {
+            "i": 12,
+            "v": 0.5
+          }
+        ],
+        "bass": [
+          {
+            "i": 0,
+            "n": 0,
+            "v": 0.95
+          },
+          {
+            "i": 6,
+            "n": 0,
+            "v": 0.5
+          },
+          {
+            "i": 8,
+            "n": -4,
+            "v": 0.85
+          },
+          {
+            "i": 14,
+            "n": -2,
+            "v": 0.5
+          }
+        ],
+        "pluck": [
+          {
+            "i": 2,
+            "n": 12,
+            "v": 0.55
+          },
+          {
+            "i": 5,
+            "n": 15,
+            "v": 0.5
+          },
+          {
+            "i": 9,
+            "n": 19,
+            "v": 0.5
+          },
+          {
+            "i": 13,
+            "n": 12,
+            "v": 0.4
+          }
+        ]
+      },
+      "tokens": [
+        "HALF",
+        "TIME",
+        "HARBOR",
+        "72",
+        "SLOW",
+        "WATER",
+        "STATIC",
+        "CANVAS"
+      ]
+    }
+  ]
+}

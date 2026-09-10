@@ -1,0 +1,90 @@
+/*
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+Motion — Rhythm Canvas (design/DESIGN_DECISIONS §8).
+Micro feedback 120–220 ms via CSS; everything kinetic lives on the canvas and
+GSAP, which both collapse under reduced motion. Reduced motion here means the
+static-poster mode: no continuous canvas loop, no tweens, discrete lamp flips,
+a transition-free progress bar.
+*/
+
+.ctl,
+.mode-btn,
+#play-cta {
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.ctl:hover,
+.mode-btn:hover {
+  border-color: var(--white-30);
+  background: var(--navy-2);
+}
+
+.ctl:active,
+.mode-btn:active {
+  transform: translateY(1px);
+}
+
+.ctl-play:hover {
+  background: var(--white);
+  color: var(--navy);
+  border-color: var(--white);
+}
+
+.ctl-play:hover .cta-play,
+.ctl-play:hover svg {
+  color: var(--red);
+}
+
+#play-cta:hover {
+  background: var(--white);
+  color: var(--navy);
+}
+
+#play-cta:hover .cta-hint {
+  color: var(--navy-2);
+}
+
+#play-cta:hover .cta-play {
+  color: var(--red);
+}
+
+.progress-fill {
+  transition: transform 120ms linear;
+}
+
+#beat-lamp {
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease;
+}
+
+/* Reduced motion — the app-level mode (body[data-motion]) collapses CSS
+   transitions too, so the poster is truly static regardless of how the
+   mode was chosen (OS query or manual toggle). */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+body[data-motion='reduced'] *,
+body[data-motion='reduced'] *::before,
+body[data-motion='reduced'] *::after {
+  transition-duration: 1ms !important;
+  animation-duration: 1ms !important;
+  animation-iteration-count: 1 !important;
+}
+
+body[data-motion='reduced'] .progress-fill {
+  transition: none;
+}

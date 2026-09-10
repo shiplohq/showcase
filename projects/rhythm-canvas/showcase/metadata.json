@@ -1,0 +1,16 @@
+{
+  "id": "rhythm-canvas",
+  "title": "Rhythm Canvas",
+  "summary": "A browser-native rhythm visualizer: load a local audio loop, pick a visual mode and tap accents on the beat.",
+  "category": "creative-tool",
+  "number": 17,
+  "audience": null,
+  "mobileSupport": "supported",
+  "mobileSupportNote": null,
+  "screenshots": {
+    "cover": { "path": "showcase/cover.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
+    "desktop": { "path": "showcase/desktop.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
+    "tablet": { "path": "showcase/tablet.webp", "viewport": "1024x768", "capturedFrom": null, "capturedAt": null, "alt": null },
+    "mobile": { "path": "showcase/mobile.webp", "viewport": "390x844", "capturedFrom": null, "capturedAt": null, "alt": null }
+  }
+}

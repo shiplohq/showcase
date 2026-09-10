@@ -1,0 +1,25 @@
+/*
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+Design tokens — Rhythm Canvas (design/DESIGN_DECISIONS §3–§4).
+Kinetic Swiss poster on black-tinted navy: warm white ink, signal red for the
+machine's beat, acid-lime reserved for human actions and focus.
+*/
+
+:root {
+  --navy: #0a0f1e;
+  --navy-2: #101830;
+  --line: #2a3654;
+  --white: #f4efe4;
+  --white-60: rgba(244, 239, 228, 0.62);
+  --white-30: rgba(244, 239, 228, 0.3);
+  --red: #e8402a;
+  --lime: #c9f53c;
+
+  --font-display: 'Anton', 'Arial Narrow', Impact, sans-serif;
+  --font-body: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'Space Mono', 'Cascadia Mono', Consolas, monospace;
+
+  --stage-pad: clamp(18px, 3vw, 44px);
+  --rail-h: 52px;
+}

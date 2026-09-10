@@ -1,0 +1,48 @@
+<!doctype html>
+<!--
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rhythm Canvas — Shiplo Showcase #17</title>
+    <meta
+      name="description"
+      content="A browser-native rhythm visualizer: synthesized audio loops, three beat-locked visual modes and tap accents — running entirely client-side."
+    />
+    <meta name="theme-color" content="#0A0F1E" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  </head>
+  <body data-motion="full">
+    <a class="skip" href="#stage">Skip to the rhythm stage</a>
+    <div id="app">
+      <header class="rail-top">
+        <div class="brand">RHYTHM<em>CANVAS</em></div>
+        <p class="tagline mono">SHIPLO SHOWCASE #17 — BROWSER-NATIVE RHYTHM VISUALIZER</p>
+        <button id="about-btn" type="button" class="ctl ctl-info mono" aria-haspopup="dialog">INFO</button>
+      </header>
+      <main id="stage" aria-label="Rhythm stage. Tap anywhere to accent the beat; T key accents at the center.">
+        <div class="stage-frame" aria-hidden="true"></div>
+        <canvas id="stage-canvas" aria-hidden="true"></canvas>
+        <div id="type-layer" aria-hidden="true">
+          <div class="type-word"></div>
+          <div class="type-beat mono"></div>
+        </div>
+        <p id="readout" class="mono" aria-live="off"></p>
+        <div id="beat-lamp" aria-hidden="true"></div>
+        <button id="play-cta" type="button" aria-label="Play the loop"></button>
+      </main>
+      <nav id="mode-nav" aria-label="Visual mode"></nav>
+      <footer id="transport" aria-label="Transport controls"></footer>
+    </div>
+    <div id="about-sheet" hidden></div>
+    <div id="sr-status" role="status" class="vh"></div>
+    <div id="error-plaque" hidden></div>
+    <noscript>
+      <div class="noscript">Rhythm Canvas needs JavaScript — every sound and pixel is generated in your browser.</div>
+    </noscript>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
