@@ -1,0 +1,35 @@
+/* Copyright 2026 Shiplo HQ */
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Aurora Lamp — motion styles.
+   Reveal initial states are applied by JS (gsap.from) so content is never
+   hidden when JavaScript is off (spec: "Scroll still readable with JS off").
+   This file only carries CSS-transition decoration + the reduced-motion
+   contract. */
+
+/* Decorative transition budget (feedback tier) */
+.brand__dot { transition: background var(--spatial) var(--ease-out), box-shadow var(--spatial) var(--ease-out); }
+
+/* The glow layers swap color through CSS variables tweened by GSAP.
+   If GSAP is unavailable, mode swaps are instant — still fully usable. */
+
+/* Scroll cue breathing (subtle, decorative only, disabled under RM) */
+@keyframes cue-drift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* ---- Reduced motion: the page must work, not just "calm down" ----
+   Everything GSAP-driven is gated in js/motion.js (no ScrollTrigger, tweens
+   collapse to <=150ms). CSS side kills the remaining transitions/animations
+   and forces any dependent states to their final value. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .cue-arrow, .hero__scrollcue:hover .cue-arrow { transform: none; }
+  .specsheet summary svg { transform: none; }
+  .specsheet[open] summary svg { transform: rotate(180deg); }
+}

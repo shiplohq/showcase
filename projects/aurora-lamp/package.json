@@ -1,0 +1,16 @@
+{
+  "name": "aurora-lamp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shiplo Showcase #18 — a fictional product-launch microsite for the Aurora desk lamp: typographic hero, exploded SVG anatomy, lighting modes. Static, no build step at runtime.",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "verify": "node scripts/build.mjs --verify-only"
+  },
+  "dependencies": {
+    "@fontsource/fraunces": "^5.2.8",
+    "@fontsource/instrument-sans": "^5.2.8",
+    "@fontsource/ibm-plex-mono": "^5.2.8"
+  }
+}

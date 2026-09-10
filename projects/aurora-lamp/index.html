@@ -1,0 +1,399 @@
+<!doctype html>
+<!--
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+Aurora Lamp — Shiplo Showcase #18. No build step at runtime:
+this file plus css/, js/, data/, fonts/ and vendor/ is the whole microsite.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aurora — a desk lamp in three temperatures</title>
+  <meta name="description" content="The launch story of Aurora, a fictional desk lamp: an exploded anatomy in line art, three lighting temperatures from ember to daylight, and materials that age in place.">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%23F7F2E9'/%3E%3Ccircle cx='12' cy='12' r='4.5' fill='%23E89A4A'/%3E%3Cpath d='M12 2v4M12 18v4M2 12h4M18 12h4' stroke='%23241E15' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/motion.css">
+</head>
+<body>
+  <a class="skip-link" href="#story">Skip to the launch story</a>
+
+  <!-- ======================= Part library (shared drawings) ======================= -->
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+    <defs>
+      <!-- 01 · Shade — die-cast shell, opening down; local origin at neck base -->
+      <g id="p-shade">
+        <rect class="pf" x="-7" y="-62" width="14" height="22" rx="4"/>
+        <path class="pf" d="M -16 -42 L -64 22 Q -68 30 -60 34 Q -30 44 0 44 Q 30 44 60 34 Q 68 30 64 22 L 16 -42 Q 0 -50 -16 -42 Z"/>
+        <path class="pline" d="M -8 -34 L -54 24"/>
+        <path class="pline" d="M 8 -34 L 54 24"/>
+      </g>
+      <!-- 02 · Diffuser — opal dome; local origin at rim centre -->
+      <g id="p-diffuser">
+        <ellipse class="pf" cx="0" cy="0" rx="54" ry="11"/>
+        <path class="pf" d="M -54 0 C -50 17 -33 26 0 26 C 33 26 50 17 54 0"/>
+      </g>
+      <!-- 03 · LED module — engine + heat sink fins -->
+      <g id="p-led">
+        <rect class="pf" x="-24" y="-10" width="48" height="30" rx="6"/>
+        <line class="pline" x1="-16" y1="3" x2="16" y2="3"/>
+        <line class="pline" x1="-16" y1="9" x2="16" y2="9"/>
+        <line class="pline" x1="-16" y1="15" x2="16" y2="15"/>
+        <circle class="pdot" cx="-12" cy="-3" r="1.8"/>
+        <circle class="pdot" cx="-6" cy="-3" r="1.8"/>
+        <circle class="pdot" cx="0" cy="-3" r="1.8"/>
+        <circle class="pdot" cx="6" cy="-3" r="1.8"/>
+        <circle class="pdot" cx="12" cy="-3" r="1.8"/>
+      </g>
+      <!-- 04 · Knuckle joint -->
+      <g id="p-joint">
+        <rect class="pf" x="-31" y="-6" width="9" height="13" rx="2"/>
+        <rect class="pf" x="22" y="-6" width="9" height="13" rx="2"/>
+        <circle class="pf" cx="0" cy="0" r="19"/>
+        <circle class="pf pfnested" cx="0" cy="0" r="7.5"/>
+        <line class="pline" x1="0" y1="-19" x2="0" y2="-27"/>
+      </g>
+      <!-- 05 · Stem — origin at bottom face -->
+      <g id="p-stem">
+        <rect class="pf" x="-9" y="-160" width="18" height="160" rx="9"/>
+        <rect class="pf" x="-11" y="-173" width="22" height="17" rx="5"/>
+        <line class="pline" x1="-2.5" y1="-152" x2="-2.5" y2="-16"/>
+      </g>
+      <!-- 06 · Base — weighted disc; origin at top face centre -->
+      <g id="p-base">
+        <path class="pf" d="M -95 -10 L -95 6 A 95 16 0 0 0 95 6 L 95 -10"/>
+        <ellipse class="pf" cx="0" cy="-10" rx="95" ry="16"/>
+        <circle class="pf pfnested" cx="34" cy="-13" r="8"/>
+        <circle class="pdot" cx="34" cy="-13" r="2"/>
+      </g>
+      <!-- Cord — braided linen, origin at base exit -->
+      <g id="p-cord">
+        <path class="pcord" d="M 0 0 C -34 8 -76 6 -118 14"/>
+        <rect class="pf pfnested" x="-133" y="7" width="16" height="17" rx="3"/>
+      </g>
+    </defs>
+  </svg>
+
+  <header class="masthead">
+    <div class="wrap masthead__row">
+      <a class="brand" href="#top">
+        <span class="brand__name">Aurora</span>
+        <span class="brand__dot" aria-hidden="true"></span>
+      </a>
+      <nav class="masthead__nav" aria-label="Sections">
+        <a href="#anatomy"><b>02</b><span class="navlabel">Anatomy</span></a>
+        <a href="#light"><b>03</b><span class="navlabel">Light</span></a>
+        <a href="#materials"><b>04</b><span class="navlabel">Materials</span></a>
+        <a href="#dimensions"><b>05</b><span class="navlabel">Dimensions</span></a>
+        <a href="#specs"><b>06</b><span class="navlabel">Specs</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="story">
+    <!-- ======================= 01 · Hero ======================= -->
+    <section class="hero wrap" id="top" aria-labelledby="heroTitle">
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <p class="hero__eyebrow">Northlight Studio · Oslo — a fictional launch</p>
+          <h1 class="hero__title" id="heroTitle">Aurora<em>.</em></h1>
+          <p class="hero__sub">A desk lamp in three temperatures.</p>
+          <div class="hero__meta note" id="heroMeta" aria-label="Headline specifications"></div>
+          <a class="hero__scrollcue" href="#anatomy">
+            <svg class="cue-arrow" width="14" height="18" viewBox="0 0 14 18" aria-hidden="true" focusable="false"><path d="M7 1v14M2 10l5 6 5-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span id="scrollCue">Scroll — the lamp comes apart</span>
+          </a>
+        </div>
+        <figure class="hero__figure" aria-labelledby="heroFigLabel">
+          <span id="heroFigLabel" class="sr-only">Line drawing of the Aurora lamp assembled: weighted base, brushed stem, knuckle joint and a shade leaning right, glowing amber over a hairline floor.</span>
+          <svg viewBox="0 180 520 480" role="img" aria-hidden="true" focusable="false">
+            <defs>
+              <radialGradient id="heroGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#E89A4A" stop-opacity="0.5"/>
+                <stop offset="55%" stop-color="#E89A4A" stop-opacity="0.16"/>
+                <stop offset="100%" stop-color="#E89A4A" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <line x1="70" y1="612" x2="450" y2="612" stroke="var(--hairline)" stroke-width="1"/>
+            <ellipse cx="310" cy="410" rx="150" ry="102" fill="url(#heroGlow)"/>
+            <ellipse cx="285" cy="612" rx="165" ry="13" fill="url(#heroGlow)" opacity="0.55"/>
+            <g class="lamp">
+              <g class="piece piece--cord"><use href="#p-cord" x="196" y="606"/></g>
+              <g class="piece piece--base"><use href="#p-base" x="260" y="590"/></g>
+              <g class="piece piece--stem"><use href="#p-stem" x="260" y="592"/></g>
+              <g class="lamp-head" transform="translate(260 424) rotate(14)">
+                <g class="piece piece--led"><use href="#p-led" x="0" y="-30"/></g>
+                <g class="piece piece--diffuser"><use href="#p-diffuser" x="0" y="-52"/></g>
+                <g class="piece piece--shade"><use href="#p-shade" x="0" y="-92"/></g>
+              </g>
+              <g class="piece piece--joint"><use href="#p-joint" x="260" y="424"/></g>
+            </g>
+          </svg>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ======================= 02 · Anatomy (exploded) ======================= -->
+    <section class="band anatomy" id="anatomy" aria-labelledby="anatomyTitle">
+      <div class="wrap">
+        <div class="anatomy__head">
+          <div>
+            <p class="kicker"><span class="kicker__no">02</span><span>Anatomy</span></p>
+            <h2 class="display" id="anatomyTitle">Six parts.<br>Nothing hidden.</h2>
+          </div>
+          <p class="lead">Aurora is assembled the honest way: one screw, one joint, one plug. Scroll and the lamp separates along its own axis — or take the controls and do it yourself.</p>
+        </div>
+
+        <div class="anatomy__stage">
+          <div class="anatomy__grid-bg" aria-hidden="true"></div>
+          <svg id="anatomySvg" viewBox="0 0 640 780" role="img" aria-labelledby="anatomyFigLabel">
+            <title id="anatomyFigLabel">Exploded drawing of the Aurora lamp: shade, opal diffuser, LED module, knuckle joint, stem and weighted base separate along a vertical axis with numbered callouts.</title>
+            <!-- axis of separation -->
+            <line x1="320" y1="30" x2="320" y2="744" stroke="var(--hairline)" stroke-width="1" stroke-dasharray="2 7"/>
+            <!-- head column: parts sit exploded in the markup (readable with
+                 JS off); JS assembles them and re-separates on scroll. The
+                 group itself rotates home as the lamp closes. -->
+            <g class="anatomy-head" id="anatomyHead" transform="translate(320 504)">
+              <g class="piece piece--shade apw"     data-part="shade"    transform="translate(0 -408)" data-ey="-408" data-ay="-92"><use href="#p-shade"/></g>
+              <g class="piece piece--diffuser apw"  data-part="diffuser" transform="translate(0 -294)" data-ey="-294" data-ay="-52"><use href="#p-diffuser"/></g>
+              <g class="piece piece--led apw"       data-part="led"      transform="translate(0 -204)" data-ey="-204" data-ay="-30"><use href="#p-led"/></g>
+              <g class="piece piece--joint apw"     data-part="joint"    transform="translate(0 -112)" data-ey="-112" data-ay="0"><use href="#p-joint"/></g>
+            </g>
+            <g class="piece piece--stem apw" data-part="stem" transform="translate(320 640)" data-ey="640" data-ay="672"><use href="#p-stem"/></g>
+            <g class="piece piece--base apw" data-part="base" transform="translate(320 716)" data-ey="716" data-ay="676"><use href="#p-base"/></g>
+
+            <!-- callouts (visible in the exploded state) -->
+            <g class="callouts" id="anatomyCallouts">
+              <g class="callout">
+                <circle cx="386" cy="96" r="2.5"/><line x1="386" y1="96" x2="470" y2="96"/>
+                <text x="478" y="92"><tspan class="callout__no">01 · </tspan>Shade</text>
+                <text class="callout__sub" x="478" y="108">die-cast aluminium</text>
+              </g>
+              <g class="callout">
+                <circle cx="266" cy="210" r="2.5"/><line x1="266" y1="210" x2="168" y2="210"/>
+                <text x="160" y="206" text-anchor="end"><tspan class="callout__no">02 · </tspan>Diffuser</text>
+                <text class="callout__sub" x="160" y="222" text-anchor="end">mouth-blown opal glass</text>
+              </g>
+              <g class="callout">
+                <circle cx="344" cy="300" r="2.5"/><line x1="344" y1="300" x2="470" y2="300"/>
+                <text x="478" y="296"><tspan class="callout__no">03 · </tspan>LED module</text>
+                <text class="callout__sub" x="478" y="312">48 emitters, CRI 95</text>
+              </g>
+              <g class="callout">
+                <circle cx="292" cy="392" r="2.5"/><line x1="292" y1="392" x2="168" y2="392"/>
+                <text x="160" y="388" text-anchor="end"><tspan class="callout__no">04 · </tspan>Knuckle joint</text>
+                <text class="callout__sub" x="160" y="404" text-anchor="end">180° friction</text>
+              </g>
+              <g class="callout">
+                <circle cx="329" cy="553" r="2.5"/><line x1="329" y1="553" x2="470" y2="553"/>
+                <text x="478" y="549"><tspan class="callout__no">05 · </tspan>Stem</text>
+                <text class="callout__sub" x="478" y="565">anodized, brushed grain</text>
+              </g>
+              <g class="callout">
+                <circle cx="225" cy="706" r="2.5"/><line x1="225" y1="706" x2="168" y2="706"/>
+                <text x="160" y="702" text-anchor="end"><tspan class="callout__no">06 · </tspan>Base</text>
+                <text class="callout__sub" x="160" y="718" text-anchor="end">weighted graphite · touch dial</text>
+              </g>
+            </g>
+          </svg>
+
+          <div class="anatomy__controls" role="group" aria-label="Assembly state">
+            <button type="button" class="seg" id="segAssembled" aria-pressed="false">Assembled</button>
+            <button type="button" class="seg" id="segExploded" aria-pressed="true">Exploded</button>
+          </div>
+        </div>
+
+        <ul class="anatomy__partslist" id="partsList" aria-label="Parts of the lamp"></ul>
+      </div>
+    </section>
+
+    <!-- ======================= 03 · Light modes (dusk room) ======================= -->
+    <section class="band modes" id="light" aria-labelledby="modesTitle" data-mode="ember">
+      <div class="modes__room" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="kicker"><span class="kicker__no">03</span><span>Light</span></p>
+        <h2 class="display" id="modesTitle">Choose your hour.</h2>
+        <p class="lead">Three temperatures, one dial. The room below answers the radio buttons — amber for the evening, noon for the work, daylight for the detail.</p>
+
+        <div class="modes__grid">
+          <figure class="modes__figure">
+            <span class="sr-only" id="modesFigLabel">The Aurora lamp lit in a dark room; the glow colour follows the selected temperature.</span>
+            <svg viewBox="0 0 640 520" role="img" aria-hidden="true" focusable="false">
+              <defs>
+                <radialGradient id="roomGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" style="stop-color: var(--glow);" stop-opacity="0.55"/>
+                  <stop offset="55%" style="stop-color: var(--glow);" stop-opacity="0.18"/>
+                  <stop offset="100%" style="stop-color: var(--glow);" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <ellipse cx="335" cy="370" rx="235" ry="170" fill="url(#roomGlow)" opacity="0.9"/>
+              <line x1="60" y1="462" x2="580" y2="462" stroke="var(--dusk-hairline)" stroke-width="1"/>
+              <ellipse cx="330" cy="462" rx="225" ry="21" fill="url(#roomGlow)"/>
+              <g class="modesLamp" transform="translate(97 -15) scale(0.78)">
+                <g class="piece piece--cord"><use href="#p-cord" x="196" y="606"/></g>
+                <g class="piece piece--base"><use href="#p-base" x="260" y="590"/></g>
+                <g class="piece piece--stem"><use href="#p-stem" x="260" y="592"/></g>
+                <g class="lamp-head" transform="translate(260 424) rotate(24)">
+                  <g class="piece piece--led"><use href="#p-led" x="0" y="-30"/></g>
+                  <g class="piece piece--diffuser modes-diffuser"><use href="#p-diffuser" x="0" y="-52"/></g>
+                  <g class="piece piece--shade"><use href="#p-shade" x="0" y="-92"/></g>
+                </g>
+                <g class="piece piece--joint"><use href="#p-joint" x="260" y="424"/></g>
+              </g>
+            </svg>
+          </figure>
+
+          <div class="modes__panel">
+            <p class="modes__readout" id="modeReadout">2700 K<small id="modeOutput">220 lm — Ember</small></p>
+            <p class="modes__desc" id="modeDesc"></p>
+            <div class="modegroup" id="modeGroup" role="radiogroup" aria-label="Lighting mode"></div>
+            <p class="note modes__hint">The mode also lives on the base: one tap cycles, hold drops to ember.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 04 · Materials ======================= -->
+    <section class="band materials" id="materials" aria-labelledby="materialsTitle">
+      <div class="wrap">
+        <p class="kicker"><span class="kicker__no">04</span><span>Materials</span></p>
+        <h2 class="display" id="materialsTitle">Materials that age in place.</h2>
+        <p class="lead">Nothing coated to look like something else. Aluminium dulls honestly, glass stays glass, graphite takes the fingerprints of a decade. Hover, focus or press a swatch to find it on the lamp.</p>
+
+        <div class="materials__grid">
+          <figure class="materials__figure" id="materialsFigure">
+            <svg id="materialsSvg" viewBox="0 180 520 480" role="img" aria-labelledby="materialsFigLabel">
+              <title id="materialsFigLabel">The assembled Aurora lamp; the pieces named by the selected material highlight in amber.</title>
+              <line x1="70" y1="612" x2="450" y2="612" stroke="var(--hairline)" stroke-width="1"/>
+              <g class="lamp">
+                <g class="piece piece--cord mpw" data-part="cord"><use href="#p-cord" x="196" y="606"/></g>
+                <g class="piece piece--base mpw" data-part="base"><use href="#p-base" x="260" y="590"/></g>
+                <g class="piece piece--stem mpw" data-part="stem"><use href="#p-stem" x="260" y="592"/></g>
+                <g class="lamp-head" transform="translate(260 424) rotate(14)">
+                  <g class="piece piece--led mpw" data-part="led"><use href="#p-led" x="0" y="-30"/></g>
+                  <g class="piece piece--diffuser mpw" data-part="diffuser"><use href="#p-diffuser" x="0" y="-52"/></g>
+                  <g class="piece piece--shade mpw" data-part="shade"><use href="#p-shade" x="0" y="-92"/></g>
+                </g>
+                <g class="piece piece--joint mpw" data-part="joint"><use href="#p-joint" x="260" y="424"/></g>
+              </g>
+            </svg>
+            <figcaption id="materialsCaption">Select a material to see where it lives.</figcaption>
+          </figure>
+
+          <ul class="swatches" id="swatchList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= 05 · Dimensions ======================= -->
+    <section class="band dimensions" id="dimensions" aria-labelledby="dimensionsTitle">
+      <div class="wrap">
+        <p class="kicker"><span class="kicker__no">05</span><span>Dimensions</span></p>
+        <h2 class="display" id="dimensionsTitle">Printed to the millimetre.</h2>
+        <p class="lead">Desk-sized on purpose: tall enough to clear a monitor, small enough to live on a shelf between books.</p>
+
+        <div class="dimensions__stage">
+          <svg viewBox="0 0 760 640" role="img" aria-labelledby="dimFigLabel">
+            <title id="dimFigLabel">Dimensioned side elevation of the Aurora lamp: overall height, base diameter, shade diameter and cord length.</title>
+            <defs>
+              <marker id="dimArrowL" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 1 L 9 5 L 0 9 z" fill="var(--muted)"/>
+              </marker>
+            </defs>
+            <!-- floor -->
+            <line x1="120" y1="560" x2="690" y2="560" stroke="var(--hairline)" stroke-width="1"/>
+            <!-- line-art lamp: same construction, head leaning right -->
+            <g class="dimlamp" transform="translate(170 -52)">
+              <g class="lamp">
+                <g class="piece piece--cord"><use href="#p-cord" x="196" y="606"/></g>
+                <g class="piece piece--base"><use href="#p-base" x="260" y="590"/></g>
+                <g class="piece piece--stem"><use href="#p-stem" x="260" y="592"/></g>
+                <g class="lamp-head" transform="translate(260 424) rotate(24)">
+                  <g class="piece piece--led"><use href="#p-led" x="0" y="-30"/></g>
+                  <g class="piece piece--diffuser"><use href="#p-diffuser" x="0" y="-52"/></g>
+                  <g class="piece piece--shade"><use href="#p-shade" x="0" y="-92"/></g>
+                </g>
+                <g class="piece piece--joint"><use href="#p-joint" x="260" y="424"/></g>
+              </g>
+            </g>
+            <!-- overall height -->
+            <line class="dim-line" x1="262" y1="224" x2="262" y2="560" marker-start="url(#dimArrowL)" marker-end="url(#dimArrowL)"/>
+            <line class="dim-line" x1="300" y1="224" x2="254" y2="224"/>
+            <line class="dim-line" x1="392" y1="560" x2="254" y2="560"/>
+            <text class="dim-text" x="250" y="392" text-anchor="middle" transform="rotate(-90 250 392)" id="dimHeight">420 mm</text>
+            <text class="dim-label" x="229" y="392" text-anchor="middle" transform="rotate(-90 229 392)">Height</text>
+            <!-- shade diameter -->
+            <line class="dim-line" x1="405" y1="214" x2="531" y2="214" marker-start="url(#dimArrowL)" marker-end="url(#dimArrowL)"/>
+            <line class="dim-line" x1="409" y1="258" x2="409" y2="208"/>
+            <line class="dim-line" x1="526" y1="258" x2="526" y2="208"/>
+            <text class="dim-text" x="468" y="206" text-anchor="middle" id="dimShade">130 mm</text>
+            <text class="dim-label" x="468" y="190" text-anchor="middle">Shade</text>
+            <!-- base diameter -->
+            <line class="dim-line" x1="335" y1="604" x2="525" y2="604" marker-start="url(#dimArrowL)" marker-end="url(#dimArrowL)"/>
+            <line class="dim-line" x1="335" y1="572" x2="335" y2="612"/>
+            <line class="dim-line" x1="525" y1="572" x2="525" y2="612"/>
+            <text class="dim-text" x="430" y="598" text-anchor="middle" id="dimBase">180 mm</text>
+            <text class="dim-label" x="430" y="626" text-anchor="middle">Base</text>
+            <!-- cord note -->
+            <path class="dim-line" d="M 580 452 C 622 430 668 452 668 490 C 668 522 624 530 606 556" stroke-dasharray="1 6"/>
+            <text class="dim-label" x="640" y="590" text-anchor="middle">Cord</text>
+            <text class="dim-text" x="640" y="576" text-anchor="middle" id="dimCord">2000 mm</text>
+          </svg>
+        </div>
+
+        <dl class="dimensions__notes" id="dimNotes"></dl>
+      </div>
+    </section>
+
+    <!-- ======================= 06 · Closing + spec sheet ======================= -->
+    <section class="band closing" id="specs" aria-labelledby="closingTitle">
+      <div class="wrap">
+        <p class="kicker"><span class="kicker__no">06</span><span>Closing</span></p>
+        <div class="closing__grid">
+          <div>
+            <h2 class="display" id="closingTitle">The end of the story —<br>not the light.</h2>
+            <p class="lead" id="closingLead"></p>
+            <div class="cta-row">
+              <button type="button" class="btn btn--solid" id="replayBtn">Replay the story</button>
+              <button type="button" class="btn btn--ghost" id="specsBtn">View the spec sheet</button>
+            </div>
+          </div>
+          <details class="specsheet" id="specsheet">
+            <summary>
+              <span>Spec sheet — Aurora</span>
+              <svg width="14" height="9" viewBox="0 0 14 9" aria-hidden="true" focusable="false"><path d="M1 1l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </summary>
+            <table>
+              <caption class="sr-only">Full specification of the fictional Aurora lamp</caption>
+              <tbody id="specBody"></tbody>
+            </table>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <div class="wrap colophon__row">
+      <p class="note" id="footerFiction"></p>
+      <p class="note" id="footerRights"></p>
+    </div>
+  </footer>
+
+  <noscript>
+    <div class="wrap"><p class="data-fail"><strong>JavaScript is off.</strong> The story, drawings and copy above are fully readable; the mode switcher, part list and spec table are filled from local data and need JS.</p></div>
+  </noscript>
+
+  <div id="live" aria-live="polite" class="sr-only"></div>
+
+  <!-- vendored runtimes (local, no CDN) -->
+  <script src="vendor/gsap/gsap.min.js"></script>
+  <script src="vendor/gsap/ScrollTrigger.min.js"></script>
+  <!-- app modules (plain scripts, no bundler) -->
+  <script src="js/motion.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

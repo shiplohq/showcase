@@ -1,0 +1,138 @@
+{
+  "name": "Aurora",
+  "tagline": "A desk lamp in three temperatures.",
+  "studio": "Northlight Studio, Oslo",
+  "edition": "Edition 01 — a fictional launch study",
+  "heroMeta": [
+    "2700 K — 5000 K",
+    "CRI 95",
+    "Touch dial, no app"
+  ],
+  "heroScrollCue": "Scroll — the lamp comes apart",
+  "parts": [
+    {
+      "no": "01",
+      "id": "shade",
+      "name": "Shade",
+      "material": "die-cast aluminium, 2.4 mm shell"
+    },
+    {
+      "no": "02",
+      "id": "diffuser",
+      "name": "Diffuser",
+      "material": "mouth-blown opal glass"
+    },
+    {
+      "no": "03",
+      "id": "led",
+      "name": "LED module",
+      "material": "48 emitters on a milled heat sink"
+    },
+    {
+      "no": "04",
+      "id": "joint",
+      "name": "Knuckle joint",
+      "material": "machined knurl, 180° friction"
+    },
+    {
+      "no": "05",
+      "id": "stem",
+      "name": "Stem",
+      "material": "anodized aluminium, brushed grain"
+    },
+    {
+      "no": "06",
+      "id": "base",
+      "name": "Base",
+      "material": "weighted graphite, touch dial, linen cord"
+    }
+  ],
+  "modes": [
+    {
+      "id": "ember",
+      "label": "Ember",
+      "temperature": "2700 K",
+      "output": "220 lm",
+      "glowHex": "#E89A4A",
+      "description": "<strong>Ember</strong> is evening amber. It asks the day to sit down, keeps the desk warm and the ceiling out of the conversation.",
+      "announce": "Ember mode: 2700 K, 220 lumens"
+    },
+    {
+      "id": "focus",
+      "label": "Focus",
+      "temperature": "4000 K",
+      "output": "480 lm",
+      "description": "<strong>Focus</strong> is neutral noon light. Crisp, shadowless and true to paper — the mode for hours that have to count.",
+      "announce": "Focus mode: 4000 K, 480 lumens"
+    },
+    {
+      "id": "studio",
+      "label": "Studio",
+      "temperature": "5000 K",
+      "output": "620 lm",
+      "description": "<strong>Studio</strong> is north-window daylight for colour and detail — what a printmaker would choose at nine in the morning.",
+      "announce": "Studio mode: 5000 K, 620 lumens"
+    }
+  ],
+  "materials": [
+    {
+      "id": "aluminum",
+      "name": "Brushed aluminium",
+      "spec": "bead-blasted, sealed — ages to a soft matte",
+      "chip": "linear-gradient(135deg, #cfcac1 0%, #b3ada4 55%, #c9c4bb 100%)",
+      "pieces": ["shade", "stem", "joint"],
+      "caption": "Brushed aluminium — shade shell, stem and knuckle joint"
+    },
+    {
+      "id": "opal",
+      "name": "Mouth-blown opal glass",
+      "spec": "3.1 mm wall — no visible hot-spot at any mode",
+      "chip": "radial-gradient(circle at 35% 30%, #fbf8f1 0%, #efe9dc 70%, #e0d8c6 100%)",
+      "pieces": ["diffuser"],
+      "caption": "Opal glass diffuser — the only piece light touches"
+    },
+    {
+      "id": "graphite",
+      "name": "Graphite composite",
+      "spec": "mineral-filled, 1.9 kg — planted, not bolted down",
+      "chip": "linear-gradient(135deg, #4a4235 0%, #37312a 60%, #2b2620 100%)",
+      "pieces": ["base"],
+      "caption": "Graphite composite base — weighted, with the touch dial"
+    },
+    {
+      "id": "linen",
+      "name": "Braided linen cord",
+      "spec": "2 m, field-replaceable, no adapter brick",
+      "chip": "repeating-linear-gradient(45deg, #d6c9ac 0 4px, #c4b492 4px 8px)",
+      "pieces": ["cord"],
+      "caption": "Braided linen cord — 2 m, replaceable with two screws"
+    }
+  ],
+  "dimensions": {
+    "height": { "value": "420", "unit": "mm", "label": "Overall height" },
+    "base": { "value": "180", "unit": "mm", "label": "Base diameter" },
+    "shade": { "value": "130", "unit": "mm", "label": "Shade diameter" },
+    "cord": { "value": "2000", "unit": "mm", "label": "Cord length" }
+  },
+  "spec": [
+    { "group": "Optics", "row": "Light source", "value": "48 high-density LEDs, CRI 95, TM-30 Rf 94" },
+    { "group": "Optics", "row": "Temperature range", "value": "2700 K – 5000 K, continuous via touch dial" },
+    { "group": "Optics", "row": "Output", "value": "220 – 620 lm, stepless to 4%" },
+    { "group": "Body", "row": "Materials", "value": "Die-cast and anodized aluminium, opal glass, graphite composite, braided linen" },
+    { "group": "Body", "row": "Mass", "value": "1.9 kg with 420 g of it in the base" },
+    { "group": "Body", "row": "Finish", "value": "Bead-blasted natural aluminium, sealed; graphite composite, uncoated" },
+    { "group": "Electrical", "row": "Input", "value": "100–240 V, 50/60 Hz, 14 W max" },
+    { "group": "Electrical", "row": "Cord", "value": "2 m braided linen, field-replaceable, no external supply" },
+    { "group": "Electrical", "row": "Controls", "value": "Touch dial: mode, dim, hold for ember" },
+    { "group": "In the box", "row": "Included", "value": "Lamp, linen cord, hex key, printed spec card" },
+    { "group": "In the box", "row": "Warranty", "value": "10 years, parts and labour (fictional terms)" }
+  ],
+  "closing": {
+    "headline": "The end of the story — not the light.",
+    "lead": "Aurora stays where you put it, holds the angle you leave it at, and answers the dial without a single app. This page was the launch; the desk is up to you.",
+    "replayLabel": "Replay the story",
+    "specsLabel": "View the spec sheet"
+  },
+  "footerFiction": "Aurora is a fictional product by an imaginary studio. No prices, no checkout, no stock — this microsite exists to tell one story in static files.",
+  "footerRights": "Shiplo Showcase #18 · Apache-2.0 · art-directed and maintained by Shiplo HQ with AI-assisted implementation"
+}
