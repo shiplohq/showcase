@@ -1,0 +1,49 @@
+/*
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+
+Design tokens — design/DESIGN_DECISIONS.md §4–§7 is the source of truth.
+Contemporary editorial: ivory paper, warm ink, ultramarine pen, salmon note.
+Flat fills only — no gradients, no shadows (deepest mark is a 1px hairline).
+*/
+
+:root {
+  /* Neutrals — paper & ink */
+  --paper: #f4f0e6;
+  --paper-plate: #fbf8f1;
+  --paper-deep: #eae3d3;
+  --ink: #1c1a16;
+  --ink-soft: #57503f;
+  --ink-faint: #8c8271;
+  --rule: #d8d0bd;
+  --rule-strong: #1c1a16;
+
+  /* Accents — the pen and the margin note */
+  --ultramarine: #2b36b5;
+  --ultramarine-deep: #20298f;
+  --ultramarine-wash: #e6e5f4;
+  --salmon: #e98c55;
+  --salmon-ink: #ae4a17;
+
+  /* Type */
+  --font-serif: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  --font-narrow: 'Archivo Narrow', 'Arial Narrow', Arial, sans-serif;
+
+  --text-display-xl: clamp(2.75rem, 7vw, 6.5rem);
+  --text-display-l: clamp(2rem, 4vw, 3.25rem);
+  --text-head: 1.625rem;
+  --text-lede: 1.25rem;
+  --text-body: 1.0625rem;
+  --text-meta: 0.75rem;
+
+  /* Rhythm */
+  --measure: 34em;
+  --gap: 1.5rem;
+  --row-min: 88px;
+  --pad-x: clamp(1.25rem, 4.5vw, 4rem);
+
+  /* Layers */
+  --z-frame: 10;
+  --z-header: 20;
+  --z-skip: 100;
+}

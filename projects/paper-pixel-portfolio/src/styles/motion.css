@@ -1,0 +1,88 @@
+/*
+Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0
+
+Motion layer — CSS-side transitions only; GSAP runs through src/lib/gsap.ts.
+Motion off (user toggle 'off' or prefers-reduced-motion): final states
+immediate, only tiny fades (≤150ms) survive.
+*/
+
+/* ---- Type-led view swap (masked line rise) --------------------------------- */
+
+.type-rise {
+  display: block;
+  overflow: hidden;
+}
+
+.type-rise__inner {
+  display: block;
+}
+
+/* ---- Scroll reveal (IntersectionObserver + v-reveal) ------------------------ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 420ms ease-out,
+    transform 420ms ease-out;
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+html[data-motion='off'] .reveal,
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- Margin note (case aside) ----------------------------------------------- */
+
+.case-body__margin {
+  position: relative;
+}
+
+.case-body__margin::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: -1.25rem;
+  width: 2px;
+  background: var(--salmon);
+}
+
+.case-body__margin {
+  padding-inline-start: 1rem;
+}
+
+/* ---- Reduced motion: kill CSS movement, keep ≤150ms fades ------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+  }
+}
+
+/* User toggle (html[data-motion='off']) — same guarantee without OS setting */
+html[data-motion='off'] *,
+html[data-motion='off'] *::before,
+html[data-motion='off'] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}

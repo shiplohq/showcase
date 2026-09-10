@@ -1,0 +1,25 @@
+{
+  "name": "paper-pixel-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Paper & Pixel — Shiplo Showcase #19: a fictional small-studio portfolio built as an editorial index with numbering, cropped SVG plates and type-led transitions.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.1.0",
+    "@fontsource/archivo-narrow": "^5.1.0",
+    "gsap": "^3.15.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.0",
+    "typescript": "^5.5.4",
+    "vite": "^7.3.6",
+    "vue-tsc": "^3.0.0"
+  }
+}

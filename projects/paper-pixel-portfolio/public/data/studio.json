@@ -1,0 +1,54 @@
+{
+  "name": "Paper & Pixel",
+  "tagline": "Editorial systems & digital craft",
+  "volume": "Vol. 04 — Selected Works",
+  "yearsActive": "2024–2026",
+  "manifesto": [
+    "Paper & Pixel is a two-person studio for printed indexes and the screens that quote them. We design numbering systems, cropped plates and type-led transitions — the furniture of an archive.",
+    "We believe a small studio should publish like a press: short runs, fixed rules, every artefact filed. The index you are reading is the work, not an advertisement for it."
+  ],
+  "principles": [
+    {
+      "n": "01",
+      "title": "Number first",
+      "copy": "Every project begins as an index — codes, rules and order — before any single artefact is drawn."
+    },
+    {
+      "n": "02",
+      "title": "One plate, many crops",
+      "copy": "One artwork per project, cut by the system. Cropping is editing; a new crop is a new statement, not a new commission."
+    },
+    {
+      "n": "03",
+      "title": "Motion is turning pages",
+      "copy": "Animation only where paper would move: a crop settling, a line rising. If it cannot happen on a press bed, it does not happen on screen."
+    },
+    {
+      "n": "04",
+      "title": "Ship the whole file",
+      "copy": "Systems are delivered as manuals and data, not locked artwork. The client files the next entry themselves."
+    }
+  ],
+  "people": [
+    {
+      "name": "M. Okabe",
+      "role": "Editorial design, systems",
+      "note": "Keeps the ledger. Draws the rules."
+    },
+    {
+      "name": "R. Vidal",
+      "role": "Digital craft, motion",
+      "note": "Cuts the crops. Tends the press bed that is the browser."
+    }
+  ],
+  "contact": {
+    "email": "studio@paperandpixel.example",
+    "prompt": "Tell us the index number of the work you are writing about — we answer within two working days.",
+    "availability": "Taking commissions for Q2 2027",
+    "address": "Flat 3, The Old Bindery, 14 Marrow Lane, (a fictional address)",
+    "handles": [
+      { "label": "Post", "value": "The Old Bindery, 14 Marrow Lane" },
+      { "label": "Reading room", "value": "By appointment, Thursdays" }
+    ]
+  }
+}

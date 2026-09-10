@@ -1,0 +1,16 @@
+{
+  "id": "paper-pixel-portfolio",
+  "title": "Paper & Pixel",
+  "summary": "A fictional small-studio portfolio built as an editorial index with numbering, cropped thumbnails and type-led transitions.",
+  "category": "portfolio",
+  "number": 19,
+  "audience": null,
+  "mobileSupport": "supported",
+  "mobileSupportNote": null,
+  "screenshots": {
+    "cover": { "path": "showcase/cover.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
+    "desktop": { "path": "showcase/desktop.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
+    "tablet": { "path": "showcase/tablet.webp", "viewport": "1024x768", "capturedFrom": null, "capturedAt": null, "alt": null },
+    "mobile": { "path": "showcase/mobile.webp", "viewport": "390x844", "capturedFrom": null, "capturedAt": null, "alt": null }
+  }
+}

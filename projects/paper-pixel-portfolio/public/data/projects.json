@@ -1,0 +1,119 @@
+[
+  {
+    "slug": "atlas-identity",
+    "title": "Atlas Identity",
+    "year": "2026",
+    "discipline": ["Brand", "Digital"],
+    "client": "Atlas Archive Foundation",
+    "summary": "A modular identity for a cultural map project — one mark, sixty-four territories, and a numbering system that lets local editors publish without a designer in the room.",
+    "heroAsset": "plate-atlas",
+    "alt": "Abstract plate: ultramarine contour rings interrupted by a stepped block of squares, a salmon marker dot, and ink baseline rules on ivory.",
+    "sections": [
+      {
+        "type": "text",
+        "copy": "The Foundation keeps an archive of regional craft techniques — sixty-four territories, each with its own vocabulary. They needed an identity that could absorb new entries without art direction every time. Our answer was a numbering system first and a logo second: every territory gets an index code, a contour signature, and a fixed spot for its local note."
+      },
+      {
+        "type": "figure",
+        "asset": "plate-atlas",
+        "alt": "Atlas plate cropped tall: contour rings stacked vertically beside a stepped column of ultramarine squares.",
+        "caption": "Territory plates — the contour signature is generated from the region's coastline data, then cropped by the numbering system."
+      },
+      {
+        "type": "quote",
+        "copy": "The index became the brand. Nobody draws anything new; they simply file it."
+      },
+      {
+        "type": "text",
+        "copy": "The digital side inherits the paper system. Each archive entry renders as a cropped plate — the same artwork, cut by its index position — so the archive reads like one continuous publication instead of sixty-four microsites."
+      },
+      {
+        "type": "specs",
+        "items": [
+          ["Scope", "Identity system, numbering, web index"],
+          ["Format", "Print manual + static web index"],
+          ["Typefaces", "One serif, one narrow grotesk"],
+          ["Colours", "Ivory, ink, ultramarine, salmon note"]
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "signal-journal",
+    "title": "Signal Journal",
+    "year": "2025",
+    "discipline": ["Digital", "Editorial"],
+    "client": "Signal Media Co.",
+    "summary": "A weekly journal for a slow-news cooperative — a reading surface that treats every article as a printed issue, complete with folios, margin notes and a cover plate.",
+    "heroAsset": "plate-signal",
+    "alt": "Abstract plate: a halftone dot matrix dissolving across ivory, one row enlarged into ultramarine squares, an ink waveform and salmon tick marks.",
+    "sections": [
+      {
+        "type": "text",
+        "copy": "Signal publishes four stories a week and refuses none of them an illustration budget. Instead of photography, every issue gets a generated plate: a dot matrix whose density is driven by the issue number. Readers learn to read the covers the way train spotters read numbers."
+      },
+      {
+        "type": "figure",
+        "asset": "plate-signal",
+        "alt": "Signal plate cropped card: the halftone matrix at full density with a single enlarged row of squares crossing the frame.",
+        "caption": "Issue covers — density encodes the week; the enlarged row encodes the lead story's position."
+      },
+      {
+        "type": "quote",
+        "copy": "A cover should tell you how much time you are about to spend. Ours does it in dots."
+      },
+      {
+        "type": "text",
+        "copy": "The reading layer stays deliberately plain: one measure, one serif, folios in the margin. The motion budget went into a single move — the cover plate cropping itself into the article header as you enter. Everything else is paper turning."
+      },
+      {
+        "type": "specs",
+        "items": [
+          ["Scope", "Journal system, cover generator, article template"],
+          ["Cadence", "52 issues / year"],
+          ["Format", "Static web, no tracking"],
+          ["Motion", "One crop transition, 480 ms"]
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "margins-press",
+    "title": "Margins Press",
+    "year": "2024",
+    "discipline": ["Print", "Brand"],
+    "client": "Margins Press Collective",
+    "summary": "A monograph series for a worker-owned press — ledger-line covers set entirely from the type cases they already owned, plus one square of ultramarine.",
+    "heroAsset": "plate-margins",
+    "alt": "Abstract plate: stacked ink ledger bars like lines of text, a torn paper edge, and a stepped stair of ultramarine squares crossing the frame.",
+    "sections": [
+      {
+        "type": "text",
+        "copy": "The Collective prints on a 1972 Heidelberg and owns exactly four typefaces. Rather than fight it, we built the series from their cases: every cover is a ledger of the book's own contents — chapters as bars, appendices as fine rules — torn once, by hand, along the fore-edge."
+      },
+      {
+        "type": "figure",
+        "asset": "plate-margins",
+        "alt": "Margins plate cropped wide: the ledger bars running the full width with the torn edge and the stepped square stair meeting at the right margin.",
+        "caption": "Cover system — each monograph sets its own table of contents as a bar ledger."
+      },
+      {
+        "type": "quote",
+        "copy": "We showed them a sketch in the type they already had. The vote took four minutes."
+      },
+      {
+        "type": "text",
+        "copy": "The ultramarine stair is the only purchased colour — one pass on the press, shared by every title in the series so the shelf reads as a single object. Digital catalogues photograph the spines; nothing was redrawn for screens."
+      },
+      {
+        "type": "specs",
+        "items": [
+          ["Scope", "Series design, cover system, spine index"],
+          ["Print run", "300–500 per title"],
+          ["Stock", "Recycled ivory, 120 gsm"],
+          ["Specials", "One ultramarine pass, series-wide"]
+        ]
+      }
+    ]
+  }
+]
