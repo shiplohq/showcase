@@ -4,13 +4,37 @@
   "summary": "A stylized vector atlas of locate-compare-clue trails where every stop asks a geographic question.",
   "category": "education-geography",
   "number": 16,
-  "audience": null,
+  "audience": "8-14",
   "mobileSupport": "supported",
-  "mobileSupportNote": null,
+  "mobileSupportNote": "Phone-width layout stacks (intro, world plate, then trail ledger) and scrolls vertically by design; the atlas keeps 48px targets, no horizontal overflow, and the chip row remains the primary locate path — map drag stays available but tap-first on small screens.",
   "screenshots": {
-    "cover": { "path": "showcase/cover.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "desktop": { "path": "showcase/desktop.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "tablet": { "path": "showcase/tablet.webp", "viewport": "1024x768", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "mobile": { "path": "showcase/mobile.webp", "viewport": "390x844", "capturedFrom": null, "capturedAt": null, "alt": null }
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://geotrail.shiplo.site",
+      "capturedAt": "2026-09-10T00:19:10Z",
+      "alt": "Art-directed staged state of the first trail stop: on the left, the deep-ocean PLATE I — Southeast Asia map with low-poly country shapes, Vietnam filled forest green as the correct answer, a dashed terracotta route linking six numbered stop markers, engraved sea labels and a muted China landmass at the top edge; on the right, the parchment mission sheet with the route stepper, 'LOCATE · STOP 1 OF 6', the question 'Find Vietnam — the long S-shaped country on the eastern coast, east of Laos and Cambodia.', four country chips with Vietnam ringed as the answer, a green 'Correct — Vietnam runs along the eastern coast' feedback line, a round terracotta Vietnam travel stamp and a Next stop button; the header shows the stamp counter at 1/24."
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://geotrail.shiplo.site",
+      "capturedAt": "2026-09-10T00:19:05Z",
+      "alt": "Honest desktop landing at 1440x900, everything fitting the viewport: masthead with the GeoTrail wordmark, SHIPLO NO. 16 tag, a dashed stamp counter reading 0/24 and Atlas/Stamps tabs; the left page of the parchment spread holds the serif headline 'An atlas that asks questions.', a short lede and the framed ATLAS INDEX MAP — a deep-ocean world plate with muted continents and four brass-framed windows labelled I SOUTHEAST ASIA, II THE NILE & EAST AFRICA, III ANDES & AMAZON and IV EUROPE & THE ALPS; the right page is the ruled Trail index listing the four trails with roman numerals, regions, six progress dots each and '0/6 stops · walk it →'; a one-line boundaries-simplified footer sits at the bottom."
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://geotrail.shiplo.site",
+      "capturedAt": "2026-09-10T00:19:07Z",
+      "alt": "Honest tablet landing at 1024x768 with no scrollbar: the same two-page atlas spread as desktop at tablet proportions — masthead with 0/24 stamp counter, left page with the serif headline, lede and the framed world index map with its four brass plate windows, right page with the Trail index ledger showing trails I–IV, each with six hollow progress dots and '0/6 stops', and the boundaries-simplified footer line at the bottom edge."
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://geotrail.shiplo.site",
+      "capturedAt": "2026-09-10T00:19:08Z",
+      "alt": "Honest mobile landing at 390x844, single stacked column: wrapped masthead with the GeoTrail wordmark, the 0/24 stamp counter and Atlas/Stamps tabs; below it the kicker line, the serif headline 'An atlas that asks questions.', the intro paragraph, and the full-width framed ATLAS INDEX MAP plate with muted continents and the four brass-framed plate windows I–IV; the top edge of the Trail index ledger enters the bottom of the viewport, with the rest of the trails scrolling below the fold."
+    }
   }
 }

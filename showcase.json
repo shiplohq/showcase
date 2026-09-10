@@ -426,7 +426,7 @@
       "summary": "A stylized vector atlas of locate-compare-clue trails where every stop asks a geographic question.",
       "category": "education-geography",
       "audience": "8-14",
-      "status": "building",
+      "status": "live",
       "stack": [
         "vue",
         "vite",
@@ -437,14 +437,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://geotrail.shiplo.site",
+        "deployedAt": "2026-09-10T00:18:26.777Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/geotrail/showcase/cover.webp",
+        "desktop": "projects/geotrail/showcase/desktop.webp",
+        "tablet": "projects/geotrail/showcase/tablet.webp",
+        "mobile": "projects/geotrail/showcase/mobile.webp"
       }
     },
     {

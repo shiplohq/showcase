@@ -1,0 +1,12 @@
+{
+  "project": "geotrail",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://geotrail.shiplo.site",
+  "sourceCommitSha": "8982ccd1ea800fa220c47836c06352a0cf8d91ed",
+  "buildCommand": "npm run build",
+  "artifactSha256": "e9b8e2ccabf8ad2717448b5e1b1c6ed108e39448e7ce953a341989300bdbfa5b",
+  "deployedAt": "2026-09-10T00:18:26.777Z",
+  "verifiedAt": "2026-09-10T00:19:40Z",
+  "notes": "Release 1 (initial): deployment b358dd58-7d19-4b2c-8f67-076f3f609857 / release 5fdf7ef2-58b4-4dfc-ae3b-d6f5d8edfb1b, site 2699be23-a983-4002-a026-4e8ab3209e5e, activated 2026-09-10T00:18:26.777Z, 18 files / 490358 bytes (matches the local dist byte-for-byte count). artifactSha256 is a deterministic tar hash (normalized mtime/owner/sort; .showcase/docs/DEPLOYMENT.md). Live verification: https://geotrail.shiplo.site/ returned HTTP 200, the atlas spread rendered all 4 trail ledger rows, zero console errors at 1440x900, 1024x768 and 390x844 (no horizontal overflow at any viewport; atlas and trail screens fit the viewport without scrolling at 1440x900 and 1024x768); staged cover state asserted via CDP (Vietnam fills forest green, dashed terracotta route with 6 numbered markers, correct feedback line, Vietnam stamp awarded, Next stop button); all four gallery screenshots captured from this deployment. Batch directive 2026-09-09: testing phases (engine-sim suite, CDP test matrix, font-check gate, independent review) were skipped by user instruction; implementation kept keyboard navigation, 48px touch targets, responsive layout and prefers-reduced-motion paths, and the runtime data validator checked neighbor symmetry, clue truth and clue uniqueness on every load."
+}

@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "geotrail",
+  "site_id": "2699be23-a983-4002-a026-4e8ab3209e5e",
+  "subdomain": "geotrail",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}

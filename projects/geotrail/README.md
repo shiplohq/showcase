@@ -2,7 +2,7 @@
 
 > Shiplo Showcase #16 — A stylized vector atlas of locate-compare-clue trails where every stop asks a geographic question.
 
-**Live demo:** _the verified Shiplo deployment URL is recorded in `showcase/deployment.json`_
+**Live demo:** https://geotrail.shiplo.site
 **Category:** education-geography · **License:** Apache-2.0 (original work)
 
 GeoTrail is a cartographic-editorial learning atlas for ages 8–14. Four
