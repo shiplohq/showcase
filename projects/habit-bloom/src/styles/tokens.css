@@ -1,0 +1,72 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Design tokens — Habit Bloom (design/DESIGN_DECISIONS.md §4–§6).
+ * Botanical field-notes: warm fog paper, dark pine ink, orchid & marigold
+ * blooms. Flat color, hairline rules, no gradients, no shadows.
+ */
+
+:root {
+  /* Paper & ink */
+  --fog: #f1ede3;
+  --fog-deep: #e7e1d0;
+  --fog-raised: #f7f4ec;
+  --pine: #233829;
+  --pine-soft: #4c6152;
+  --line: #cfc8b4;
+
+  /* Blooms (graphic / large text; small text uses the -deep inks) */
+  --orchid: #a46fc0;
+  --orchid-deep: #75509e;
+  --marigold: #de9b1f;
+  --marigold-ink: #7a5506;
+
+  /* Semantic */
+  --focus-ring: #233829;
+  --today-ring: #de9b1f;
+
+  /* Typography */
+  --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Fragment Mono', 'Courier New', monospace;
+
+  /* Spacing (base 4) */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s8: 32px;
+  --s10: 40px;
+  --s12: 48px;
+  --s16: 64px;
+  --s20: 80px;
+
+  /* Layout */
+  --gutter: 24px;
+  --max-width: 1240px;
+
+  /* Touch (definition of done ≥48px on primary targets) */
+  --touch: 48px;
+
+  /* Motion (design §7 budget; reduced-motion in motion.css + gsap wrapper) */
+  --t-fast: 140ms;
+  --t-leaf: 220ms;
+  --t-med: 300ms;
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  color-scheme: light;
+}
+
+@media (max-width: 767.98px) {
+  :root {
+    --gutter: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --gutter: 40px;
+  }
+}

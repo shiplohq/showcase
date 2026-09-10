@@ -1,0 +1,40 @@
+/* Copyright 2026 Shiplo HQ
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Motion — Habit Bloom (design §7 budget). GSAP drives leaf unfurl and Flip
+ * reorders through src/lib/gsap.ts, which collapses to instant state under
+ * prefers-reduced-motion. This file owns the small CSS transitions and the
+ * global reduced-motion guarantee: every animation ends in its final state
+ * immediately; focus/opacity states are never taken away.
+ */
+
+.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.is-dragging .habit-row {
+  transition: none;
+}
+
+/* Gentle leaf presence on hover rows (feedback, 120–160ms budget). */
+@media (hover: hover) {
+  .habit-row:hover .stemplot__stem {
+    transition: stroke var(--t-fast) linear;
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Reduced motion — final states appear instantly                          */
+/* ---------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

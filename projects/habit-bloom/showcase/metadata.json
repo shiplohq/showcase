@@ -1,0 +1,16 @@
+{
+  "id": "habit-bloom",
+  "title": "Habit Bloom",
+  "summary": "A gentle habit tracker where each habit grows a stem and daily check-ins add leaves — no streak shaming.",
+  "category": "productivity",
+  "number": 20,
+  "audience": null,
+  "mobileSupport": "supported",
+  "mobileSupportNote": null,
+  "screenshots": {
+    "cover": { "path": "showcase/cover.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
+    "desktop": { "path": "showcase/desktop.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
+    "tablet": { "path": "showcase/tablet.webp", "viewport": "1024x768", "capturedFrom": null, "capturedAt": null, "alt": null },
+    "mobile": { "path": "showcase/mobile.webp", "viewport": "390x844", "capturedFrom": null, "capturedAt": null, "alt": null }
+  }
+}
