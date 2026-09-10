@@ -1,0 +1,971 @@
+/* Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0 */
+
+/* App chrome — cartographic editorial (DESIGN_DECISIONS §7): one viewport
+   stage on desktop/tablet-landscape, a masthead "atlas spine", a single-line
+   footer disclaimer. No card soup: the ledger is a ruled index, the mission
+   panel is one raised sheet. */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.app-shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+}
+
+p { margin: 0; }
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------- masthead */
+
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s4);
+  padding: var(--s3) var(--gutter);
+  border-bottom: 1px solid var(--line-strong);
+  position: relative;
+}
+
+.masthead::after {
+  /* double rule — the atlas spine */
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3px;
+  border-bottom: 1px solid var(--line);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+  background: none;
+  border: none;
+  padding: var(--s2) 0;
+}
+
+.wordmark .no {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+.mast-right {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.nav-tab {
+  min-height: 48px;
+  min-width: 48px;
+  padding: var(--s2) var(--s4);
+  border: 1px solid transparent;
+  border-bottom: none;
+  background: none;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+
+.nav-tab[aria-current='page'] {
+  color: var(--ink);
+  border-color: var(--line-strong);
+  background: var(--parchment-raised);
+  box-shadow: var(--shadow-paper);
+}
+
+.stamp-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 48px;
+  padding: var(--s2) var(--s4);
+  border: 1px dashed var(--line-strong);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.stamp-counter svg {
+  color: var(--terra);
+}
+
+/* ------------------------------------------------------------------ footer */
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s4);
+  padding: var(--s2) var(--gutter);
+  border-top: 1px solid var(--line);
+}
+
+.microcopy {
+  font-size: 13px;
+  color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+
+/* ----------------------------------------------------------------- buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+  min-height: 48px;
+  padding: var(--s3) var(--s6);
+  border: 1px solid var(--line-strong);
+  background: var(--parchment-raised);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: var(--radius-s);
+  box-shadow: var(--shadow-paper);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.btn:hover { box-shadow: var(--shadow-paper-strong); }
+
+.btn:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+.btn-primary {
+  background: var(--terra-deep);
+  border-color: var(--terra-deep);
+  color: var(--on-terra);
+}
+
+.btn-ghost {
+  box-shadow: none;
+  background: transparent;
+}
+
+.btn-ghost:active { box-shadow: none; }
+
+/* ------------------------------------------------------------ main stages */
+
+.main-area {
+  padding: var(--s4) var(--gutter) var(--s5);
+  min-height: 0;
+}
+
+.loading-note {
+  text-align: center;
+  padding: var(--s16);
+  color: var(--ink-soft);
+  letter-spacing: 0.12em;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Atlas screen — a two-page spread: map page + ledger page --------------- */
+
+.atlas-spread {
+  display: grid;
+  grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
+  gap: 0;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  min-height: 0;
+}
+
+.atlas-page {
+  min-width: 0;
+  padding: var(--s4) var(--s6) var(--s4) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+
+.atlas-fold {
+  width: 1px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--line-strong) 0 6px,
+    transparent 6px 12px
+  );
+}
+
+.atlas-intro .kicker {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terra-deep);
+  margin-bottom: var(--s2);
+}
+
+.atlas-intro h1 {
+  font-size: clamp(26px, 3.4vw, 38px);
+  max-width: 18ch;
+}
+
+.atlas-intro .lede {
+  margin-top: var(--s3);
+  max-width: 44ch;
+  color: var(--ink-soft);
+  font-size: 16.5px;
+}
+
+/* ledger index */
+
+.ledger {
+  padding: var(--s4) 0 var(--s4) var(--s6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  min-width: 0;
+}
+
+.ledger-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: var(--s2);
+}
+
+.ledger-head h2 {
+  font-size: 20px;
+}
+
+.ledger-head .hint {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.ledger-row {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  align-items: center;
+  gap: var(--s4);
+  width: 100%;
+  padding: var(--s3) var(--s2);
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  text-align: left;
+  min-height: 72px;
+  transition: background 160ms ease;
+}
+
+.ledger-row:hover {
+  background: var(--parchment-raised);
+}
+
+.ledger-row .numeral {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--brass);
+  text-align: center;
+}
+
+.ledger-row .meta {
+  min-width: 0;
+}
+
+.ledger-row .title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.ledger-row .region {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+.ledger-row .prog {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.ledger-row .dots {
+  display: flex;
+  gap: 5px;
+}
+
+.ledger-row .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-strong);
+  background: transparent;
+}
+
+.ledger-row .dot.done {
+  background: var(--forest);
+  border-color: var(--forest);
+}
+
+.ledger-row .count {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.ledger-row .go {
+  color: var(--terra-deep);
+  font-weight: 600;
+}
+
+/* Plate stage (shared by atlas world map + trail plate map) -------------- */
+
+.plate-stage {
+  position: relative;
+  background: var(--ocean);
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow-paper);
+  overflow: hidden;
+}
+
+.plate-stage svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.plate-tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s2);
+  padding: 8px 14px;
+  background: var(--ocean-deep);
+  color: var(--ocean-ink);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.plate-tag .rn {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--parchment);
+  letter-spacing: 0.06em;
+}
+
+.plate-note {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px 12px;
+  background: var(--ocean-deep);
+  color: var(--ocean-ink);
+  opacity: 0.85;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Map pieces */
+
+.map-land {
+  stroke: var(--ocean-deep);
+  stroke-width: 1;
+}
+
+.map-context {
+  fill: var(--context);
+  stroke: var(--ocean-deep);
+  stroke-width: 0.75;
+  opacity: 0.55;
+}
+
+.map-graticule {
+  stroke: var(--ocean-ink);
+  stroke-width: 0.5;
+  opacity: 0.14;
+}
+
+.map-river {
+  fill: none;
+  stroke: var(--ocean-ink);
+  stroke-width: 1.6;
+  opacity: 0.55;
+}
+
+.map-range {
+  fill: none;
+  stroke: var(--ocean-ink);
+  stroke-width: 1.4;
+  stroke-dasharray: 5 4;
+  opacity: 0.6;
+}
+
+.map-sea-label {
+  fill: var(--ocean-ink);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  opacity: 0.8;
+}
+
+.map-place-label {
+  fill: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  paint-order: stroke;
+  stroke: rgba(244, 234, 213, 0.75);
+  stroke-width: 2.5px;
+  pointer-events: none;
+}
+
+.map-place-label.small {
+  font-size: 11.5px;
+}
+
+/* Trail screen ----------------------------------------------------------- */
+
+.trail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 62fr) minmax(340px, 38fr);
+  gap: var(--s6);
+  max-width: var(--content-max);
+  margin: 0 auto;
+  align-items: start;
+}
+
+.trail-map-col {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+
+.trail-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+  min-height: 48px;
+}
+
+.trail-title-block {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+  min-width: 0;
+}
+
+.trail-title-block .rn {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--brass);
+  font-weight: 700;
+}
+
+.trail-title-block h2 {
+  font-size: clamp(20px, 2.4vw, 26px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Mission panel — a single raised sheet, no card soup */
+
+.mission {
+  background: var(--parchment-raised);
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow-paper);
+  padding: var(--s5) var(--s6) var(--s6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.stepper .node {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2px solid var(--line-strong);
+  background: var(--parchment-raised);
+  flex: none;
+  position: relative;
+}
+
+.stepper .node.done { background: var(--forest); border-color: var(--forest); }
+
+.stepper .node.current {
+  border-color: var(--terra-deep);
+  background: var(--terra);
+}
+
+.stepper .seg {
+  flex: 1 1 auto;
+  height: 2px;
+  background: var(--line);
+}
+
+.stepper .seg.done { background: var(--forest); }
+
+.stop-kind {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--terra-deep);
+}
+
+.stop-kind svg { flex: none; }
+
+.mission h3 {
+  font-size: clamp(20px, 2.4vw, 24px);
+  line-height: 1.25;
+}
+
+.mission .prompt { max-width: 40ch; }
+
+/* Locate activity */
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+.place-chip {
+  min-height: 48px;
+  padding: var(--s2) var(--s4);
+  border: 1.5px solid var(--line-strong);
+  background: var(--parchment);
+  font-weight: 600;
+  font-size: 15.5px;
+  color: var(--ink);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-paper);
+  cursor: grab;
+  touch-action: none; /* pointer drag */
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.place-chip:active {
+  transform: scale(0.97);
+  box-shadow: none;
+  cursor: grabbing;
+}
+
+.place-chip.dragging {
+  opacity: 0.85;
+  box-shadow: var(--shadow-paper-strong);
+  cursor: grabbing;
+}
+
+.place-chip.is-answer {
+  border-color: var(--forest);
+}
+
+.drag-hint {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+
+/* Compare activity */
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--s4);
+}
+
+.fact-card {
+  border: 1px solid var(--line-strong);
+  background: var(--parchment);
+  padding: var(--s4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.fact-card .fact-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.fact-card .fact-cap {
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
+.fact-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+
+.fact-table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--ink-soft);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.fact-table td {
+  padding: 7px 0;
+  border-bottom: 1px solid var(--line);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.fact-table tr:last-child th,
+.fact-table tr:last-child td {
+  border-bottom: none;
+}
+
+.fact-table .hl td,
+.fact-table .hl th {
+  color: var(--terra-deep);
+  font-weight: 700;
+}
+
+.compare-q {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+
+.option-btn {
+  min-height: 56px;
+  padding: var(--s3) var(--s6);
+  border: 1.5px solid var(--line-strong);
+  background: var(--parchment-raised);
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+  border-radius: var(--radius-m);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+  box-shadow: var(--shadow-paper);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  width: 100%;
+  text-align: left;
+}
+
+.option-btn:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+.option-btn .mark {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.option-btn.was-tried {
+  border-style: dashed;
+  border-color: var(--terra);
+}
+
+/* Clue activity */
+
+.clue-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.clue-item {
+  display: flex;
+  gap: var(--s3);
+  align-items: flex-start;
+  padding: var(--s2) 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 15.5px;
+}
+
+.clue-item:last-child { border-bottom: none; }
+
+.clue-item .n {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--brass);
+  min-width: 20px;
+  font-size: 17px;
+}
+
+.clue-more {
+  align-self: flex-start;
+  min-height: 48px;
+  padding: var(--s2) var(--s5);
+  border: 1.5px dashed var(--terra);
+  background: transparent;
+  color: var(--terra-deep);
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: var(--radius-m);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.clue-more:active { transform: scale(0.97); }
+
+.clue-more[disabled] {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* Feedback line */
+
+.feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s3);
+  min-height: 56px;
+  padding: var(--s3) var(--s4);
+  border: 1.5px solid var(--line);
+  background: var(--parchment);
+  font-size: 15.5px;
+  border-radius: var(--radius-s);
+}
+
+.feedback[data-state='correct'] {
+  border-color: var(--forest);
+  background: rgba(63, 107, 79, 0.1);
+}
+
+.feedback[data-state='correct'] .fb-icon { color: var(--forest); }
+.feedback[data-state='try-again'] .fb-icon { color: var(--terra-deep); }
+
+.feedback .fb-icon { flex: none; margin-top: 1px; }
+
+.mission-actions {
+  display: flex;
+  gap: var(--s3);
+  flex-wrap: wrap;
+}
+
+/* Stamp screen ----------------------------------------------------------- */
+
+.stamp-spread {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s6);
+}
+
+.stamp-head h2 { font-size: clamp(24px, 3vw, 32px); }
+
+.stamp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--s4) var(--s5);
+  align-items: center;
+}
+
+.stamp-slot {
+  display: flex;
+  justify-content: center;
+  transform: rotate(var(--stamp-rot, 0deg));
+}
+
+.stamp-legend {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  border-top: 2px solid var(--ink);
+  padding-top: var(--s3);
+  max-width: 60ch;
+}
+
+/* Error card -------------------------------------------------------------- */
+
+.error-card {
+  max-width: 560px;
+  margin: var(--s16) auto;
+  padding: var(--s8);
+  background: var(--parchment-raised);
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow-paper);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+  text-align: center;
+}
+
+/* ------------------------------------------------------------- responsive */
+
+@media (min-width: 1024px) {
+  /* One-viewport stage at desktop/tablet-landscape (DD §7): the world map
+     flexes, the ledger fits 4 rows without pushing the page to scroll. */
+  .atlas-spread {
+    height: calc(100dvh - 205px);
+    min-height: 540px;
+  }
+
+  .atlas-page {
+    min-height: 0;
+  }
+
+  .atlas-page .plate-stage {
+    flex: 1 1 auto;
+    min-height: 280px;
+  }
+
+  .ledger {
+    min-height: 0;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 1023px) {
+  .atlas-spread {
+    grid-template-columns: 1fr;
+  }
+
+  .atlas-page { padding-right: 0; }
+
+  .atlas-fold {
+    width: auto;
+    height: 1px;
+    margin: var(--s5) 0;
+    background: repeating-linear-gradient(
+      to right,
+      var(--line-strong) 0 6px,
+      transparent 6px 12px
+    );
+  }
+
+  .ledger { padding-left: 0; }
+
+  .trail-layout {
+    grid-template-columns: 1fr;
+    gap: var(--s4);
+  }
+}
+
+@media (max-width: 767px) {
+  :root { --gutter: 16px; }
+
+  .masthead {
+    flex-wrap: wrap;
+    padding-top: var(--s2);
+    padding-bottom: 0;
+  }
+
+  .nav-tab { font-size: 14px; padding: var(--s2) var(--s3); }
+
+  .mission { padding: var(--s4); }
+
+  .compare-grid { grid-template-columns: 1fr; }
+
+  .atlas-intro h1 { font-size: 26px; }
+
+  .stamp-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--s3);
+  }
+}

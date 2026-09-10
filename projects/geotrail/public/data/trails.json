@@ -1,0 +1,365 @@
+{
+  "trails": [
+    {
+      "id": "mekong",
+      "title": "The Mekong Journey",
+      "subtitle": "Six stops through monsoon lands and island chains",
+      "plate": "sea",
+      "stops": [
+        {
+          "id": "mekong-1",
+          "kind": "locate",
+          "at": "vn",
+          "answer": "vn",
+          "options": ["vn", "la", "th", "mm"],
+          "claims": [
+            { "kind": "east-of", "place": "la" },
+            { "kind": "east-of", "place": "kh" },
+            { "kind": "coast" }
+          ],
+          "prompt": "Find Vietnam — the long S-shaped country on the eastern coast, east of Laos and Cambodia.",
+          "hint": "Look for a long thin S shape hugging the South China Sea.",
+          "feedbackCorrect": "Correct — Vietnam runs along the eastern coast, east of Laos and Cambodia."
+        },
+        {
+          "id": "mekong-2",
+          "kind": "compare",
+          "at": "la",
+          "a": "la",
+          "b": "th",
+          "field": "areaKm2",
+          "options": ["la", "th"],
+          "prompt": "Laos and Thailand: which country is bigger?",
+          "hint": "Read the Area rows — the numbers are there to compare.",
+          "feedbackCorrect": "Right — Thailand is more than twice the size of Laos."
+        },
+        {
+          "id": "mekong-3",
+          "kind": "clue",
+          "at": "sg",
+          "answer": "sg",
+          "options": ["sg", "my", "id", "th"],
+          "clues": [
+            { "kind": "area-under", "km2": 1000 },
+            { "kind": "south-of", "place": "my" },
+            { "kind": "coast" }
+          ],
+          "prompt": "Which place fits all the clues?",
+          "hint": "One of these is smaller than 1,000 km² — a whole country smaller than many farms.",
+          "feedbackCorrect": "Yes — Singapore is a tiny island city-state just south of Malaysia."
+        },
+        {
+          "id": "mekong-4",
+          "kind": "locate",
+          "at": "id",
+          "answer": "id",
+          "options": ["id", "my", "ph", "kh"],
+          "claims": [
+            { "kind": "south-of", "place": "my" },
+            { "kind": "east-of", "place": "my" }
+          ],
+          "prompt": "Find Indonesia — the huge archipelago south-east of Malaysia.",
+          "hint": "Look for many islands: Sumatra, Java, Borneo and Sulawesi.",
+          "feedbackCorrect": "Correct — Indonesia is the world's largest archipelago, stretched along the equator south-east of Malaysia."
+        },
+        {
+          "id": "mekong-5",
+          "kind": "compare",
+          "at": "ph",
+          "a": "ph",
+          "b": "my",
+          "field": "populationM",
+          "options": ["ph", "my"],
+          "prompt": "The Philippines and Malaysia: which has more people?",
+          "hint": "Read the People rows — both numbers are in millions.",
+          "feedbackCorrect": "Right — the Philippines has about 117 million people, more than three times Malaysia's."
+        },
+        {
+          "id": "mekong-6",
+          "kind": "clue",
+          "at": "la",
+          "answer": "la",
+          "options": ["la", "kh", "mm", "th"],
+          "clues": [
+            { "kind": "landlocked" },
+            { "kind": "borders", "place": "th" },
+            { "kind": "north-of", "place": "kh" }
+          ],
+          "prompt": "Which country fits all the clues?",
+          "hint": "The Mekong river flows through the answer.",
+          "feedbackCorrect": "Yes — Laos is the landlocked country north of Cambodia, and the Mekong runs through it."
+        }
+      ]
+    },
+    {
+      "id": "nile",
+      "title": "Following the Nile",
+      "subtitle": "From the Mediterranean shore to the great lakes",
+      "plate": "nile",
+      "stops": [
+        {
+          "id": "nile-1",
+          "kind": "locate",
+          "at": "eg",
+          "answer": "eg",
+          "options": ["eg", "ly", "sd", "et"],
+          "claims": [
+            { "kind": "feature", "value": "nile" },
+            { "kind": "feature", "value": "med" }
+          ],
+          "prompt": "Find Egypt — the country where the Nile meets the Mediterranean Sea.",
+          "hint": "Follow the river line north to the sea coast.",
+          "feedbackCorrect": "Correct — Egypt lies on the Mediterranean, and the Nile runs all the way through it."
+        },
+        {
+          "id": "nile-2",
+          "kind": "compare",
+          "at": "eg",
+          "a": "eg",
+          "b": "ly",
+          "field": "areaKm2",
+          "options": ["eg", "ly"],
+          "prompt": "Egypt and Libya: which country is bigger?",
+          "hint": "Read the Area rows — one is nearly twice the other.",
+          "feedbackCorrect": "Right — Libya is nearly twice the size of Egypt, but far fewer people live there."
+        },
+        {
+          "id": "nile-3",
+          "kind": "clue",
+          "at": "ke",
+          "answer": "ke",
+          "options": ["ke", "tz", "ug", "et"],
+          "clues": [
+            { "kind": "coast" },
+            { "kind": "borders", "place": "et" },
+            { "kind": "south-of", "place": "eg" }
+          ],
+          "prompt": "Which country fits all the clues?",
+          "hint": "The answer touches the Indian Ocean.",
+          "feedbackCorrect": "Yes — Kenya reaches from Ethiopia down to the Indian Ocean coast."
+        },
+        {
+          "id": "nile-4",
+          "kind": "compare",
+          "at": "tz",
+          "a": "tz",
+          "b": "ug",
+          "field": "populationM",
+          "options": ["tz", "ug"],
+          "prompt": "Tanzania and Uganda: which has more people?",
+          "hint": "Both are in the tens of millions — read closely.",
+          "feedbackCorrect": "Right — Tanzania has about 67 million people, more than Uganda."
+        },
+        {
+          "id": "nile-5",
+          "kind": "locate",
+          "at": "mg",
+          "answer": "mg",
+          "options": ["mg", "tz", "ke", "et"],
+          "claims": [
+            { "kind": "east-of", "place": "tz" },
+            { "kind": "feature", "value": "island" }
+          ],
+          "prompt": "Find Madagascar — the big island east of Tanzania, across the channel.",
+          "hint": "It is the large island off the east coast, shaped like a long footprint.",
+          "feedbackCorrect": "Correct — Madagascar sits in the Indian Ocean east of the mainland."
+        },
+        {
+          "id": "nile-6",
+          "kind": "clue",
+          "at": "et",
+          "answer": "et",
+          "options": ["et", "sd", "eg", "ke"],
+          "clues": [
+            { "kind": "landlocked" },
+            { "kind": "borders", "place": "sd" },
+            { "kind": "borders", "place": "ke" }
+          ],
+          "prompt": "Which country fits all the clues?",
+          "hint": "The Blue Nile begins in the answer's highlands.",
+          "feedbackCorrect": "Yes — Ethiopia is a big landlocked highland country where the Blue Nile begins."
+        }
+      ]
+    },
+    {
+      "id": "andes",
+      "title": "Andes & Amazon",
+      "subtitle": "The long cordillera and the great rainforest river",
+      "plate": "andes",
+      "stops": [
+        {
+          "id": "andes-1",
+          "kind": "locate",
+          "at": "pe",
+          "answer": "pe",
+          "options": ["pe", "cl", "ec", "bo"],
+          "claims": [
+            { "kind": "coast" },
+            { "kind": "north-of", "place": "cl" }
+          ],
+          "prompt": "Find Peru — on the Pacific coast, north of Chile.",
+          "hint": "Follow the Pacific coast up from the long thin country.",
+          "feedbackCorrect": "Correct — Peru sits on the Pacific coast with the Andes running through it."
+        },
+        {
+          "id": "andes-2",
+          "kind": "compare",
+          "at": "bo",
+          "a": "bo",
+          "b": "br",
+          "field": "areaKm2",
+          "options": ["bo", "br"],
+          "prompt": "Bolivia and Brazil: which country is bigger?",
+          "hint": "One of them covers nearly half the continent.",
+          "feedbackCorrect": "Right — Brazil is nearly eight times the size of Bolivia — the giant of the continent."
+        },
+        {
+          "id": "andes-3",
+          "kind": "clue",
+          "at": "cl",
+          "answer": "cl",
+          "options": ["cl", "bo", "ar", "pe"],
+          "clues": [
+            { "kind": "coast" },
+            { "kind": "borders", "place": "pe" },
+            { "kind": "borders", "place": "ar" }
+          ],
+          "prompt": "Which country fits all the clues?",
+          "hint": "The answer is long and thin, squeezed between mountains and sea.",
+          "feedbackCorrect": "Yes — Chile is the long thin country between the Andes and the Pacific."
+        },
+        {
+          "id": "andes-4",
+          "kind": "compare",
+          "at": "co",
+          "a": "ec",
+          "b": "co",
+          "field": "populationM",
+          "options": ["ec", "co"],
+          "prompt": "Ecuador and Colombia: which has more people?",
+          "hint": "Read the People rows — one is close to three times the other.",
+          "feedbackCorrect": "Right — Colombia has about 52 million people, nearly three times Ecuador's."
+        },
+        {
+          "id": "andes-5",
+          "kind": "locate",
+          "at": "br",
+          "answer": "br",
+          "options": ["br", "ar", "pe", "bo"],
+          "claims": [
+            { "kind": "east-of", "place": "pe" },
+            { "kind": "area-over", "km2": 8000000 }
+          ],
+          "prompt": "Find Brazil — the largest country, east of the Andes.",
+          "hint": "It covers most of the eastern half of the map.",
+          "feedbackCorrect": "Correct — Brazil covers nearly half of South America."
+        },
+        {
+          "id": "andes-6",
+          "kind": "clue",
+          "at": "bo",
+          "answer": "bo",
+          "options": ["bo", "pe", "ar", "br"],
+          "clues": [
+            { "kind": "landlocked" },
+            { "kind": "borders", "place": "br" },
+            { "kind": "peak-over", "m": 6000 }
+          ],
+          "prompt": "Which country fits all the clues?",
+          "hint": "The answer has giant salt flats high in the mountains.",
+          "feedbackCorrect": "Yes — Bolivia is landlocked high in the Andes, with peaks over 6,000 m."
+        }
+      ]
+    },
+    {
+      "id": "alps",
+      "title": "Across the Alps",
+      "subtitle": "Old towns between the Atlantic and the Alps",
+      "plate": "europe",
+      "stops": [
+        {
+          "id": "alps-1",
+          "kind": "locate",
+          "at": "it",
+          "answer": "it",
+          "options": ["it", "fr", "gr", "at"],
+          "claims": [
+            { "kind": "feature", "value": "med" },
+            { "kind": "feature", "value": "alps" }
+          ],
+          "prompt": "Find Italy — the boot that reaches into the Mediterranean.",
+          "hint": "Look for a shape like a boot kicking a small triangle.",
+          "feedbackCorrect": "Correct — Italy is the boot-shaped peninsula in the middle of the Mediterranean."
+        },
+        {
+          "id": "alps-2",
+          "kind": "compare",
+          "at": "de",
+          "a": "fr",
+          "b": "de",
+          "field": "populationM",
+          "options": ["fr", "de"],
+          "prompt": "France and Germany: which has more people?",
+          "hint": "Both are large countries — read the People rows.",
+          "feedbackCorrect": "Right — Germany has about 84 million people; France has about 68 million."
+        },
+        {
+          "id": "alps-3",
+          "kind": "clue",
+          "at": "ch",
+          "answer": "ch",
+          "options": ["ch", "at", "it", "fr"],
+          "clues": [
+            { "kind": "landlocked" },
+            { "kind": "borders", "place": "it" },
+            { "kind": "peak-over", "m": 4000 }
+          ],
+          "prompt": "Which country fits all the clues?",
+          "hint": "The answer is famous for mountains, watches and lakes.",
+          "feedbackCorrect": "Yes — Switzerland is the small landlocked country high in the Alps."
+        },
+        {
+          "id": "alps-4",
+          "kind": "compare",
+          "at": "it",
+          "a": "it",
+          "b": "gr",
+          "field": "populationM",
+          "options": ["it", "gr"],
+          "prompt": "Italy and Greece: which has more people?",
+          "hint": "One of these has nearly six times the other.",
+          "feedbackCorrect": "Right — Italy has about 59 million people — nearly six times Greece's."
+        },
+        {
+          "id": "alps-5",
+          "kind": "locate",
+          "at": "gr",
+          "answer": "gr",
+          "options": ["gr", "it", "at", "no"],
+          "claims": [
+            { "kind": "feature", "value": "med" },
+            { "kind": "south-of", "place": "at" }
+          ],
+          "prompt": "Find Greece — the mainland and islands in the south-east, south of the Alps.",
+          "hint": "Look at the bottom of the map, among the many small islands.",
+          "feedbackCorrect": "Correct — Greece lies in the south-east, where the Aegean Sea meets the land."
+        },
+        {
+          "id": "alps-6",
+          "kind": "clue",
+          "at": "no",
+          "answer": "no",
+          "options": ["no", "se", "fr", "de"],
+          "clues": [
+            { "kind": "coast" },
+            { "kind": "borders", "place": "se" },
+            { "kind": "west-of", "place": "se" }
+          ],
+          "prompt": "Which country fits all the clues?",
+          "hint": "The answer is famous for steep sea inlets called fjords.",
+          "feedbackCorrect": "Yes — Norway runs down the western side of the Scandinavian peninsula, famous for its fjords."
+        }
+      ]
+    }
+  ]
+}

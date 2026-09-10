@@ -1,0 +1,75 @@
+/* Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0 */
+
+/* GeoTrail design tokens — cartographic editorial (DESIGN_DECISIONS §4–§6).
+   Flat parchment/ocean/terracotta/forest; no gradients. Every status color
+   is paired with an icon + text cue, never color-only. */
+
+:root {
+  /* Neutrals — paper & ink */
+  --parchment: #f4ead5;
+  --parchment-raised: #fbf4e3;
+  --parchment-deep: #e8dbbb;
+  --ink: #2b2620;
+  --ink-soft: #5d5342;
+  --line: #c9b78e;
+  --line-strong: #9a8a62;
+
+  /* Ocean — plate ground */
+  --ocean: #1e3a52;
+  --ocean-deep: #163044;
+  --ocean-ink: #8fb0c4;
+
+  /* Land tints (rotating plate fills) */
+  --land-cream: #efe2be;
+  --land-sand: #e3d2a2;
+  --land-khaki: #d8c68f;
+  --land-sage: #cfcc9c;
+  --context: #b9ae8c;
+
+  /* Accents */
+  --terra: #c25e3b;
+  --terra-deep: #9c4526;
+  --forest: #3f6b4f;
+  --forest-deep: #2e5140;
+  --brass: #b98a33;
+
+  /* Derived pairs (kept as tokens so contrast fixes happen in one place) */
+  --on-terra: #fbf4e3;
+  --on-forest: #f4ead5;
+
+  /* Spacing — base 4 */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 20px;
+  --s6: 24px;
+  --s8: 32px;
+  --s10: 40px;
+  --s12: 48px;
+  --s16: 64px;
+  --s20: 80px;
+
+  /* Type */
+  --font-display: 'Fraunces', 'Iowan Old Style', 'Times New Roman', serif;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+
+  /* Rhythm */
+  --gutter: 24px;
+  --content-max: 1240px;
+
+  /* Shape */
+  --radius-s: 3px;
+  --radius-m: 6px;
+
+  /* Ink-shadow: offset solid paper-overprint, no blur (DD §9) */
+  --shadow-paper: 2px 2px 0 rgba(43, 38, 32, 0.16);
+  --shadow-paper-strong: 3px 3px 0 rgba(43, 38, 32, 0.2);
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --gutter: 32px;
+  }
+}

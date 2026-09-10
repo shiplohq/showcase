@@ -1,0 +1,32 @@
+/* Copyright 2026 Shiplo HQ
+SPDX-License-Identifier: Apache-2.0 */
+
+/* CSS-side motion only (GSAP owns tweens; this file holds the tiny
+   ambient states + their reduced-motion overrides — DD §12). */
+
+@keyframes gt-pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.28); opacity: 0.55; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Current stop marker on the map — a slow, quiet pulse; decorates state
+   that is already shown by number + color + label. */
+.gt-current-marker {
+  animation: gt-pulse 2.2s ease-in-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gt-current-marker {
+    animation: none;
+  }
+
+  .btn,
+  .place-chip,
+  .option-btn,
+  .clue-more {
+    transition: none;
+  }
+}
