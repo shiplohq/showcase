@@ -2,7 +2,7 @@
 
 > Shiplo Showcase #19 — A fictional small-studio portfolio built as an editorial index with numbering, cropped thumbnails and type-led transitions.
 
-**Live demo:** _deployed URL will be linked here after verification_
+**Live demo:** https://paper-pixel-portfolio.shiplo.site
 **Category:** portfolio · **License:** Apache-2.0 (original work)
 
 Paper & Pixel is a two-person fictional studio "for printed indexes and the screens

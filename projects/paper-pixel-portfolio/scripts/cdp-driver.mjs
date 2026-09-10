@@ -123,6 +123,24 @@ try {
     console.log(`  ✔ focused index row ${focusRow}`);
   }
 
+  // Real pointer hover (headless quirk: programmatic .focus() fires no focus
+  // events when the window lacks focus — real input events always work).
+  const hoverRow = Number(flag('--hover-row', 0));
+  if (hoverRow > 0) {
+    const box = await evaluate(
+      `(() => { const r = document.querySelectorAll('.index-row')[${hoverRow - 1}]; if (!r) return null; const b = r.getBoundingClientRect(); return b.x + ',' + b.y + ',' + b.width + ',' + b.height; })()`,
+    );
+    if (!box) throw new Error(`could not find index row ${hoverRow}`);
+    const [x, y, w, h] = box.split(',').map(Number);
+    await send('Input.dispatchMouseEvent', {
+      type: 'mouseMoved',
+      x: Math.round(x + w * 0.4),
+      y: Math.round(y + h / 2),
+    });
+    await sleep(600); // lightbox plate swap settles
+    console.log(`  ✔ hovered index row ${hoverRow}`);
+  }
+
   const small = await evaluate(
     `[...document.querySelectorAll('button')].filter(b => { const r = b.getBoundingClientRect(); return r.width > 0 && (r.width < 44 || r.height < 44); }).length`,
   );
