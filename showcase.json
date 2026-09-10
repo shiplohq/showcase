@@ -467,7 +467,7 @@
       "demo": {
         "provider": "Shiplo",
         "url": "https://rhythm-canvas.shiplo.site",
-        "deployedAt": "2026-09-10T00:30:53.937Z"
+        "deployedAt": "2026-09-10T00:30:53Z"
       },
       "screenshots": {
         "cover": "projects/rhythm-canvas/showcase/cover.webp",
