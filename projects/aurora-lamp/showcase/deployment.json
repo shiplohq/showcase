@@ -1,0 +1,12 @@
+{
+  "project": "aurora-lamp",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://aurora-lamp.shiplo.site",
+  "sourceCommitSha": "d3e60558ff2d67111f315b62ea3d2df607682468",
+  "buildCommand": "npm run build",
+  "artifactSha256": "f2b3989b56e968cc67df62527e49cb3c8e6f591b4d640c2b200eef7265d472ae",
+  "deployedAt": "2026-09-10T00:41:54Z",
+  "verifiedAt": "2026-09-10T00:45:33Z",
+  "notes": "Release 1. Site 389bede3-db85-4621-98f3-c94b3d86a5db, release 19e20623-f29d-4a0f-ae8c-8bba9f077ce3, deployment 96c90576-41f4-4c49-8dd4-f5f38f702a45 (activated 2026-09-10T00:41:54.548Z, 21 files / 324,768 logical bytes — byte-identical to dist). artifactSha256 = deterministic tar hash (normalized mtime/owner/sort). Verification on live: HTTP 200 with correct title; product.json, vendored GSAP and all three woff2 fonts return 200; zero console errors on the loaded page (CDP); four screenshots captured from the live URL (cover art-directed in the dusk light-modes section, desktop/tablet/mobile hero). Per the 2026-09-09 batch directive the deep test matrix (CDP flow asserts, font-check, engine-sim, reviewer) was skipped; accessibility is implemented in code (radio-group modes, aria-pressed toggles, keyboard paths, skip link, live region, prefers-reduced-motion collapsing all motion to final readable states)."
+}

@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "aurora-lamp",
+  "site_id": "389bede3-db85-4621-98f3-c94b3d86a5db",
+  "subdomain": "aurora-lamp",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}

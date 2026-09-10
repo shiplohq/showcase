@@ -8,9 +8,33 @@
   "mobileSupport": "supported",
   "mobileSupportNote": null,
   "screenshots": {
-    "cover": { "path": "showcase/cover.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "desktop": { "path": "showcase/desktop.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "tablet": { "path": "showcase/tablet.webp", "viewport": "1024x768", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "mobile": { "path": "showcase/mobile.webp", "viewport": "390x844", "capturedFrom": null, "capturedAt": null, "alt": null }
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://aurora-lamp.shiplo.site",
+      "capturedAt": "2026-09-10T00:45:00Z",
+      "alt": "The light-modes section as a room at dusk: the Aurora desk lamp lit amber on deep graphite, beside a large 2700 K readout and Ember, Focus and Studio mode pills."
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://aurora-lamp.shiplo.site",
+      "capturedAt": "2026-09-10T00:44:00Z",
+      "alt": "Launch hero: the word Aurora set large in a warm serif beside a line-drawn desk lamp with a soft amber glow, numbered nav above, on warm paper."
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://aurora-lamp.shiplo.site",
+      "capturedAt": "2026-09-10T00:44:00Z",
+      "alt": "Tablet hero in two columns: the Aurora headline, temperature line and scroll cue on the left, the lamp drawing with its amber glow on the right."
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://aurora-lamp.shiplo.site",
+      "capturedAt": "2026-09-10T00:44:00Z",
+      "alt": "Single-column mobile hero: the Aurora title over the 2700 K to 5000 K spec line, with the lamp drawing and amber glow rising from the lower edge."
+    }
   }
 }

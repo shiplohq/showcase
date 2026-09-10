@@ -483,7 +483,7 @@
       "summary": "A fictional product-launch microsite for the Aurora desk lamp: typographic hero, exploded SVG and lighting modes.",
       "category": "marketing",
       "audience": null,
-      "status": "building",
+      "status": "live",
       "stack": [
         "html",
         "css",
@@ -495,14 +495,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://aurora-lamp.shiplo.site",
+        "deployedAt": "2026-09-10T00:41:54Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/aurora-lamp/showcase/cover.webp",
+        "desktop": "projects/aurora-lamp/showcase/desktop.webp",
+        "tablet": "projects/aurora-lamp/showcase/tablet.webp",
+        "mobile": "projects/aurora-lamp/showcase/mobile.webp"
       }
     },
     {
