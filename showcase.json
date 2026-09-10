@@ -512,7 +512,7 @@
       "summary": "A fictional small-studio portfolio built as an editorial index with numbering, cropped thumbnails and type-led transitions.",
       "category": "portfolio",
       "audience": null,
-      "status": "building",
+      "status": "live",
       "stack": [
         "vue",
         "vite",
@@ -523,14 +523,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://paper-pixel-portfolio.shiplo.site",
+        "deployedAt": "2026-09-10T00:31:06.211Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/paper-pixel-portfolio/showcase/cover.webp",
+        "desktop": "projects/paper-pixel-portfolio/showcase/desktop.webp",
+        "tablet": "projects/paper-pixel-portfolio/showcase/tablet.webp",
+        "mobile": "projects/paper-pixel-portfolio/showcase/mobile.webp"
       }
     },
     {

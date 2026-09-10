@@ -8,9 +8,33 @@
   "mobileSupport": "supported",
   "mobileSupportNote": null,
   "screenshots": {
-    "cover": { "path": "showcase/cover.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "desktop": { "path": "showcase/desktop.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "tablet": { "path": "showcase/tablet.webp", "viewport": "1024x768", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "mobile": { "path": "showcase/mobile.webp", "viewport": "390x844", "capturedFrom": null, "capturedAt": null, "alt": null }
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://paper-pixel-portfolio.shiplo.site/",
+      "capturedAt": "2026-09-10T00:33:00Z",
+      "alt": "Paper & Pixel studio index on ivory paper: masthead with wordmark, nav and a Motion toggle; an italic lede above three numbered ruled rows (01 Atlas Identity, 02 Signal Journal, 03 Margins Press); the second row is hovered, so the sticky lightbox on the right shows the Signal Journal plate — a halftone dot matrix with an enlarged row of ultramarine squares."
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://paper-pixel-portfolio.shiplo.site/",
+      "capturedAt": "2026-09-10T00:32:00Z",
+      "alt": "The same editorial index at rest: the lightbox defaults to the Atlas Identity plate — ultramarine contour rings interrupted by a grid of squares with a salmon survey marker — beside the three numbered work rows."
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://paper-pixel-portfolio.shiplo.site/",
+      "capturedAt": "2026-09-10T00:32:00Z",
+      "alt": "Tablet view of the index: the numbered rows keep the left column while the sticky lightbox plate narrows into the right margin; masthead meta wraps onto one line above the ruled rows."
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://paper-pixel-portfolio.shiplo.site/",
+      "capturedAt": "2026-09-10T00:32:00Z",
+      "alt": "Mobile single-column index: the masthead wraps to two lines, each numbered row carries its own small cropped plate thumbnail on the right of the title, and the footer colophon closes the page."
+    }
   }
 }

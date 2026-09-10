@@ -30,6 +30,7 @@ no backend, no database, no SSR. Human-readable source is Apache-2.0
 | <img src="projects/atom-forge/showcase/cover.webp" alt="Atom Forge cover" width="360"> | **[Atom Forge](https://atom-forge.shiplo.site)**<br>Drag protons, neutrons and electrons into nuclei and shells to forge elements mission by mission. | education-science |
 | <img src="projects/roboroute/showcase/cover.webp" alt="RoboRoute cover" width="360"> | **[RoboRoute](https://roboroute.shiplo.site)**<br>A paper robot on a grid museum: lay down command tiles — forward, turn, repeat — then step through and debug. | education-computing |
 | <img src="projects/geotrail/showcase/cover.webp" alt="GeoTrail cover" width="360"> | **[GeoTrail](https://geotrail.shiplo.site)**<br>A stylized vector atlas of locate-compare-clue trails where every stop asks a geographic question. | education-geography |
+| <img src="projects/paper-pixel-portfolio/showcase/cover.webp" alt="Paper & Pixel cover" width="360"> | **[Paper & Pixel](https://paper-pixel-portfolio.shiplo.site)**<br>A fictional small-studio portfolio built as an editorial index with numbering, cropped thumbnails and type-led transitions. | portfolio |
 <!-- showcase:gallery:end -->
 
 ## Catalog
@@ -59,7 +60,7 @@ All planned and in-progress showcases. Status lives in
 | 16 | **GeoTrail** — [live demo](https://geotrail.shiplo.site) | education-geography | vue · vite · typescript | live |
 | 17 | **Rhythm Canvas** | creative-tool | typescript · vite · web-audio-api · gsap | building |
 | 18 | **Aurora Lamp** | marketing | html · css · javascript · gsap | building |
-| 19 | **Paper & Pixel** | portfolio | vue · vite · typescript | building |
+| 19 | **Paper & Pixel** — [live demo](https://paper-pixel-portfolio.shiplo.site) | portfolio | vue · vite · typescript | live |
 | 20 | **Habit Bloom** | productivity | react · vite · typescript | building |
 <!-- showcase:catalog:end -->
 

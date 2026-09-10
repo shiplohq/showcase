@@ -1,0 +1,12 @@
+{
+  "project": "paper-pixel-portfolio",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://paper-pixel-portfolio.shiplo.site",
+  "sourceCommitSha": "cc151ec91c4d7239c5dd2c4ce3e3e2a243e8c0e7",
+  "buildCommand": "npm run build",
+  "artifactSha256": "16cf5e0dc2e67ade21c49e80732bd9164ea831c1c1c5d4f0ffa678972e890280",
+  "deployedAt": "2026-09-10T00:31:06.211Z",
+  "verifiedAt": "2026-09-10T00:36:09Z",
+  "notes": "Release 1, deployment 6fa2439c-7cdc-4a4f-adf1-3e4c1e4fd082, release fd8ec12a-f9d7-451c-9182-5310b0471077, site 98268648-847c-477a-8c4a-bcbaea4c12ff (16 files / 437,540 logical bytes, created 2026-09-10T00:31:04.757Z, activated 2026-09-10T00:31:06.211Z). artifactSha256 = tar -czf - -C dist . | sha256sum per docs/DEPLOYMENT.md. MCP note: platform_deploy_static returned 'Site not found' when passed site_id; the same deploy succeeded with site_slug 'paper-pixel-portfolio' (server 0.1.6 lookup quirk, recorded for the next batch). Live verification: CDP (fresh profile, disk-cache 1) at 1440x900, 1024x768, 390x844 — page renders, zero console errors, visible buttons >= 44px, prefers-reduced-motion emulation keeps content intact; real-key Tab walk drives the lightbox through Atlas -> Signal -> Margins rows; real-pointer hover swaps the preview plate (programmatic .focus() fires no focus events in unfocused headless windows — a Chrome quirk, not an app bug; keyboard path verified with Input.dispatchKeyEvent instead). All four screenshots captured from the live URL, cover art-directed with a real hover on row 02. sourceCommitSha = feat commit cc151ec (36 files, source + data + design doc)."
+}
