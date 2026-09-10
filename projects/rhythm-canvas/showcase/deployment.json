@@ -1,0 +1,12 @@
+{
+  "project": "rhythm-canvas",
+  "provider": "Shiplo",
+  "status": "verified",
+  "url": "https://rhythm-canvas.shiplo.site",
+  "sourceCommitSha": "45d9f0f00fa2ddd1ff719c4ae7b6bc200233b703",
+  "buildCommand": "npm run build",
+  "artifactSha256": "fae5a20053b00bb7df36424492f212cdc6d6c3249f6b6a059d41d0a27b1147c5",
+  "deployedAt": "2026-09-10T00:30:53Z",
+  "verifiedAt": "2026-09-10T00:44:00Z",
+  "notes": "deployment_id 201c00c9-c195-4ec3-afd7-b800c7446a2c, release 1b3deb43-9faf-40d0-b43c-4ce713e5b5fc, site 6b14f84e-b29c-4055-84d6-ee4656eaec5e (41 files, 605306 logical bytes). artifactSha256 = deterministic tar hash (normalized mtime/owner/sort). Live verification: HTTP 200 with correct title; headless CDP run against the live URL clicked play, switched all three modes, tapped accents and toggled reduced motion with zero console errors; all four screenshots captured from the live URL. All audio is synthesized in-browser via Web Audio from data/tracks.json — no audio files shipped, no network requests after load."
+}

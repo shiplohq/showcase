@@ -3,7 +3,7 @@
 > Shiplo Showcase #17 — A browser-native rhythm visualizer: load a local audio
 > loop, pick a visual mode and tap accents on the beat.
 
-**Live demo:** _deployed URL will be linked here after verification_
+**Live demo:** https://rhythm-canvas.shiplo.site
 **Category:** creative-tool · **License:** Apache-2.0 (original work)
 
 Rhythm Canvas is a kinetic Swiss poster that plays. Pick one of three

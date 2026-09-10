@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "rhythm-canvas",
+  "site_id": "6b14f84e-b29c-4055-84d6-ee4656eaec5e",
+  "subdomain": "rhythm-canvas",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}

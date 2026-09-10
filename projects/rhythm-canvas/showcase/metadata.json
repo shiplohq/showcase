@@ -8,9 +8,33 @@
   "mobileSupport": "supported",
   "mobileSupportNote": null,
   "screenshots": {
-    "cover": { "path": "showcase/cover.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "desktop": { "path": "showcase/desktop.webp", "viewport": "1440x900", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "tablet": { "path": "showcase/tablet.webp", "viewport": "1024x768", "capturedFrom": null, "capturedAt": null, "alt": null },
-    "mobile": { "path": "showcase/mobile.webp", "viewport": "390x844", "capturedFrom": null, "capturedAt": null, "alt": null }
+    "cover": {
+      "path": "showcase/cover.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://rhythm-canvas.shiplo.site",
+      "capturedAt": "2026-09-10T00:42:00Z",
+      "alt": "Pulse mode on a black-navy Swiss poster: a central dial with a red beat-progress arc and white step ticks, expanding rings from the last beats, and three lime tap-accent rings where the user tapped the stage; compact mode and transport rails below."
+    },
+    "desktop": {
+      "path": "showcase/desktop.webp",
+      "viewport": "1440x900",
+      "capturedFrom": "https://rhythm-canvas.shiplo.site",
+      "capturedAt": "2026-09-10T00:38:30Z",
+      "alt": "Orbit mode at desktop size: beat nodes parked on concentric hairline orbits with a red sweep line one lap per bar, the newest downbeat node in signal red, warm-white center marker, and the transport rail with the Night Signal loop at 96 BPM."
+    },
+    "tablet": {
+      "path": "showcase/tablet.webp",
+      "viewport": "1024x768",
+      "capturedFrom": "https://rhythm-canvas.shiplo.site",
+      "capturedAt": "2026-09-10T00:38:40Z",
+      "alt": "Type mode at tablet size: a giant condensed word from the loop's token list fills the navy stage in warm-white display type over a faint row of live spectrum bars, with the red beat numeral at lower right and the mode and transport rails along the bottom."
+    },
+    "mobile": {
+      "path": "showcase/mobile.webp",
+      "viewport": "390x844",
+      "capturedFrom": "https://rhythm-canvas.shiplo.site",
+      "capturedAt": "2026-09-10T00:38:50Z",
+      "alt": "The same Type-mode poster on a 390px phone: the giant word scales down but keeps full-bleed stage presence; mode buttons sit above the transport with the progress rail on its own full-width row and 48px touch targets."
+    }
   }
 }

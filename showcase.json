@@ -454,7 +454,7 @@
       "summary": "A browser-native rhythm visualizer: load a local audio loop, pick a visual mode and tap accents on the beat.",
       "category": "creative-tool",
       "audience": null,
-      "status": "building",
+      "status": "live",
       "stack": [
         "typescript",
         "vite",
@@ -466,14 +466,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://rhythm-canvas.shiplo.site",
+        "deployedAt": "2026-09-10T00:30:53.937Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/rhythm-canvas/showcase/cover.webp",
+        "desktop": "projects/rhythm-canvas/showcase/desktop.webp",
+        "tablet": "projects/rhythm-canvas/showcase/tablet.webp",
+        "mobile": "projects/rhythm-canvas/showcase/mobile.webp"
       }
     },
     {
