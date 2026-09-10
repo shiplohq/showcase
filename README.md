@@ -32,6 +32,7 @@ no backend, no database, no SSR. Human-readable source is Apache-2.0
 | <img src="projects/geotrail/showcase/cover.webp" alt="GeoTrail cover" width="360"> | **[GeoTrail](https://geotrail.shiplo.site)**<br>A stylized vector atlas of locate-compare-clue trails where every stop asks a geographic question. | education-geography |
 | <img src="projects/rhythm-canvas/showcase/cover.webp" alt="Rhythm Canvas cover" width="360"> | **[Rhythm Canvas](https://rhythm-canvas.shiplo.site)**<br>A browser-native rhythm visualizer: load a local audio loop, pick a visual mode and tap accents on the beat. | creative-tool |
 | <img src="projects/paper-pixel-portfolio/showcase/cover.webp" alt="Paper & Pixel cover" width="360"> | **[Paper & Pixel](https://paper-pixel-portfolio.shiplo.site)**<br>A fictional small-studio portfolio built as an editorial index with numbering, cropped thumbnails and type-led transitions. | portfolio |
+| <img src="projects/habit-bloom/showcase/cover.webp" alt="Habit Bloom cover" width="360"> | **[Habit Bloom](https://habit-bloom.shiplo.site)**<br>A gentle habit tracker where each habit grows a stem and daily check-ins add leaves — no streak shaming. | productivity |
 <!-- showcase:gallery:end -->
 
 ## Catalog
@@ -62,7 +63,7 @@ All planned and in-progress showcases. Status lives in
 | 17 | **Rhythm Canvas** — [live demo](https://rhythm-canvas.shiplo.site) | creative-tool | typescript · vite · web-audio-api · gsap | live |
 | 18 | **Aurora Lamp** | marketing | html · css · javascript · gsap | building |
 | 19 | **Paper & Pixel** — [live demo](https://paper-pixel-portfolio.shiplo.site) | portfolio | vue · vite · typescript | live |
-| 20 | **Habit Bloom** | productivity | react · vite · typescript | building |
+| 20 | **Habit Bloom** — [live demo](https://habit-bloom.shiplo.site) | productivity | react · vite · typescript | live |
 <!-- showcase:catalog:end -->
 
 ## The lifecycle

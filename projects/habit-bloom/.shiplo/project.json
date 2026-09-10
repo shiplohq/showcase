@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "habit-bloom",
+  "site_id": "987c1632-186d-4316-aaea-3598e53aefbb",
+  "subdomain": "habit-bloom",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}

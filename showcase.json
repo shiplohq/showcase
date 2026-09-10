@@ -540,7 +540,7 @@
       "summary": "A gentle habit tracker where each habit grows a stem and daily check-ins add leaves — no streak shaming.",
       "category": "productivity",
       "audience": null,
-      "status": "building",
+      "status": "live",
       "stack": [
         "react",
         "vite",
@@ -551,14 +551,14 @@
       },
       "demo": {
         "provider": "Shiplo",
-        "url": null,
-        "deployedAt": null
+        "url": "https://habit-bloom.shiplo.site",
+        "deployedAt": "2026-09-10T00:42:46.592Z"
       },
       "screenshots": {
-        "cover": null,
-        "desktop": null,
-        "tablet": null,
-        "mobile": null
+        "cover": "projects/habit-bloom/showcase/cover.webp",
+        "desktop": "projects/habit-bloom/showcase/desktop.webp",
+        "tablet": "projects/habit-bloom/showcase/tablet.webp",
+        "mobile": "projects/habit-bloom/showcase/mobile.webp"
       }
     }
   ]
