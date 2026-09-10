@@ -18,6 +18,7 @@ showcase/
 ├── schemas/                       # JSON Schema for the registry
 ├── templates/project/             # scaffold for a new showcase
 ├── scripts/                       # registry/scaffold/build/secrets tooling (dependency-free Node)
+├── docs/                          # batch checkpoints and retrospectives (process history)
 └── projects/<slug>/               # one directory per showcase (created on demand)
 ```
 
@@ -71,6 +72,19 @@ Allowed statuses in `showcase.json`: `planned`, `designing`, `building`,
 5. Work the lifecycle above. `npm run validate` tells you what the
    registry thinks is missing.
 
+## Common commands
+
+| Command | What it does |
+|---|---|
+| `npm run new -- <slug>` | Scaffold `projects/<slug>/` from `templates/project/` |
+| `npm run validate` | Validate `showcase.json` + live-gate rules (metadata/provenance consistency) |
+| `npm run check:repo` | Required files, forbidden paths, secret scan |
+| `npm run verify:static -- <slug>` | Verify the built `dist/` artifact (no CDN, no internal files, size caps) |
+| `npm run check:fonts -- <url> "<Family>:<weights>"` | Fallback-font guard against a running URL |
+| `npm run cdp:smoke -- <url> --out <path> --w <w> --h <h>` | Headless smoke: console errors, touch targets, reduced-motion, screenshot |
+| `npm run gallery` | Regenerate the README gallery/catalog from the registry (`--check` for CI freshness) |
+| `npm run ci` | `validate` + `check:repo` + `gallery --check` |
+
 ## Canonical source policy
 
 Human-readable source is canonical. For React/Vue/Angular/Vite projects:
@@ -116,8 +130,9 @@ are captured only from the verified live deployment.
 
 - Use conventional commit messages (`feat:`, `fix:`, `chore:`, `docs:`…).
 - Before opening a PR, `npm run ci` must pass locally: registry
-  validation, repo hygiene, secret scan, gallery freshness — and, for
-  projects that exist, a clean install + production build.
+  validation, repo hygiene, secret scan, gallery freshness. For any
+  project you changed, also do a clean install and production build,
+  and pass `npm run verify:static -- <slug>` on the resulting `dist/`.
 - Changes to a showcase never bypass the pre-publish checklist when they
   change what gets deployed.
 
