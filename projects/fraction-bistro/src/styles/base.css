@@ -256,17 +256,190 @@ button {
   box-shadow: var(--shadow-solid);
 }
 
-/* ---- board: menu column + ticket rail ----------------------------------- */
+/* ---- board: first-shift primer + menu + lesson ticket rail -------------- */
 
 .board {
+  display: block;
+  padding: var(--sp-4) 0 var(--sp-10);
+}
+
+.shift-primer {
   display: grid;
   gap: var(--sp-8);
-  padding: var(--sp-6) 0 var(--sp-8);
+  padding: var(--sp-6) 0 var(--sp-10);
+  border-bottom: 1px solid var(--ink);
+}
+
+.primer-copy h2 {
+  max-width: 14ch;
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5.2vw, 66px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+.primer-lede {
+  max-width: 54ch;
+  margin-top: var(--sp-5);
+  color: var(--ink-soft);
+  font-size: clamp(17px, 2vw, 20px);
+}
+
+.service-steps {
+  display: grid;
+  gap: var(--sp-2);
+  margin: var(--sp-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-steps li {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: 44px;
+}
+
+.service-steps li > b {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  color: var(--tomato-deep);
+}
+
+.primer-cta {
+  margin-top: var(--sp-6);
+}
+
+.primer-art {
+  position: relative;
+  min-height: 390px;
+  border: 1px solid var(--line);
+  background: var(--paper-deep);
+  overflow: hidden;
+}
+
+.primer-art::before,
+.primer-art::after {
+  content: '';
+  position: absolute;
+  background: var(--tomato);
+  opacity: 0.12;
+  border-radius: 50%;
+}
+
+.primer-art::before {
+  width: 280px;
+  height: 280px;
+  left: -120px;
+  top: -110px;
+}
+
+.primer-art::after {
+  width: 220px;
+  height: 220px;
+  right: -80px;
+  bottom: -90px;
+}
+
+.primer-dish {
+  position: absolute;
+  z-index: 1;
+  width: min(48%, 230px);
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.primer-dish__art {
+  filter: drop-shadow(0 8px 0 rgba(34, 27, 16, 0.1));
+}
+
+.primer-dish:nth-child(1) { left: 2%; top: 5%; rotate: -7deg; }
+.primer-dish:nth-child(2) { right: 1%; top: 8%; rotate: 6deg; }
+.primer-dish:nth-child(3) { left: 27%; bottom: 4%; rotate: -1deg; }
+
+.art-caption {
+  position: absolute;
+  z-index: 2;
+  left: var(--sp-4);
+  top: 46%;
+  width: 13ch;
+  padding: var(--sp-2);
+  background: var(--flour);
+  border: 1px solid var(--ink);
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-style: italic;
+  rotate: -3deg;
+}
+
+.board-workspace {
+  display: grid;
+  gap: var(--sp-8);
+  padding-top: var(--sp-10);
+}
+
+.rail-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding-bottom: var(--sp-5);
+  border-bottom: 3px double var(--ink);
+}
+
+.rail-heading > p {
+  white-space: nowrap;
+  color: var(--ink-soft);
+}
+
+.lesson-group {
+  padding-top: var(--sp-8);
+}
+
+.lesson-head {
+  display: grid;
+  grid-template-columns: minmax(90px, auto) minmax(180px, 0.7fr) minmax(260px, 1fr);
+  align-items: baseline;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-4);
+}
+
+.lesson-head > p {
+  color: var(--tomato-deep);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lesson-head h3 {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.5vw, 28px);
+}
+
+.lesson-head > span {
+  color: var(--ink-soft);
+}
+
+@media (min-width: 800px) {
+  .shift-primer {
+    grid-template-columns: minmax(0, 0.95fr) minmax(380px, 1.05fr);
+    align-items: center;
+  }
 }
 
 @media (min-width: 1024px) {
-  .board {
-    grid-template-columns: minmax(260px, 320px) 1fr;
+  .board-workspace {
+    grid-template-columns: minmax(235px, 280px) 1fr;
     gap: var(--sp-10);
     align-items: start;
   }
@@ -342,7 +515,7 @@ button {
 .ticket-rail {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--sp-5);
+  gap: var(--sp-4);
 }
 
 @media (min-width: 640px) {
@@ -351,10 +524,9 @@ button {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1180px) {
   .ticket-rail {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--sp-4);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -405,10 +577,12 @@ button {
 }
 
 .ticket-body {
+  display: block;
   padding: var(--sp-4);
 }
 
 .ticket .dish-name {
+  display: block;
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 600;
@@ -416,6 +590,7 @@ button {
 }
 
 .ticket .customer {
+  display: block;
   margin-top: var(--sp-2);
   color: var(--ink-soft);
   min-height: 2.4em;
@@ -423,6 +598,7 @@ button {
 
 .ticket .ask {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--sp-3);
   margin-top: var(--sp-3);
@@ -451,6 +627,30 @@ button {
   display: flex;
   align-items: center;
   gap: var(--sp-2);
+}
+
+@media (max-width: 639px) {
+  .primer-art {
+    min-height: 330px;
+  }
+
+  .lesson-head {
+    display: block;
+  }
+
+  .lesson-head h3 {
+    margin-top: var(--sp-1);
+  }
+
+  .lesson-head > span {
+    display: block;
+    margin-top: var(--sp-2);
+  }
+
+  .rail-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 
 /* fraction notation */
