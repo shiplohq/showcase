@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "project_name": "paper-pixel-portfolio",
+  "site_id": "98268648-847c-477b-8c4a-bcbaea4c12ff",
+  "subdomain": "paper-pixel-portfolio",
+  "build_command": "npm run build",
+  "output_dir": "dist"
+}
